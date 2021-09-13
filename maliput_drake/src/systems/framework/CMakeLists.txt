@@ -23,7 +23,6 @@ target_link_libraries(
     Eigen3::Eigen
     maliput_drake::common
     maliput_drake::math
-    maliput_drake::systems::framework
 )
 
 install(
