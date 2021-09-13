@@ -1,0 +1,85 @@
+##############################################################################
+# Project
+##############################################################################
+
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+project(maliput_drake LANGUAGES C CXX VERSION 0.1.0)
+
+##############################################################################
+# Find 3rd Party Packages
+##############################################################################
+
+message(STATUS "\n\n====== Finding 3rd Party Packages ======\n")
+
+find_package(ament_cmake REQUIRED)
+find_package(fmt 4.0.0 EXACT QUIET)
+if(NOT ${fmt_FOUND})
+  find_package(fmt 6.1.2 REQUIRED)
+endif()
+find_package(yaml-cpp REQUIRED)
+find_package(spdlog REQUIRED)
+find_package(Eigen3 3.3 REQUIRED)
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+message(STATUS "\n\n========= Project Configuration ========\n")
+
+set(BUILD_SHARED_LIBS true)
+
+include(${PROJECT_SOURCE_DIR}/../cmake/DefaultCFlags.cmake)
+include(${PROJECT_SOURCE_DIR}/../cmake/SanitizersConfig.cmake)
+
+ament_environment_hooks(
+  "${ament_cmake_package_templates_ENVIRONMENT_HOOK_LIBRARY_PATH}"
+)
+
+##############################################################################
+# Sources
+##############################################################################
+add_subdirectory(include)
+add_subdirectory(src)
+
+##############################################################################
+# Tests
+##############################################################################
+
+# if(BUILD_TESTING)
+#   find_package(ament_cmake_clang_format REQUIRED)
+#   enable_testing()
+#   add_subdirectory(test)
+#   ament_clang_format(CONFIG_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../.clang-format)
+# endif()
+
+##############################################################################
+# Docs
+##############################################################################
+
+# if(NOT DEFINED BUILD_DOCS)
+#   set(BUILD_DOCS 1)
+# endif()
+
+# if(BUILD_DOCS)
+#   find_package(ament_cmake_doxygen REQUIRED)
+#   ament_doxygen_generate(doxygen_maliput
+#     CONFIG_OVERLAY doc/Doxyfile.overlay.in
+#     TEST_ON_WARNS
+#   )
+# endif()
+
+##############################################################################
+# Export
+##############################################################################
+
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
+
+ament_export_include_directories(include)
+
+# ament_environment_hooks(setup.sh.in)
+ament_export_dependencies(ament_cmake)
+ament_export_interfaces(${PROJECT_NAME}-targets HAS_LIBRARY_TARGET)
+ament_package()
