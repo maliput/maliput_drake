@@ -2,12 +2,12 @@ file(GLOB_RECURSE SOURCES_SYSTEMS_FRAMEWORK RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
 
 add_library(framework ${SOURCES_SYSTEMS_FRAMEWORK})
 
-add_library(maliput_drake::systems::framework ALIAS framework)
+add_library(maliput_drake::framework ALIAS framework)
 
 set_target_properties(
   framework
   PROPERTIES
-    OUTPUT_NAME ${PROJECT_NAME}_systems_framework
+    OUTPUT_NAME ${PROJECT_NAME}_framework
 )
 
 target_include_directories(

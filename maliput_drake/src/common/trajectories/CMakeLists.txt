@@ -2,12 +2,12 @@ file(GLOB_RECURSE SOURCES_COMMON_TRAJECTORIES RELATIVE ${CMAKE_CURRENT_SOURCE_DI
 
 add_library(trajectories ${SOURCES_COMMON_TRAJECTORIES})
 
-add_library(maliput_drake::common::trajectories ALIAS trajectories)
+add_library(maliput_drake::trajectories ALIAS trajectories)
 
 set_target_properties(
   trajectories
   PROPERTIES
-    OUTPUT_NAME ${PROJECT_NAME}_common_trajectories
+    OUTPUT_NAME ${PROJECT_NAME}_trajectories
 )
 
 target_include_directories(
