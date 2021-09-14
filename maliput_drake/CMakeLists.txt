@@ -12,13 +12,14 @@ project(maliput_drake LANGUAGES C CXX VERSION 0.1.0)
 message(STATUS "\n\n====== Finding 3rd Party Packages ======\n")
 
 find_package(ament_cmake REQUIRED)
+find_package(Eigen3 3.3 REQUIRED)
+find_package(gflags REQUIRED)
 find_package(fmt 4.0.0 EXACT QUIET)
 if(NOT ${fmt_FOUND})
   find_package(fmt 6.1.2 REQUIRED)
 endif()
 find_package(yaml-cpp REQUIRED)
 find_package(spdlog REQUIRED)
-find_package(Eigen3 3.3 REQUIRED)
 
 ##############################################################################
 # Project Configuration

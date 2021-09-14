@@ -19,8 +19,9 @@ target_include_directories(
 
 target_link_libraries(
   analysis
-    fmt::fmt
     Eigen3::Eigen
+    fmt::fmt
+    gflags
     maliput_drake::common
     maliput_drake::math
     maliput_drake::framework

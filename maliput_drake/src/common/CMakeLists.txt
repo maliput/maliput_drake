@@ -19,8 +19,9 @@ target_include_directories(
 
 target_link_libraries(
   common
-    fmt::fmt
     Eigen3::Eigen
+    fmt::fmt
+    gflags
 )
 
 install(

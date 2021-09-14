@@ -12,6 +12,7 @@
 
   <!-- <depend>libeigen3-dev</depend> -->
   <depend>fmt</depend>
+  <depend>libgflags-dev</depend>
   <depend>spdlog</depend>
   <depend>yaml-cpp</depend>
 
