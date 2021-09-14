@@ -14,7 +14,7 @@ target_include_directories(
   analysis
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+    $<INSTALL_INTERFACE:include>
 )
 
 target_link_libraries(
@@ -33,3 +33,5 @@ install(
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
 )
+
+ament_export_libraries(analysis)
