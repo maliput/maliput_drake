@@ -12,7 +12,10 @@ project(maliput_drake LANGUAGES C CXX VERSION 0.1.0)
 message(STATUS "\n\n====== Finding 3rd Party Packages ======\n")
 
 find_package(ament_cmake REQUIRED)
-find_package(Eigen3 3.3 REQUIRED)
+
+find_package(eigen3_cmake_module REQUIRED)
+find_package(Eigen3)
+
 find_package(gflags REQUIRED)
 find_package(fmt 4.0.0 EXACT QUIET)
 if(NOT ${fmt_FOUND})
@@ -83,7 +86,10 @@ ament_export_include_directories(include)
 ament_environment_hooks(setup.sh.in)
 ament_export_dependencies(ament_cmake)
 ament_export_dependencies(fmt)
+
+ament_export_dependencies(eigen3_cmake_module)
 ament_export_dependencies(Eigen3)
+
 ament_export_dependencies(spdlog)
 ament_export_dependencies(yaml-cpp)
 ament_export_interfaces(${PROJECT_NAME}-targets HAS_LIBRARY_TARGET)
