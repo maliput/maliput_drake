@@ -10,7 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <!-- <build_depend>ament_cmake_doxygen</build_depend> -->
 
-  <!-- <depend>libeigen3-dev</depend> -->
+  <depend>eigen</depend>
   <depend>fmt</depend>
   <depend>libgflags-dev</depend>
   <depend>spdlog</depend>
