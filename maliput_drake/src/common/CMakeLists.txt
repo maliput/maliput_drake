@@ -31,6 +31,4 @@ install(
   ARCHIVE DESTINATION lib
 )
 
-ament_export_libraries(common)
-
 add_subdirectory(trajectories)

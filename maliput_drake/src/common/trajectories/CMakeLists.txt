@@ -32,5 +32,3 @@ install(
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
 )
-
-ament_export_libraries(trajectories)
