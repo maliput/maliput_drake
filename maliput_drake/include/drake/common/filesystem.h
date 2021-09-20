@@ -11,18 +11,18 @@
 // flags, so we need to exclude it as well.
 //
 // Keep this if-sequence in sync with drake/common/filesystem.cc.
-#if __has_include(<filesystem>) && !( \
-  defined(__APPLE__) || \
-  (!defined(__clang__) && defined(__GNUC__) && (__GNUC__ < 9)))
+// #if __has_include(<filesystem>) && !( \
+//   defined(__APPLE__) || \
+//   (!defined(__clang__) && defined(__GNUC__) && (__GNUC__ < 9)))
 
 #include <filesystem>
 namespace drake { namespace filesystem = std::filesystem; }
 
-#else
+// #else
 
-#define GHC_FILESYSTEM_FWD
-#include "ghc/filesystem.hpp"
-#undef GHC_FILESYSTEM_FWD
-namespace drake { namespace filesystem = ghc::filesystem; }
+// #define GHC_FILESYSTEM_FWD
+// #include "ghc/filesystem.hpp"
+// #undef GHC_FILESYSTEM_FWD
+// namespace drake { namespace filesystem = ghc::filesystem; }
 
-#endif
+// #endif
