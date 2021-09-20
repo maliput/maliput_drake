@@ -1,6 +1,31 @@
-file(GLOB_RECURSE SOURCES_MATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
-
-add_library(math ${SOURCES_MATH})
+add_library(math
+  autodiff.cc
+  autodiff_gradient.cc
+  barycentric.cc
+  bspline_basis.cc
+  continuous_algebraic_riccati_equation.cc
+  continuous_lyapunov_equation.cc
+  cross_product.cc
+  discrete_algebraic_riccati_equation.cc
+  discrete_lyapunov_equation.cc
+  eigen_sparse_triplet.cc
+  evenly_distributed_pts_on_sphere.cc
+  fast_pose_composition_functions.cc
+  gradient.cc
+  gray_code.cc
+  hopf_coordinate.cc
+  jacobian.cc
+  matrix_util.cc
+  normalize_vector.cc
+  orthonormal_basis.cc
+  quadratic_form.cc
+  quaternion.cc
+  random_rotation.cc
+  rigid_transform.cc
+  roll_pitch_yaw.cc
+  rotation_conversion_gradient.cc
+  rotation_matrix.cc
+)
 
 add_library(maliput_drake::math ALIAS math)
 

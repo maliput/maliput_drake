@@ -1,6 +1,48 @@
-file(GLOB_RECURSE SOURCES_COMMON RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
-
-add_library(common ${SOURCES_COMMON})
+add_library(common
+  add_text_logging_gflags.cc
+  cond.cc
+  double_overloads.cc
+  drake_assert_and_throw.cc
+  drake_marker.cc
+  drake_path.cc
+  filesystem.cc
+  find_loaded_library.cc
+  find_resource.cc
+  find_runfiles.cc
+  find_runfiles_stub.cc
+  hash.cc
+  nice_type_name.cc
+  nice_type_name_override.cc
+  pointer_cast.cc
+  polynomial.cc
+  random.cc
+  resource_tool.cc
+  sorted_pair.cc
+  symbolic.cc
+  symbolic_chebyshev_basis_element.cc
+  symbolic_chebyshev_polynomial.cc
+  symbolic_codegen.cc
+  symbolic_decompose.cc
+  symbolic_environment.cc
+  symbolic_expression.cc
+  symbolic_expression_cell.cc
+  symbolic_formula.cc
+  symbolic_formula_cell.cc
+  symbolic_generic_polynomial.cc
+  symbolic_ldlt.cc
+  symbolic_monomial_basis_element.cc
+  symbolic_monomial.cc
+  symbolic_monomial_util.cc
+  symbolic_polynomial_basis_element.cc
+  symbolic_polynomial.cc
+  symbolic_rational_function.cc
+  symbolic_simplification.cc
+  symbolic_variable.cc
+  symbolic_variables.cc
+  temp_directory.cc
+  text_logging.cc
+  value.cc
+)
 
 add_library(maliput_drake::common ALIAS common)
 
@@ -19,9 +61,11 @@ target_include_directories(
 
 target_link_libraries(
   common
+    dl
     Eigen3::Eigen
     fmt::fmt
     gflags
+    spdlog::spdlog
 )
 
 install(

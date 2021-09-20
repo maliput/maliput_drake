@@ -1,6 +1,13 @@
-file(GLOB_RECURSE SOURCES_COMMON_TRAJECTORIES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
-
-add_library(trajectories ${SOURCES_COMMON_TRAJECTORIES})
+add_library(trajectories
+  bspline_trajectory.cc
+  discrete_time_trajectory.cc
+  exponential_plus_piecewise_polynomial.cc
+  piecewise_polynomial.cc
+  piecewise_pose.cc
+  piecewise_quaternion.cc
+  piecewise_trajectory.cc
+  trajectory.cc
+)
 
 add_library(maliput_drake::trajectories ALIAS trajectories)
 
