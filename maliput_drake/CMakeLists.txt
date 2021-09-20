@@ -46,33 +46,6 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 ##############################################################################
-# Tests
-##############################################################################
-
-if(BUILD_TESTING)
-  find_package(ament_cmake_clang_format REQUIRED)
-  enable_testing()
-  add_subdirectory(test)
-  ament_clang_format(CONFIG_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../.clang-format)
-endif()
-
-##############################################################################
-# Docs
-##############################################################################
-
-# if(NOT DEFINED BUILD_DOCS)
-#   set(BUILD_DOCS 1)
-# endif()
-
-# if(BUILD_DOCS)
-#   find_package(ament_cmake_doxygen REQUIRED)
-#   ament_doxygen_generate(doxygen_maliput
-#     CONFIG_OVERLAY doc/Doxyfile.overlay.in
-#     TEST_ON_WARNS
-#   )
-# endif()
-
-##############################################################################
 # Export
 ##############################################################################
 
