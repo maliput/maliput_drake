@@ -4,12 +4,6 @@ add_library(common
   double_overloads.cc
   drake_assert_and_throw.cc
   drake_marker.cc
-  drake_path.cc
-  filesystem.cc
-  find_loaded_library.cc
-  find_resource.cc
-  find_runfiles.cc
-  find_runfiles_stub.cc
   hash.cc
   nice_type_name.cc
   nice_type_name_override.cc
@@ -39,7 +33,6 @@ add_library(common
   symbolic_simplification.cc
   symbolic_variable.cc
   symbolic_variables.cc
-  temp_directory.cc
   text_logging.cc
   value.cc
 )
