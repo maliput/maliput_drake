@@ -4,14 +4,16 @@ A clone of [`drake`](https://github.com/RobotLocomotion/drake)'s trajectory inte
 
 ## Build
 
-1. Setup a maliput_drake (or a wider maliput) development workspace as described [here](https://github.com/ToyotaResearchInstitute/maliput_documentation/blob/main/docs/installation_quickstart.rst)
+1. Setup a maliput_drake (or a wider maliput) development workspace as described [here](https://github.com/ToyotaResearchInstitute/maliput_documentation/blob/main/docs/installation_quickstart.rst).
 
 2. Bring up your development workspace:
 
 ```sh
 cd path/to/my/workspace
-source ./bringup
+source /opt/ros/$ROS_DISTRO/setup.sh
 ```
+
+where `$ROS_DISTRO` could be either `foxy` or `dashing`.
 
 3. Build `maliput_drake` packages and their dependencies:
 
