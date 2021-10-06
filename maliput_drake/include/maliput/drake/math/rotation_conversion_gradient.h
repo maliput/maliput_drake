@@ -70,7 +70,7 @@ drotmat2rpy(const Eigen::MatrixBase<DerivedR>& R,
       typename drake::math::Gradient<Eigen::Matrix<Scalar, drake::kRpySize, 1>,
                                      DerivedDR::ColsAtCompileTime>::type
           ReturnType;
-  ReturnType drpy(drake::kRpySize, nq);
+  ReturnType drpy(maliput::drake::kRpySize, nq);
 
   auto dR11_dq =
       getSubMatrixGradient<DerivedDR::ColsAtCompileTime>(dR, 0, 0, R.rows());
@@ -160,7 +160,7 @@ drotmat2quat(const Eigen::MatrixBase<DerivedR>& R,
   typename Eigen::Matrix<Scalar, 4, 1>::Index ind, max_col;
   Scalar val = B.maxCoeff(&ind, &max_col);
 
-  ReturnType dq(drake::kQuaternionSize, nq);
+  ReturnType dq(maliput::drake::kQuaternionSize, nq);
   using namespace std;  // NOLINT(build/namespaces)
   switch (ind) {
     case 0: {

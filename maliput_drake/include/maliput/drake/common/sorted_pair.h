@@ -75,7 +75,7 @@ struct SortedPair {
   const T& second() const { return second_; }
 
   /// Swaps `this` and `t`.
-  void Swap(drake::SortedPair<T>& t) {
+  void Swap(maliput::drake::SortedPair<T>& t) {
     std::swap(t.first_, first_);
     std::swap(t.second_, second_);
   }
@@ -172,7 +172,7 @@ namespace std {
 
 /// Implements std::swap().
 template <class T>
-void swap(drake::SortedPair<T>& t, drake::SortedPair<T>& u) {
+void swap(maliput::drake::SortedPair<T>& t, drake::SortedPair<T>& u) {
   t.Swap(u);
 }
 

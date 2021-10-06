@@ -1374,17 +1374,17 @@ EIGEN_STRONG_INLINE bool not_equal_strict(
 // it could also potentially come up elsewhere).
 template <>
 EIGEN_STRONG_INLINE bool isfinite(const drake::symbolic::Expression& e) {
-  return static_cast<bool>(drake::symbolic::isfinite(e));
+  return static_cast<bool>(maliput::drake::symbolic::isfinite(e));
 }
 
 template <>
 EIGEN_STRONG_INLINE bool isinf(const drake::symbolic::Expression& e) {
-  return static_cast<bool>(drake::symbolic::isinf(e));
+  return static_cast<bool>(maliput::drake::symbolic::isinf(e));
 }
 
 template <>
 EIGEN_STRONG_INLINE bool isnan(const drake::symbolic::Expression& e) {
-  return static_cast<bool>(drake::symbolic::isnan(e));
+  return static_cast<bool>(maliput::drake::symbolic::isnan(e));
 }
 }  // namespace numext
 }  // namespace Eigen
