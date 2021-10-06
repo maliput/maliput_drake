@@ -1121,27 +1121,27 @@ struct ConditionTraits<symbolic::Formula> {
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::Formula>. */
+/* Provides std::hash<maliput::drake::symbolic::Formula>. */
 template <>
-struct hash<drake::symbolic::Formula> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Formula> : public drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 template <>
-struct __is_fast_hash<hash<drake::symbolic::Formula>> : std::false_type {};
+struct __is_fast_hash<hash<maliput::drake::symbolic::Formula>> : std::false_type {};
 #endif
 
-/* Provides std::less<drake::symbolic::Formula>. */
+/* Provides std::less<maliput::drake::symbolic::Formula>. */
 template <>
-struct less<drake::symbolic::Formula> {
+struct less<maliput::drake::symbolic::Formula> {
   bool operator()(const drake::symbolic::Formula& lhs,
                   const drake::symbolic::Formula& rhs) const {
     return lhs.Less(rhs);
   }
 };
 
-/* Provides std::equal_to<drake::symbolic::Formula>. */
+/* Provides std::equal_to<maliput::drake::symbolic::Formula>. */
 template <>
-struct equal_to<drake::symbolic::Formula> {
+struct equal_to<maliput::drake::symbolic::Formula> {
   bool operator()(const drake::symbolic::Formula& lhs,
                   const drake::symbolic::Formula& rhs) const {
     return lhs.EqualTo(rhs);
@@ -1150,12 +1150,12 @@ struct equal_to<drake::symbolic::Formula> {
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
-// Define Eigen traits needed for Matrix<drake::symbolic::Formula>.
+// Define Eigen traits needed for Matrix<maliput::drake::symbolic::Formula>.
 namespace Eigen {
-// Eigen scalar type traits for Matrix<drake::symbolic::Formula>.
+// Eigen scalar type traits for Matrix<maliput::drake::symbolic::Formula>.
 template <>
-struct NumTraits<drake::symbolic::Formula>
-    : GenericNumTraits<drake::symbolic::Formula> {
+struct NumTraits<maliput::drake::symbolic::Formula>
+    : GenericNumTraits<maliput::drake::symbolic::Formula> {
   static inline int digits10() { return 0; }
 };
 
@@ -1163,9 +1163,9 @@ namespace internal {
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr == Expr"
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_EQ>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1177,9 +1177,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr < Expr".
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_LT>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1191,9 +1191,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr <= Expr".
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_LE>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1205,9 +1205,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr > Expr".
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_GT>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1219,9 +1219,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr >= Expr".
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_GE>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1233,9 +1233,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr != Expr".
 template <>
-struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
                      cmp_NEQ>
-    : binary_op_base<drake::symbolic::Expression, drake::symbolic::Expression> {
+    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1247,9 +1247,9 @@ struct scalar_cmp_op<drake::symbolic::Expression, drake::symbolic::Expression,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var == Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_EQ>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1261,9 +1261,9 @@ struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var < Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_LT>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1275,9 +1275,9 @@ struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var <= Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_LE>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1289,9 +1289,9 @@ struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var > Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_GT>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1303,9 +1303,9 @@ struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var >= Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_GE>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
@@ -1317,9 +1317,9 @@ struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var != Var".
 template <>
-struct scalar_cmp_op<drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
                      cmp_NEQ>
-    : binary_op_base<drake::symbolic::Variable, drake::symbolic::Variable> {
+    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
   typedef drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type

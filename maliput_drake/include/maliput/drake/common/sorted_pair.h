@@ -178,12 +178,12 @@ void swap(drake::SortedPair<T>& t, drake::SortedPair<T>& u) {
 
 /// Provides std::hash<SortedPair<T>>.
 template <class T>
-struct hash<drake::SortedPair<T>>
+struct hash<maliput::drake::SortedPair<T>>
     : public drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 template <class T>
-struct __is_fast_hash<hash<drake::SortedPair<T>>> : std::false_type {};
+struct __is_fast_hash<hash<maliput::drake::SortedPair<T>>> : std::false_type {};
 #endif
 
 /// Support using `SortedPair<T>` in structured bindings.  E.g.,
@@ -191,7 +191,7 @@ struct __is_fast_hash<hash<drake::SortedPair<T>>> : std::false_type {};
 ///    SortedPair<Foo> pair(Foo(1), Foo(2));
 ///    const auto& [a, b] = pair;
 template <typename T>
-struct tuple_size<drake::SortedPair<T>> : integral_constant<size_t, 2> {};
+struct tuple_size<maliput::drake::SortedPair<T>> : integral_constant<size_t, 2> {};
 
 template <size_t Index, typename T>
 struct tuple_element<Index, drake::SortedPair<T>> {

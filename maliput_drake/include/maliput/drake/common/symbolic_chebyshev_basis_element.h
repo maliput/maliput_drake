@@ -138,18 +138,18 @@ std::ostream& operator<<(std::ostream& out, const ChebyshevBasisElement& m);
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::ChebyshevBasisElement>. */
+/* Provides std::hash<maliput::drake::symbolic::ChebyshevBasisElement>. */
 template <>
-struct hash<drake::symbolic::ChebyshevBasisElement>
+struct hash<maliput::drake::symbolic::ChebyshevBasisElement>
     : public drake::DefaultHash {};
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
-// Eigen scalar type traits for Matrix<drake::symbolic::ChebyshevBasisElement>.
+// Eigen scalar type traits for Matrix<maliput::drake::symbolic::ChebyshevBasisElement>.
 template <>
-struct NumTraits<drake::symbolic::ChebyshevBasisElement>
-    : GenericNumTraits<drake::symbolic::ChebyshevBasisElement> {
+struct NumTraits<maliput::drake::symbolic::ChebyshevBasisElement>
+    : GenericNumTraits<maliput::drake::symbolic::ChebyshevBasisElement> {
   static inline int digits10() { return 0; }
 };
 }  // namespace Eigen

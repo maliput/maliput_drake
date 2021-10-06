@@ -523,9 +523,9 @@ extern template class GenericPolynomial<ChebyshevBasisElement>;
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::GenericPolynomial<BasisElement>>. */
+/* Provides std::hash<maliput::drake::symbolic::GenericPolynomial<BasisElement>>. */
 template <typename BasisElement>
-struct hash<drake::symbolic::GenericPolynomial<BasisElement>>
+struct hash<maliput::drake::symbolic::GenericPolynomial<BasisElement>>
     : public drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // Inform GCC that this hash function is not so fast (i.e. for-loop inside).
@@ -533,7 +533,7 @@ struct hash<drake::symbolic::GenericPolynomial<BasisElement>>
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 // for details.
 template <typename BasisElement>
-struct __is_fast_hash<hash<drake::symbolic::GenericPolynomial<BasisElement>>>
+struct __is_fast_hash<hash<maliput::drake::symbolic::GenericPolynomial<BasisElement>>>
     : std::false_type {};
 #endif
 }  // namespace std
@@ -541,19 +541,19 @@ struct __is_fast_hash<hash<drake::symbolic::GenericPolynomial<BasisElement>>>
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
 
-// Defines Eigen traits needed for Matrix<drake::symbolic::Polynomial>.
+// Defines Eigen traits needed for Matrix<maliput::drake::symbolic::Polynomial>.
 template <>
 struct NumTraits<
-    drake::symbolic::GenericPolynomial<drake::symbolic::MonomialBasisElement>>
-    : GenericNumTraits<drake::symbolic::GenericPolynomial<
+    drake::symbolic::GenericPolynomial<maliput::drake::symbolic::MonomialBasisElement>>
+    : GenericNumTraits<maliput::drake::symbolic::GenericPolynomial<
           drake::symbolic::MonomialBasisElement>> {
   static inline int digits10() { return 0; }
 };
 
 template <>
 struct NumTraits<
-    drake::symbolic::GenericPolynomial<drake::symbolic::ChebyshevBasisElement>>
-    : GenericNumTraits<drake::symbolic::GenericPolynomial<
+    drake::symbolic::GenericPolynomial<maliput::drake::symbolic::ChebyshevBasisElement>>
+    : GenericNumTraits<maliput::drake::symbolic::GenericPolynomial<
           drake::symbolic::ChebyshevBasisElement>> {
   static inline int digits10() { return 0; }
 };

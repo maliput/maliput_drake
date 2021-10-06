@@ -210,18 +210,18 @@ std::map<MonomialBasisElement, double> pow(MonomialBasisElement m, int p);
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::MonomialBasisElement>. */
+/* Provides std::hash<maliput::drake::symbolic::MonomialBasisElement>. */
 template <>
-struct hash<drake::symbolic::MonomialBasisElement> : public drake::DefaultHash {
+struct hash<maliput::drake::symbolic::MonomialBasisElement> : public drake::DefaultHash {
 };
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
-// Eigen scalar type traits for Matrix<drake::symbolic::MonomialBasisElement>.
+// Eigen scalar type traits for Matrix<maliput::drake::symbolic::MonomialBasisElement>.
 template <>
-struct NumTraits<drake::symbolic::MonomialBasisElement>
-    : GenericNumTraits<drake::symbolic::MonomialBasisElement> {
+struct NumTraits<maliput::drake::symbolic::MonomialBasisElement>
+    : GenericNumTraits<maliput::drake::symbolic::MonomialBasisElement> {
   static inline int digits10() { return 0; }
 };
 

@@ -36,8 +36,8 @@ Eigen::LDLT<SomeMatrix>::compute<SomeMatrix>(                   \
   return compute(ref_a);                                        \
 }                                                               \
 
-DRAKE_DECLARE_SPECIALIZE_LDLT(drake::MatrixX<drake::symbolic::Expression>)
-DRAKE_DECLARE_SPECIALIZE_LDLT(drake::MatrixUpTo6<drake::symbolic::Expression>)
+DRAKE_DECLARE_SPECIALIZE_LDLT(drake::MatrixX<maliput::drake::symbolic::Expression>)
+DRAKE_DECLARE_SPECIALIZE_LDLT(drake::MatrixUpTo6<maliput::drake::symbolic::Expression>)
 
 #undef DRAKE_DECLARE_SPECIALIZE_LDLT
 

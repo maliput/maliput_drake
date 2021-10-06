@@ -366,26 +366,26 @@ operator*(const MatrixL& lhs, const MatrixR& rhs) {
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::Polynomial>. */
+/* Provides std::hash<maliput::drake::symbolic::Polynomial>. */
 template <>
-struct hash<drake::symbolic::Polynomial> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Polynomial> : public drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // Inform GCC that this hash function is not so fast (i.e. for-loop inside).
 // This will enforce caching of hash results. See
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 // for details.
 template <>
-struct __is_fast_hash<hash<drake::symbolic::Polynomial>> : std::false_type {};
+struct __is_fast_hash<hash<maliput::drake::symbolic::Polynomial>> : std::false_type {};
 #endif
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
 
-// Defines Eigen traits needed for Matrix<drake::symbolic::Polynomial>.
+// Defines Eigen traits needed for Matrix<maliput::drake::symbolic::Polynomial>.
 template <>
-struct NumTraits<drake::symbolic::Polynomial>
-    : GenericNumTraits<drake::symbolic::Polynomial> {
+struct NumTraits<maliput::drake::symbolic::Polynomial>
+    : GenericNumTraits<maliput::drake::symbolic::Polynomial> {
   static inline int digits10() { return 0; }
 };
 

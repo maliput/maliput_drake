@@ -192,10 +192,10 @@ operator*(const MatrixL& lhs, const MatrixR& rhs) {
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
 
-// Defines Eigen traits needed for Matrix<drake::symbolic::RationalFunction>.
+// Defines Eigen traits needed for Matrix<maliput::drake::symbolic::RationalFunction>.
 template <>
-struct NumTraits<drake::symbolic::RationalFunction>
-    : GenericNumTraits<drake::symbolic::RationalFunction> {
+struct NumTraits<maliput::drake::symbolic::RationalFunction>
+    : GenericNumTraits<maliput::drake::symbolic::RationalFunction> {
   static inline int digits10() { return 0; }
 };
 

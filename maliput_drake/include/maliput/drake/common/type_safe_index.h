@@ -583,5 +583,5 @@ namespace std {
 /// Enables use of the type-safe index to serve as a key in STL containers.
 /// @relates TypeSafeIndex
 template <typename Tag>
-struct hash<drake::TypeSafeIndex<Tag>> : public drake::DefaultHash {};
+struct hash<maliput::drake::TypeSafeIndex<Tag>> : public drake::DefaultHash {};
 }  // namespace std

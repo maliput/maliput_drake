@@ -146,18 +146,18 @@ Monomial pow(Monomial m, int p);
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::Monomial>. */
+/* Provides std::hash<maliput::drake::symbolic::Monomial>. */
 template <>
-struct hash<drake::symbolic::Monomial>
+struct hash<maliput::drake::symbolic::Monomial>
     : public drake::DefaultHash {};
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
-// Eigen scalar type traits for Matrix<drake::symbolic::Monomial>.
+// Eigen scalar type traits for Matrix<maliput::drake::symbolic::Monomial>.
 template <>
-struct NumTraits<drake::symbolic::Monomial>
-    : GenericNumTraits<drake::symbolic::Monomial> {
+struct NumTraits<maliput::drake::symbolic::Monomial>
+    : GenericNumTraits<maliput::drake::symbolic::Monomial> {
   static inline int digits10() { return 0; }
 };
 

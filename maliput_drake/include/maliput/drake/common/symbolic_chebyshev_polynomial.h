@@ -127,8 +127,8 @@ double EvaluateChebyshevPolynomial(double var_val, int degree);
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::ChebyshevPolynomial>. */
+/* Provides std::hash<maliput::drake::symbolic::ChebyshevPolynomial>. */
 template <>
-struct hash<drake::symbolic::ChebyshevPolynomial> : public drake::DefaultHash {
+struct hash<maliput::drake::symbolic::ChebyshevPolynomial> : public drake::DefaultHash {
 };
 }  // namespace std

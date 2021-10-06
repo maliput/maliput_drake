@@ -320,7 +320,7 @@ using Radau1Integrator = RadauIntegrator<T, 1>;
 // we need to instantiate both scalar types for both the Radau1 and Radau3
 // integrators, which have num_stages set 1 and 2, respectively.
 extern template class drake::systems::RadauIntegrator<double, 1>;
-extern template class drake::systems::RadauIntegrator<drake::AutoDiffXd, 1>;
+extern template class drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 1>;
 
 extern template class drake::systems::RadauIntegrator<double, 2>;
-extern template class drake::systems::RadauIntegrator<drake::AutoDiffXd, 2>;
+extern template class drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 2>;

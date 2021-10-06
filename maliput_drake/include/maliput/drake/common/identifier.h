@@ -245,6 +245,6 @@ namespace std {
  @relates Identifier
  */
 template <typename Tag>
-struct hash<drake::Identifier<Tag>> : public drake::DefaultHash {};
+struct hash<maliput::drake::Identifier<Tag>> : public drake::DefaultHash {};
 
 }  // namespace std

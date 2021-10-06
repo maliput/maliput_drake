@@ -316,22 +316,22 @@ Eigen::Matrix<Variable, rows, 1> MakeVectorIntegerVariable(
 
 namespace std {
 
-/* Provides std::hash<drake::symbolic::Variable>. */
+/* Provides std::hash<maliput::drake::symbolic::Variable>. */
 template <>
-struct hash<drake::symbolic::Variable> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Variable> : public drake::DefaultHash {};
 
-/* Provides std::less<drake::symbolic::Variable>. */
+/* Provides std::less<maliput::drake::symbolic::Variable>. */
 template <>
-struct less<drake::symbolic::Variable> {
+struct less<maliput::drake::symbolic::Variable> {
   bool operator()(const drake::symbolic::Variable& lhs,
                   const drake::symbolic::Variable& rhs) const {
     return lhs.less(rhs);
   }
 };
 
-/* Provides std::equal_to<drake::symbolic::Variable>. */
+/* Provides std::equal_to<maliput::drake::symbolic::Variable>. */
 template <>
-struct equal_to<drake::symbolic::Variable> {
+struct equal_to<maliput::drake::symbolic::Variable> {
   bool operator()(const drake::symbolic::Variable& lhs,
                   const drake::symbolic::Variable& rhs) const {
     return lhs.equal_to(rhs);
@@ -341,10 +341,10 @@ struct equal_to<drake::symbolic::Variable> {
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
-// Eigen scalar type traits for Matrix<drake::symbolic::Variable>.
+// Eigen scalar type traits for Matrix<maliput::drake::symbolic::Variable>.
 template <>
-struct NumTraits<drake::symbolic::Variable>
-    : GenericNumTraits<drake::symbolic::Variable> {
+struct NumTraits<maliput::drake::symbolic::Variable>
+    : GenericNumTraits<maliput::drake::symbolic::Variable> {
   static inline int digits10() { return 0; }
 };
 }  // namespace Eigen

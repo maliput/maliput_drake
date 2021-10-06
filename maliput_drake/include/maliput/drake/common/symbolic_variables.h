@@ -179,7 +179,7 @@ Variables intersect(const Variables& vars1, const Variables& vars2);
 }  // namespace maliput::drake
 
 namespace std {
-/* Provides std::hash<drake::symbolic::Variables>. */
+/* Provides std::hash<maliput::drake::symbolic::Variables>. */
 template <>
-struct hash<drake::symbolic::Variables> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Variables> : public drake::DefaultHash {};
 }  // namespace std

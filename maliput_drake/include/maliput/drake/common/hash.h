@@ -61,12 +61,12 @@
 /// can be omitted.  For example, Drake's `symbolic::Expression` header says:
 /// @code
 /// namespace std {
-/// struct hash<drake::symbolic::Expression> : public drake::DefaultHash {};
+/// struct hash<maliput::drake::symbolic::Expression> : public drake::DefaultHash {};
 /// }  // namespace std
 /// @endcode
 /// so that users are able to simply write:
 /// @code
-/// std::unordered_set<drake::symbolic::Expression> foo;
+/// std::unordered_set<maliput::drake::symbolic::Expression> foo;
 /// @endcode
 ///
 /// @}

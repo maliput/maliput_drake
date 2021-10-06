@@ -516,7 +516,7 @@ class ValueProducer final {
         "When ValueProducer is used with an output type that is not default"
         " constructible, then you must provide either a model_value or an"
         " allocate callback function.");
-    return static_cast<std::unique_ptr<drake::AbstractValue>(*)()>(
+    return static_cast<std::unique_ptr<maliput::drake::AbstractValue>(*)()>(
         &AbstractValue::Make<SomeOutput>);
   }
 
