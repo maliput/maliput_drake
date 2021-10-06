@@ -13,7 +13,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 namespace internal {
 /* Adds the set {RaisePower(b, m) for m in Basis(vars, degree)} to `bin`.
@@ -159,4 +159,4 @@ Eigen::Matrix<BasisElement, rows, 1> ComputePolynomialBasisUpToDegree(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

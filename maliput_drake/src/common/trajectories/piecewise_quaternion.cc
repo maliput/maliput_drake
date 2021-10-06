@@ -6,7 +6,7 @@
 #include "drake/common/trajectories/piecewise_polynomial.h"
 #include "drake/math/quaternion.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 using std::abs;
@@ -223,7 +223,7 @@ std::unique_ptr<Trajectory<T>> PiecewiseQuaternionSlerp<T>::DoMakeDerivative(
 }
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewiseQuaternionSlerp)

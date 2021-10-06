@@ -11,7 +11,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * Each polynomial p(x) can be written as a linear combination of its basis
@@ -233,7 +233,7 @@ struct BasisElementGradedReverseLexOrder {
 };
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {

@@ -17,7 +17,7 @@
 #include "drake/systems/framework/context.h"
 #include "drake/systems/framework/leaf_system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// A base class that specializes LeafSystem for use with only zero or one
@@ -342,7 +342,7 @@ class VectorSystem : public LeafSystem<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::VectorSystem)

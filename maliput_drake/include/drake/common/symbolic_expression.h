@@ -32,7 +32,7 @@
 #include "drake/common/random.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 
 namespace symbolic {
 
@@ -775,7 +775,7 @@ Expression operator-(const Variable& var);
 Expression TaylorExpand(const Expression& f, const Environment& a, int order);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::Expression>. */
@@ -1218,7 +1218,7 @@ struct ScalarBinaryOpTraits<double, drake::symbolic::Expression, BinaryOp> {
 }  // namespace Eigen
 #endif  // !defined(DRAKE_DOXYGEN_CXX)
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 // Matrix<Expression> * Matrix<double> => Matrix<Expression>
@@ -1515,4 +1515,4 @@ struct is_eigen_vector_expression_double_pair
           is_eigen_vector_of<DerivedV, symbolic::Expression>::value &&
               is_eigen_vector_of<DerivedB, double>::value> {};
 
-}  // namespace drake
+}  // namespace maliput::drake

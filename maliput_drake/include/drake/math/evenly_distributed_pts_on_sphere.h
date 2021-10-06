@@ -1,7 +1,7 @@
 #pragma once
 #include <Eigen/Core>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * Deterministically generates approximate evenly distributed points on a unit
@@ -16,4 +16,4 @@ namespace math {
  */
 Eigen::Matrix3Xd UniformPtsOnSphereFibonacci(int num_points);
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

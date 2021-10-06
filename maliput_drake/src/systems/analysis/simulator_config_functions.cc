@@ -21,7 +21,7 @@
 #include "drake/systems/analysis/velocity_implicit_euler_integrator.h"
 #include "drake/systems/framework/leaf_system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace {
 
@@ -219,4 +219,4 @@ DRAKE_DEFINE_FUNCTION_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS((
 ))
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

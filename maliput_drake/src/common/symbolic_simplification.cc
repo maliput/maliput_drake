@@ -6,7 +6,7 @@
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::function;
@@ -785,4 +785,4 @@ Rewriter MakeRuleRewriter(const RewritingRule& rule) {
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

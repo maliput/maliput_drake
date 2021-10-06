@@ -5,7 +5,7 @@
 
 #include <fmt/format.h>
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::ostream;
@@ -301,4 +301,4 @@ std::string CodeGen(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

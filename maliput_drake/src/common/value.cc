@@ -6,7 +6,7 @@
 
 #include "drake/common/text_logging.h"
 
-namespace drake {
+namespace maliput::drake {
 
 namespace internal {
 int ReportZeroHash(const std::type_info& detail) {
@@ -57,4 +57,4 @@ void AbstractValue::ThrowCastError(const std::string& requested_type) const {
       "the actual type was '{}'.", requested_type, GetNiceTypeName()));
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

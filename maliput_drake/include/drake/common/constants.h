@@ -1,6 +1,6 @@
 #pragma once
 
-namespace drake {
+namespace maliput::drake {
 
 constexpr int kQuaternionSize = 4;
 
@@ -18,4 +18,4 @@ const int kRotmatSize = kSpaceDimension * kSpaceDimension;
 
 enum class ToleranceType { kAbsolute, kRelative };
 
-}  // namespace drake
+}  // namespace maliput::drake

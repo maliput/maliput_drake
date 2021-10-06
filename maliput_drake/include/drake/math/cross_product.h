@@ -5,7 +5,7 @@
 #include "drake/common/constants.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 template <typename Derived>
 drake::Matrix3<typename Derived::Scalar> VectorToSkewSymmetric(
@@ -18,4 +18,4 @@ drake::Matrix3<typename Derived::Scalar> VectorToSkewSymmetric(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

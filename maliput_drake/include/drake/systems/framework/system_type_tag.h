@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T> class System;
@@ -34,4 +34,4 @@ struct SystemTypeTag {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

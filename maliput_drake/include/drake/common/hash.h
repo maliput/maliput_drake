@@ -71,7 +71,7 @@
 ///
 /// @}
 
-namespace drake {
+namespace maliput::drake {
 
 /// Provides @ref hash_append for integral constants.
 template <class HashAlgorithm, class T>
@@ -267,4 +267,4 @@ struct DelegatingHasher {
   const Func func_;
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

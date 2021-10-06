@@ -9,7 +9,7 @@
 #include "drake/common/value.h"
 #include "drake/systems/framework/basic_vector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace internal {
 
@@ -94,4 +94,4 @@ ModelValues::CloneVectorModel(int index) const {
 
 }  // namespace internal
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

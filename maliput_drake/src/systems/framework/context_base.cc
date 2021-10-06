@@ -5,7 +5,7 @@
 
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 std::unique_ptr<ContextBase> ContextBase::Clone() const {
@@ -333,4 +333,4 @@ void ContextBase::FixContextPointers(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

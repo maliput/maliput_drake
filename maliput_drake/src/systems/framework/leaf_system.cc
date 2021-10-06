@@ -7,7 +7,7 @@
 #include "drake/systems/framework/system_symbolic_inspector.h"
 #include "drake/systems/framework/value_checker.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 namespace {
@@ -1087,7 +1087,7 @@ void LeafSystem<T>::MaybeDeclareVectorBaseInequalityConstraint(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::LeafSystem)

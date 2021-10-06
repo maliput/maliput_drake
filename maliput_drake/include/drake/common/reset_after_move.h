@@ -3,7 +3,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace drake {
+namespace maliput::drake {
 
 /// Type wrapper that performs value-initialization on the wrapped type, and
 /// guarantees that when moving from this type that the donor object is reset
@@ -109,4 +109,4 @@ class reset_after_move {
   T value_{};
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

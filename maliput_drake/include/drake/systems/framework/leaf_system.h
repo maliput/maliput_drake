@@ -32,7 +32,7 @@
 #include "drake/systems/framework/system_scalar_converter.h"
 #include "drake/systems/framework/value_producer.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** A superclass template that extends System with some convenience utilities
@@ -2154,7 +2154,7 @@ class LeafSystem : public System<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::LeafSystem)

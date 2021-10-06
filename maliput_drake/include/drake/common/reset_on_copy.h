@@ -3,7 +3,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace drake {
+namespace maliput::drake {
 
 // NOTE(sherm1) to future implementers: if you decide to extend this adapter for
 // use with class types, be sure to think carefully about the semantics of copy
@@ -183,4 +183,4 @@ class reset_on_copy {
   T value_{};
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

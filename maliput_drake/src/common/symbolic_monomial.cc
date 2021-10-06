@@ -10,7 +10,7 @@
 #include "drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::accumulate;
@@ -285,4 +285,4 @@ Monomial operator*(Monomial m1, const Monomial& m2) {
 Monomial pow(Monomial m, const int p) { return m.pow_in_place(p); }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

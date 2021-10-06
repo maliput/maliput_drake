@@ -6,7 +6,7 @@
 #include "drake/common/eigen_types.h"
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// Converts a ScalarType value to a double, failing at runtime (not compile
 /// time) if the type cannot be converted to a double.
@@ -52,4 +52,4 @@ ExtractDoubleOrThrow(const Eigen::MatrixBase<Derived>& matrix) {
       .eval();
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

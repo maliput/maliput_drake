@@ -8,7 +8,7 @@
 #include "drake/common/never_destroyed.h"
 #include "drake/common/text_logging.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /**
  * Provides thread-safe, global-safe access to a shared resource. When
@@ -72,4 +72,4 @@ std::shared_ptr<T> GetScopedSingleton() {
   return singleton.access().Acquire();
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

@@ -7,7 +7,7 @@
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 InputPortBase::InputPortBase(
@@ -36,4 +36,4 @@ void InputPortBase::ThrowRequiredMissing() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

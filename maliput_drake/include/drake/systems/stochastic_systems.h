@@ -1,5 +1,5 @@
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** @addtogroup stochastic_systems
@@ -82,4 +82,4 @@ of the drake::RandomGenerator.
 */
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

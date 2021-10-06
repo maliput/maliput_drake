@@ -7,7 +7,7 @@
 
 #include <fmt/ostream.h>
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::ostringstream;
@@ -503,4 +503,4 @@ DecomposeLumpedParameters(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

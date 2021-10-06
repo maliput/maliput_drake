@@ -11,7 +11,7 @@
 
 #include "drake/common/never_destroyed.h"
 
-namespace drake {
+namespace maliput::drake {
 
 #ifdef HAVE_SPDLOG
 
@@ -148,4 +148,4 @@ const char* const logging::kSetLogPatternHelpMessage =
 
 const char* const logging::kSetLogLevelUnchanged = "unchanged";
 
-}  // namespace drake
+}  // namespace maliput::drake

@@ -14,7 +14,7 @@
 #include "drake/common/drake_assertion_error.h"
 #include "drake/common/never_destroyed.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 namespace {
 
@@ -68,7 +68,7 @@ void AssertionFailed(const char* condition, const char* func, const char* file,
 }
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake
 
 // Configures the DRAKE_ASSERT and DRAKE_DEMAND assertion failure handling
 // behavior.

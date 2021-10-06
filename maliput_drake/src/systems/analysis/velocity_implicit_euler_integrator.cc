@@ -13,7 +13,7 @@
 #include "drake/systems/analysis/implicit_integrator.h"
 #include "drake/systems/framework/basic_vector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <class T>
@@ -645,7 +645,7 @@ bool VelocityImplicitEulerIntegrator<T>::DoImplicitIntegratorStep(const T& h) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class ::drake::systems::VelocityImplicitEulerIntegrator)

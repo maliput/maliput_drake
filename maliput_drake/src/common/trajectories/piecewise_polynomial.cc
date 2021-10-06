@@ -17,7 +17,7 @@ using std::abs;
 using std::min;
 using std::max;
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 template <typename T>
@@ -1226,7 +1226,7 @@ Eigen::Matrix<T, 4, 1> PiecewisePolynomial<T>::ComputeCubicSplineCoeffs(
 }
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewisePolynomial)

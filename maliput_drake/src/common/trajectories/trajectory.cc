@@ -2,7 +2,7 @@
 
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 template <typename T>
@@ -79,7 +79,7 @@ std::unique_ptr<Trajectory<T>> Trajectory<T>::DoMakeDerivative(
 }
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::Trajectory)

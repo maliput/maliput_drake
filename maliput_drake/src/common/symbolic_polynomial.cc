@@ -20,7 +20,7 @@ using std::pair;
 using std::runtime_error;
 using std::to_string;
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 namespace {
@@ -872,4 +872,4 @@ ostream& operator<<(ostream& os, const Polynomial& p) {
   return os;
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

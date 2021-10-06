@@ -3,7 +3,7 @@
 #include "drake/common/autodiff.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// Makes the derviatives of the recipient coherent with respect to those of the
 /// donor variable (see drake/common/autodiffxd.h).  If the recipient's
@@ -27,4 +27,4 @@ inline void autodiffxd_make_coherent(const double&, double*) {}
 inline void autodiffxd_make_coherent(const symbolic::Expression&,
                                      symbolic::Expression*) {}
 
-}  // namespace drake
+}  // namespace maliput::drake

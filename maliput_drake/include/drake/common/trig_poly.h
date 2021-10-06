@@ -12,7 +12,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/polynomial.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /** A scalar multi-variate polynomial containing sines and cosines.
  *
@@ -467,4 +467,4 @@ typedef TrigPoly<double> TrigPolyd;
 /// A column vector of TrigPoly; used in several optimization classes.
 typedef Eigen::Matrix<TrigPolyd, Eigen::Dynamic, 1> VectorXTrigPoly;
 
-}  // namespace drake
+}  // namespace maliput::drake

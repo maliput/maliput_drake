@@ -12,7 +12,7 @@
 #include "drake/systems/framework/event_collection.h"
 #include "drake/systems/framework/system_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <class T>
@@ -230,7 +230,7 @@ class WitnessFunction final {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::WitnessFunction)

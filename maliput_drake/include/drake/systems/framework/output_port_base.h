@@ -5,7 +5,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/port_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** %OutputPortBase handles the scalar type-independent aspects of an
@@ -73,4 +73,4 @@ class OutputPortBase : public PortBase {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

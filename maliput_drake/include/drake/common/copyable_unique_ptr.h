@@ -17,7 +17,7 @@ copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 
 // TODO(SeanCurtis-TRI): Consider extending this to add the Deleter as well.
 /** A smart pointer with deep copy semantics.
@@ -440,4 +440,4 @@ std::basic_ostream<charT, traits>& operator<<(
   return os;
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

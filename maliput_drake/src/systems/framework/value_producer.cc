@@ -6,7 +6,7 @@
 
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 ValueProducer::ValueProducer() = default;
@@ -65,4 +65,4 @@ void ValueProducer::ThrowBadCast(const std::type_info& actual_type,
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

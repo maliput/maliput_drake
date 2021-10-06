@@ -4,7 +4,7 @@
 #include "drake/common/drake_throw.h"
 #include "drake/common/is_approx_equal_abstol.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 namespace {
 /* helper functions */
@@ -469,4 +469,4 @@ Eigen::MatrixXd DiscreteAlgebraicRiccatiEquation(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

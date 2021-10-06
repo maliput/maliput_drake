@@ -20,7 +20,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/output_port_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // Break the System <=> OutputPort physical dependency cycle.  OutputPorts are
@@ -247,7 +247,7 @@ class OutputPort : public OutputPortBase {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::OutputPort)

@@ -57,7 +57,7 @@ DEFINE_bool(simulator_use_error_control,
             "error control if it supports it. Otherwise, the simulator "
             "attempts to use fixed steps.");
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 IntegratorBase<double>& ResetIntegratorFromGflags(
@@ -105,4 +105,4 @@ std::unique_ptr<Simulator<double>> MakeSimulatorFromGflags(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

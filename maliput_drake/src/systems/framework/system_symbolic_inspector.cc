@@ -6,7 +6,7 @@
 #include "drake/common/polynomial.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 using symbolic::Expression;
@@ -264,4 +264,4 @@ bool SystemSymbolicInspector::HasAffineDynamics() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

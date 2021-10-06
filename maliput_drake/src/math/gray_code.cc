@@ -1,6 +1,6 @@
 #include "drake/math/gray_code.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 int GrayCodeToInteger(const Eigen::Ref<const Eigen::VectorXi>& gray_code) {
   // This implementation is based on
@@ -14,4 +14,4 @@ int GrayCodeToInteger(const Eigen::Ref<const Eigen::VectorXi>& gray_code) {
   return ret;
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

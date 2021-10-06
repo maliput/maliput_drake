@@ -6,7 +6,7 @@
 
 #include "drake/common/drake_copyable.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// Wraps an underlying type T such that its storage is a direct member field
 /// of this object (i.e., without any indirection into the heap), but *unlike*
@@ -100,4 +100,4 @@ class never_destroyed {
   typename std::aligned_storage<sizeof(T), alignof(T)>::type storage_;
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

@@ -9,7 +9,7 @@
 using std::uniform_real_distribution;
 using std::vector;
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 template <typename T>
@@ -132,7 +132,7 @@ bool PiecewiseTrajectory<T>::SegmentTimesEqual(
 }
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewiseTrajectory)

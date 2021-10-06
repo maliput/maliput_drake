@@ -19,7 +19,7 @@
 #include "drake/math/fast_pose_composition_functions.h"
 #include "drake/math/roll_pitch_yaw.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 namespace internal {
@@ -1093,7 +1093,7 @@ double ProjectMatToRotMatWithAxis(const Eigen::Matrix3d& M,
                                   double angle_ub);
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::math::RotationMatrix)

@@ -5,7 +5,7 @@
 #include "drake/common/double_overloads.h"
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// For variables that are meant to be periodic, (e.g. over a 2π interval),
@@ -30,4 +30,4 @@ T1 wrap_to(const T1& value, const T2& low, const T2& high) {
 
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

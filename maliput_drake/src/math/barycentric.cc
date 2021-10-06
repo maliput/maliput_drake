@@ -10,7 +10,7 @@
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename T>
@@ -194,6 +194,6 @@ MatrixX<T> BarycentricMesh<T>::MeshValuesFrom(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 template class ::drake::math::BarycentricMesh<double>;

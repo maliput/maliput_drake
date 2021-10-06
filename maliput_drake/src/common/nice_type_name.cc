@@ -27,7 +27,7 @@ using std::string;
 /* clang-format on */
 #endif
 
-namespace drake {
+namespace maliput::drake {
 
 // On gcc and clang typeid(T).name() returns an indecipherable mangled string
 // that requires processing to become human readable. Microsoft returns a
@@ -124,4 +124,4 @@ std::string NiceTypeName::GetWithPossibleOverride(
   }
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

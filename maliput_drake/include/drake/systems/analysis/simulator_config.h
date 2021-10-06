@@ -4,7 +4,7 @@
 
 #include "drake/common/name_value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // TODO(dale.mcconachie) Update to include all configurable properties of
@@ -34,4 +34,4 @@ struct SimulatorConfig {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

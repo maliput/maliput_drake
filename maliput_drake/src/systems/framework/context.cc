@@ -2,7 +2,7 @@
 
 #include "drake/common/pointer_cast.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -194,7 +194,7 @@ void Context<T>::SetTimeAndNoteContinuousStateChangeHelper(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::Context)

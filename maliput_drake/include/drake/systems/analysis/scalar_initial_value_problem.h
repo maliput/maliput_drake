@@ -10,7 +10,7 @@
 #include "drake/systems/analysis/initial_value_problem.h"
 #include "drake/systems/analysis/scalar_view_dense_output.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// A thin wrapper of the InitialValueProblem class to provide a simple
@@ -219,7 +219,7 @@ class ScalarInitialValueProblem {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::ScalarInitialValueProblem)

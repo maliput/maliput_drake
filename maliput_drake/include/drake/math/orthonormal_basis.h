@@ -5,7 +5,7 @@
 #include "drake/common/drake_deprecated.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Creates a right-handed local basis from a given axis. Defines two other
@@ -58,4 +58,4 @@ Matrix3<T> ComputeBasisFromAxis(int axis_index, const Vector3<T>& axis_W) {
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

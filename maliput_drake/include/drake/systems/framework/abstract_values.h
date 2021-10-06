@@ -8,7 +8,7 @@
 #include "drake/common/drake_deprecated.h"
 #include "drake/common/value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// AbstractValues is a container for non-numerical state and parameters.
@@ -71,4 +71,4 @@ class AbstractValues {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

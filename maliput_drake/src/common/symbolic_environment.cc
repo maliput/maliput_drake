@@ -12,7 +12,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::endl;
@@ -169,4 +169,4 @@ Environment PopulateRandomVariables(Environment env, const Variables& variables,
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

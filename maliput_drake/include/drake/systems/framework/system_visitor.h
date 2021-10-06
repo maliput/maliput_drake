@@ -2,7 +2,7 @@
 
 #include "drake/common/default_scalars.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -53,4 +53,4 @@ class SystemVisitor {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

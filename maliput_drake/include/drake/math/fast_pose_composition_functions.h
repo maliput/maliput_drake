@@ -10,7 +10,7 @@ straightforward portable fallback. */
 included by a compilation unit that may have a different opinion about whether
 SIMD instructions are enabled than Eigen does in the rest of Drake. */
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /* We do not have access to the declarations for RotationMatrix and
@@ -102,4 +102,4 @@ void ComposeXinvXPortable(const RigidTransform<double>& X_BA,
 
 }  // namespace internal
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

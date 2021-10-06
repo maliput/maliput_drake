@@ -4,7 +4,7 @@
 
 #include <unsupported/Eigen/MatrixFunctions>
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 template <typename T>
@@ -77,4 +77,4 @@ void ExponentialPlusPiecewisePolynomial<T>::shiftRight(
 template class ExponentialPlusPiecewisePolynomial<double>;
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake

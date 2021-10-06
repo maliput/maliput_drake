@@ -8,7 +8,7 @@
 #include "drake/systems/analysis/simulator.h"
 #include "drake/systems/analysis/simulator_config.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** @addtogroup simulation
@@ -66,4 +66,4 @@ SimulatorConfig ExtractSimulatorConfig(
     const drake::systems::Simulator<double>& simulator);
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

@@ -4,7 +4,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/systems/analysis/dense_output.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// A DenseOutput class interface extension to deal with scalar ODE
@@ -50,7 +50,7 @@ class ScalarDenseOutput : public DenseOutput<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::systems::ScalarDenseOutput)

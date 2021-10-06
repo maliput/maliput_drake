@@ -10,7 +10,7 @@
 #include "drake/common/eigen_types.h"
 #include "drake/common/trajectories/piecewise_polynomial.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 /**
@@ -79,4 +79,4 @@ class ExponentialPlusPiecewisePolynomial final
 };
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake

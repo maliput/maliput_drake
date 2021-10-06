@@ -8,7 +8,7 @@
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 namespace {
@@ -127,7 +127,7 @@ T DiscreteTimeTrajectory<T>::end_time() const {
 }
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::DiscreteTimeTrajectory)

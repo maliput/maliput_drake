@@ -8,7 +8,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * Represents symbolic rational function. A function f(x) is a rational
@@ -187,7 +187,7 @@ operator*(const MatrixL& lhs, const MatrixR& rhs) {
 }
 #endif
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {

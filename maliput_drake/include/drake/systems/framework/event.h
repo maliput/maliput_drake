@@ -11,7 +11,7 @@
 #include "drake/systems/framework/continuous_state.h"
 #include "drake/systems/framework/event_status.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // Forward declaration to avoid circular dependencies.
@@ -913,7 +913,7 @@ class UnrestrictedUpdateEvent final : public Event<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::WitnessTriggeredEventData)

@@ -16,7 +16,7 @@
 #include "drake/common/eigen_types.h"
 #include "drake/common/hash.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Represents a symbolic variable.
@@ -312,7 +312,7 @@ Eigen::Matrix<Variable, rows, 1> MakeVectorIntegerVariable(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 
@@ -350,7 +350,7 @@ struct NumTraits<drake::symbolic::Variable>
 }  // namespace Eigen
 #endif  // !defined(DRAKE_DOXYGEN_CXX)
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /// Checks if two Eigen::Matrix<Variable> @p m1 and @p m2 are structurally
 /// equal. That is, it returns true if and only if `m1(i, j)` is structurally
@@ -365,4 +365,4 @@ CheckStructuralEquality(const DerivedA& m1, const DerivedB& m2) {
   return m1.binaryExpr(m2, std::equal_to<Variable>{}).all();
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

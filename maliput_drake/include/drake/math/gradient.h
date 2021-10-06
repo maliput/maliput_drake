@@ -5,7 +5,7 @@
 
 #include <Eigen/Dense>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /*
@@ -33,4 +33,4 @@ struct Gradient<Derived, Nq, 1> {
 };
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

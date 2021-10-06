@@ -7,7 +7,7 @@
 
 #include "drake/math/rotation_matrix.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename T>
@@ -232,7 +232,7 @@ void RollPitchYaw<T>::ThrowPitchAngleViolatesGimbalLockTolerance(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::math::RollPitchYaw)

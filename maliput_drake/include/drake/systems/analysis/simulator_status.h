@@ -8,7 +8,7 @@
 #include "drake/common/nice_type_name.h"
 #include "drake/systems/framework/system_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** Holds the status return value from a call to Simulator::AdvanceTo() and
@@ -136,4 +136,4 @@ class SimulatorStatus {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

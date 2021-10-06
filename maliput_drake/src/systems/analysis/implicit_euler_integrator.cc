@@ -10,7 +10,7 @@
 #include "drake/common/text_logging.h"
 #include "drake/systems/analysis/runge_kutta2_integrator.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <class T>
@@ -555,7 +555,7 @@ bool ImplicitEulerIntegrator<T>::DoImplicitIntegratorStep(const T& h) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::ImplicitEulerIntegrator)

@@ -15,7 +15,7 @@
 #include "drake/systems/framework/output_port.h"
 #include "drake/systems/framework/value_producer.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // TODO(sherm1) Output ports that simply expose existing Context objects
@@ -120,7 +120,7 @@ class LeafOutputPort final : public OutputPort<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::LeafOutputPort)

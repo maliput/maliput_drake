@@ -14,7 +14,7 @@
 #include "drake/common/random.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /** Represents a symbolic environment (mapping from a variable to a value).
  *
@@ -156,4 +156,4 @@ Environment PopulateRandomVariables(Environment env, const Variables& variables,
                                     RandomGenerator* random_generator);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

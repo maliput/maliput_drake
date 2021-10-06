@@ -2,7 +2,7 @@
 
 #include "drake/common/autodiff.h"
 
-namespace drake {
+namespace maliput::drake {
 template <typename T>
 T CalcProbabilityDensity(RandomDistribution distribution,
                          const Eigen::Ref<const VectorX<T>>& x) {
@@ -37,5 +37,5 @@ template double CalcProbabilityDensity<double>(
     RandomDistribution, const Eigen::Ref<const VectorX<double>>&);
 template AutoDiffXd CalcProbabilityDensity<AutoDiffXd>(
     RandomDistribution, const Eigen::Ref<const VectorX<AutoDiffXd>>&);
-}  // namespace drake
+}  // namespace maliput::drake
 

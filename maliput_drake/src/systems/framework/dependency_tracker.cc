@@ -4,7 +4,7 @@
 
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 namespace {
@@ -282,4 +282,4 @@ void DependencyGraph::RepairTrackerPointers(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

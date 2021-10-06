@@ -10,7 +10,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/never_destroyed.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /**
  A simple identifier class.
@@ -237,7 +237,7 @@ std::string to_string(const drake::Identifier<Tag>& id) {
   return std::to_string(id.get_value());
 }
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 

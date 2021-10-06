@@ -21,7 +21,7 @@
 #include "drake/common/random.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Represents an abstract class which is the base of concrete symbolic-formula
@@ -569,4 +569,4 @@ std::shared_ptr<const FormulaPositiveSemidefinite> to_positive_semidefinite(
     const std::shared_ptr<const FormulaCell>& f_ptr);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

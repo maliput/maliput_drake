@@ -17,7 +17,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 /** A scalar multi-variate polynomial, modeled after the msspoly in spotless.
  *
  * Polynomial represents a list of additive Monomials, each one of which is a
@@ -513,7 +513,7 @@ typedef Polynomial<double> Polynomiald;
 
 /// A column vector of polynomials; used in several optimization classes.
 typedef Eigen::Matrix<Polynomiald, Eigen::Dynamic, 1> VectorXPoly;
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::Polynomial)

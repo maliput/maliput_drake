@@ -4,7 +4,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace scalar_conversion {
 
@@ -50,13 +50,13 @@ struct Traits {
 /// type, it could specialize Traits as follows:
 ///
 /// @code
-/// namespace drake {
+/// namespace maliput::drake {
 /// namespace systems {
 /// namespace scalar_conversion {
 /// template <> struct Traits<MySystem> : public NonSymbolicTraits {};
 /// }  // namespace scalar_conversion
 /// }  // namespace systems
-/// }  // namespace drake
+/// }  // namespace maliput::drake
 /// @endcode
 struct NonSymbolicTraits {
   template <typename T, typename U>
@@ -71,13 +71,13 @@ struct NonSymbolicTraits {
 /// follows:
 ///
 /// @code
-/// namespace drake {
+/// namespace maliput::drake {
 /// namespace systems {
 /// namespace scalar_conversion {
 /// template <> struct Traits<MySystem> : public FromDoubleTraits {};
 /// }  // namespace scalar_conversion
 /// }  // namespace systems
-/// }  // namespace drake
+/// }  // namespace maliput::drake
 /// @endcode
 struct FromDoubleTraits {
   template <typename T, typename U>
@@ -104,4 +104,4 @@ struct ValueConverter<T, T> {
 
 }  // namespace scalar_conversion
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

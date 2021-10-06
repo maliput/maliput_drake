@@ -8,7 +8,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/systems/framework/state.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// DiagramState is a State, annotated with pointers to all the mutable
@@ -62,7 +62,7 @@ class DiagramState : public State<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramState)

@@ -6,7 +6,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /*
@@ -166,7 +166,7 @@ bool BogackiShampine3Integrator<T>::DoStep(const T& h) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class ::drake::systems::BogackiShampine3Integrator)

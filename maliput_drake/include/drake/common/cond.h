@@ -5,7 +5,7 @@
 
 #include "drake/common/double_overloads.h"
 
-namespace drake {
+namespace maliput::drake {
 /** @name cond
   Constructs conditional expression (similar to Lisp's cond).
 
@@ -41,4 +41,4 @@ ScalarType cond(const decltype(ScalarType() < ScalarType()) & f_cond,
   return if_then_else(f_cond, e_then, cond(rest...));
 }
 ///@}
-}  // namespace drake
+}  // namespace maliput::drake

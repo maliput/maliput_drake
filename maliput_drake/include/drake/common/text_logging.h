@@ -90,7 +90,7 @@ used by Drake might be older.)
 
 #include "drake/common/drake_copyable.h"
 
-namespace drake {
+namespace maliput::drake {
 
 #ifdef HAVE_SPDLOG
 namespace logging {
@@ -223,4 +223,4 @@ void set_log_pattern(const std::string& pattern);
 extern const char* const kSetLogPatternHelpMessage;
 
 }  // namespace logging
-}  // namespace drake
+}  // namespace maliput::drake

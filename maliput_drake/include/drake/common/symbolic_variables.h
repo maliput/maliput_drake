@@ -15,7 +15,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Represents a set of variables.
@@ -176,7 +176,7 @@ Variables operator-(Variables vars, const Variable& var);
 Variables intersect(const Variables& vars1, const Variables& vars2);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::Variables>. */

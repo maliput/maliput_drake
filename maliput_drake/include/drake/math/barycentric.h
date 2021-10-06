@@ -11,7 +11,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Represents a multi-linear function (from vector inputs to vector outputs) by
@@ -176,6 +176,6 @@ class BarycentricMesh {
 };
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 extern template class ::drake::math::BarycentricMesh<double>;

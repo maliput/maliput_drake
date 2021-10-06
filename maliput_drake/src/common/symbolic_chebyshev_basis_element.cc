@@ -7,7 +7,7 @@
 #include "drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 ChebyshevBasisElement::ChebyshevBasisElement() : PolynomialBasisElement() {}
 
@@ -248,4 +248,4 @@ std::ostream& operator<<(std::ostream& out, const ChebyshevBasisElement& m) {
   return out;
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace drake {
+namespace maliput::drake {
 
 /// Documents the argument(s) as unused, placating GCC's -Wunused-parameter
 /// warning.  This can be called within function bodies to mark that certain
@@ -50,4 +50,4 @@ namespace drake {
 template <typename ... Args>
 void unused(const Args& ...) {}
 
-}  // namespace drake
+}  // namespace maliput::drake

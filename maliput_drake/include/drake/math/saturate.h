@@ -5,7 +5,7 @@
 #include "drake/common/cond.h"
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Saturates the input `value` between upper and lower bounds. If `value` is
@@ -20,4 +20,4 @@ T1 saturate(const T1& value, const T2& low, const T3& high) {
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

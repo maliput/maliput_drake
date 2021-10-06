@@ -13,7 +13,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * MonomialBasisElement represents a monomial, a product of powers of variables
@@ -207,7 +207,7 @@ std::map<MonomialBasisElement, double> operator*(
  */
 std::map<MonomialBasisElement, double> pow(MonomialBasisElement m, int p);
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::MonomialBasisElement>. */

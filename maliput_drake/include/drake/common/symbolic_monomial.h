@@ -15,7 +15,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 
 namespace symbolic {
 
@@ -143,7 +143,7 @@ Monomial operator*(Monomial m1, const Monomial& m2);
  */
 Monomial pow(Monomial m, int p);
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::Monomial>. */

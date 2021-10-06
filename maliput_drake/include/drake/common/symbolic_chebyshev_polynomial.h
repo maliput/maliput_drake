@@ -13,7 +13,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * Represents the Chebyshev polynomial of the first kind Tₙ(x).
@@ -124,7 +124,7 @@ std::ostream& operator<<(std::ostream& out, const ChebyshevPolynomial& p);
  */
 double EvaluateChebyshevPolynomial(double var_val, int degree);
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::ChebyshevPolynomial>. */

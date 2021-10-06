@@ -13,7 +13,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::equal;
@@ -893,4 +893,4 @@ shared_ptr<const FormulaPositiveSemidefinite> to_positive_semidefinite(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

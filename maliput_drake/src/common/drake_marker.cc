@@ -1,6 +1,6 @@
 #include "drake/common/drake_marker.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 
 int drake_marker_lib_check() {
@@ -8,4 +8,4 @@ int drake_marker_lib_check() {
 }
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake

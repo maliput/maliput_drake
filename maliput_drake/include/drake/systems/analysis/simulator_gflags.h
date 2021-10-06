@@ -21,7 +21,7 @@ DECLARE_bool(simulator_use_error_control);
 DECLARE_double(simulator_target_realtime_rate);
 DECLARE_bool(simulator_publish_every_time_step);
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// Resets the integrator used to advanced the continuous time dynamics of the
@@ -47,4 +47,4 @@ std::unique_ptr<Simulator<double>> MakeSimulatorFromGflags(
     std::unique_ptr<Context<double>> context = nullptr);
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

@@ -15,7 +15,7 @@ using drake::symbolic::Expression;
 using drake::symbolic::Variable;
 using drake::trajectories::Trajectory;
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 using math::BsplineBasis;
@@ -191,4 +191,4 @@ bool BsplineTrajectory<T>::CheckInvariants() const {
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class BsplineTrajectory);
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake

@@ -13,7 +13,7 @@
 #include "drake/systems/framework/discrete_values.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// DiagramDiscreteValues is a DiscreteValues container comprised recursively of
@@ -128,7 +128,7 @@ class DiagramDiscreteValues final: public DiscreteValues<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramDiscreteValues)

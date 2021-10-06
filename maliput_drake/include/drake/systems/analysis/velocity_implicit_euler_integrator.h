@@ -9,7 +9,7 @@
 #include "drake/systems/analysis/implicit_integrator.h"
 #include "drake/systems/framework/basic_vector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /**
@@ -668,7 +668,7 @@ inline void VelocityImplicitEulerIntegrator<AutoDiffXd>::
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class ::drake::systems::VelocityImplicitEulerIntegrator)

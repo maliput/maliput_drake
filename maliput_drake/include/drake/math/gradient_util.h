@@ -9,7 +9,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/math/gradient.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <std::size_t Size>
@@ -292,4 +292,4 @@ void setSubMatrixGradient(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

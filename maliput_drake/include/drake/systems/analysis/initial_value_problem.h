@@ -12,7 +12,7 @@
 #include "drake/systems/analysis/integrator_base.h"
 #include "drake/systems/framework/context.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// A general initial value problem (or IVP) representation class, that allows
@@ -254,7 +254,7 @@ class InitialValueProblem {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::InitialValueProblem)

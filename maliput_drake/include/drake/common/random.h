@@ -8,7 +8,7 @@
 #include "drake/common/eigen_types.h"
 #include "drake/common/extract_double.h"
 
-namespace drake {
+namespace maliput::drake {
 /// Defines Drake's canonical implementation of the UniformRandomBitGenerator
 /// C++ concept (as well as a few conventional extras beyond the concept, e.g.,
 /// seeds).  This uses the 32-bit Mersenne Twister mt19937 by Matsumoto and
@@ -58,4 +58,4 @@ enum class RandomDistribution {
 template <typename T>
 T CalcProbabilityDensity(RandomDistribution distribution,
                          const Eigen::Ref<const VectorX<T>>& x);
-}  // namespace drake
+}  // namespace maliput::drake

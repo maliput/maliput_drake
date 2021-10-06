@@ -3,7 +3,7 @@
 #include <cstring>
 #include <type_traits>
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 
 /** Implements C++20 https://en.cppreference.com/w/cpp/numeric/bit_cast (but
@@ -22,4 +22,4 @@ To bit_cast(const From& from) noexcept {
 }
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake

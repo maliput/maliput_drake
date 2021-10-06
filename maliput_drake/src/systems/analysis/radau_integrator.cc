@@ -4,7 +4,7 @@
 
 #include "drake/common/autodiff.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T, int num_stages>
@@ -653,7 +653,7 @@ MatrixX<T> RadauIntegrator<T, num_stages>::CalcTensorProduct(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 // Define class template initializations for double and AutoDiffXd.
 // Note: We don't use the macros in drake/common/default_scalars.h because

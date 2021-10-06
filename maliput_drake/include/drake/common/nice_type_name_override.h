@@ -10,7 +10,7 @@ Python objects can have human-readable names.
 #include <string>
 #include <typeinfo>
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 
 // Structure for passing a type-erased pointer with RTTI.
@@ -31,4 +31,4 @@ void SetNiceTypeNamePtrOverride(NiceTypeNamePtrOverride new_ptr_override);
 const NiceTypeNamePtrOverride& GetNiceTypeNamePtrOverride();
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake

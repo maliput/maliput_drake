@@ -21,7 +21,7 @@
 #include "drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::logic_error;
@@ -1145,4 +1145,4 @@ double ExtractDoubleOrThrow(const symbolic::Expression& e) {
   return e.Evaluate();
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

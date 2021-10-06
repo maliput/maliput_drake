@@ -12,7 +12,7 @@
 #include "drake/common/symbolic_formula_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::make_shared;
@@ -393,4 +393,4 @@ const MatrixX<Expression>& get_matrix_in_positive_semidefinite(
   return to_positive_semidefinite(f)->get_matrix();
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

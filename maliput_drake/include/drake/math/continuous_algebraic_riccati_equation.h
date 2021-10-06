@@ -2,7 +2,7 @@
 
 #include <Eigen/Dense>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Computes the unique stabilizing solution S to the continuous-time algebraic
@@ -33,4 +33,4 @@ Eigen::MatrixXd ContinuousAlgebraicRiccatiEquation(
     const Eigen::LLT<Eigen::MatrixXd>& R_cholesky);
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

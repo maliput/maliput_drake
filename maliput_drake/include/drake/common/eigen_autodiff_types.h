@@ -16,7 +16,7 @@
 
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// An autodiff variable with a dynamic number of partials.
 using AutoDiffXd = Eigen::AutoDiffScalar<Eigen::VectorXd>;
@@ -35,4 +35,4 @@ using AutoDiffVecd = Eigen::Matrix<AutoDiffd<num_vars>, rows, 1>;
 /// vector of partials.
 typedef AutoDiffVecd<Eigen::Dynamic, Eigen::Dynamic> AutoDiffVecXd;
 
-}  // namespace drake
+}  // namespace maliput::drake

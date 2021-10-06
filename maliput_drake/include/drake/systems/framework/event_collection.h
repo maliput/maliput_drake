@@ -12,7 +12,7 @@
 #include "drake/systems/framework/event.h"
 #include "drake/systems/framework/state.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // TODO(siyuan): move these to a separate module doxygen file.
@@ -839,7 +839,7 @@ class DiagramCompositeEventCollection final
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::CompositeEventCollection)

@@ -18,7 +18,7 @@ using std::ostringstream;
 using std::string;
 using std::to_string;
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 Variable::Id Variable::get_next_id() {
@@ -131,4 +131,4 @@ VectorX<Variable> MakeVectorIntegerVariable(const int rows,
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

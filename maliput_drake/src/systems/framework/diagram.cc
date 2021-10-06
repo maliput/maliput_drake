@@ -11,7 +11,7 @@
 #include "drake/systems/framework/system_constraint.h"
 #include "drake/systems/framework/system_visitor.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -1623,7 +1623,7 @@ int Diagram<T>::num_subsystems() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
   class ::drake::systems::Diagram)

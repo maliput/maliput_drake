@@ -13,7 +13,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/output_port.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** (Advanced.) Holds information about a subsystem output port that has been
@@ -142,7 +142,7 @@ class DiagramOutputPort final : public OutputPort<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramOutputPort)

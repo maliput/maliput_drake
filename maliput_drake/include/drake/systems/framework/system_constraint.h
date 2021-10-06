@@ -17,7 +17,7 @@
 #include "drake/systems/framework/context.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // Break the System <=> SystemConstraint physical dependency cycle.
@@ -400,7 +400,7 @@ ExternalSystemConstraint::do_get_calc() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::SystemConstraint)

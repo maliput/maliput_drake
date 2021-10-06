@@ -4,7 +4,7 @@
 #pragma once
 
 // Putting this document in drake::systems namespace makes the links work.
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** @defgroup cache_design_notes System Cache Design and Implementation Notes
@@ -670,4 +670,4 @@ on GitHub for a checklist of caching loose ends.
 */
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

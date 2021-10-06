@@ -6,7 +6,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace internal {
 
@@ -35,4 +35,4 @@ class AbstractValueCloner final {
 
 }  // namespace internal
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

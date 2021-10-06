@@ -80,7 +80,7 @@
 # define DRAKE_ASSERT_IS_ARMED
 #endif
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 // Abort the program with an error message.
 [[noreturn]] void Abort(const char* condition, const char* func,
@@ -103,7 +103,7 @@ struct ConditionTraits {
   }
 };
 }  // namespace assert
-}  // namespace drake
+}  // namespace maliput::drake
 
 #define DRAKE_UNREACHABLE()                                             \
   ::drake::internal::Abort(                                             \
@@ -122,10 +122,10 @@ struct ConditionTraits {
 
 #ifdef DRAKE_ASSERT_IS_ARMED
 // Assertions are enabled.
-namespace drake {
+namespace maliput::drake {
 constexpr bool kDrakeAssertIsArmed = true;
 constexpr bool kDrakeAssertIsDisarmed = false;
-}  // namespace drake
+}  // namespace maliput::drake
 # define DRAKE_ASSERT(condition) DRAKE_DEMAND(condition)
 # define DRAKE_ASSERT_VOID(expression) do {                     \
     static_assert(                                              \
@@ -135,10 +135,10 @@ constexpr bool kDrakeAssertIsDisarmed = false;
   } while (0)
 #else
 // Assertions are disabled, so just typecheck the expression.
-namespace drake {
+namespace maliput::drake {
 constexpr bool kDrakeAssertIsArmed = false;
 constexpr bool kDrakeAssertIsDisarmed = true;
-}  // namespace drake
+}  // namespace maliput::drake
 # define DRAKE_ASSERT(condition) static_assert(                        \
     ::drake::assert::ConditionTraits<                                  \
         typename std::remove_cv_t<decltype(condition)>>::is_valid,     \

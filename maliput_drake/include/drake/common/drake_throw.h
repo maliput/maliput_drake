@@ -9,7 +9,7 @@
 /// unmet.  This is similar to an assertion, but uses exceptions instead of
 /// ::abort(), and cannot be disabled.
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 // Throw an error message.
 [[noreturn]] void Throw(const char* condition, const char* func,
@@ -25,7 +25,7 @@ template<>
 constexpr void DrakeThrowUnlessWasUsedWithRawPointer<true>() {}
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake
 
 /// Evaluates @p condition and iff the value is false will throw an exception
 /// with a message showing at least the condition text, function name, file,

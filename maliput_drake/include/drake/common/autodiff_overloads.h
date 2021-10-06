@@ -14,7 +14,7 @@
 /// \endcode{}
 ///
 /// @note The if_then_else and cond functions for AutoDiffScalar are in
-/// namespace drake because cond is defined in namespace drake in
+/// namespace maliput::drake because cond is defined in namespace maliput::drake in
 /// "drake/common/cond.h" file.
 
 #pragma once
@@ -151,7 +151,7 @@ pow(const Eigen::AutoDiffScalar<DerTypeA>& base,
 
 }  // namespace Eigen
 
-namespace drake {
+namespace maliput::drake {
 
 /// Returns the autodiff scalar's value() as a double.  Never throws.
 /// Overloads ExtractDoubleOrThrow from common/extract_double.h.
@@ -216,4 +216,4 @@ cond(bool f_cond, const Eigen::AutoDiffScalar<DerType>& e_then, Rest... rest) {
   return if_then_else(f_cond, e_then, cond(rest...));
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

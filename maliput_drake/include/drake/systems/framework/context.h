@@ -12,7 +12,7 @@
 #include "drake/systems/framework/parameters.h"
 #include "drake/systems/framework/state.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// %Context is an abstract class template that represents all the typed values
@@ -868,7 +868,7 @@ std::ostream& operator<<(std::ostream& os, const Context<T>& context) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::Context)

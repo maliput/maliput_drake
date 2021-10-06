@@ -7,7 +7,7 @@
 
 #include "drake/systems/analysis/simulator.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace analysis {
 
@@ -151,4 +151,4 @@ std::vector<RandomSimulationResult> MonteCarloSimulation(
 
 }  // namespace analysis
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

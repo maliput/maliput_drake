@@ -16,7 +16,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/scalar_conversion_traits.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// %DiscreteValues is a container for numerical but non-continuous state
@@ -268,4 +268,4 @@ DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiscreteValues)
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

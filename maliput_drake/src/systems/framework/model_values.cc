@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace internal {
 
@@ -34,4 +34,4 @@ std::unique_ptr<AbstractValue> ModelValues::CloneModel(int index) const {
 
 }  // namespace internal
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

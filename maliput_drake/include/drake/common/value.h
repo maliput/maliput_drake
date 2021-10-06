@@ -13,7 +13,7 @@
 #include "drake/common/is_cloneable.h"
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 
 #if !defined(DRAKE_DOXYGEN_CXX)
 template <typename T>
@@ -810,4 +810,4 @@ const std::type_info& Value<T>::static_type_info() const {
 }
 
 #endif  // DRAKE_DOXYGEN_CXX
-}  // namespace drake
+}  // namespace maliput::drake

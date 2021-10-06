@@ -10,7 +10,7 @@
 #include "drake/systems/framework/scalar_conversion_traits.h"
 #include "drake/systems/framework/vector_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // TODO(sherm1) The ordering of the composite xc is useless and prevents us
@@ -258,7 +258,7 @@ class ContinuousState {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::ContinuousState)

@@ -10,7 +10,7 @@
 #include "drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 namespace {
@@ -293,4 +293,4 @@ std::map<MonomialBasisElement, double> pow(MonomialBasisElement m, int p) {
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -34,7 +34,7 @@
 #include "drake/systems/framework/system_visitor.h"
 #include "drake/systems/framework/witness_function.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** Base class for all System functionality that is dependent on the templatized
@@ -1772,7 +1772,7 @@ class System : public SystemBase {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::System)

@@ -4,7 +4,7 @@
 
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 
 #ifndef DRAKE_DOXYGEN_CXX
 
@@ -69,6 +69,6 @@ template <typename T>
 using is_less_than_comparable =
     is_less_than_comparable_internal::is_less_than_comparable_helper<T, void>;
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 #endif

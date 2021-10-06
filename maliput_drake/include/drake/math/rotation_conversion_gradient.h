@@ -7,7 +7,7 @@
 #include "drake/math/gradient_util.h"
 #include "drake/math/normalize_vector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * Computes the gradient of the function that converts a unit length quaternion
@@ -227,4 +227,4 @@ drotmat2quat(const Eigen::MatrixBase<DerivedR>& R,
   return dq;
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

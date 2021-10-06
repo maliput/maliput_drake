@@ -16,7 +16,7 @@
 #include "drake/systems/framework/input_port_base.h"
 #include "drake/systems/framework/value_to_abstract_value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // Break the System <=> InputPort physical dependency cycle.  InputPorts are
@@ -199,7 +199,7 @@ class InputPort final : public InputPortBase {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::InputPort)

@@ -14,7 +14,7 @@
 /// Provides drake::MakeSortedPair and drake::SortedPair for storing two
 /// values of a certain type in sorted order.
 
-namespace drake {
+namespace maliput::drake {
 
 /// This class is similar to the std::pair class. However, this class uses a
 /// pair of homogeneous types (std::pair can use heterogeneous types) and sorts
@@ -166,7 +166,7 @@ MakeSortedPair(T&& x, T&& y) {
       typename std::decay<T>::type>(std::forward<T>(x), std::forward<T>(y));
 }
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 

@@ -4,7 +4,7 @@
 
 #include <Eigen/Dense>
 
-namespace drake {
+namespace maliput::drake {
 
 /// Returns true if and only if the two matrices are equal to within a certain
 /// absolute elementwise @p tolerance.  Special values (infinities, NaN, etc.)
@@ -59,4 +59,4 @@ bool IsApproxEqualAbsTolWithPermutedColumns(
 }
 
 
-}  // namespace drake
+}  // namespace maliput::drake

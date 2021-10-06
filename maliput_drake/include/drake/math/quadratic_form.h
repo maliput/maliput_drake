@@ -4,7 +4,7 @@
 
 #include <Eigen/Core>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * For a symmetric positive semidefinite matrix Y, decompose it into XᵀX, where
@@ -141,4 +141,4 @@ Eigen::MatrixXd BalanceQuadraticForms(
     const Eigen::Ref<const Eigen::MatrixXd>& P);
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

@@ -5,7 +5,7 @@
 #include "drake/systems/framework/basic_vector.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** A PortBase is base class for System ports; users will typically use the
@@ -171,4 +171,4 @@ const ValueType& PortBase::PortEvalCast(const BasicVector<T>& basic) const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

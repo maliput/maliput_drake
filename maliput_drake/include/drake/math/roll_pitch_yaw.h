@@ -11,7 +11,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename T>
@@ -672,7 +672,7 @@ inline std::ostream& operator<<(std::ostream& out, const RollPitchYaw<T>& rpy) {
 using RollPitchYawd = RollPitchYaw<double>;
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::math::RollPitchYaw)

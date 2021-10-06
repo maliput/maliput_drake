@@ -12,7 +12,7 @@
 #include "drake/common/never_destroyed.h"
 #include "drake/math/rotation_matrix.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// This class represents a proper rigid transform between two frames which can
@@ -664,7 +664,7 @@ std::ostream& operator<<(std::ostream& out, const RigidTransform<T>& X);
 using RigidTransformd = RigidTransform<double>;
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::math::RigidTransform)

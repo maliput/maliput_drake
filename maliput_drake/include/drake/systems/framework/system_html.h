@@ -4,7 +4,7 @@
 
 #include "drake/systems/framework/system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** Generates an html string to "render" the @p system, with collapsible
@@ -20,4 +20,4 @@ but will not produce any useful rendering.
 std::string GenerateHtml(const System<double>& system, int initial_depth = 1);
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

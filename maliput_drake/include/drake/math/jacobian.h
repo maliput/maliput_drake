@@ -7,7 +7,7 @@
 
 #include "drake/common/autodiff.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /** Computes a matrix of AutoDiffScalars from which both the value and
@@ -168,4 +168,4 @@ decltype(auto) hessian(F &&f, Arg &&x) {
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

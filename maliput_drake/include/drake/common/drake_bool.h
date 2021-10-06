@@ -4,7 +4,7 @@
 
 #include <Eigen/Core>
 
-namespace drake {
+namespace maliput::drake {
 
 /// A traits struct that describes the return type of predicates over a scalar
 /// type (named `T`).  For example, a predicate that evaluates `double`s will
@@ -93,4 +93,4 @@ boolean<typename Derived::Scalar> none_of(
         const typename Derived::Scalar&)>& pred) {
   return none(m.unaryExpr(pred));
 }
-}  // namespace drake
+}  // namespace maliput::drake

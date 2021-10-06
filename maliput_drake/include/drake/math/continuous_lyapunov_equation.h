@@ -5,7 +5,7 @@
 
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 // TODO(FischerGundlach) Reserve memory and pass it to recursive function
@@ -77,4 +77,4 @@ Eigen::MatrixXd SolveReducedRealContinuousLyapunovEquation(
 
 }  // namespace internal
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

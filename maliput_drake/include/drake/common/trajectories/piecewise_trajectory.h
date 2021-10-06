@@ -10,7 +10,7 @@
 #include "drake/common/default_scalars.h"
 #include "drake/common/trajectories/trajectory.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 /// Abstract class that implements the basic logic of maintaining consequent
@@ -74,7 +74,7 @@ class PiecewiseTrajectory : public Trajectory<T> {
 };
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewiseTrajectory)

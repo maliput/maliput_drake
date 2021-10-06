@@ -1,6 +1,6 @@
 #include "drake/systems/analysis/runge_kutta3_integrator.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /*
@@ -149,7 +149,7 @@ bool RungeKutta3Integrator<T>::DoStep(const T& h) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::RungeKutta3Integrator)

@@ -1,5 +1,5 @@
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // If you modify this example, be sure to update the matching unit test in
@@ -222,4 +222,4 @@ followed by continuous time and state advancement.
 */
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

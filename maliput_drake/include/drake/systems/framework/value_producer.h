@@ -10,7 +10,7 @@
 #include "drake/systems/framework/abstract_value_cloner.h"
 #include "drake/systems/framework/context_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** %ValueProducer computes an AbstractValue output based on a ContextBase
@@ -546,4 +546,4 @@ class ValueProducer final {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

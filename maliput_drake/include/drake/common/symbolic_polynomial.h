@@ -15,7 +15,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 namespace internal {
 // Compares two monomials using the lexicographic order. It is used in
@@ -363,7 +363,7 @@ operator*(const MatrixL& lhs, const MatrixR& rhs) {
 #endif
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::Polynomial>. */
@@ -471,7 +471,7 @@ EIGEN_DEVICE_FUNC inline drake::symbolic::Expression cast(
 }  // namespace Eigen
 #endif  // !defined(DRAKE_DOXYGEN_CXX)
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /// Evaluates a matrix `m` of symbolic polynomials using `env`.
 ///
@@ -497,4 +497,4 @@ MatrixX<Polynomial> Jacobian(const Eigen::Ref<const VectorX<Polynomial>>& f,
                              const Eigen::Ref<const VectorX<Variable>>& vars);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -15,7 +15,7 @@
 #include "drake/systems/framework/dependency_tracker.h"
 #include "drake/systems/framework/fixed_input_port_value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 #ifndef DRAKE_DOXYGEN_CXX
@@ -750,4 +750,4 @@ class SystemBaseContextBaseAttorney {
 #endif
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

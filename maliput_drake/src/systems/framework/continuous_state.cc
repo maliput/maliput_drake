@@ -8,7 +8,7 @@
 #include "drake/systems/framework/basic_vector.h"
 #include "drake/systems/framework/subvector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -128,7 +128,7 @@ void ContinuousState<T>::DemandInvariants() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::ContinuousState)

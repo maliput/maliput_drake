@@ -1,6 +1,6 @@
 #pragma once
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /**
@@ -14,4 +14,4 @@ http://web.mit.edu/hyperbook/Patrikalakis-Maekawa-Cho/node17.html
 enum class KnotVectorType { kUniform, kClampedUniform };
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

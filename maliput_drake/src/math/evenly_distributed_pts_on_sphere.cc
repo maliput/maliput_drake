@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 Eigen::Matrix3Xd UniformPtsOnSphereFibonacci(int num_samples) {
   if (num_samples < 1) {
@@ -22,4 +22,4 @@ Eigen::Matrix3Xd UniformPtsOnSphereFibonacci(int num_samples) {
   return pts;
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

@@ -14,7 +14,7 @@
 #include "drake/systems/framework/diagram.h"
 #include "drake/systems/framework/system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// DiagramBuilder is a factory class for Diagram.
@@ -361,7 +361,7 @@ class DiagramBuilder {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramBuilder)

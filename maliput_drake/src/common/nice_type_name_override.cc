@@ -3,7 +3,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/never_destroyed.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 
 namespace {
@@ -24,4 +24,4 @@ const NiceTypeNamePtrOverride& GetNiceTypeNamePtrOverride() {
 }
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake

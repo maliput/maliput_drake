@@ -14,7 +14,7 @@
 #include "drake/common/type_safe_index.h"
 #include "drake/common/value.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // These types and utility methods are shared among the framework classes. In
@@ -335,4 +335,4 @@ bool IsNonNull(const std::vector<PtrType>& pointers) {
 #endif
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

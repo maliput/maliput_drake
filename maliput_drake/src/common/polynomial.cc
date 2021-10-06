@@ -19,7 +19,7 @@ using std::runtime_error;
 using std::string;
 using std::vector;
 
-namespace drake {
+namespace maliput::drake {
 template <typename T>
 bool Polynomial<T>::Monomial::HasSameExponents(
     const Monomial& other) const {
@@ -288,7 +288,7 @@ Polynomial<T> Polynomial<T>::Substitute(
     }
   }
   return p;
-}  // namespace drake
+}  // namespace maliput::drake
 
 template <typename T>
 Polynomial<T> Polynomial<T>::Derivative(
@@ -862,7 +862,7 @@ Polynomial<T> Polynomial<T>::FromExpression(const Expression& e) {
 // template class Polynomial<std::complex<double>>;
 // doesn't work yet because the roots solver can't handle it
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::Polynomial)

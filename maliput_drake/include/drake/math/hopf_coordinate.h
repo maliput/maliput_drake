@@ -15,7 +15,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * Transforms Hopf coordinates to a quaternion w, x, y, z as
@@ -76,4 +76,4 @@ Vector3<T> QuaternionToHopfCoordinate(const Eigen::Quaternion<T>& quaternion) {
   return Vector3<T>(theta, phi, psi);
 }
 }  // namespace math.
-}  // namespace drake
+}  // namespace maliput::drake

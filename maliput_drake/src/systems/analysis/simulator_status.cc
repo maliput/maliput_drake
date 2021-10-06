@@ -5,7 +5,7 @@
 
 #include <fmt/format.h>
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** Returns a human-readable message explaining the return result. */
@@ -48,6 +48,6 @@ std::string SimulatorStatus::FormatMessage() const {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 

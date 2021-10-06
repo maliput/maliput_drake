@@ -11,7 +11,7 @@
 #include "drake/systems/framework/basic_vector.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 // Forward declare for friendship below. Only System<T> may ever create
@@ -105,7 +105,7 @@ class SystemOutput {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::SystemOutput)

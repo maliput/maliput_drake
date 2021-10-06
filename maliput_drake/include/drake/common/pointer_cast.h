@@ -7,7 +7,7 @@
 
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// Casts the object owned by the std::unique_ptr `other` from type `U` to `T`;
 /// no runtime type checking is performed.
@@ -73,4 +73,4 @@ std::unique_ptr<T> dynamic_pointer_cast_or_throw(std::unique_ptr<U>&& other) {
   return std::unique_ptr<T>(result);
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

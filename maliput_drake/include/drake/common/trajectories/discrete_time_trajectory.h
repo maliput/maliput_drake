@@ -12,7 +12,7 @@
 #include "drake/common/trajectories/piecewise_polynomial.h"
 #include "drake/common/trajectories/trajectory.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 /** A DiscreteTimeTrajectory is a Trajectory whose value is only defined at
@@ -133,7 +133,7 @@ class DiscreteTimeTrajectory final : public Trajectory<T> {
 };
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::DiscreteTimeTrajectory)

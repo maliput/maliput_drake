@@ -11,7 +11,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /// Visitor class for code generation.
@@ -333,4 +333,4 @@ std::string CodeGen(
 /// @} End of codegen group.
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

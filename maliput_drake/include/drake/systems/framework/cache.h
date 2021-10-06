@@ -19,7 +19,7 @@ values. */
 #include "drake/common/value.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 class DependencyGraph;
@@ -781,4 +781,4 @@ class Cache {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

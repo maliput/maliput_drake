@@ -14,7 +14,7 @@
 #include "drake/systems/framework/basic_vector.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 class ContextBase;
@@ -195,4 +195,4 @@ class ContextBaseFixedInputAttorney {
 #endif
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

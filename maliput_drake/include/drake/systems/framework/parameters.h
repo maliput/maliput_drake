@@ -9,7 +9,7 @@
 #include "drake/systems/framework/abstract_values.h"
 #include "drake/systems/framework/discrete_values.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// Parameters is a container for variables that parameterize a System so
@@ -171,7 +171,7 @@ class Parameters {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::Parameters)

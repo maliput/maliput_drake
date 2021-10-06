@@ -15,7 +15,7 @@
 #include "drake/common/nice_type_name.h"
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// VectorBase is an abstract base class that real-valued signals
@@ -264,7 +264,7 @@ std::ostream& operator<<(std::ostream& os, const VectorBase<T>& vec) {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::VectorBase)

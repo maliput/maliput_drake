@@ -7,7 +7,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/systems/analysis/integrator_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /**
@@ -91,7 +91,7 @@ class RungeKutta3Integrator final : public IntegratorBase<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::RungeKutta3Integrator)

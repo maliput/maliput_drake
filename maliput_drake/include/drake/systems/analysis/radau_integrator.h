@@ -9,7 +9,7 @@
 #include "drake/systems/analysis/implicit_integrator.h"
 #include "drake/systems/analysis/runge_kutta2_integrator.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /**
@@ -312,7 +312,7 @@ template <typename T>
 using Radau1Integrator = RadauIntegrator<T, 1>;
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 // Declare class template initializations for double and AutoDiffXd.
 // Note: We don't use the macros in drake/common/default_scalars.h because

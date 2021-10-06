@@ -10,7 +10,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /// Calls visitor object @p v with a polynomial symbolic-expression @p e, and
@@ -175,4 +175,4 @@ Result VisitExpression(Visitor* v, const Expression& e, Args&&... args) {
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

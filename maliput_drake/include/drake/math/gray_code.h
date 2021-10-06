@@ -4,7 +4,7 @@
 
 #include "drake/common/drake_assert.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * GrayCodesMatrix::type returns an Eigen matrix of integers. The size of this
@@ -58,4 +58,4 @@ CalculateReflectedGrayCodes(int num_digits = NumDigits) {
  */
 int GrayCodeToInteger(const Eigen::Ref<const Eigen::VectorXi>& gray_code);
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

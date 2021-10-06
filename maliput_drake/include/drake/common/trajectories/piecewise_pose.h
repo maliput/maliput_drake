@@ -10,7 +10,7 @@
 #include "drake/common/trajectories/piecewise_trajectory.h"
 #include "drake/math/rigid_transform.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 /**
@@ -115,7 +115,7 @@ class PiecewisePose final : public PiecewiseTrajectory<T> {
 };
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewisePose)

@@ -7,7 +7,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 PortBase::PortBase(
@@ -52,4 +52,4 @@ void PortBase::ThrowBadCast(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

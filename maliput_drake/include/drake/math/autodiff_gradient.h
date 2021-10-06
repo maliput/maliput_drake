@@ -13,7 +13,7 @@
 #include "drake/math/autodiff.h"
 #include "drake/math/gradient.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename Derived>
@@ -211,4 +211,4 @@ DiscardZeroGradient(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

@@ -11,7 +11,7 @@
 // TODO(soonho-tri): Migrate the functions in drake/solvers:symbolic_extract to
 // this file.
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Decomposes @p expressions into @p M * @p vars.
@@ -172,4 +172,4 @@ DecomposeLumpedParameters(
     const Eigen::Ref<const VectorX<Expression>>& f,
     const Eigen::Ref<const VectorX<Variable>>& parameters);
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

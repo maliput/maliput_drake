@@ -20,7 +20,7 @@
 #include "drake/systems/framework/output_port_base.h"
 #include "drake/systems/framework/value_producer.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** Provides non-templatized functionality shared by the templatized System
@@ -1420,4 +1420,4 @@ CacheEntry& SystemBase::DeclareCacheEntry(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

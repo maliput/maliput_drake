@@ -12,7 +12,7 @@
 #include "drake/common/polynomial.h"
 #include "drake/common/trajectories/piecewise_trajectory.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace trajectories {
 
 /**
@@ -852,7 +852,7 @@ class PiecewisePolynomial final : public PiecewiseTrajectory<T> {
 };
 
 }  // namespace trajectories
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::trajectories::PiecewisePolynomial)

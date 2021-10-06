@@ -12,7 +12,7 @@
 #include "drake/systems/analysis/scalar_dense_output.h"
 #include "drake/systems/analysis/scalar_initial_value_problem.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// A thin wrapper of the ScalarInitialValueProblem class that, in concert with
@@ -208,7 +208,7 @@ class AntiderivativeFunction {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class ::drake::systems::AntiderivativeFunction)

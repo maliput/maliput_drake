@@ -1,6 +1,6 @@
 #include "drake/systems/framework/system_constraint.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 namespace {
@@ -54,7 +54,7 @@ SystemConstraintBounds::SystemConstraintBounds(int size)
       upper_(Eigen::VectorXd::Zero(size_)) {}
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::SystemConstraint)

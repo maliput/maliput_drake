@@ -11,7 +11,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * ChebyshevBasisElement represents an element of Chebyshev polynomial basis,
@@ -135,7 +135,7 @@ std::map<ChebyshevBasisElement, double> operator*(
 
 std::ostream& operator<<(std::ostream& out, const ChebyshevBasisElement& m);
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::ChebyshevBasisElement>. */

@@ -16,7 +16,7 @@
 #include "drake/common/trajectories/piecewise_polynomial.h"
 #include "drake/systems/analysis/stepwise_dense_output.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 namespace internal {
@@ -420,7 +420,7 @@ class HermitianDenseOutput final : public StepwiseDenseOutput<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class drake::systems::HermitianDenseOutput)

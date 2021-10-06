@@ -23,7 +23,7 @@ using std::set;
 using std::set_intersection;
 using std::string;
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 Variables::Variables(std::initializer_list<Variable> init) : vars_(init) {}
@@ -150,4 +150,4 @@ ostream& operator<<(ostream& os, const Variables& vars) {
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -1,6 +1,6 @@
 #include "drake/systems/framework/leaf_output_port.h"
 
-namespace drake::systems {
+namespace maliput::drake::systems {
 
 template <typename T>
 void LeafOutputPort<T>::ThrowIfInvalidPortValueType(
@@ -18,7 +18,7 @@ void LeafOutputPort<T>::ThrowIfInvalidPortValueType(
   }
 }
 
-}  // namespace drake::systems
+}  // namespace maliput::drake::systems
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::LeafOutputPort)

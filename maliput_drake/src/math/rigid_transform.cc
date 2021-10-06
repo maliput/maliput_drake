@@ -1,6 +1,6 @@
 #include "drake/math/rigid_transform.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename T>
@@ -28,7 +28,7 @@ DRAKE_DEFINE_FUNCTION_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS((
 ))
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::math::RigidTransform)

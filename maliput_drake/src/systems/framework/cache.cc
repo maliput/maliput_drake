@@ -5,7 +5,7 @@
 
 #include "drake/systems/framework/dependency_tracker.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 std::string CacheEntryValue::GetPathDescription() const {
@@ -135,4 +135,4 @@ void Cache::RepairCachePointers(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

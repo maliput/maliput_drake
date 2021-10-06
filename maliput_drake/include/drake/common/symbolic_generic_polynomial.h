@@ -13,7 +13,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 /**
  * Represents symbolic generic polynomials using a given basis (for example,
@@ -520,7 +520,7 @@ std::ostream& operator<<(std::ostream& os,
 extern template class GenericPolynomial<MonomialBasisElement>;
 extern template class GenericPolynomial<ChebyshevBasisElement>;
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::GenericPolynomial<BasisElement>>. */

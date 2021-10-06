@@ -4,7 +4,7 @@
 
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 enum class NumericalGradientMethod {
@@ -175,4 +175,4 @@ ComputeNumericalGradient(
   return J;
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

@@ -6,7 +6,7 @@
 #include "drake/common/text_logging.h"
 #include "drake/systems/analysis/runge_kutta3_integrator.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -723,7 +723,7 @@ void Simulator<T>::ResetStatistics() {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::Simulator)

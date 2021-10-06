@@ -14,7 +14,7 @@
 #include "drake/systems/framework/scalar_conversion_traits.h"
 #include "drake/systems/framework/system_type_tag.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T> class System;
@@ -298,4 +298,4 @@ void SystemScalarConverter::MaybeAddConstructor() {
 #endif  // DRAKE_DOXYGEN_CXX
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

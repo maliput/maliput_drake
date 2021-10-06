@@ -4,7 +4,7 @@
 
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Given ᴮd/dt(v) (the time derivative in frame B of an arbitrary 3D vector v)
@@ -49,4 +49,4 @@ Vector3<typename v_Type::Scalar> ConvertTimeDerivativeToOtherFrame(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

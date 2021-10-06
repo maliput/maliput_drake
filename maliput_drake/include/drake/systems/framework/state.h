@@ -10,7 +10,7 @@
 #include "drake/systems/framework/continuous_state.h"
 #include "drake/systems/framework/discrete_values.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// %State is a container for all the data comprising the
@@ -138,7 +138,7 @@ class State {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::State)

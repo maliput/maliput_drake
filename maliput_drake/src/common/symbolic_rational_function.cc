@@ -2,7 +2,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 RationalFunction::RationalFunction()
     : numerator_{} /* zero polynomial */, denominator_{1} {}
@@ -219,4 +219,4 @@ RationalFunction pow(const RationalFunction& f, int n) {
   }
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

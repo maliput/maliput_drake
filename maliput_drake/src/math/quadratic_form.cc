@@ -8,7 +8,7 @@
 
 #include "drake/math/matrix_util.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 Eigen::MatrixXd DecomposePSDmatrixIntoXtransposeTimesX(
     const Eigen::Ref<const Eigen::MatrixXd>& Y, double zero_tol) {
@@ -95,4 +95,4 @@ Eigen::MatrixXd BalanceQuadraticForms(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

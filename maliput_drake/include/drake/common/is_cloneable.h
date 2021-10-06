@@ -3,7 +3,7 @@
 #include <memory>
 #include <type_traits>
 
-namespace drake {
+namespace maliput::drake {
 
 /** @cond */
 
@@ -82,4 +82,4 @@ template <typename T>
 using is_cloneable =
     is_cloneable_internal::is_cloneable_helper<T, void>;
 
-}  // namespace drake
+}  // namespace maliput::drake

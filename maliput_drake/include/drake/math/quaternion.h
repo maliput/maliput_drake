@@ -22,7 +22,7 @@
 #include "drake/common/is_approx_equal_abstol.h"
 #include "drake/math/rotation_matrix.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /**
@@ -391,4 +391,4 @@ Eigen::AngleAxis<T> QuaternionToAngleAxisLikeEigen(
 }  // namespace internal
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

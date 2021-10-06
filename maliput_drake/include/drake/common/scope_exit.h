@@ -6,7 +6,7 @@
 #include "drake/common/drake_copyable.h"
 #include "drake/common/drake_throw.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// Helper class to create a scope exit guard -- an object that when destroyed
 /// runs `func`.  This is useful to apply RAII to third-party code that only
@@ -58,4 +58,4 @@ class ScopeExit final {
   std::function<void()> func_;
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

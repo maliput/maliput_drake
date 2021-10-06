@@ -9,7 +9,7 @@
 #include "drake/common/value.h"
 #include "drake/systems/framework/basic_vector.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace internal {
 
@@ -68,4 +68,4 @@ void CheckVectorValueInvariants(const AbstractValue* abstract_value) {
 
 }  // namespace internal
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

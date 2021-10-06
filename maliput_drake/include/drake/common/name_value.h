@@ -47,7 +47,7 @@ class overview.
 @}
 */
 
-namespace drake {
+namespace maliput::drake {
 
 /// A basic implementation of the Name-Value Pair concept as used in the
 /// Serialize / Archive pattern.  See, for example:
@@ -94,7 +94,7 @@ NameValue<T> MakeNameValue(const char* name, T* value) {
   return NameValue<T>(name, value);
 }
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 /// Creates a NameValue pair for an lvalue `x`.
 #define DRAKE_NVP(x) ::drake::MakeNameValue(#x, &(x))

@@ -4,7 +4,7 @@
 
 #include <Eigen/SparseCore>
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /**
  * For a sparse matrix, return a vector of triplets, such that we can
@@ -82,4 +82,4 @@ void SparseMatrixToRowColumnValueVectors(
   }
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

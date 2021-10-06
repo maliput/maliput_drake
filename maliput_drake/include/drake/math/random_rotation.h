@@ -10,7 +10,7 @@
 #include "drake/math/quaternion.h"
 #include "drake/math/roll_pitch_yaw.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 /// Generates a rotation (in the quaternion representation) that rotates a
@@ -72,4 +72,4 @@ Vector3<T> UniformlyRandomRPY(Generator* generator) {
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

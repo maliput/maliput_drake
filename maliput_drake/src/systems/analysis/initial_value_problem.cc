@@ -7,7 +7,7 @@
 #include "drake/systems/framework/continuous_state.h"
 #include "drake/systems/framework/leaf_system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 namespace {
 
@@ -263,7 +263,7 @@ std::unique_ptr<DenseOutput<T>> InitialValueProblem<T>::DenseSolve(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::InitialValueProblem)

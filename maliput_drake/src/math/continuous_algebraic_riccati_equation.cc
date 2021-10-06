@@ -3,7 +3,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/is_approx_equal_abstol.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 Eigen::MatrixXd ContinuousAlgebraicRiccatiEquation(
@@ -79,4 +79,4 @@ Eigen::MatrixXd ContinuousAlgebraicRiccatiEquation(
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

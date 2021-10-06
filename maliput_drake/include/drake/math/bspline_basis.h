@@ -10,7 +10,7 @@
 #include "drake/common/name_value.h"
 #include "drake/math/knot_vector_type.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /** Given a set of non-descending breakpoints t₀ ≤ t₁ ≤ ⋅⋅⋅ ≤ tₘ, a B-spline
 basis of order k is a set of n + 1 (where n = m - k) piecewise polynomials of
@@ -210,4 +210,4 @@ class BsplineBasis final {
   std::vector<T> knots_;
 };
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

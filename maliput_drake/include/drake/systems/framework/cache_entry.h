@@ -12,7 +12,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/value_producer.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** A %CacheEntry belongs to a System and represents the properties of one of
@@ -384,4 +384,4 @@ class CacheEntry {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

@@ -9,7 +9,7 @@
 #include "drake/systems/framework/continuous_state.h"
 #include "drake/systems/framework/vector_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// %DiagramContinuousState is a ContinuousState consisting of Supervectors
@@ -110,7 +110,7 @@ class DiagramContinuousState final: public ContinuousState<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramContinuousState)

@@ -8,7 +8,7 @@
 #include "drake/systems/framework/framework_common.h"
 #include "drake/systems/framework/port_base.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** An InputPort is a System resource that describes the kind of input a
@@ -102,4 +102,4 @@ class InputPortBase : public PortBase {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

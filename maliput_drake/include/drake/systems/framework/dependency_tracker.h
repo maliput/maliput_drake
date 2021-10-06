@@ -17,7 +17,7 @@ trackers. */
 #include "drake/systems/framework/cache.h"
 #include "drake/systems/framework/framework_common.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 class DependencyGraph;  // defined below
@@ -574,4 +574,4 @@ class DependencyGraph {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

@@ -2,7 +2,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 Eigen::Matrix<Monomial, Eigen::Dynamic, 1> MonomialBasis(const Variables& vars,
                                                          const int degree) {
@@ -22,4 +22,4 @@ Eigen::Matrix<Monomial, Eigen::Dynamic, 1> OddDegreeMonomialBasis(
       vars, degree, internal::DegreeType::kOdd);
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -16,7 +16,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Implements Graded reverse lexicographic order.
@@ -246,4 +246,4 @@ Eigen::Matrix<Monomial, Eigen::Dynamic, 1> OddDegreeMonomialBasis(
     const Variables& vars, int degree);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

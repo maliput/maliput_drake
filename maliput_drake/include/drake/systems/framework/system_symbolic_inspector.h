@@ -10,7 +10,7 @@
 #include "drake/common/symbolic.h"
 #include "drake/systems/framework/system.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// The SystemSymbolicInspector uses symbolic::Expressions to analyze various
@@ -169,4 +169,4 @@ class SystemSymbolicInspector {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

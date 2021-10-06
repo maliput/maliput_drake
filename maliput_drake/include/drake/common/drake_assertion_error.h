@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace drake {
+namespace maliput::drake {
 namespace internal {
 
 // This is what DRAKE_ASSERT and DRAKE_DEMAND throw when our assertions are
@@ -15,4 +15,4 @@ class assertion_error : public std::runtime_error {
 };
 
 }  // namespace internal
-}  // namespace drake
+}  // namespace maliput::drake

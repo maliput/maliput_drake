@@ -5,7 +5,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /// A pattern is an expression which possibly includes variables which represent
@@ -55,4 +55,4 @@ using Rewriter = std::function<Expression(const Expression&)>;
 Rewriter MakeRuleRewriter(const RewritingRule& r);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

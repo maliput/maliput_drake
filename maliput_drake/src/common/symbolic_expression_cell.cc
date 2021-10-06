@@ -20,7 +20,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 using std::accumulate;
@@ -2374,4 +2374,4 @@ ExpressionUninterpretedFunction& to_uninterpreted_function(
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

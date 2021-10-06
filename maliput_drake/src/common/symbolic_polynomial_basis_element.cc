@@ -10,7 +10,7 @@
 
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 namespace {
 std::map<Variable, int> ToVarToDegreeMap(
@@ -194,4 +194,4 @@ void PolynomialBasisElement::DoMergeBasisElementInPlace(
   total_degree_ += other.total_degree_;
 }
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

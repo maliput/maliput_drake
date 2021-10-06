@@ -16,7 +16,7 @@ using std::ostringstream;
 using std::pair;
 using std::runtime_error;
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 namespace {
 using MonomialBasisMapType = GenericPolynomial<MonomialBasisElement>::MapType;
@@ -850,4 +850,4 @@ Formula GenericPolynomial<BasisElement>::operator!=(
 template class GenericPolynomial<MonomialBasisElement>;
 template class GenericPolynomial<ChebyshevBasisElement>;
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

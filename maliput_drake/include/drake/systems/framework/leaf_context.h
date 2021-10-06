@@ -6,7 +6,7 @@
 #include "drake/common/default_scalars.h"
 #include "drake/systems/framework/context.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /** %LeafContext contains all prerequisite data necessary to uniquely determine
@@ -84,7 +84,7 @@ class LeafContext : public Context<T> {
 };
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::LeafContext)

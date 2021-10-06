@@ -12,7 +12,7 @@ using std::pair;
 using std::type_index;
 using std::type_info;
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 SystemScalarConverter::Key::Key(
@@ -86,4 +86,4 @@ DRAKE_DEFINE_FUNCTION_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS((
 ))
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

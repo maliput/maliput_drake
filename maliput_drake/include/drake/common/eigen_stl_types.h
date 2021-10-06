@@ -14,7 +14,7 @@
 #include <Eigen/Core>
 #include <Eigen/StdVector>
 
-namespace drake {
+namespace maliput::drake {
 
 /// A std::map that uses Eigen::aligned_allocator so that the
 /// contained types may be fixed-size Eigen values.
@@ -35,4 +35,4 @@ using eigen_aligned_std_unordered_map =
 template <typename T>
 using eigen_aligned_std_vector = std::vector<T, Eigen::aligned_allocator<T>>;
 
-}  // namespace drake
+}  // namespace maliput::drake

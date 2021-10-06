@@ -13,7 +13,7 @@
 #include "drake/common/autodiff.h"
 #include "drake/common/unused.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 
 template <typename Derived>
@@ -325,4 +325,4 @@ initializeAutoDiffTuple(const Eigen::MatrixBase<Deriveds>&... args) {
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

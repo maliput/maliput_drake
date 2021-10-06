@@ -9,7 +9,7 @@
 #include "drake/common/drake_assert.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /// Calls visitor object @p v with a symbolic formula @p f, and arguments @p
@@ -60,4 +60,4 @@ Result VisitFormula(Visitor* v, const Formula& f, Args&&... args) {
 }
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

@@ -8,7 +8,7 @@
 #include "drake/common/unused.h"
 #include "drake/systems/framework/system_visitor.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -1215,7 +1215,7 @@ void System<T>::AddExternalConstraints(
   }
 }
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::System)

@@ -16,7 +16,7 @@
 //     "first place where this tool attempts to look. This flag cannot be used "
 //     "in combination with the other flags.");
 
-// namespace drake {
+// namespace maliput::drake {
 // namespace {
 
 // int main(int argc, char* argv[]) {
@@ -52,7 +52,7 @@
 // }
 
 // }  // namespace
-// }  // namespace drake
+// }  // namespace maliput::drake
 
 // int main(int argc, char* argv[]) {
 //   return drake::main(argc, argv);

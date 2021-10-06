@@ -24,7 +24,7 @@
 #include "drake/common/random.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 // Checks if @p v contains an integer value.
@@ -833,4 +833,4 @@ bool is_if_then_else(const ExpressionCell& c);
 bool is_uninterpreted_function(const ExpressionCell& c);
 
 }  // namespace symbolic
-}  // namespace drake
+}  // namespace maliput::drake

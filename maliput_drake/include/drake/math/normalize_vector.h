@@ -5,7 +5,7 @@
 #include "drake/math/gradient.h"
 #include "drake/math/gradient_util.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /** Computes the normalized vector, optionally with its gradient and second
 derivative.
@@ -57,4 +57,4 @@ void NormalizeVector(
   }
 }
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

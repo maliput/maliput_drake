@@ -3,7 +3,7 @@
 #include "drake/systems/framework/diagram_continuous_state.h"
 #include "drake/systems/framework/diagram_discrete_values.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <typename T>
@@ -45,7 +45,7 @@ void DiagramState<T>::Finalize() {
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::drake::systems::DiagramState)

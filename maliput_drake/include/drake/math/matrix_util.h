@@ -10,7 +10,7 @@
 #include "drake/common/drake_throw.h"
 #include "drake/common/eigen_types.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace math {
 /// Determines if a matrix is symmetric. If std::equal_to<>()(matrix(i, j),
 /// matrix(j, i)) is true for all i, j, then the matrix is symmetric.
@@ -152,4 +152,4 @@ bool IsPositiveDefinite(const Eigen::MatrixBase<Derived>& matrix,
 }
 
 }  // namespace math
-}  // namespace drake
+}  // namespace maliput::drake

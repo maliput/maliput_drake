@@ -8,7 +8,7 @@
 #include "drake/common/text_logging.h"
 #include "drake/math/autodiff_gradient.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 template <class T>
@@ -451,7 +451,7 @@ bool ImplicitIntegrator<T>::MaybeFreshenMatrices(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::ImplicitIntegrator)

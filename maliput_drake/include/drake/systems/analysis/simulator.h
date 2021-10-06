@@ -20,7 +20,7 @@
 #include "drake/systems/framework/system.h"
 #include "drake/systems/framework/witness_function.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 /// @ingroup simulation
@@ -916,7 +916,7 @@ T GetPreviousNormalizedValue(const T& value) {
 #endif
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
     class drake::systems::Simulator)

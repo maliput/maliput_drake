@@ -8,7 +8,7 @@
 
 #include "drake/common/never_destroyed.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /** @brief Obtains canonicalized, platform-independent, human-readable names for
 arbitrarily-complicated C++ types.
@@ -112,4 +112,4 @@ class NiceTypeName {
       const void* ptr, const std::type_info& info);
 };
 
-}  // namespace drake
+}  // namespace maliput::drake

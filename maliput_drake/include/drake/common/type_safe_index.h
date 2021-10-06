@@ -9,7 +9,7 @@
 #include "drake/common/hash.h"
 #include "drake/common/nice_type_name.h"
 
-namespace drake {
+namespace maliput::drake {
 
 /// A type-safe non-negative index class.
 ///
@@ -576,7 +576,7 @@ operator>=(const U& value, const TypeSafeIndex<Tag>& tag) {
   return tag < value;
 }
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 

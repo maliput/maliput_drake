@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace drake {
+namespace maliput::drake {
 /// Provides if-then-else expression for double. The value returned by the
 /// if-then-else expression is @p v_then if @p f_cond is @c true. Otherwise, it
 /// returns @p v_else.
@@ -18,4 +18,4 @@ inline double if_then_else(bool f_cond, double v_then, double v_else) {
   return f_cond ? v_then : v_else;
 }
 
-}  // namespace drake
+}  // namespace maliput::drake

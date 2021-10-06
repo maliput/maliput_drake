@@ -15,7 +15,7 @@ std::string FmtFunc(const char* func) {
 
 }
 
-namespace drake {
+namespace maliput::drake {
 namespace systems {
 
 SystemBase::~SystemBase() {}
@@ -306,4 +306,4 @@ void SystemBase::ThrowNotCreatedForThisSystemImpl(
 }
 
 }  // namespace systems
-}  // namespace drake
+}  // namespace maliput::drake

@@ -21,7 +21,7 @@
 #include "drake/common/random.h"
 #include "drake/common/symbolic.h"
 
-namespace drake {
+namespace maliput::drake {
 namespace symbolic {
 
 /** Kinds of symbolic formulas. */
@@ -1118,7 +1118,7 @@ struct ConditionTraits<symbolic::Formula> {
 };
 }  // namespace assert
 
-}  // namespace drake
+}  // namespace maliput::drake
 
 namespace std {
 /* Provides std::hash<drake::symbolic::Formula>. */
