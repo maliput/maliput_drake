@@ -1,11 +1,11 @@
-#include "drake/systems/framework/leaf_system.h"
+#include "maliput/drake/systems/framework/leaf_system.h"
 
 #include <cmath>
 #include <limits>
 
-#include "drake/common/pointer_cast.h"
-#include "drake/systems/framework/system_symbolic_inspector.h"
-#include "drake/systems/framework/value_checker.h"
+#include "maliput/drake/common/pointer_cast.h"
+#include "maliput/drake/systems/framework/system_symbolic_inspector.h"
+#include "maliput/drake/systems/framework/value_checker.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-#include "drake/common/unused.h"
+#include "maliput/drake/common/unused.h"
 
 namespace maliput::drake {
 

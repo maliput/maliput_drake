@@ -1,4 +1,4 @@
-#include "drake/common/drake_marker.h"
+#include "maliput/drake/common/drake_marker.h"
 
 namespace maliput::drake {
 namespace internal {

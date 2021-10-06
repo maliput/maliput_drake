@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <utility>
 
-#include "drake/common/eigen_types.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/symbolic.h"
 
 // TODO(soonho-tri): Migrate the functions in drake/solvers:symbolic_extract to
 // this file.

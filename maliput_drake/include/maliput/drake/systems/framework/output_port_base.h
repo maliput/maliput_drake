@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/port_base.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/port_base.h"
 
 namespace maliput::drake {
 namespace systems {

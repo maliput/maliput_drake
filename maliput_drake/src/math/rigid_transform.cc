@@ -1,4 +1,4 @@
-#include "drake/math/rigid_transform.h"
+#include "maliput/drake/math/rigid_transform.h"
 
 namespace maliput::drake {
 namespace math {

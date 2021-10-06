@@ -10,8 +10,8 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/unused.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/unused.h"
 
 namespace maliput::drake {
 namespace math {

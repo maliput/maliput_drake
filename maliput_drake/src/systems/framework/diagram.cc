@@ -1,15 +1,15 @@
-#include "drake/systems/framework/diagram.h"
+#include "maliput/drake/systems/framework/diagram.h"
 
 #include <limits>
 #include <set>
 #include <stdexcept>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/text_logging.h"
-#include "drake/systems/framework/abstract_value_cloner.h"
-#include "drake/systems/framework/subvector.h"
-#include "drake/systems/framework/system_constraint.h"
-#include "drake/systems/framework/system_visitor.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/systems/framework/abstract_value_cloner.h"
+#include "maliput/drake/systems/framework/subvector.h"
+#include "maliput/drake/systems/framework/system_constraint.h"
+#include "maliput/drake/systems/framework/system_visitor.h"
 
 namespace maliput::drake {
 namespace systems {

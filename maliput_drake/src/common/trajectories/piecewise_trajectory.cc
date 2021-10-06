@@ -1,10 +1,10 @@
-#include "drake/common/trajectories/piecewise_trajectory.h"
+#include "maliput/drake/common/trajectories/piecewise_trajectory.h"
 
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 using std::uniform_real_distribution;
 using std::vector;

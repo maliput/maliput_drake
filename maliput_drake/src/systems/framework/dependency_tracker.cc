@@ -1,8 +1,8 @@
-#include "drake/systems/framework/dependency_tracker.h"
+#include "maliput/drake/systems/framework/dependency_tracker.h"
 
 #include <algorithm>
 
-#include "drake/common/unused.h"
+#include "maliput/drake/common/unused.h"
 
 namespace maliput::drake {
 namespace systems {

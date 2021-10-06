@@ -1,10 +1,10 @@
-#include "drake/systems/framework/value_producer.h"
+#include "maliput/drake/systems/framework/value_producer.h"
 
 #include <stdexcept>
 
 #include <fmt/format.h>
 
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 namespace maliput::drake {
 namespace systems {

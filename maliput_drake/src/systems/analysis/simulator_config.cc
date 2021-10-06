@@ -1,1 +1,1 @@
-#include "drake/systems/analysis/simulator_config.h"
+#include "maliput/drake/systems/analysis/simulator_config.h"

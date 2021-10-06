@@ -1,6 +1,6 @@
-#include "drake/systems/framework/context.h"
+#include "maliput/drake/systems/framework/context.h"
 
-#include "drake/common/pointer_cast.h"
+#include "maliput/drake/common/pointer_cast.h"
 
 namespace maliput::drake {
 namespace systems {

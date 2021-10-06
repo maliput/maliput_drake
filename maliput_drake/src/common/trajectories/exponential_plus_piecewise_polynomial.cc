@@ -1,4 +1,4 @@
-#include "drake/common/trajectories/exponential_plus_piecewise_polynomial.h"
+#include "maliput/drake/common/trajectories/exponential_plus_piecewise_polynomial.h"
 
 #include <memory>
 

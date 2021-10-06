@@ -1,8 +1,8 @@
-#include "drake/systems/framework/abstract_values.h"
+#include "maliput/drake/systems/framework/abstract_values.h"
 
 #include <utility>
 
-#include "drake/common/autodiff.h"
+#include "maliput/drake/common/autodiff.h"
 
 namespace maliput::drake {
 namespace systems {

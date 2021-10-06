@@ -2,7 +2,7 @@
 
 // #include <gflags/gflags.h>
 
-// #include "drake/common/find_resource.h"
+// #include "maliput/drake/common/find_resource.h"
 
 // DEFINE_string(
 //     print_resource_path, "",

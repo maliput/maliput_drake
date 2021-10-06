@@ -3,12 +3,12 @@
 #include <memory>
 #include <vector>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/trajectories/piecewise_polynomial.h"
-#include "drake/common/trajectories/piecewise_quaternion.h"
-#include "drake/common/trajectories/piecewise_trajectory.h"
-#include "drake/math/rigid_transform.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/trajectories/piecewise_polynomial.h"
+#include "maliput/drake/common/trajectories/piecewise_quaternion.h"
+#include "maliput/drake/common/trajectories/piecewise_trajectory.h"
+#include "maliput/drake/math/rigid_transform.h"
 
 namespace maliput::drake {
 namespace trajectories {

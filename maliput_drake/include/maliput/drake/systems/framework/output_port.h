@@ -8,17 +8,17 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/nice_type_name.h"
-#include "drake/common/type_safe_index.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/context.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/output_port_base.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/nice_type_name.h"
+#include "maliput/drake/common/type_safe_index.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/context.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/output_port_base.h"
 
 namespace maliput::drake {
 namespace systems {

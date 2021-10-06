@@ -2,8 +2,8 @@
 
 #include <Eigen/Dense>
 
-#include "drake/math/gradient.h"
-#include "drake/math/gradient_util.h"
+#include "maliput/drake/math/gradient.h"
+#include "maliput/drake/math/gradient_util.h"
 
 namespace maliput::drake {
 namespace math {

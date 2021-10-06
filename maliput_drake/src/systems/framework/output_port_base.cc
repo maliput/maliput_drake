@@ -1,4 +1,4 @@
-#include "drake/systems/framework/output_port_base.h"
+#include "maliput/drake/systems/framework/output_port_base.h"
 
 #include <utility>
 

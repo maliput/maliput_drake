@@ -3,10 +3,10 @@
 #include <string>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/systems/analysis/integrator_base.h"
-#include "drake/systems/analysis/simulator.h"
-#include "drake/systems/analysis/simulator_config.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/systems/analysis/integrator_base.h"
+#include "maliput/drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/analysis/simulator_config.h"
 
 namespace maliput::drake {
 namespace systems {

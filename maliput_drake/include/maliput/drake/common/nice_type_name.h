@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/never_destroyed.h"
+#include "maliput/drake/common/never_destroyed.h"
 
 namespace maliput::drake {
 

@@ -15,7 +15,7 @@ copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 #include <memory>
 #include <utility>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 

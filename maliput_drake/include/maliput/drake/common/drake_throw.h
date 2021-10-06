@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 /// @file
 /// Provides a convenient wrapper to throw an exception when a condition is

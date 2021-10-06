@@ -1,1 +1,1 @@
-#include "drake/math/hopf_coordinate.h"
+#include "maliput/drake/math/hopf_coordinate.h"

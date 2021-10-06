@@ -1,9 +1,9 @@
 #pragma once
 
 // TODO(jwnimmer-tri): Figure out how to remove this include.
-#include "drake/common/autodiff.h"
-#include "drake/common/cond.h"
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/cond.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 namespace math {

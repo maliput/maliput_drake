@@ -1,10 +1,10 @@
-#include "drake/common/trajectories/piecewise_quaternion.h"
+#include "maliput/drake/common/trajectories/piecewise_quaternion.h"
 
 #include <algorithm>
 #include <stdexcept>
 
-#include "drake/common/trajectories/piecewise_polynomial.h"
-#include "drake/math/quaternion.h"
+#include "maliput/drake/common/trajectories/piecewise_polynomial.h"
+#include "maliput/drake/math/quaternion.h"
 
 namespace maliput::drake {
 namespace trajectories {

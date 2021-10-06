@@ -4,10 +4,10 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/framework/abstract_values.h"
-#include "drake/systems/framework/discrete_values.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/framework/abstract_values.h"
+#include "maliput/drake/systems/framework/discrete_values.h"
 
 namespace maliput::drake {
 namespace systems {

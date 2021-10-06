@@ -6,11 +6,11 @@
 #include <type_traits>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_bool.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/framework/event_collection.h"
-#include "drake/systems/framework/system_base.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_bool.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/framework/event_collection.h"
+#include "maliput/drake/systems/framework/system_base.h"
 
 namespace maliput::drake {
 namespace systems {

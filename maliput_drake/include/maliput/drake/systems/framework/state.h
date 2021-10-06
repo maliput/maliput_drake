@@ -3,12 +3,12 @@
 #include <memory>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/framework/abstract_values.h"
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/continuous_state.h"
-#include "drake/systems/framework/discrete_values.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/framework/abstract_values.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/continuous_state.h"
+#include "maliput/drake/systems/framework/discrete_values.h"
 
 namespace maliput::drake {
 namespace systems {

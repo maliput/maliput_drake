@@ -1,4 +1,4 @@
-#include "drake/common/sorted_pair.h"
+#include "maliput/drake/common/sorted_pair.h"
 
 namespace maliput::drake {
 

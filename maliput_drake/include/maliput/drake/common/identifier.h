@@ -5,10 +5,10 @@
 #include <functional>
 #include <string>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/hash.h"
-#include "drake/common/never_destroyed.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/never_destroyed.h"
 
 namespace maliput::drake {
 

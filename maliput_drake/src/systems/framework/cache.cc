@@ -1,9 +1,9 @@
-#include "drake/systems/framework/cache.h"
+#include "maliput/drake/systems/framework/cache.h"
 
 #include <typeindex>
 #include <typeinfo>
 
-#include "drake/systems/framework/dependency_tracker.h"
+#include "maliput/drake/systems/framework/dependency_tracker.h"
 
 namespace maliput::drake {
 namespace systems {

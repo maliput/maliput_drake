@@ -4,11 +4,11 @@
 #include <memory>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/dummy_value.h"
-#include "drake/common/eigen_types.h"
-#include "drake/systems/framework/vector_base.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/dummy_value.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/systems/framework/vector_base.h"
 
 namespace maliput::drake {
 namespace systems {

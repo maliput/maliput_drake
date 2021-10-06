@@ -14,11 +14,11 @@
 #include <fmt/format.h>
 #include <fmt/ostream.h>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/never_destroyed.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/never_destroyed.h"
+#include "maliput/drake/common/symbolic.h"
 #define DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
-#include "drake/common/symbolic_expression_cell.h"
+#include "maliput/drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
 namespace maliput::drake {

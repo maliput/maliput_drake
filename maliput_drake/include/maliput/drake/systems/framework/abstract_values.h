@@ -3,10 +3,10 @@
 #include <memory>
 #include <vector>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/value.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/value.h"
 
 namespace maliput::drake {
 namespace systems {

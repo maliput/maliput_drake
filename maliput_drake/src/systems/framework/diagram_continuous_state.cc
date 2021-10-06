@@ -1,9 +1,9 @@
-#include "drake/systems/framework/diagram_continuous_state.h"
+#include "maliput/drake/systems/framework/diagram_continuous_state.h"
 
 #include <utility>
 
-#include "drake/common/pointer_cast.h"
-#include "drake/systems/framework/supervector.h"
+#include "maliput/drake/common/pointer_cast.h"
+#include "maliput/drake/systems/framework/supervector.h"
 
 namespace maliput::drake {
 namespace systems {

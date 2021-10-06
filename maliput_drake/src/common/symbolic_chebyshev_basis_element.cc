@@ -2,9 +2,9 @@
 #include <cmath>
 #include <vector>
 
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/symbolic.h"
 #define DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
-#include "drake/common/symbolic_expression_cell.h"
+#include "maliput/drake/common/symbolic_expression_cell.h"
 #undef DRAKE_COMMON_SYMBOLIC_DETAIL_HEADER
 
 namespace maliput::drake {

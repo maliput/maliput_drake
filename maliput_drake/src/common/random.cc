@@ -1,6 +1,6 @@
-#include "drake/common/random.h"
+#include "maliput/drake/common/random.h"
 
-#include "drake/common/autodiff.h"
+#include "maliput/drake/common/autodiff.h"
 
 namespace maliput::drake {
 template <typename T>

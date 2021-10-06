@@ -6,11 +6,11 @@
 
 #include <Eigen/Core>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/polynomial.h"
-#include "drake/common/trajectories/piecewise_trajectory.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/polynomial.h"
+#include "maliput/drake/common/trajectories/piecewise_trajectory.h"
 
 namespace maliput::drake {
 namespace trajectories {

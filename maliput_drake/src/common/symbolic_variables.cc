@@ -8,8 +8,8 @@
 #include <string>
 #include <utility>
 
-#include "drake/common/hash.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/symbolic.h"
 
 using std::includes;
 using std::initializer_list;

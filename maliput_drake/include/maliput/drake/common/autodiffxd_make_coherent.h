@@ -1,7 +1,7 @@
 #pragma once
 
-#include "drake/common/autodiff.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 

@@ -5,7 +5,7 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/autodiff.h"
+#include "maliput/drake/common/autodiff.h"
 
 namespace maliput::drake {
 namespace math {

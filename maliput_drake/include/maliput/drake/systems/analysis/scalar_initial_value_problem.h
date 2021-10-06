@@ -4,11 +4,11 @@
 #include <optional>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/systems/analysis/initial_value_problem.h"
-#include "drake/systems/analysis/scalar_view_dense_output.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/systems/analysis/initial_value_problem.h"
+#include "maliput/drake/systems/analysis/scalar_view_dense_output.h"
 
 namespace maliput::drake {
 namespace systems {

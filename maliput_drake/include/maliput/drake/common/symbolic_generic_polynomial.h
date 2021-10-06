@@ -10,8 +10,8 @@
 #include <Eigen/Core>
 #include <fmt/format.h>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

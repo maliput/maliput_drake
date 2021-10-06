@@ -9,8 +9,8 @@
 
 #include <gflags/gflags.h>
 
-#include "drake/common/text_logging.h"
-#include "drake/common/unused.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/common/unused.h"
 
 // Declare the gflags options.
 DEFINE_string(spdlog_level, drake::logging::kSetLogLevelUnchanged,

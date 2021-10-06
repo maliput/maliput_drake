@@ -1,7 +1,7 @@
-#include "drake/systems/analysis/monte_carlo.h"
+#include "maliput/drake/systems/analysis/monte_carlo.h"
 
-#include "drake/systems/analysis/simulator.h"
-#include "drake/systems/framework/system.h"
+#include "maliput/drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/framework/system.h"
 
 namespace maliput::drake {
 namespace systems {

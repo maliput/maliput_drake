@@ -1,4 +1,4 @@
-#include "drake/math/barycentric.h"
+#include "maliput/drake/math/barycentric.h"
 
 #include <algorithm>
 #include <memory>
@@ -8,7 +8,7 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 namespace math {

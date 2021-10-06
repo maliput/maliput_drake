@@ -1,10 +1,10 @@
-#include "drake/math/rotation_matrix.h"
+#include "maliput/drake/math/rotation_matrix.h"
 
 #include <string>
 
 #include <fmt/format.h>
 
-#include "drake/common/unused.h"
+#include "maliput/drake/common/unused.h"
 
 namespace maliput::drake {
 namespace math {

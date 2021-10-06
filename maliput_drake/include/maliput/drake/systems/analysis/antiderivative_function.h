@@ -5,12 +5,12 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/unused.h"
-#include "drake/systems/analysis/scalar_dense_output.h"
-#include "drake/systems/analysis/scalar_initial_value_problem.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/unused.h"
+#include "maliput/drake/systems/analysis/scalar_dense_output.h"
+#include "maliput/drake/systems/analysis/scalar_initial_value_problem.h"
 
 namespace maliput::drake {
 namespace systems {

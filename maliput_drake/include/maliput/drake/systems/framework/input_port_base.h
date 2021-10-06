@@ -3,10 +3,10 @@
 #include <optional>
 #include <string>
 
-#include "drake/common/random.h"
-#include "drake/systems/framework/context_base.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/port_base.h"
+#include "maliput/drake/common/random.h"
+#include "maliput/drake/systems/framework/context_base.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/port_base.h"
 
 namespace maliput::drake {
 namespace systems {

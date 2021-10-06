@@ -1,6 +1,6 @@
 #include <stdexcept>
 
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/symbolic.h"
 
 using E = drake::symbolic::Expression;
 using MatrixXE = drake::MatrixX<E>;

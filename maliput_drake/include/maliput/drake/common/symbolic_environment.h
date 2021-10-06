@@ -9,10 +9,10 @@
 #include <string>
 #include <unordered_map>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/random.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/random.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

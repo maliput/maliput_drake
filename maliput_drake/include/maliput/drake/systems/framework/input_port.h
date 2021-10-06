@@ -6,15 +6,15 @@
 #include <type_traits>
 #include <utility>
 
-#include "drake/common/constants.h"
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/eigen_types.h"
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/context.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/input_port_base.h"
-#include "drake/systems/framework/value_to_abstract_value.h"
+#include "maliput/drake/common/constants.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/context.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/input_port_base.h"
+#include "maliput/drake/systems/framework/value_to_abstract_value.h"
 
 namespace maliput::drake {
 namespace systems {

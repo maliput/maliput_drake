@@ -3,11 +3,11 @@
 #include <memory>
 #include <stdexcept>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/analysis/implicit_integrator.h"
-#include "drake/systems/framework/basic_vector.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/analysis/implicit_integrator.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
 
 namespace maliput::drake {
 namespace systems {

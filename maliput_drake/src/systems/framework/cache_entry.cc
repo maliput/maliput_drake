@@ -1,11 +1,11 @@
-#include "drake/systems/framework/cache_entry.h"
+#include "maliput/drake/systems/framework/cache_entry.h"
 
 #include <exception>
 #include <memory>
 #include <typeinfo>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 namespace maliput::drake {
 namespace systems {

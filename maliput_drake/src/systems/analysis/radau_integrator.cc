@@ -1,8 +1,8 @@
-#include "drake/systems/analysis/radau_integrator.h"
+#include "maliput/drake/systems/analysis/radau_integrator.h"
 
 #include <limits>
 
-#include "drake/common/autodiff.h"
+#include "maliput/drake/common/autodiff.h"
 
 namespace maliput::drake {
 namespace systems {

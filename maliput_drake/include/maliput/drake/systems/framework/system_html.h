@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "drake/systems/framework/system.h"
+#include "maliput/drake/systems/framework/system.h"
 
 namespace maliput::drake {
 namespace systems {

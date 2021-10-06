@@ -5,10 +5,10 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/symbolic.h"
-#include "drake/systems/framework/system.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/symbolic.h"
+#include "maliput/drake/systems/framework/system.h"
 
 namespace maliput::drake {
 namespace systems {

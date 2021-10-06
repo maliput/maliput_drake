@@ -1,4 +1,4 @@
-#include "drake/systems/framework/leaf_output_port.h"
+#include "maliput/drake/systems/framework/leaf_output_port.h"
 
 namespace maliput::drake::systems {
 

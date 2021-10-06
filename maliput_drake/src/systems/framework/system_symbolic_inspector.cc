@@ -1,10 +1,10 @@
-#include "drake/systems/framework/system_symbolic_inspector.h"
+#include "maliput/drake/systems/framework/system_symbolic_inspector.h"
 
 #include <sstream>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/polynomial.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/polynomial.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace systems {

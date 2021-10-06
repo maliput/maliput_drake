@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "drake/common/name_value.h"
+#include "maliput/drake/common/name_value.h"
 
 namespace maliput::drake {
 namespace systems {

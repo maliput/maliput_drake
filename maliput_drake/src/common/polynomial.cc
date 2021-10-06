@@ -1,4 +1,4 @@
-#include "drake/common/polynomial.h"
+#include "maliput/drake/common/polynomial.h"
 
 #include <algorithm>
 #include <cstring>
@@ -8,8 +8,8 @@
 #include <stdexcept>
 #include <utility>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_throw.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_throw.h"
 
 using Eigen::Dynamic;
 using Eigen::Matrix;

@@ -6,13 +6,13 @@
 #include <unordered_map>
 #include <utility>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/symbolic.h"
-#include "drake/systems/framework/scalar_conversion_traits.h"
-#include "drake/systems/framework/system_type_tag.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/symbolic.h"
+#include "maliput/drake/systems/framework/scalar_conversion_traits.h"
+#include "maliput/drake/systems/framework/system_type_tag.h"
 
 namespace maliput::drake {
 namespace systems {

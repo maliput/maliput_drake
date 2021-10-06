@@ -21,16 +21,16 @@
 #include <Eigen/Core>
 #include <Eigen/Sparse>
 
-#include "drake/common/cond.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/dummy_value.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/extract_double.h"
-#include "drake/common/hash.h"
-#include "drake/common/random.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/cond.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/dummy_value.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/extract_double.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/random.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 

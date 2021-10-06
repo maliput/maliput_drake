@@ -7,11 +7,11 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/unused.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/basic_vector.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/unused.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
 
 namespace maliput::drake {
 namespace systems {

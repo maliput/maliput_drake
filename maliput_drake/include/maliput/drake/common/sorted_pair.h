@@ -6,9 +6,9 @@
 #include <type_traits>
 #include <utility>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/hash.h"
-#include "drake/common/is_less_than_comparable.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/is_less_than_comparable.h"
 
 /// @file
 /// Provides drake::MakeSortedPair and drake::SortedPair for storing two

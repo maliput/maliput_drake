@@ -12,9 +12,9 @@
 
 #include <Eigen/Core>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/hash.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

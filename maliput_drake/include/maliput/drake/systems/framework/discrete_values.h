@@ -6,15 +6,15 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/scalar_conversion_traits.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/scalar_conversion_traits.h"
 
 namespace maliput::drake {
 namespace systems {

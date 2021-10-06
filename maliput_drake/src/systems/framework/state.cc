@@ -1,4 +1,4 @@
-#include "drake/systems/framework/state.h"
+#include "maliput/drake/systems/framework/state.h"
 
 namespace maliput::drake {
 namespace systems {

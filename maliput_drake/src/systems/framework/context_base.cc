@@ -1,9 +1,9 @@
-#include "drake/systems/framework/context_base.h"
+#include "maliput/drake/systems/framework/context_base.h"
 
 #include <string>
 #include <typeinfo>
 
-#include "drake/common/unused.h"
+#include "maliput/drake/common/unused.h"
 
 namespace maliput::drake {
 namespace systems {

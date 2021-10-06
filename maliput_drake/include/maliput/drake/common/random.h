@@ -4,9 +4,9 @@
 
 #include <Eigen/Core>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/extract_double.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/extract_double.h"
 
 namespace maliput::drake {
 /// Defines Drake's canonical implementation of the UniformRandomBitGenerator

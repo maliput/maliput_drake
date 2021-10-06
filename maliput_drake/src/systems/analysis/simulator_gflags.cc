@@ -1,12 +1,12 @@
-#include "drake/systems/analysis/simulator_gflags.h"
+#include "maliput/drake/systems/analysis/simulator_gflags.h"
 
 #include <stdexcept>
 #include <utility>
 
-#include "drake/common/drake_throw.h"
-#include "drake/common/text_logging.h"
-#include "drake/systems/analysis/simulator.h"
-#include "drake/systems/analysis/simulator_config_functions.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/analysis/simulator_config_functions.h"
 
 // === Simulator's parameters ===
 

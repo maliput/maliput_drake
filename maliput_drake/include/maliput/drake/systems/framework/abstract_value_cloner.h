@@ -2,9 +2,9 @@
 
 #include <memory>
 
-#include "drake/common/copyable_unique_ptr.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/value.h"
+#include "maliput/drake/common/copyable_unique_ptr.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/value.h"
 
 namespace maliput::drake {
 namespace systems {

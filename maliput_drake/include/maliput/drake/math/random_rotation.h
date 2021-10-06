@@ -4,11 +4,11 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/constants.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/random.h"
-#include "drake/math/quaternion.h"
-#include "drake/math/roll_pitch_yaw.h"
+#include "maliput/drake/common/constants.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/random.h"
+#include "maliput/drake/math/quaternion.h"
+#include "maliput/drake/math/roll_pitch_yaw.h"
 
 namespace maliput::drake {
 namespace math {

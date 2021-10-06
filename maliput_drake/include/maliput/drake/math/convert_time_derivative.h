@@ -2,7 +2,7 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/eigen_types.h"
+#include "maliput/drake/common/eigen_types.h"
 
 namespace maliput::drake {
 namespace math {

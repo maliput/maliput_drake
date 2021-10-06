@@ -1,10 +1,10 @@
-#include "drake/common/value.h"
+#include "maliput/drake/common/value.h"
 
 #include <atomic>
 
 #include <fmt/format.h>
 
-#include "drake/common/text_logging.h"
+#include "maliput/drake/common/text_logging.h"
 
 namespace maliput::drake {
 

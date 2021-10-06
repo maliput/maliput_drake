@@ -1,4 +1,4 @@
-#include "drake/math/gray_code.h"
+#include "maliput/drake/math/gray_code.h"
 
 namespace maliput::drake {
 namespace math {

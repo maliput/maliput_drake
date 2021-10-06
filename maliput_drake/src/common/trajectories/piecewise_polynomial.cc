@@ -1,4 +1,4 @@
-#include "drake/common/trajectories/piecewise_polynomial.h"
+#include "maliput/drake/common/trajectories/piecewise_polynomial.h"
 
 #include <algorithm>
 #include <memory>
@@ -8,8 +8,8 @@
 #include <Eigen/SparseLU>
 #include <fmt/format.h>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_throw.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_throw.h"
 
 using std::runtime_error;
 using std::vector;

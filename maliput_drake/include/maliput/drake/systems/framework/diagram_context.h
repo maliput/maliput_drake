@@ -6,11 +6,11 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/systems/framework/context.h"
-#include "drake/systems/framework/diagram_state.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/state.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/systems/framework/context.h"
+#include "maliput/drake/systems/framework/diagram_state.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/state.h"
 
 namespace maliput::drake {
 namespace systems {

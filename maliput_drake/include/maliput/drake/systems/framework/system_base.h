@@ -10,15 +10,15 @@
 #include <variant>
 #include <vector>
 
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/unused.h"
-#include "drake/systems/framework/abstract_value_cloner.h"
-#include "drake/systems/framework/cache_entry.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/input_port_base.h"
-#include "drake/systems/framework/output_port_base.h"
-#include "drake/systems/framework/value_producer.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/unused.h"
+#include "maliput/drake/systems/framework/abstract_value_cloner.h"
+#include "maliput/drake/systems/framework/cache_entry.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/input_port_base.h"
+#include "maliput/drake/systems/framework/output_port_base.h"
+#include "maliput/drake/systems/framework/value_producer.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -1,12 +1,12 @@
-#include "drake/systems/framework/system_scalar_converter.h"
+#include "maliput/drake/systems/framework/system_scalar_converter.h"
 
 #include <stdexcept>
 
 #include <fmt/format.h>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/hash.h"
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 using std::pair;
 using std::type_index;

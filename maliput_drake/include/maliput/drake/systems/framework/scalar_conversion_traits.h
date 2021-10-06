@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace systems {

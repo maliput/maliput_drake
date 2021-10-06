@@ -8,12 +8,12 @@
 #include <utility>
 #include <vector>
 
-#include "drake/common/reset_on_copy.h"
-#include "drake/common/unused.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/cache.h"
-#include "drake/systems/framework/dependency_tracker.h"
-#include "drake/systems/framework/fixed_input_port_value.h"
+#include "maliput/drake/common/reset_on_copy.h"
+#include "maliput/drake/common/unused.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/cache.h"
+#include "maliput/drake/systems/framework/dependency_tracker.h"
+#include "maliput/drake/systems/framework/fixed_input_port_value.h"
 
 namespace maliput::drake {
 namespace systems {

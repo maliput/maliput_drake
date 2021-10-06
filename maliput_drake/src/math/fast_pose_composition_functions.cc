@@ -1,4 +1,4 @@
-#include "drake/math/fast_pose_composition_functions.h"
+#include "maliput/drake/math/fast_pose_composition_functions.h"
 
 #include <algorithm>
 #include <cassert>

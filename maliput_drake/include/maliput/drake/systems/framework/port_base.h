@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/framework_common.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -3,8 +3,8 @@
 #include <functional>
 #include <utility>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_throw.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_throw.h"
 
 namespace maliput::drake {
 

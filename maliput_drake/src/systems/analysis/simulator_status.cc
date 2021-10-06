@@ -1,4 +1,4 @@
-#include "drake/systems/analysis/simulator_status.h"
+#include "maliput/drake/systems/analysis/simulator_status.h"
 
 #include <string>
 #include <utility>

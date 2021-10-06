@@ -1,8 +1,8 @@
-#include "drake/common/trajectories/piecewise_pose.h"
+#include "maliput/drake/common/trajectories/piecewise_pose.h"
 
-#include "drake/common/pointer_cast.h"
-#include "drake/common/polynomial.h"
-#include "drake/math/rotation_matrix.h"
+#include "maliput/drake/common/pointer_cast.h"
+#include "maliput/drake/common/polynomial.h"
+#include "maliput/drake/math/rotation_matrix.h"
 
 namespace maliput::drake {
 namespace trajectories {

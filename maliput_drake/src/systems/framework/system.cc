@@ -1,12 +1,12 @@
-#include "drake/systems/framework/system.h"
+#include "maliput/drake/systems/framework/system.h"
 
 #include <iomanip>
 #include <ios>
 #include <regex>
 #include <set>
 
-#include "drake/common/unused.h"
-#include "drake/systems/framework/system_visitor.h"
+#include "maliput/drake/common/unused.h"
+#include "maliput/drake/systems/framework/system_visitor.h"
 
 namespace maliput::drake {
 namespace systems {

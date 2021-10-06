@@ -5,7 +5,7 @@
 #include <utility>
 #include <vector>
 
-#include "drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/analysis/simulator.h"
 
 namespace maliput::drake {
 namespace systems {

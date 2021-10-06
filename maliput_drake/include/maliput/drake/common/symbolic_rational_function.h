@@ -6,7 +6,7 @@
 
 #include <ostream>
 
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

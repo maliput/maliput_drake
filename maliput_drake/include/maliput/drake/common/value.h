@@ -7,11 +7,11 @@
 #include <typeinfo>
 #include <utility>
 
-#include "drake/common/copyable_unique_ptr.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/hash.h"
-#include "drake/common/is_cloneable.h"
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/copyable_unique_ptr.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/is_cloneable.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 namespace maliput::drake {
 

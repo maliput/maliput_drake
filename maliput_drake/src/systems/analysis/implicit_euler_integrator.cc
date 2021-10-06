@@ -1,4 +1,4 @@
-#include "drake/systems/analysis/implicit_euler_integrator.h"
+#include "maliput/drake/systems/analysis/implicit_euler_integrator.h"
 
 #include <algorithm>
 #include <cmath>
@@ -6,9 +6,9 @@
 #include <stdexcept>
 #include <utility>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/text_logging.h"
-#include "drake/systems/analysis/runge_kutta2_integrator.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/systems/analysis/runge_kutta2_integrator.h"
 
 namespace maliput::drake {
 namespace systems {

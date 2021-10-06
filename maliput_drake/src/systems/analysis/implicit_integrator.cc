@@ -1,12 +1,12 @@
-#include "drake/systems/analysis/implicit_integrator.h"
+#include "maliput/drake/systems/analysis/implicit_integrator.h"
 
 #include <cmath>
 #include <stdexcept>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/text_logging.h"
-#include "drake/math/autodiff_gradient.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/math/autodiff_gradient.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -1,4 +1,4 @@
-#include "drake/common/trajectories/bspline_trajectory.h"
+#include "maliput/drake/common/trajectories/bspline_trajectory.h"
 
 #include <algorithm>
 #include <functional>
@@ -6,10 +6,10 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/extract_double.h"
-#include "drake/common/symbolic.h"
-#include "drake/common/text_logging.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/extract_double.h"
+#include "maliput/drake/common/symbolic.h"
+#include "maliput/drake/common/text_logging.h"
 
 using drake::symbolic::Expression;
 using drake::symbolic::Variable;

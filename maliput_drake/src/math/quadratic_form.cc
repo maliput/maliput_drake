@@ -1,4 +1,4 @@
-#include "drake/math/quadratic_form.h"
+#include "maliput/drake/math/quadratic_form.h"
 
 #include <algorithm>
 
@@ -6,7 +6,7 @@
 #include <Eigen/Eigenvalues>
 #include <fmt/format.h>
 
-#include "drake/math/matrix_util.h"
+#include "maliput/drake/math/matrix_util.h"
 
 namespace maliput::drake {
 namespace math {

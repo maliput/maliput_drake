@@ -1,4 +1,4 @@
-#include "drake/common/trajectories/discrete_time_trajectory.h"
+#include "maliput/drake/common/trajectories/discrete_time_trajectory.h"
 
 #include <algorithm>
 #include <cmath>
@@ -6,7 +6,7 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 namespace trajectories {

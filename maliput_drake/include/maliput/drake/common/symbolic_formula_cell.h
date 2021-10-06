@@ -16,10 +16,10 @@
 #include <set>
 #include <string>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/hash.h"
-#include "drake/common/random.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/random.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

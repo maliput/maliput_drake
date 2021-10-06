@@ -3,13 +3,13 @@
 #include <memory>
 #include <vector>
 
-#include "drake/common/drake_bool.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/name_value.h"
-#include "drake/common/trajectories/trajectory.h"
-#include "drake/math/bspline_basis.h"
+#include "maliput/drake/common/drake_bool.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/name_value.h"
+#include "maliput/drake/common/trajectories/trajectory.h"
+#include "maliput/drake/math/bspline_basis.h"
 
 namespace maliput::drake {
 namespace trajectories {

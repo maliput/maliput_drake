@@ -1,4 +1,4 @@
-#include "drake/systems/analysis/runge_kutta5_integrator.h"
+#include "maliput/drake/systems/analysis/runge_kutta5_integrator.h"
 
 namespace maliput::drake {
 namespace systems {

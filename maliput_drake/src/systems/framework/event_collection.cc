@@ -1,4 +1,4 @@
-#include "drake/systems/framework/event_collection.h"
+#include "maliput/drake/systems/framework/event_collection.h"
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
     class ::maliput::drake::systems::CompositeEventCollection)

@@ -3,7 +3,7 @@
 #include <functional>
 #include <type_traits>
 
-#include "drake/common/double_overloads.h"
+#include "maliput/drake/common/double_overloads.h"
 
 namespace maliput::drake {
 /** @name cond

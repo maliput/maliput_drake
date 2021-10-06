@@ -4,10 +4,10 @@
 #include <stdexcept>
 #include <string>
 
-#include "drake/common/drake_throw.h"
-#include "drake/common/nice_type_name.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/basic_vector.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/nice_type_name.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
 
 namespace maliput::drake {
 namespace systems {

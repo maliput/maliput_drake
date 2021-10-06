@@ -1,4 +1,4 @@
-#include "drake/systems/framework/system_constraint.h"
+#include "maliput/drake/systems/framework/system_constraint.h"
 
 namespace maliput::drake {
 namespace systems {

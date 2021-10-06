@@ -1,11 +1,11 @@
-#include "drake/systems/analysis/initial_value_problem.h"
+#include "maliput/drake/systems/analysis/initial_value_problem.h"
 
 #include <stdexcept>
 
-#include "drake/systems/analysis/hermitian_dense_output.h"
-#include "drake/systems/analysis/runge_kutta3_integrator.h"
-#include "drake/systems/framework/continuous_state.h"
-#include "drake/systems/framework/leaf_system.h"
+#include "maliput/drake/systems/analysis/hermitian_dense_output.h"
+#include "maliput/drake/systems/analysis/runge_kutta3_integrator.h"
+#include "maliput/drake/systems/framework/continuous_state.h"
+#include "maliput/drake/systems/framework/leaf_system.h"
 
 namespace maliput::drake {
 namespace systems {

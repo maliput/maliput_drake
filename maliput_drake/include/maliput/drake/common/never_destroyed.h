@@ -4,7 +4,7 @@
 #include <type_traits>
 #include <utility>
 
-#include "drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_copyable.h"
 
 namespace maliput::drake {
 

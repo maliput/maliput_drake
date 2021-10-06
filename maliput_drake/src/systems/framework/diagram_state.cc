@@ -1,7 +1,7 @@
-#include "drake/systems/framework/diagram_state.h"
+#include "maliput/drake/systems/framework/diagram_state.h"
 
-#include "drake/systems/framework/diagram_continuous_state.h"
-#include "drake/systems/framework/diagram_discrete_values.h"
+#include "maliput/drake/systems/framework/diagram_continuous_state.h"
+#include "maliput/drake/systems/framework/diagram_discrete_values.h"
 
 namespace maliput::drake {
 namespace systems {

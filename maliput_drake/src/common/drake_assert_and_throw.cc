@@ -1,7 +1,7 @@
 // This file contains the implementation of both drake_assert and drake_throw.
 /* clang-format off to disable clang-format-includes */
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_throw.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_throw.h"
 /* clang-format on */
 
 #include <atomic>
@@ -11,8 +11,8 @@
 #include <stdexcept>
 #include <string>
 
-#include "drake/common/drake_assertion_error.h"
-#include "drake/common/never_destroyed.h"
+#include "maliput/drake/common/drake_assertion_error.h"
+#include "maliput/drake/common/never_destroyed.h"
 
 namespace maliput::drake {
 namespace internal {

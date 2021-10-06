@@ -1,4 +1,4 @@
-#include "drake/math/bspline_basis.h"
+#include "maliput/drake/math/bspline_basis.h"
 
 #include <algorithm>
 #include <functional>
@@ -7,7 +7,7 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/default_scalars.h"
+#include "maliput/drake/common/default_scalars.h"
 
 namespace maliput::drake {
 namespace math {

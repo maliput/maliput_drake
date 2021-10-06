@@ -2,8 +2,8 @@
 
 #include <cmath>
 
-#include "drake/common/double_overloads.h"
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/double_overloads.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 namespace math {

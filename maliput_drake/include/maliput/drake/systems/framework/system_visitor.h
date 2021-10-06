@@ -1,6 +1,6 @@
 #pragma once
 
-#include "drake/common/default_scalars.h"
+#include "maliput/drake/common/default_scalars.h"
 
 namespace maliput::drake {
 namespace systems {

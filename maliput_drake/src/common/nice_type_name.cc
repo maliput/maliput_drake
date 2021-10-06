@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain a
 copy of the License at http://www.apache.org/licenses/LICENSE-2.0. */
 
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 #include <algorithm>
 #include <array>
@@ -13,8 +13,8 @@ copy of the License at http://www.apache.org/licenses/LICENSE-2.0. */
 #include <regex>
 #include <string>
 
-#include "drake/common/never_destroyed.h"
-#include "drake/common/nice_type_name_override.h"
+#include "maliput/drake/common/never_destroyed.h"
+#include "maliput/drake/common/nice_type_name_override.h"
 
 using std::string;
 

@@ -9,10 +9,10 @@
 #include <variant>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/framework/diagram.h"
-#include "drake/systems/framework/system.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/framework/diagram.h"
+#include "maliput/drake/systems/framework/system.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -2,9 +2,9 @@
 
 #include <memory>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/analysis/integrator_base.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/analysis/integrator_base.h"
 
 namespace maliput::drake {
 namespace systems {

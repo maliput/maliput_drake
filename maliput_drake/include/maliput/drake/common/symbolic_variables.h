@@ -11,9 +11,9 @@
 #include <set>
 #include <string>
 
-#include "drake/common/eigen_types.h"
-#include "drake/common/hash.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

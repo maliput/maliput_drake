@@ -3,11 +3,11 @@
 #include <memory>
 #include <vector>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/eigen_types.h"
-#include "drake/common/trajectories/piecewise_trajectory.h"
-#include "drake/math/rotation_matrix.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/eigen_types.h"
+#include "maliput/drake/common/trajectories/piecewise_trajectory.h"
+#include "maliput/drake/math/rotation_matrix.h"
 
 namespace maliput::drake {
 namespace trajectories {

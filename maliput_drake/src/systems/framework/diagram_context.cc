@@ -1,7 +1,7 @@
-#include "drake/systems/framework/diagram_context.h"
+#include "maliput/drake/systems/framework/diagram_context.h"
 
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/parameters.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/parameters.h"
 
 namespace maliput::drake {
 namespace systems {

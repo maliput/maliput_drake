@@ -3,8 +3,8 @@
 #include <memory>
 #include <string>
 
-#include "drake/common/default_scalars.h"
-#include "drake/systems/framework/context.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/systems/framework/context.h"
 
 namespace maliput::drake {
 namespace systems {

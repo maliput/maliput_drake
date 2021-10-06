@@ -1,6 +1,6 @@
-#include "drake/systems/framework/fixed_input_port_value.h"
+#include "maliput/drake/systems/framework/fixed_input_port_value.h"
 
-#include "drake/systems/framework/context_base.h"
+#include "maliput/drake/systems/framework/context_base.h"
 
 namespace maliput::drake {
 namespace systems {

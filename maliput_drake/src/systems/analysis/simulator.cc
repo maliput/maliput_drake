@@ -1,10 +1,10 @@
-#include "drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/analysis/simulator.h"
 
 #include <thread>
 
-#include "drake/common/extract_double.h"
-#include "drake/common/text_logging.h"
-#include "drake/systems/analysis/runge_kutta3_integrator.h"
+#include "maliput/drake/common/extract_double.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/systems/analysis/runge_kutta3_integrator.h"
 
 namespace maliput::drake {
 namespace systems {

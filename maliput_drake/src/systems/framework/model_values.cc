@@ -1,4 +1,4 @@
-#include "drake/systems/framework/model_values.h"
+#include "maliput/drake/systems/framework/model_values.h"
 
 #include <memory>
 #include <vector>

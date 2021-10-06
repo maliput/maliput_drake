@@ -3,11 +3,11 @@
 #include <memory>
 #include <vector>
 
-#include "drake/common/autodiff.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/analysis/bogacki_shampine3_integrator.h"
-#include "drake/systems/analysis/implicit_integrator.h"
-#include "drake/systems/analysis/runge_kutta2_integrator.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/analysis/bogacki_shampine3_integrator.h"
+#include "maliput/drake/systems/analysis/implicit_integrator.h"
+#include "maliput/drake/systems/analysis/runge_kutta2_integrator.h"
 
 namespace maliput::drake {
 namespace systems {

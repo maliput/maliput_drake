@@ -2,8 +2,8 @@
 
 #include <limits>
 
-#include "drake/common/drake_deprecated.h"
-#include "drake/common/eigen_types.h"
+#include "maliput/drake/common/drake_deprecated.h"
+#include "maliput/drake/common/eigen_types.h"
 
 namespace maliput::drake {
 namespace math {

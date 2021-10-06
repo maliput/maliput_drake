@@ -1,11 +1,11 @@
-#include "drake/systems/framework/input_port_base.h"
+#include "maliput/drake/systems/framework/input_port_base.h"
 
 #include <stdexcept>
 #include <utility>
 
 #include <fmt/format.h>
 
-#include "drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_assert.h"
 
 namespace maliput::drake {
 namespace systems {

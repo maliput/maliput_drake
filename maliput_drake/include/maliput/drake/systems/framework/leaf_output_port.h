@@ -5,15 +5,15 @@
 #include <string>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/basic_vector.h"
-#include "drake/systems/framework/cache_entry.h"
-#include "drake/systems/framework/framework_common.h"
-#include "drake/systems/framework/output_port.h"
-#include "drake/systems/framework/value_producer.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/basic_vector.h"
+#include "maliput/drake/systems/framework/cache_entry.h"
+#include "maliput/drake/systems/framework/framework_common.h"
+#include "maliput/drake/systems/framework/output_port.h"
+#include "maliput/drake/systems/framework/value_producer.h"
 
 namespace maliput::drake {
 namespace systems {

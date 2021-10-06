@@ -8,8 +8,8 @@
 
 #include <gflags/gflags.h>
 
-#include "drake/systems/analysis/integrator_base.h"
-#include "drake/systems/analysis/simulator.h"
+#include "maliput/drake/systems/analysis/integrator_base.h"
+#include "maliput/drake/systems/analysis/simulator.h"
 
 // Declares integrator gflags.
 DECLARE_string(simulator_integration_scheme);

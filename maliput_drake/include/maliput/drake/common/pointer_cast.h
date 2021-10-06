@@ -5,7 +5,7 @@
 
 #include <fmt/format.h>
 
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 namespace maliput::drake {
 

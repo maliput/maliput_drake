@@ -1,4 +1,4 @@
-#include "drake/common/symbolic_decompose.h"
+#include "maliput/drake/common/symbolic_decompose.h"
 
 #include <map>
 #include <stdexcept>

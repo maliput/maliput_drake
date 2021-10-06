@@ -12,12 +12,12 @@ values. */
 #include <utility>
 #include <vector>
 
-#include "drake/common/copyable_unique_ptr.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/never_destroyed.h"
-#include "drake/common/reset_on_copy.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/framework_common.h"
+#include "maliput/drake/common/copyable_unique_ptr.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/never_destroyed.h"
+#include "maliput/drake/common/reset_on_copy.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/framework_common.h"
 
 namespace maliput::drake {
 namespace systems {

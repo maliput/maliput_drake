@@ -1,4 +1,4 @@
-#include "drake/common/text_logging.h"
+#include "maliput/drake/common/text_logging.h"
 
 #include <memory>
 #include <mutex>
@@ -9,7 +9,7 @@
 #include <spdlog/sinks/stdout_sinks.h>
 #endif
 
-#include "drake/common/never_destroyed.h"
+#include "maliput/drake/common/never_destroyed.h"
 
 namespace maliput::drake {
 

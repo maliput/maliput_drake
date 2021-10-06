@@ -27,9 +27,9 @@
 #include <cmath>
 #include <limits>
 
-#include "drake/common/cond.h"
-#include "drake/common/drake_assert.h"
-#include "drake/common/dummy_value.h"
+#include "maliput/drake/common/cond.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/dummy_value.h"
 
 namespace Eigen {
 

@@ -1,4 +1,4 @@
-#include "drake/math/evenly_distributed_pts_on_sphere.h"
+#include "maliput/drake/math/evenly_distributed_pts_on_sphere.h"
 
 #include <cmath>
 

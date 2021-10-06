@@ -1,7 +1,7 @@
 #pragma once
 
-#include "drake/common/autodiff.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/autodiff.h"
+#include "maliput/drake/common/symbolic.h"
 
 // N.B. `CommonScalarPack` and `NonSymbolicScalarPack` in `systems_pybind.h`
 // should be kept in sync with this file.
@@ -49,7 +49,7 @@
 ///
 /// Example `my_system.h`:
 /// @code
-/// #include "drake/common/default_scalars.h"
+/// #include "maliput/drake/common/default_scalars.h"
 ///
 /// namespace sample {
 /// template <typename T>
@@ -120,7 +120,7 @@ extern template SomeType<::drake::AutoDiffXd>;
 ///
 /// Example `example.h`:
 /// @code
-/// #include "drake/common/default_scalars.h"
+/// #include "maliput/drake/common/default_scalars.h"
 ///
 /// namespace sample {
 ///

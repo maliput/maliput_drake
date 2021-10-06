@@ -88,7 +88,7 @@ used by Drake might be older.)
 #endif  // HAVE_SPDLOG
 #endif  // DRAKE_DOXYGEN_CXX
 
-#include "drake/common/drake_copyable.h"
+#include "maliput/drake/common/drake_copyable.h"
 
 namespace maliput::drake {
 

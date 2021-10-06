@@ -7,9 +7,9 @@
 #include <map>
 #include <utility>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/hash.h"
-#include "drake/common/symbolic.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/symbolic.h"
 
 namespace maliput::drake {
 namespace symbolic {

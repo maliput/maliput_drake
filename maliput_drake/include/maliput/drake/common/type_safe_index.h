@@ -4,10 +4,10 @@
 #include <limits>
 #include <string>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/hash.h"
-#include "drake/common/nice_type_name.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/hash.h"
+#include "maliput/drake/common/nice_type_name.h"
 
 namespace maliput::drake {
 

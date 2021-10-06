@@ -1,11 +1,11 @@
-#include "drake/math/roll_pitch_yaw.h"
+#include "maliput/drake/math/roll_pitch_yaw.h"
 
 #include <string>
 
 #include <fmt/format.h>
 #include <fmt/ostream.h>
 
-#include "drake/math/rotation_matrix.h"
+#include "maliput/drake/math/rotation_matrix.h"
 
 namespace maliput::drake {
 namespace math {

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/systems/analysis/dense_output.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/systems/analysis/dense_output.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -1,4 +1,4 @@
-#include "drake/systems/framework/abstract_value_cloner.h"
+#include "maliput/drake/systems/framework/abstract_value_cloner.h"
 
 #include <utility>
 

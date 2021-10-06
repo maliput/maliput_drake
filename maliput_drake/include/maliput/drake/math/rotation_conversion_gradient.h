@@ -2,10 +2,10 @@
 
 #include <Eigen/Dense>
 
-#include "drake/common/constants.h"
-#include "drake/math/gradient.h"
-#include "drake/math/gradient_util.h"
-#include "drake/math/normalize_vector.h"
+#include "maliput/drake/common/constants.h"
+#include "maliput/drake/math/gradient.h"
+#include "maliput/drake/math/gradient_util.h"
+#include "maliput/drake/math/normalize_vector.h"
 
 namespace maliput::drake {
 namespace math {

@@ -11,11 +11,11 @@ trackers. */
 #include <utility>
 #include <vector>
 
-#include "drake/common/drake_assert.h"
-#include "drake/common/drake_copyable.h"
-#include "drake/common/text_logging.h"
-#include "drake/systems/framework/cache.h"
-#include "drake/systems/framework/framework_common.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/text_logging.h"
+#include "maliput/drake/systems/framework/cache.h"
+#include "maliput/drake/systems/framework/framework_common.h"
 
 namespace maliput::drake {
 namespace systems {

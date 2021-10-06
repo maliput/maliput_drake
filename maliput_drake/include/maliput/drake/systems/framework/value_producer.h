@@ -5,10 +5,10 @@
 #include <typeinfo>
 #include <utility>
 
-#include "drake/common/drake_copyable.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/abstract_value_cloner.h"
-#include "drake/systems/framework/context_base.h"
+#include "maliput/drake/common/drake_copyable.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/abstract_value_cloner.h"
+#include "maliput/drake/systems/framework/context_base.h"
 
 namespace maliput::drake {
 namespace systems {

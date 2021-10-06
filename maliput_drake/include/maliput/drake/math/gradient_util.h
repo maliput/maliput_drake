@@ -6,8 +6,8 @@
 #include <Eigen/Core>
 #include <Eigen/Dense>
 
-#include "drake/common/drake_assert.h"
-#include "drake/math/gradient.h"
+#include "maliput/drake/common/drake_assert.h"
+#include "maliput/drake/math/gradient.h"
 
 namespace maliput::drake {
 namespace math {

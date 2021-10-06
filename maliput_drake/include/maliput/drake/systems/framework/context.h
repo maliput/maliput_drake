@@ -5,12 +5,12 @@
 #include <string>
 #include <utility>
 
-#include "drake/common/default_scalars.h"
-#include "drake/common/drake_throw.h"
-#include "drake/common/value.h"
-#include "drake/systems/framework/context_base.h"
-#include "drake/systems/framework/parameters.h"
-#include "drake/systems/framework/state.h"
+#include "maliput/drake/common/default_scalars.h"
+#include "maliput/drake/common/drake_throw.h"
+#include "maliput/drake/common/value.h"
+#include "maliput/drake/systems/framework/context_base.h"
+#include "maliput/drake/systems/framework/parameters.h"
+#include "maliput/drake/systems/framework/state.h"
 
 namespace maliput::drake {
 namespace systems {

@@ -1,4 +1,4 @@
-#include "drake/common/symbolic_codegen.h"
+#include "maliput/drake/common/symbolic_codegen.h"
 
 #include <sstream>
 #include <stdexcept>

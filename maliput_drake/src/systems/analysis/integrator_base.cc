@@ -1,4 +1,4 @@
-#include "drake/systems/analysis/integrator_base.h"
+#include "maliput/drake/systems/analysis/integrator_base.h"
 
 namespace maliput::drake {
 namespace systems {
