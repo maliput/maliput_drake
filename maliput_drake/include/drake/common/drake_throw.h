@@ -43,12 +43,12 @@ constexpr void DrakeThrowUnlessWasUsedWithRawPointer<true>() {}
 /// clear that a null pointer is the proximate cause of the problem.
 #define DRAKE_THROW_UNLESS(condition)                                        \
   do {                                                                       \
-    typedef ::drake::assert::ConditionTraits<                                \
+    typedef ::maliput::drake::assert::ConditionTraits<                                \
         typename std::remove_cv_t<decltype(condition)>> Trait;               \
     static_assert(Trait::is_valid, "Condition should be bool-convertible."); \
-    ::drake::internal::DrakeThrowUnlessWasUsedWithRawPointer<                \
+    ::maliput::drake::internal::DrakeThrowUnlessWasUsedWithRawPointer<                \
         std::is_pointer_v<decltype(condition)>>();                           \
     if (!Trait::Evaluate(condition)) {                                       \
-      ::drake::internal::Throw(#condition, __func__, __FILE__, __LINE__);    \
+      ::maliput::drake::internal::Throw(#condition, __func__, __FILE__, __LINE__);    \
     }                                                                        \
   } while (0)

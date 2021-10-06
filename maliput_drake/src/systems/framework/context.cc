@@ -197,4 +197,4 @@ void Context<T>::SetTimeAndNoteContinuousStateChangeHelper(
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::Context)
+    class ::maliput::drake::systems::Context)

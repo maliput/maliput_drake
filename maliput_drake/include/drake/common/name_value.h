@@ -97,4 +97,4 @@ NameValue<T> MakeNameValue(const char* name, T* value) {
 }  // namespace maliput::drake
 
 /// Creates a NameValue pair for an lvalue `x`.
-#define DRAKE_NVP(x) ::drake::MakeNameValue(#x, &(x))
+#define DRAKE_NVP(x) ::maliput::drake::MakeNameValue(#x, &(x))

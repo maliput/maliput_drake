@@ -203,8 +203,8 @@ constexpr auto Make_Function_Pointers_Pack1() { \
 static constexpr auto Function_Femplates __attribute__((used)) = \
     Make_Function_Pointers_Pack1< \
         double, \
-        ::drake::AutoDiffXd, \
-        ::drake::symbolic::Expression>();
+        ::maliput::drake::AutoDiffXd, \
+        ::maliput::drake::symbolic::Expression>();
 
 /// Defines template instantiations for Drake's default nonsymbolic scalars.
 /// This should only be used in .cc files, never in .h files.
@@ -226,6 +226,6 @@ constexpr auto Make_Function_Pointers_Nonsym_Pack1() { \
 static constexpr auto Function_Templates_Nonsym __attribute__((used)) = \
     Make_Function_Pointers_Nonsym_Pack1< \
         double, \
-        ::drake::AutoDiffXd>();
+        ::maliput::drake::AutoDiffXd>();
 
 /// @}

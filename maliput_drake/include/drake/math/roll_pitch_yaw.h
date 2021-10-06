@@ -675,4 +675,4 @@ using RollPitchYawd = RollPitchYaw<double>;
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::math::RollPitchYaw)
+    class ::maliput::drake::math::RollPitchYaw)

@@ -110,4 +110,4 @@ void LeafContext<T>::notify_set_system_id(internal::SystemId id) {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::LeafContext)
+    class ::maliput::drake::systems::LeafContext)

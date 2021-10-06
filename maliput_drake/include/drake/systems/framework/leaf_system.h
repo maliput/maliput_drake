@@ -2157,4 +2157,4 @@ class LeafSystem : public System<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::LeafSystem)
+    class ::maliput::drake::systems::LeafSystem)

@@ -45,8 +45,8 @@ used by Drake might be older.)
   do {                                                                        \
     /* Capture the drake::log() in a temporary, using a relatively unique */  \
     /* variable name to avoid potential variable name shadowing warnings. */  \
-    ::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
-        ::drake::log();                                                       \
+    ::maliput::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
+        ::maliput::drake::log();                                                       \
     if (drake_spdlog_macro_logger_alias->level() <= spdlog::level::trace) {   \
       SPDLOG_LOGGER_TRACE(drake_spdlog_macro_logger_alias, __VA_ARGS__);      \
     }                                                                         \
@@ -55,8 +55,8 @@ used by Drake might be older.)
   do {                                                                        \
     /* Capture the drake::log() in a temporary, using a relatively unique */  \
     /* variable name to avoid potential variable name shadowing warnings. */  \
-    ::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
-        ::drake::log();                                                       \
+    ::maliput::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
+        ::maliput::drake::log();                                                       \
     if (drake_spdlog_macro_logger_alias->level() <= spdlog::level::debug) {   \
       SPDLOG_LOGGER_DEBUG(drake_spdlog_macro_logger_alias, __VA_ARGS__);      \
     }                                                                         \

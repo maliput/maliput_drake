@@ -1096,4 +1096,4 @@ double ProjectMatToRotMatWithAxis(const Eigen::Matrix3d& M,
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::math::RotationMatrix)
+    class ::maliput::drake::math::RotationMatrix)

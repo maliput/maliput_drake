@@ -191,4 +191,4 @@ class BasicVector : public VectorBase<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::BasicVector)
+    class ::maliput::drake::systems::BasicVector)

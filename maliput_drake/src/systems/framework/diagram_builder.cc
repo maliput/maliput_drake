@@ -419,4 +419,4 @@ std::unique_ptr<typename Diagram<T>::Blueprint> DiagramBuilder<T>::Compile() {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiagramBuilder)
+    class ::maliput::drake::systems::DiagramBuilder)

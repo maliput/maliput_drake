@@ -131,4 +131,4 @@ class DiagramDiscreteValues final: public DiscreteValues<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiagramDiscreteValues)
+    class ::maliput::drake::systems::DiagramDiscreteValues)

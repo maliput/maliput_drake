@@ -196,4 +196,4 @@ MatrixX<T> BarycentricMesh<T>::MeshValuesFrom(
 }  // namespace math
 }  // namespace maliput::drake
 
-template class ::drake::math::BarycentricMesh<double>;
+template class ::maliput::drake::math::BarycentricMesh<double>;

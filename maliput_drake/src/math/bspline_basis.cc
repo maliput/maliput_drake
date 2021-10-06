@@ -151,4 +151,4 @@ bool BsplineBasis<T>::CheckInvariants() const {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::math::BsplineBasis)
+    class ::maliput::drake::math::BsplineBasis)

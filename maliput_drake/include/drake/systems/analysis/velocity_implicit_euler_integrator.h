@@ -671,4 +671,4 @@ inline void VelocityImplicitEulerIntegrator<AutoDiffXd>::
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class ::drake::systems::VelocityImplicitEulerIntegrator)
+    class ::maliput::drake::systems::VelocityImplicitEulerIntegrator)

@@ -108,4 +108,4 @@ class SystemOutput {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::SystemOutput)
+    class ::maliput::drake::systems::SystemOutput)

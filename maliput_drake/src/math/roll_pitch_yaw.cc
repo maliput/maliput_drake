@@ -235,4 +235,4 @@ void RollPitchYaw<T>::ThrowPitchAngleViolatesGimbalLockTolerance(
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::math::RollPitchYaw)
+    class ::maliput::drake::math::RollPitchYaw)

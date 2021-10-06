@@ -871,4 +871,4 @@ std::ostream& operator<<(std::ostream& os, const Context<T>& context) {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::Context)
+    class ::maliput::drake::systems::Context)

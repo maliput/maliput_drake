@@ -916,16 +916,16 @@ class UnrestrictedUpdateEvent final : public Event<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::WitnessTriggeredEventData)
+    class ::maliput::drake::systems::WitnessTriggeredEventData)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::Event)
+    class ::maliput::drake::systems::Event)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::PublishEvent)
+    class ::maliput::drake::systems::PublishEvent)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiscreteUpdateEvent)
+    class ::maliput::drake::systems::DiscreteUpdateEvent)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::UnrestrictedUpdateEvent)
+    class ::maliput::drake::systems::UnrestrictedUpdateEvent)

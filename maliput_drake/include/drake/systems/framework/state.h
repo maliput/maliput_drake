@@ -141,4 +141,4 @@ class State {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::State)
+    class ::maliput::drake::systems::State)

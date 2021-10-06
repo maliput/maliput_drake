@@ -178,4 +178,4 @@ class BarycentricMesh {
 }  // namespace math
 }  // namespace maliput::drake
 
-extern template class ::drake::math::BarycentricMesh<double>;
+extern template class ::maliput::drake::math::BarycentricMesh<double>;

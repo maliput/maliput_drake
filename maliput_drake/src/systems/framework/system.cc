@@ -1218,4 +1218,4 @@ void System<T>::AddExternalConstraints(
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::System)
+    class ::maliput::drake::systems::System)

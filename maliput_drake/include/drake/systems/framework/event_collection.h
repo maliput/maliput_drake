@@ -842,10 +842,10 @@ class DiagramCompositeEventCollection final
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::CompositeEventCollection)
+    class ::maliput::drake::systems::CompositeEventCollection)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::LeafCompositeEventCollection)
+    class ::maliput::drake::systems::LeafCompositeEventCollection)
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiagramCompositeEventCollection)
+    class ::maliput::drake::systems::DiagramCompositeEventCollection)

@@ -233,4 +233,4 @@ class WitnessFunction final {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::WitnessFunction)
+    class ::maliput::drake::systems::WitnessFunction)

@@ -240,7 +240,7 @@ class SystemParentServiceInterface {
   DRAKE_DEFAULT_COPY_AND_MOVE_AND_ASSIGN(SystemParentServiceInterface);
 
  private:
-  friend class ::drake::systems::SystemBase;
+  friend class ::maliput::drake::systems::SystemBase;
 
   // This method is invoked when we need to evaluate a connected input port of
   // a child subsystem of this System. This need arises only if this System

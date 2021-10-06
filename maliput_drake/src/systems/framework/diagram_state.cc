@@ -48,4 +48,4 @@ void DiagramState<T>::Finalize() {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiagramState)
+    class ::maliput::drake::systems::DiagramState)

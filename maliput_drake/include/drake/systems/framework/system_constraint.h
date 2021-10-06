@@ -403,4 +403,4 @@ ExternalSystemConstraint::do_get_calc() const {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::SystemConstraint)
+    class ::maliput::drake::systems::SystemConstraint)

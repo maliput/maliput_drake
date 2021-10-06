@@ -546,4 +546,4 @@ class Diagram : public System<T>, internal::SystemParentServiceInterface {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::Diagram)
+    class ::maliput::drake::systems::Diagram)

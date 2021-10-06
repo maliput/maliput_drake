@@ -298,7 +298,7 @@ code, `MyDiagram::ToAutoDiffXd()` will return an object of runtime type
 class as `MyDiagram<AutoDiffXd>` anyway, because `MyDiagram` is not templated.)
 
 In the unusual case that the Diagram's subclass must be preserved during
-conversion, a ::drake::systems::SystemTypeTag should be used:
+conversion, a ::maliput::drake::systems::SystemTypeTag should be used:
 
 Example using DiagramBuilder::BuildInto along with a `SystemTypeTag`:
 @code

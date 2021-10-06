@@ -123,4 +123,4 @@ class LeafOutputPort final : public OutputPort<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::LeafOutputPort)
+    class ::maliput::drake::systems::LeafOutputPort)

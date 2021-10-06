@@ -667,4 +667,4 @@ using RigidTransformd = RigidTransform<double>;
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::math::RigidTransform)
+    class ::maliput::drake::math::RigidTransform)

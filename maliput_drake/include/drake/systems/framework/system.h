@@ -1082,7 +1082,7 @@ class System : public SystemBase {
 
   See @ref system_scalar_conversion for detailed background and examples
   related to scalar-type conversion support. */
-  template <template <typename> class S = ::drake::systems::System>
+  template <template <typename> class S = ::maliput::drake::systems::System>
   static std::unique_ptr<S<AutoDiffXd>> ToAutoDiffXd(const S<T>& from) {
     return System<T>::ToScalarType<AutoDiffXd>(from);
   }
@@ -1124,7 +1124,7 @@ class System : public SystemBase {
 
   See @ref system_scalar_conversion for detailed background and examples
   related to scalar-type conversion support. */
-  template <template <typename> class S = ::drake::systems::System>
+  template <template <typename> class S = ::maliput::drake::systems::System>
   static std::unique_ptr<S<symbolic::Expression>> ToSymbolic(const S<T>& from) {
     return System<T>::ToScalarType<symbolic::Expression>(from);
   }
@@ -1199,7 +1199,7 @@ class System : public SystemBase {
 
   See @ref system_scalar_conversion for detailed background and examples
   related to scalar-type conversion support. */
-  template <typename U, template <typename> class S = ::drake::systems::System>
+  template <typename U, template <typename> class S = ::maliput::drake::systems::System>
   static std::unique_ptr<S<U>> ToScalarType(const S<T>& from) {
     auto base_result = from.template ToScalarTypeMaybe<U>();
     if (!base_result) {
@@ -1775,4 +1775,4 @@ class System : public SystemBase {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::System)
+    class ::maliput::drake::systems::System)

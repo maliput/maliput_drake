@@ -65,4 +65,4 @@ class DiagramState : public State<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::DiagramState)
+    class ::maliput::drake::systems::DiagramState)

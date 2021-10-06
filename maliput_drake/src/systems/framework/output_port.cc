@@ -27,4 +27,4 @@ void OutputPort<T>::CheckValidAllocation(const AbstractValue& proposed) const {
 }  // namespace maliput::drake::systems
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::OutputPort)
+    class ::maliput::drake::systems::OutputPort)

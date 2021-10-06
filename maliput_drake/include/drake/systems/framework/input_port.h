@@ -202,4 +202,4 @@ class InputPort final : public InputPortBase {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::InputPort)
+    class ::maliput::drake::systems::InputPort)

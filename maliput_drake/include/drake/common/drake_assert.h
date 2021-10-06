@@ -106,16 +106,16 @@ struct ConditionTraits {
 }  // namespace maliput::drake
 
 #define DRAKE_UNREACHABLE()                                             \
-  ::drake::internal::Abort(                                             \
+  ::maliput::drake::internal::Abort(                                             \
       "Unreachable code was reached?!", __func__, __FILE__, __LINE__)
 
 #define DRAKE_DEMAND(condition)                                              \
   do {                                                                       \
-    typedef ::drake::assert::ConditionTraits<                                \
+    typedef ::maliput::drake::assert::ConditionTraits<                                \
         typename std::remove_cv_t<decltype(condition)>> Trait;               \
     static_assert(Trait::is_valid, "Condition should be bool-convertible."); \
     if (!Trait::Evaluate(condition)) {                                       \
-      ::drake::internal::AssertionFailed(                                    \
+      ::maliput::drake::internal::AssertionFailed(                                    \
            #condition, __func__, __FILE__, __LINE__);                        \
     }                                                                        \
   } while (0)
@@ -140,7 +140,7 @@ constexpr bool kDrakeAssertIsArmed = false;
 constexpr bool kDrakeAssertIsDisarmed = true;
 }  // namespace maliput::drake
 # define DRAKE_ASSERT(condition) static_assert(                        \
-    ::drake::assert::ConditionTraits<                                  \
+    ::maliput::drake::assert::ConditionTraits<                                  \
         typename std::remove_cv_t<decltype(condition)>>::is_valid,     \
     "Condition should be bool-convertible.");
 # define DRAKE_ASSERT_VOID(expression) static_assert(           \

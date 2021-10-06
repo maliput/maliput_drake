@@ -111,4 +111,4 @@ class SingleOutputVectorSource : public LeafSystem<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class ::drake::systems::SingleOutputVectorSource)
+    class ::maliput::drake::systems::SingleOutputVectorSource)
