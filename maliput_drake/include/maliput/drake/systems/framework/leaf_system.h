@@ -1249,7 +1249,7 @@ class LeafSystem : public System<T> {
   ports, the type must be copy constructible or cloneable. For
   methods below that are not given an explicit model value or construction
   ("make") method, the underlying type must be default constructible.
-  @see drake::Value for more about abstract values.
+  @see maliput::drake::Value for more about abstract values.
 
   A list of prerequisites may be provided for the calculator function to
   avoid unnecessary recomputation. If no prerequisites are provided, the
@@ -1369,7 +1369,7 @@ class LeafSystem : public System<T> {
   }
 
   /** Declares a vector-valued output port with type BasicVector and size @p
-  size, using the drake::dummy_value<T>, which is NaN when T = double. @p calc
+  size, using the maliput::drake::dummy_value<T>, which is NaN when T = double. @p calc
   is a calculator function that is a class member function (method) with
   signature:
   @code
@@ -1442,7 +1442,7 @@ class LeafSystem : public System<T> {
           all_sources_ticket()});
 
   /** (Advanced) Declares a vector-valued output port with type BasicVector<T>
-  and size @p size, using the drake::dummy_value<T>, which is NaN when T =
+  and size @p size, using the maliput::drake::dummy_value<T>, which is NaN when T =
   double.  @p vector_calc_function is a function for calculating the port's
   value at runtime. Note that this takes the calculator function in its most
   generic form; if you have a member function available use one of the other
@@ -1468,7 +1468,7 @@ class LeafSystem : public System<T> {
   where `MySystem` must be a class derived from `LeafSystem<T>`.
   `OutputType` must be such that `Value<OutputType>` is permitted.
   Template arguments will be deduced and do not need to be specified.
-  @see drake::Value */
+  @see maliput::drake::Value */
   template <class MySystem, typename OutputType>
   LeafOutputPort<T>& DeclareAbstractOutputPort(
       std::variant<std::string, UseDefaultName> name,
@@ -1501,7 +1501,7 @@ class LeafSystem : public System<T> {
   allocation (not common), use one of the other signatures to explicitly
   provide a method for the allocator to call; that method can then invoke
   the `OutputType` default constructor.
-  @see drake::Value */
+  @see maliput::drake::Value */
   template <class MySystem, typename OutputType>
   LeafOutputPort<T>& DeclareAbstractOutputPort(
       std::variant<std::string, UseDefaultName> name,

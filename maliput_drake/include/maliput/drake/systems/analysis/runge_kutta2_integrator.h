@@ -132,4 +132,4 @@ bool RungeKutta2Integrator<T>::DoStep(const T& h) {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::systems::RungeKutta2Integrator)
+    class maliput::drake::systems::RungeKutta2Integrator)

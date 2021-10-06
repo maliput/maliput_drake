@@ -38,7 +38,7 @@ struct is_cloneable_helper<
  `is_same`, etc.) To determine if a class is cloneable simply invoke:
 
  @code
- bool value = drake::is_cloneable<Foo>::value;
+ bool value = maliput::drake::is_cloneable<Foo>::value;
  @endcode
 
  If `Foo` is cloneable, it will evaluate to true. It can also be used in

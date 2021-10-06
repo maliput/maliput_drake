@@ -247,4 +247,4 @@ bool RungeKutta5Integrator<T>::DoStep(const T& h) {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::RungeKutta5Integrator)
+    class maliput::drake::systems::RungeKutta5Integrator)

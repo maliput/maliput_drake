@@ -73,7 +73,7 @@ implemented by a Drake user.
 For system marked with `final`,
 the two examples below show how to enable system scalar conversion.
 
-Example using drake::systems::LeafSystem as the base class:
+Example using maliput::drake::systems::LeafSystem as the base class:
 @code
 namespace sample {
 template <typename T>
@@ -98,7 +98,7 @@ class MySystem final : public LeafSystem<T> {
   ...
 @endcode
 
-Example using drake::systems::VectorSystem as the base class:
+Example using maliput::drake::systems::VectorSystem as the base class:
 @code
 namespace sample {
 template <typename T>
@@ -205,7 +205,7 @@ converts between a limited set of scalar types, as enumerated by the
 drake::systems::SystemScalarConverter::SystemScalarConverter(SystemTypeTag<S>)
 constructor documentation.
 
-Systems may specialize their drake::systems::scalar_conversion::Traits to
+Systems may specialize their maliput::drake::systems::scalar_conversion::Traits to
 govern the supported scalar types.  The recommended mechanism is to use
 drake::systems::scalar_conversion::NonSymbolicTraits or
 drake::systems::scalar_conversion::FromDoubleTraits.

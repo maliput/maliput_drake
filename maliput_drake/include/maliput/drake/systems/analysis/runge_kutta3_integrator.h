@@ -94,4 +94,4 @@ class RungeKutta3Integrator final : public IntegratorBase<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::RungeKutta3Integrator)
+    class maliput::drake::systems::RungeKutta3Integrator)

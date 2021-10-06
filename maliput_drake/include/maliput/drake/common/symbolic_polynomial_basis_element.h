@@ -238,11 +238,11 @@ struct BasisElementGradedReverseLexOrder {
 #if !defined(DRAKE_DOXYGEN_CXX)
 namespace Eigen {
 namespace internal {
-// Informs Eigen how to cast drake::symbolic::PolynomialBasisElement to
-// drake::symbolic::Expression.
+// Informs Eigen how to cast maliput::drake::symbolic::PolynomialBasisElement to
+// maliput::drake::symbolic::Expression.
 template <>
-EIGEN_DEVICE_FUNC inline drake::symbolic::Expression cast(
-    const drake::symbolic::PolynomialBasisElement& m) {
+EIGEN_DEVICE_FUNC inline maliput::drake::symbolic::Expression cast(
+    const maliput::drake::symbolic::PolynomialBasisElement& m) {
   return m.ToExpression();
 }
 }  // namespace internal

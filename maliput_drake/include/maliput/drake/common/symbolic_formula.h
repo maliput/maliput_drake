@@ -1123,7 +1123,7 @@ struct ConditionTraits<symbolic::Formula> {
 namespace std {
 /* Provides std::hash<maliput::drake::symbolic::Formula>. */
 template <>
-struct hash<maliput::drake::symbolic::Formula> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Formula> : public maliput::drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 template <>
@@ -1133,8 +1133,8 @@ struct __is_fast_hash<hash<maliput::drake::symbolic::Formula>> : std::false_type
 /* Provides std::less<maliput::drake::symbolic::Formula>. */
 template <>
 struct less<maliput::drake::symbolic::Formula> {
-  bool operator()(const drake::symbolic::Formula& lhs,
-                  const drake::symbolic::Formula& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Formula& lhs,
+                  const maliput::drake::symbolic::Formula& rhs) const {
     return lhs.Less(rhs);
   }
 };
@@ -1142,8 +1142,8 @@ struct less<maliput::drake::symbolic::Formula> {
 /* Provides std::equal_to<maliput::drake::symbolic::Formula>. */
 template <>
 struct equal_to<maliput::drake::symbolic::Formula> {
-  bool operator()(const drake::symbolic::Formula& lhs,
-                  const drake::symbolic::Formula& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Formula& lhs,
+                  const maliput::drake::symbolic::Formula& rhs) const {
     return lhs.EqualTo(rhs);
   }
 };
@@ -1163,168 +1163,168 @@ namespace internal {
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr == Expr"
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_EQ>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a == b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr < Expr".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_LT>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a < b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr <= Expr".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_LE>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a <= b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr > Expr".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_GT>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a > b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr >= Expr".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_GE>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a >= b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Expr != Expr".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Expression, drake::symbolic::Expression,
+struct scalar_cmp_op<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression,
                      cmp_NEQ>
-    : binary_op_base<maliput::drake::symbolic::Expression, drake::symbolic::Expression> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Expression, maliput::drake::symbolic::Expression> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Expression& a,
-             const drake::symbolic::Expression& b) const {
+  operator()(const maliput::drake::symbolic::Expression& a,
+             const maliput::drake::symbolic::Expression& b) const {
     return a != b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var == Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_EQ>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a == b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var < Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_LT>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a < b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var <= Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_LE>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a <= b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var > Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_GT>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a > b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var >= Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_GE>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a >= b;
   }
 };
 
 /// Provides specialization for scalar_cmp_op to handle the case "Var != Var".
 template <>
-struct scalar_cmp_op<maliput::drake::symbolic::Variable, drake::symbolic::Variable,
+struct scalar_cmp_op<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable,
                      cmp_NEQ>
-    : binary_op_base<maliput::drake::symbolic::Variable, drake::symbolic::Variable> {
-  typedef drake::symbolic::Formula result_type;
+    : binary_op_base<maliput::drake::symbolic::Variable, maliput::drake::symbolic::Variable> {
+  typedef maliput::drake::symbolic::Formula result_type;
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cmp_op)
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE result_type
-  operator()(const drake::symbolic::Variable& a,
-             const drake::symbolic::Variable& b) const {
+  operator()(const maliput::drake::symbolic::Variable& a,
+             const maliput::drake::symbolic::Variable& b) const {
     return a != b;
   }
 };
@@ -1352,16 +1352,16 @@ namespace numext {
 #if EIGEN_VERSION_AT_LEAST(3, 3, 5)
 template <>
 EIGEN_STRONG_INLINE bool equal_strict(
-    const drake::symbolic::Expression& x,
-    const drake::symbolic::Expression& y) {
+    const maliput::drake::symbolic::Expression& x,
+    const maliput::drake::symbolic::Expression& y) {
   if (is_zero(x)) { return is_zero(y); }
   if (is_zero(y)) { return is_zero(x); }
   return static_cast<bool>(x == y);
 }
 template <>
 EIGEN_STRONG_INLINE bool not_equal_strict(
-    const drake::symbolic::Expression& x,
-    const drake::symbolic::Expression& y) {
+    const maliput::drake::symbolic::Expression& x,
+    const maliput::drake::symbolic::Expression& y) {
   return !Eigen::numext::equal_strict(x, y);
 }
 #endif
@@ -1373,17 +1373,17 @@ EIGEN_STRONG_INLINE bool not_equal_strict(
 // As of Eigen 3.4.0, this is called at least as part of JacobiSVD (though
 // it could also potentially come up elsewhere).
 template <>
-EIGEN_STRONG_INLINE bool isfinite(const drake::symbolic::Expression& e) {
+EIGEN_STRONG_INLINE bool isfinite(const maliput::drake::symbolic::Expression& e) {
   return static_cast<bool>(maliput::drake::symbolic::isfinite(e));
 }
 
 template <>
-EIGEN_STRONG_INLINE bool isinf(const drake::symbolic::Expression& e) {
+EIGEN_STRONG_INLINE bool isinf(const maliput::drake::symbolic::Expression& e) {
   return static_cast<bool>(maliput::drake::symbolic::isinf(e));
 }
 
 template <>
-EIGEN_STRONG_INLINE bool isnan(const drake::symbolic::Expression& e) {
+EIGEN_STRONG_INLINE bool isnan(const maliput::drake::symbolic::Expression& e) {
   return static_cast<bool>(maliput::drake::symbolic::isnan(e));
 }
 }  // namespace numext

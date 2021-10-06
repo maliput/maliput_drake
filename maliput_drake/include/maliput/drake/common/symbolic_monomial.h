@@ -121,7 +121,7 @@ class Monomial {
   template <class HashAlgorithm>
   friend void hash_append(
       HashAlgorithm& hasher, const Monomial& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     // We do not send total_degree_ to the hasher, because it is already fully
     // represented by powers_ -- it is just a cached tally of the exponents.
     hash_append(hasher, item.powers_);
@@ -149,7 +149,7 @@ namespace std {
 /* Provides std::hash<maliput::drake::symbolic::Monomial>. */
 template <>
 struct hash<maliput::drake::symbolic::Monomial>
-    : public drake::DefaultHash {};
+    : public maliput::drake::DefaultHash {};
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)
@@ -162,11 +162,11 @@ struct NumTraits<maliput::drake::symbolic::Monomial>
 };
 
 namespace internal {
-// Informs Eigen how to cast drake::symbolic::Monomial to
-// drake::symbolic::Expression.
+// Informs Eigen how to cast maliput::drake::symbolic::Monomial to
+// maliput::drake::symbolic::Expression.
 template <>
-EIGEN_DEVICE_FUNC inline drake::symbolic::Expression cast(
-    const drake::symbolic::Monomial& m) {
+EIGEN_DEVICE_FUNC inline maliput::drake::symbolic::Expression cast(
+    const maliput::drake::symbolic::Monomial& m) {
   return m.ToExpression();
 }
 }  // namespace internal

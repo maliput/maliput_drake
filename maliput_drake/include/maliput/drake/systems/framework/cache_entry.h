@@ -88,7 +88,7 @@ class CacheEntry {
 
   @throws std::exception if the prerequisite list is empty.
 
-  @see drake::systems::SystemBase::DeclareCacheEntry() */
+  @see maliput::drake::systems::SystemBase::DeclareCacheEntry() */
   CacheEntry(const internal::SystemMessageInterface* owning_system,
              CacheIndex index, DependencyTicket ticket, std::string description,
              ValueProducer value_producer,

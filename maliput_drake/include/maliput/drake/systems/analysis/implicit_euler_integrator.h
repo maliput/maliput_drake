@@ -564,4 +564,4 @@ class ImplicitEulerIntegrator final : public ImplicitIntegrator<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::ImplicitEulerIntegrator)
+    class maliput::drake::systems::ImplicitEulerIntegrator)

@@ -47,7 +47,7 @@ struct DoNotInitializeMemberFields {};
 /// rotation matrix is invalid.  When assertions are disabled,
 /// many of these validity checks are skipped (which helps improve speed).
 /// In addition, these validity tests are only performed for scalar types for
-/// which drake::scalar_predicate<T>::is_bool is `true`. For instance, validity
+/// which maliput::drake::scalar_predicate<T>::is_bool is `true`. For instance, validity
 /// checks are not performed when T is symbolic::Expression.
 ///
 /// @authors Paul Mitiguy (2018) Original author.

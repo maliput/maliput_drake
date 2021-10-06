@@ -334,7 +334,7 @@ class DecomposePolynomialVisitor {
   // Makes VisitExpression a friend of this class so that it can use private
   // methods.
   friend Polynomial::MapType
-  drake::symbolic::VisitExpression<Polynomial::MapType>(
+  maliput::drake::symbolic::VisitExpression<Polynomial::MapType>(
       const DecomposePolynomialVisitor*, const Expression&, const Variables&);
 };
 

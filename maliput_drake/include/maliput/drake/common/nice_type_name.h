@@ -18,13 +18,13 @@ Usage: @code
 using std::pair; using std::string;
 using MyVectorType = pair<int,string>;
 std::cout << "Type MyVectorType was: "
-          << drake::NiceTypeName::Get<MyVectorType>() << std::endl;
+          << maliput::drake::NiceTypeName::Get<MyVectorType>() << std::endl;
 // Output: std::pair<int,std::string>
 
 // For expressions:
 std::unique_ptr<AbstractThing> thing;  // Assume actual type is ConcreteThing.
 std::cout << "Actual type of 'thing' was: "
-          << drake::NiceTypeName::Get(*thing) << std::endl;
+          << maliput::drake::NiceTypeName::Get(*thing) << std::endl;
 // Output: ConcreteThing
 @endcode
 

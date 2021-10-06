@@ -259,7 +259,7 @@ class GenericPolynomial {
   friend void hash_append(
       HashAlgorithm& hasher,
       const GenericPolynomial<BasisElement>& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     for (const auto& [basis_element, coeff] :
          item.basis_element_to_coefficient_map_) {
       hash_append(hasher, basis_element);
@@ -526,7 +526,7 @@ namespace std {
 /* Provides std::hash<maliput::drake::symbolic::GenericPolynomial<BasisElement>>. */
 template <typename BasisElement>
 struct hash<maliput::drake::symbolic::GenericPolynomial<BasisElement>>
-    : public drake::DefaultHash {};
+    : public maliput::drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // Inform GCC that this hash function is not so fast (i.e. for-loop inside).
 // This will enforce caching of hash results. See
@@ -544,17 +544,17 @@ namespace Eigen {
 // Defines Eigen traits needed for Matrix<maliput::drake::symbolic::Polynomial>.
 template <>
 struct NumTraits<
-    drake::symbolic::GenericPolynomial<maliput::drake::symbolic::MonomialBasisElement>>
+    maliput::drake::symbolic::GenericPolynomial<maliput::drake::symbolic::MonomialBasisElement>>
     : GenericNumTraits<maliput::drake::symbolic::GenericPolynomial<
-          drake::symbolic::MonomialBasisElement>> {
+          maliput::drake::symbolic::MonomialBasisElement>> {
   static inline int digits10() { return 0; }
 };
 
 template <>
 struct NumTraits<
-    drake::symbolic::GenericPolynomial<maliput::drake::symbolic::ChebyshevBasisElement>>
+    maliput::drake::symbolic::GenericPolynomial<maliput::drake::symbolic::ChebyshevBasisElement>>
     : GenericNumTraits<maliput::drake::symbolic::GenericPolynomial<
-          drake::symbolic::ChebyshevBasisElement>> {
+          maliput::drake::symbolic::ChebyshevBasisElement>> {
   static inline int digits10() { return 0; }
 };
 }  // namespace Eigen

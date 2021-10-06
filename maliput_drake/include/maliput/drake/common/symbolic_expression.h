@@ -780,7 +780,7 @@ Expression TaylorExpand(const Expression& f, const Environment& a, int order);
 namespace std {
 /* Provides std::hash<maliput::drake::symbolic::Expression>. */
 template <>
-struct hash<maliput::drake::symbolic::Expression> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Expression> : public maliput::drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 template <>
@@ -790,8 +790,8 @@ struct __is_fast_hash<hash<maliput::drake::symbolic::Expression>> : std::false_t
 /* Provides std::less<maliput::drake::symbolic::Expression>. */
 template <>
 struct less<maliput::drake::symbolic::Expression> {
-  bool operator()(const drake::symbolic::Expression& lhs,
-                  const drake::symbolic::Expression& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Expression& lhs,
+                  const maliput::drake::symbolic::Expression& rhs) const {
     return lhs.Less(rhs);
   }
 };
@@ -799,8 +799,8 @@ struct less<maliput::drake::symbolic::Expression> {
 /* Provides std::equal_to<maliput::drake::symbolic::Expression>. */
 template <>
 struct equal_to<maliput::drake::symbolic::Expression> {
-  bool operator()(const drake::symbolic::Expression& lhs,
-                  const drake::symbolic::Expression& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Expression& lhs,
+                  const maliput::drake::symbolic::Expression& rhs) const {
     return lhs.EqualTo(rhs);
   }
 };
@@ -821,7 +821,7 @@ struct numeric_limits<maliput::drake::symbolic::Expression>
 template <>
 class uniform_real_distribution<maliput::drake::symbolic::Expression> {
  public:
-  using RealType = drake::symbolic::Expression;
+  using RealType = maliput::drake::symbolic::Expression;
   using result_type = RealType;
 
   /// Constructs a new distribution object with a minimum value @p a and a
@@ -857,9 +857,9 @@ class uniform_real_distribution<maliput::drake::symbolic::Expression> {
     if (random_variables_->size() == index_) {
       random_variables_->emplace_back(
           "random_uniform_" + std::to_string(index_),
-          drake::symbolic::Variable::Type::RANDOM_UNIFORM);
+          maliput::drake::symbolic::Variable::Type::RANDOM_UNIFORM);
     }
-    const drake::symbolic::Variable& v{(*random_variables_)[index_++]};
+    const maliput::drake::symbolic::Variable& v{(*random_variables_)[index_++]};
     return a_ + (b_ - a_) * v;
   }
 
@@ -884,7 +884,7 @@ class uniform_real_distribution<maliput::drake::symbolic::Expression> {
   [[nodiscard]] result_type max() const { return b_; }
 
  private:
-  using Variable = drake::symbolic::Variable;
+  using Variable = maliput::drake::symbolic::Variable;
 
   RealType a_;
   RealType b_;
@@ -958,7 +958,7 @@ inline std::ostream& operator<<(
 template <>
 class normal_distribution<maliput::drake::symbolic::Expression> {
  public:
-  using RealType = drake::symbolic::Expression;
+  using RealType = maliput::drake::symbolic::Expression;
   using result_type = RealType;
 
   /// Constructs a new distribution object with @p mean and @p stddev.
@@ -990,9 +990,9 @@ class normal_distribution<maliput::drake::symbolic::Expression> {
     if (random_variables_->size() == index_) {
       random_variables_->emplace_back(
           "random_gaussian_" + std::to_string(index_),
-          drake::symbolic::Variable::Type::RANDOM_GAUSSIAN);
+          maliput::drake::symbolic::Variable::Type::RANDOM_GAUSSIAN);
     }
-    const drake::symbolic::Variable& v{(*random_variables_)[index_++]};
+    const maliput::drake::symbolic::Variable& v{(*random_variables_)[index_++]};
     return mean_ + stddev_ * v;
   }
 
@@ -1025,7 +1025,7 @@ class normal_distribution<maliput::drake::symbolic::Expression> {
   }
 
  private:
-  using Variable = drake::symbolic::Variable;
+  using Variable = maliput::drake::symbolic::Variable;
 
   RealType mean_;
   RealType stddev_;
@@ -1064,7 +1064,7 @@ inline std::ostream& operator<<(
 template <>
 class exponential_distribution<maliput::drake::symbolic::Expression> {
  public:
-  using RealType = drake::symbolic::Expression;
+  using RealType = maliput::drake::symbolic::Expression;
   using result_type = RealType;
 
   /// Constructs a new distribution object with @p lambda.
@@ -1095,9 +1095,9 @@ class exponential_distribution<maliput::drake::symbolic::Expression> {
     if (random_variables_->size() == index_) {
       random_variables_->emplace_back(
           "random_exponential_" + std::to_string(index_),
-          drake::symbolic::Variable::Type::RANDOM_EXPONENTIAL);
+          maliput::drake::symbolic::Variable::Type::RANDOM_EXPONENTIAL);
     }
-    const drake::symbolic::Variable& v{(*random_variables_)[index_++]};
+    const maliput::drake::symbolic::Variable& v{(*random_variables_)[index_++]};
     return v / lambda_;
   }
 
@@ -1125,7 +1125,7 @@ class exponential_distribution<maliput::drake::symbolic::Expression> {
   }
 
  private:
-  using Variable = drake::symbolic::Variable;
+  using Variable = maliput::drake::symbolic::Variable;
 
   RealType lambda_;
   std::shared_ptr<std::vector<Variable>> random_variables_;
@@ -1166,53 +1166,53 @@ struct NumTraits<maliput::drake::symbolic::Expression>
 // Informs Eigen that Variable op Variable gets Expression.
 template <typename BinaryOp>
 struct ScalarBinaryOpTraits<maliput::drake::symbolic::Variable,
-                            drake::symbolic::Variable, BinaryOp> {
+                            maliput::drake::symbolic::Variable, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that Variable op Expression gets Expression.
 template <typename BinaryOp>
 struct ScalarBinaryOpTraits<maliput::drake::symbolic::Variable,
-                            drake::symbolic::Expression, BinaryOp> {
+                            maliput::drake::symbolic::Expression, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that Expression op Variable gets Expression.
 template <typename BinaryOp>
 struct ScalarBinaryOpTraits<maliput::drake::symbolic::Expression,
-                            drake::symbolic::Variable, BinaryOp> {
+                            maliput::drake::symbolic::Variable, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that Variable op double gets Expression.
 template <typename BinaryOp>
 struct ScalarBinaryOpTraits<maliput::drake::symbolic::Variable, double, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that double op Variable gets Expression.
 template <typename BinaryOp>
-struct ScalarBinaryOpTraits<double, drake::symbolic::Variable, BinaryOp> {
+struct ScalarBinaryOpTraits<double, maliput::drake::symbolic::Variable, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that Expression op double gets Expression.
 template <typename BinaryOp>
 struct ScalarBinaryOpTraits<maliput::drake::symbolic::Expression, double, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 // Informs Eigen that double op Expression gets Expression.
 template <typename BinaryOp>
-struct ScalarBinaryOpTraits<double, drake::symbolic::Expression, BinaryOp> {
+struct ScalarBinaryOpTraits<double, maliput::drake::symbolic::Expression, BinaryOp> {
   enum { Defined = 1 };
-  typedef drake::symbolic::Expression ReturnType;
+  typedef maliput::drake::symbolic::Expression ReturnType;
 };
 
 }  // namespace Eigen

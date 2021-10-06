@@ -224,26 +224,26 @@ struct NumTraits<maliput::drake::symbolic::RationalFunction>
 // Informs Eigen that RationalFunction op Polynomial gets RationalFunction
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::RationalFunction, drake::symbolic::Polynomial,
-    drake::symbolic::RationalFunction)
+    maliput::drake::symbolic::RationalFunction, maliput::drake::symbolic::Polynomial,
+    maliput::drake::symbolic::RationalFunction)
 
 // Informs Eigen that Polynomial op RationalFunction gets RationalFunction
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Polynomial, drake::symbolic::RationalFunction,
-    drake::symbolic::RationalFunction)
+    maliput::drake::symbolic::Polynomial, maliput::drake::symbolic::RationalFunction,
+    maliput::drake::symbolic::RationalFunction)
 
 // Informs Eigen that double op RationalFunction gets RationalFunction
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    double, drake::symbolic::RationalFunction,
-    drake::symbolic::RationalFunction)
+    double, maliput::drake::symbolic::RationalFunction,
+    maliput::drake::symbolic::RationalFunction)
 
 // Informs Eigen that RationalFunction op double gets RationalFunction
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::RationalFunction, double,
-    drake::symbolic::RationalFunction)
+    maliput::drake::symbolic::RationalFunction, double,
+    maliput::drake::symbolic::RationalFunction)
 #undef DRAKE_SYMBOLIC_SCALAR_BINARY_OP_TRAITS
 #undef DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS
 }  // namespace Eigen

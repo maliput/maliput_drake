@@ -25,9 +25,9 @@ void NormalizeVector(
     const Eigen::MatrixBase<Derived>& x,
     // TODO(#2274) Fix NOLINTNEXTLINE(runtime/references).
     typename Derived::PlainObject& x_norm,
-    typename drake::math::Gradient<Derived, Derived::RowsAtCompileTime,
+    typename maliput::drake::math::Gradient<Derived, Derived::RowsAtCompileTime,
                                    1>::type* dx_norm = nullptr,
-    typename drake::math::Gradient<Derived, Derived::RowsAtCompileTime,
+    typename maliput::drake::math::Gradient<Derived, Derived::RowsAtCompileTime,
                                    2>::type* ddx_norm = nullptr) {
   typename Derived::Scalar xdotx = x.squaredNorm();
   typename Derived::Scalar norm_x = sqrt(xdotx);

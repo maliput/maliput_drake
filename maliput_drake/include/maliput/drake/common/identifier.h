@@ -196,7 +196,7 @@ class Identifier {
    */
   template <typename HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher, const Identifier& i) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     hash_append(hasher, i.value_);
   }
 
@@ -233,7 +233,7 @@ std::ostream& operator<<(std::ostream& out, const Identifier<Tag>& id) {
  it should be invoked as: `to_string(id);` and should be preceded by
  `using std::to_string`.*/
 template <typename Tag>
-std::string to_string(const drake::Identifier<Tag>& id) {
+std::string to_string(const maliput::drake::Identifier<Tag>& id) {
   return std::to_string(id.get_value());
 }
 
@@ -245,6 +245,6 @@ namespace std {
  @relates Identifier
  */
 template <typename Tag>
-struct hash<maliput::drake::Identifier<Tag>> : public drake::DefaultHash {};
+struct hash<maliput::drake::Identifier<Tag>> : public maliput::drake::DefaultHash {};
 
 }  // namespace std

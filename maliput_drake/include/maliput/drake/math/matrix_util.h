@@ -95,7 +95,7 @@ ToSymmetricMatrixFromLowerTriangularColumns(
   DRAKE_ASSERT(rows * (rows + 1) / 2 == lower_triangular_columns.rows());
   DRAKE_ASSERT(lower_triangular_columns.cols() == 1);
 
-  drake::MatrixX<typename Derived::Scalar> symmetric_matrix(rows, rows);
+  maliput::drake::MatrixX<typename Derived::Scalar> symmetric_matrix(rows, rows);
 
   internal::to_symmetric_matrix_from_lower_triangular_columns_impl(
       rows, lower_triangular_columns, &symmetric_matrix);

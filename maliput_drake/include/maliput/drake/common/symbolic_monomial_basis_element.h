@@ -132,7 +132,7 @@ class MonomialBasisElement : public PolynomialBasisElement {
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const MonomialBasisElement& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     // We do not send total_degree_ to the hasher, because it is already fully
     // represented by var_to_degree_map_ -- it is just a cached tally of the
     // exponents.
@@ -212,7 +212,7 @@ std::map<MonomialBasisElement, double> pow(MonomialBasisElement m, int p);
 namespace std {
 /* Provides std::hash<maliput::drake::symbolic::MonomialBasisElement>. */
 template <>
-struct hash<maliput::drake::symbolic::MonomialBasisElement> : public drake::DefaultHash {
+struct hash<maliput::drake::symbolic::MonomialBasisElement> : public maliput::drake::DefaultHash {
 };
 }  // namespace std
 
@@ -226,11 +226,11 @@ struct NumTraits<maliput::drake::symbolic::MonomialBasisElement>
 };
 
 namespace internal {
-// Informs Eigen how to cast drake::symbolic::MonomialBasisElement to
-// drake::symbolic::Expression.
+// Informs Eigen how to cast maliput::drake::symbolic::MonomialBasisElement to
+// maliput::drake::symbolic::Expression.
 template <>
-EIGEN_DEVICE_FUNC inline drake::symbolic::Expression cast(
-    const drake::symbolic::MonomialBasisElement& m) {
+EIGEN_DEVICE_FUNC inline maliput::drake::symbolic::Expression cast(
+    const maliput::drake::symbolic::MonomialBasisElement& m) {
   return m.ToExpression();
 }
 }  // namespace internal

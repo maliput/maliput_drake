@@ -39,7 +39,7 @@ FormulaKind Formula::get_kind() const {
 }
 
 void Formula::HashAppend(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, get_kind());
   ptr_->HashAppendDetail(hasher);
 }

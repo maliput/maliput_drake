@@ -464,7 +464,7 @@ class DecomposeLumpedParametersVisitor {
 
   // Makes VisitExpression a friend of this class so that it can use private
   // methods.
-  friend LumpedFactorization drake::symbolic::VisitExpression<
+  friend LumpedFactorization maliput::drake::symbolic::VisitExpression<
       LumpedFactorization>(const DecomposeLumpedParametersVisitor*,
                            const Expression&, const Variables&);
 };

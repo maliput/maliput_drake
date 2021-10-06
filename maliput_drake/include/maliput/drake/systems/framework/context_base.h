@@ -676,9 +676,9 @@ class SystemBaseContextBaseAttorney {
   SystemBaseContextBaseAttorney() = delete;
 
  private:
-  friend class drake::systems::DiagramContextTest;
-  friend class drake::systems::LeafContextTest;
-  friend class drake::systems::SystemBase;
+  friend class maliput::drake::systems::DiagramContextTest;
+  friend class maliput::drake::systems::LeafContextTest;
+  friend class maliput::drake::systems::SystemBase;
 
   static void set_system_name(ContextBase* context, const std::string& name) {
     DRAKE_DEMAND(context != nullptr);

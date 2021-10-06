@@ -59,7 +59,7 @@ class Variables {
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const Variables& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     hash_append(hasher, item.vars_);
   }
 
@@ -181,5 +181,5 @@ Variables intersect(const Variables& vars1, const Variables& vars2);
 namespace std {
 /* Provides std::hash<maliput::drake::symbolic::Variables>. */
 template <>
-struct hash<maliput::drake::symbolic::Variables> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Variables> : public maliput::drake::DefaultHash {};
 }  // namespace std

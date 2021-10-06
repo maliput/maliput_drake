@@ -13,20 +13,20 @@
 #include "maliput/drake/common/unused.h"
 
 // Declare the gflags options.
-DEFINE_string(spdlog_level, drake::logging::kSetLogLevelUnchanged,
-              drake::logging::kSetLogLevelHelpMessage);
-DEFINE_string(spdlog_pattern, "%+", drake::logging::kSetLogPatternHelpMessage);
+DEFINE_string(spdlog_level, maliput::drake::logging::kSetLogLevelUnchanged,
+              maliput::drake::logging::kSetLogLevelHelpMessage);
+DEFINE_string(spdlog_pattern, "%+", maliput::drake::logging::kSetLogPatternHelpMessage);
 
 // Validate flags and update Drake's configuration to match their values.
 namespace {
 bool ValidateSpdlogLevel(const char* name, const std::string& value) {
-  drake::unused(name);
-  drake::logging::set_log_level(value);
+  maliput::drake::unused(name);
+  maliput::drake::logging::set_log_level(value);
   return true;
 }
 bool ValidateSpdlogPattern(const char* name, const std::string& value) {
-  drake::unused(name);
-  drake::logging::set_log_pattern(value);
+  maliput::drake::unused(name);
+  maliput::drake::logging::set_log_pattern(value);
   return true;
 }
 }  // namespace

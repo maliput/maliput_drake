@@ -660,8 +660,8 @@ MatrixX<T> RadauIntegrator<T, num_stages>::CalcTensorProduct(
 // those macros are designed for functions with only one template argument, and
 // we need to instantiate both scalar types for both the Radau1 and Radau3
 // integrators, which have num_stages set 1 and 2, respectively.
-template class drake::systems::RadauIntegrator<double, 1>;
-template class drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 1>;
+template class maliput::drake::systems::RadauIntegrator<double, 1>;
+template class maliput::drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 1>;
 
-template class drake::systems::RadauIntegrator<double, 2>;
-template class drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 2>;
+template class maliput::drake::systems::RadauIntegrator<double, 2>;
+template class maliput::drake::systems::RadauIntegrator<maliput::drake::AutoDiffXd, 2>;

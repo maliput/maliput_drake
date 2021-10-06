@@ -216,7 +216,7 @@ example above, the first publish event occurs at the end of initialization,
 while the first discrete update event occurs at the beginning of the first step,
 followed by continuous time and state advancement.
 
-@see drake::systems::Simulator for more details.
+@see maliput::drake::systems::Simulator for more details.
 
 @ingroup systems
 */

@@ -35,7 +35,7 @@ namespace maliput::drake {
  `friend copyable_unique_ptr<Foo>;` appears in Foo's class declaration.
 
  <!-- Developer note: if you change or extend the definition of an acceptable
-      clone method here, be sure to consider whether drake::is_cloneable should
+      clone method here, be sure to consider whether maliput::drake::is_cloneable should
       be changed as well. -->
 
  Generally, the API is modeled as closely as possible on the C++ standard
@@ -351,7 +351,7 @@ class copyable_unique_ptr : public std::unique_ptr<T> {
   // copyable_unique_ptr class so that they have the same method access as
   // the class does. That way we can use them to determine whether
   // copyable_unique_ptr can get access. That precludes using helper classes
-  // like drake::is_cloneable because those may have different access due to an
+  // like maliput::drake::is_cloneable because those may have different access due to an
   // explicit friend declaration giving copyable_unique_ptr<Foo> access to Foo's
   // private business. The static_assert below ensures that at least one of
   // these must return true.

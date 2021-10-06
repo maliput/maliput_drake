@@ -3,7 +3,7 @@
 
 #pragma once
 
-// Putting this document in drake::systems namespace makes the links work.
+// Putting this document in maliput::drake::systems namespace makes the links work.
 namespace maliput::drake {
 namespace systems {
 
@@ -119,7 +119,7 @@ subsystems, and aggregates results such as derivative calculations. When
 referring to individual Systems within a diagram, we use the terms
 "subsystem" and "subcontext".
 <!--
-                       drake::systems::LeafSystem
+                       maliput::drake::systems::LeafSystem
                 ┌─────────────────────────────────────┐
     time ──────>│>──────┐          ┌───────┐    ···───│───>  derivatives,
                 │       └─────────>│cache  │──────────│───>  energy, etc.
@@ -134,7 +134,7 @@ referring to individual Systems within a diagram, we use the terms
            └<──────────│─(Fixed input)                       │
                        │                                     │
                        └─────────────────────────────────────┘
-                             drake::systems::LeafContext
+                             maliput::drake::systems::LeafContext
 -->
 
 @image html drake/systems/framework/images/system_context_cache.png "Figure 1: Computational structure of a Drake System."

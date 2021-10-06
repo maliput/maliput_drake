@@ -59,4 +59,4 @@ class StepwiseDenseOutput : public DenseOutput<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::systems::StepwiseDenseOutput)
+    class maliput::drake::systems::StepwiseDenseOutput)

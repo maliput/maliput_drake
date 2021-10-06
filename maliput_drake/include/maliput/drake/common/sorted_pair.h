@@ -11,7 +11,7 @@
 #include "maliput/drake/common/is_less_than_comparable.h"
 
 /// @file
-/// Provides drake::MakeSortedPair and drake::SortedPair for storing two
+/// Provides maliput::drake::MakeSortedPair and maliput::drake::SortedPair for storing two
 /// values of a certain type in sorted order.
 
 namespace maliput::drake {
@@ -83,7 +83,7 @@ struct SortedPair {
   /// Implements the @ref hash_append concept.
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher, const SortedPair& p) noexcept {
-     using drake::hash_append;
+     using maliput::drake::hash_append;
     hash_append(hasher, p.first_);
     hash_append(hasher, p.second_);
   }
@@ -172,14 +172,14 @@ namespace std {
 
 /// Implements std::swap().
 template <class T>
-void swap(maliput::drake::SortedPair<T>& t, drake::SortedPair<T>& u) {
+void swap(maliput::drake::SortedPair<T>& t, maliput::drake::SortedPair<T>& u) {
   t.Swap(u);
 }
 
 /// Provides std::hash<SortedPair<T>>.
 template <class T>
 struct hash<maliput::drake::SortedPair<T>>
-    : public drake::DefaultHash {};
+    : public maliput::drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/unordered_associative.html
 template <class T>
@@ -194,7 +194,7 @@ template <typename T>
 struct tuple_size<maliput::drake::SortedPair<T>> : integral_constant<size_t, 2> {};
 
 template <size_t Index, typename T>
-struct tuple_element<Index, drake::SortedPair<T>> {
+struct tuple_element<Index, maliput::drake::SortedPair<T>> {
   using type = T;
 };
 

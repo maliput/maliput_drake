@@ -122,7 +122,7 @@ namespace internal {
 // to the output stream @p os.
 //
 // @note This function is used to implement std::string
-// drake::symbolic::CodeGen(const std::string &, const std::vector<Variable>&,
+// maliput::drake::symbolic::CodeGen(const std::string &, const std::vector<Variable>&,
 // const Eigen::PlainObjectBase<Derived>&).
 void CodeGenDenseData(const std::string& function_name,
                       const std::vector<Variable>& parameters,
@@ -132,7 +132,7 @@ void CodeGenDenseData(const std::string& function_name,
 // os.
 //
 // @note This function is used to implement std::string
-// drake::symbolic::CodeGen(const std::string &, const std::vector<Variable>&,
+// maliput::drake::symbolic::CodeGen(const std::string &, const std::vector<Variable>&,
 // const Eigen::PlainObjectBase<Derived>&).
 void CodeGenDenseMeta(const std::string& function_name, int parameter_size,
                       int rows, int cols, std::ostream* os);

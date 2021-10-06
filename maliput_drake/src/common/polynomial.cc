@@ -705,7 +705,7 @@ template <typename T>
 class FromExpressionVisitor {
  public:
   Polynomial<T> Visit(const Expression& e) {
-    return drake::symbolic::VisitExpression<Polynomial<T>>(this, e);
+    return maliput::drake::symbolic::VisitExpression<Polynomial<T>>(this, e);
   }
 
  private:
@@ -722,9 +722,9 @@ class FromExpressionVisitor {
   }
 
   static Polynomial<T> VisitMultiplication(const Expression& e) {
-    const auto constant = drake::symbolic::get_constant_in_multiplication(e);
+    const auto constant = maliput::drake::symbolic::get_constant_in_multiplication(e);
     const auto& base_to_exponent_map =
-        drake::symbolic::get_base_to_exponent_map_in_multiplication(e);
+        maliput::drake::symbolic::get_base_to_exponent_map_in_multiplication(e);
     return accumulate(
         base_to_exponent_map.begin(), base_to_exponent_map.end(),
         Polynomial<T>{constant},
@@ -848,7 +848,7 @@ class FromExpressionVisitor {
 
   // Makes VisitExpression a friend of this class so that VisitExpression can
   // use its private methods.
-  friend Polynomial<T> drake::symbolic::VisitExpression<Polynomial<T>>(
+  friend Polynomial<T> maliput::drake::symbolic::VisitExpression<Polynomial<T>>(
       FromExpressionVisitor*, const Expression&);
 };
 
@@ -865,4 +865,4 @@ Polynomial<T> Polynomial<T>::FromExpression(const Expression& e) {
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::Polynomial)
+    class maliput::drake::Polynomial)

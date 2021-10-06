@@ -101,4 +101,4 @@ class Trajectory {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::trajectories::Trajectory)
+    class maliput::drake::trajectories::Trajectory)

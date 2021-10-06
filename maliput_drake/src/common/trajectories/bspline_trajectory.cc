@@ -11,9 +11,9 @@
 #include "maliput/drake/common/symbolic.h"
 #include "maliput/drake/common/text_logging.h"
 
-using drake::symbolic::Expression;
-using drake::symbolic::Variable;
-using drake::trajectories::Trajectory;
+using maliput::drake::symbolic::Expression;
+using maliput::drake::symbolic::Variable;
+using maliput::drake::trajectories::Trajectory;
 
 namespace maliput::drake {
 namespace trajectories {
@@ -170,7 +170,7 @@ boolean<T> BsplineTrajectory<T>::operator==(
       this->cols() == other.cols()) {
     boolean<T> result{true};
     for (int i = 0; i < this->num_control_points(); ++i) {
-      result = result && drake::all(this->control_points()[i].array() ==
+      result = result && maliput::drake::all(this->control_points()[i].array() ==
                              other.control_points()[i].array());
       if (std::equal_to<boolean<T>>{}(result, boolean<T>{false})) {
         break;

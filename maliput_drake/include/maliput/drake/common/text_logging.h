@@ -6,15 +6,15 @@ This is the entry point for all text logging within Drake.
 Once you've included this file, the suggested ways you
 should write log messages include:
 <pre>
-  drake::log()->trace("Some trace message: {} {}", something, some_other);
+  maliput::drake::log()->trace("Some trace message: {} {}", something, some_other);
 </pre>
 Similarly, it provides:
 <pre>
-  drake::log()->debug(...);
-  drake::log()->info(...);
-  drake::log()->warn(...);
-  drake::log()->error(...);
-  drake::log()->critical(...);
+  maliput::drake::log()->debug(...);
+  maliput::drake::log()->info(...);
+  maliput::drake::log()->warn(...);
+  maliput::drake::log()->error(...);
+  maliput::drake::log()->critical(...);
 </pre>
 If you want to log objects that are expensive to serialize, these macros will
 not be compiled if debugging is turned off (-DNDEBUG is set):
@@ -43,7 +43,7 @@ used by Drake might be older.)
 // Provide operative macros only when spdlog is available and Debug is enabled.
 #define DRAKE_LOGGER_TRACE(...)                                               \
   do {                                                                        \
-    /* Capture the drake::log() in a temporary, using a relatively unique */  \
+    /* Capture the maliput::drake::log() in a temporary, using a relatively unique */  \
     /* variable name to avoid potential variable name shadowing warnings. */  \
     ::maliput::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
         ::maliput::drake::log();                                                       \
@@ -53,7 +53,7 @@ used by Drake might be older.)
   } while (0)
 #define DRAKE_LOGGER_DEBUG(...)                                               \
   do {                                                                        \
-    /* Capture the drake::log() in a temporary, using a relatively unique */  \
+    /* Capture the maliput::drake::log() in a temporary, using a relatively unique */  \
     /* variable name to avoid potential variable name shadowing warnings. */  \
     ::maliput::drake::logging::logger* const drake_spdlog_macro_logger_alias =         \
         ::maliput::drake::log();                                                       \
@@ -96,11 +96,11 @@ namespace maliput::drake {
 namespace logging {
 
 // If we have spdlog, just alias logger into our namespace.
-/// The drake::logging::logger class provides text logging methods.
+/// The maliput::drake::logging::logger class provides text logging methods.
 /// See the text_logging.h documentation for a short tutorial.
 using logger = spdlog::logger;
 
-/// When spdlog is enabled in this build, drake::logging::sink is an alias for
+/// When spdlog is enabled in this build, maliput::drake::logging::sink is an alias for
 /// spdlog::sinks::sink.  When spdlog is disabled, it is an empty class.
 using spdlog::sinks::sink;
 
@@ -161,7 +161,7 @@ class sink {
 
 /// Retrieve an instance of a logger to use for logging; for example:
 /// <pre>
-///   drake::log()->info("potato!")
+///   maliput::drake::log()->info("potato!")
 /// </pre>
 ///
 /// See the text_logging.h documentation for a short tutorial.
@@ -195,7 +195,7 @@ sink* get_dist_sink();
 struct Warn {
   template <typename... Args>
   Warn(const char* a, const Args&... b) {
-    drake::log()->warn(a, b...);
+    maliput::drake::log()->warn(a, b...);
   }
 };
 

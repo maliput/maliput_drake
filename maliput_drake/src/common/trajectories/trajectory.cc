@@ -82,4 +82,4 @@ std::unique_ptr<Trajectory<T>> Trajectory<T>::DoMakeDerivative(
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::trajectories::Trajectory)
+    class maliput::drake::trajectories::Trajectory)

@@ -423,4 +423,4 @@ class HermitianDenseOutput final : public StepwiseDenseOutput<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::systems::HermitianDenseOutput)
+    class maliput::drake::systems::HermitianDenseOutput)

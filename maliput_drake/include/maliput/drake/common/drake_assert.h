@@ -29,8 +29,8 @@
 /// This header will define exactly one of either @p DRAKE_ASSERT_IS_ARMED or
 /// @p DRAKE_ASSERT_IS_DISARMED to indicate whether @p DRAKE_ASSERT is armed.
 ///
-/// This header will define both `constexpr bool drake::kDrakeAssertIsArmed`
-/// and `constexpr bool drake::kDrakeAssertIsDisarmed` globals.
+/// This header will define both `constexpr bool maliput::drake::kDrakeAssertIsArmed`
+/// and `constexpr bool maliput::drake::kDrakeAssertIsDisarmed` globals.
 ///
 /// One difference versus the standard @p assert(condition) is that the
 /// @p condition within @p DRAKE_ASSERT is always syntax-checked, even if

@@ -94,4 +94,4 @@ bool ExplicitEulerIntegrator<T>::DoStep(const T& h) {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::systems::ExplicitEulerIntegrator)
+    class maliput::drake::systems::ExplicitEulerIntegrator)

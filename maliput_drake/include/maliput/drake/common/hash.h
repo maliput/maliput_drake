@@ -35,7 +35,7 @@
 ///   template <class HashAlgorithm>
 ///   friend void hash_append(
 ///       HashAlgorithm& hasher, const MyValue& item) noexcept {
-///     using drake::hash_append;
+///     using maliput::drake::hash_append;
 ///     hash_append(hasher, item.my_data_);
 ///   }
 ///   ...
@@ -53,7 +53,7 @@
 ///
 /// Types that implement this pattern may be used in unordered collections:
 /// @code
-/// std::unordered_set<MyValue, drake::DefaultHash> foo;
+/// std::unordered_set<MyValue, maliput::drake::DefaultHash> foo;
 /// @endcode
 ///
 /// Some Drake types may also choose to specialize `std::hash<MyValue>` to use
@@ -61,7 +61,7 @@
 /// can be omitted.  For example, Drake's `symbolic::Expression` header says:
 /// @code
 /// namespace std {
-/// struct hash<maliput::drake::symbolic::Expression> : public drake::DefaultHash {};
+/// struct hash<maliput::drake::symbolic::Expression> : public maliput::drake::DefaultHash {};
 /// }  // namespace std
 /// @endcode
 /// so that users are able to simply write:
@@ -111,7 +111,7 @@ template <class HashAlgorithm, class Traits, class Allocator>
 void hash_append(
     HashAlgorithm& hasher,
     const std::basic_string<char, Traits, Allocator>& item) noexcept {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hasher(item.data(), item.size());
   // All collection types must send their size, after their contents.
   // See the #hash_append_vector anchor in N3980.
@@ -122,7 +122,7 @@ void hash_append(
 template <class HashAlgorithm, class T1, class T2>
 void hash_append(
     HashAlgorithm& hasher, const std::pair<T1, T2>& item) noexcept {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(hasher, item.first);
   hash_append(hasher, item.second);
 }
@@ -147,7 +147,7 @@ template <class HashAlgorithm, class Iter>
 void hash_append_range(
     // NOLINTNEXTLINE(runtime/references) Per hash_append convention.
     HashAlgorithm& hasher, Iter begin, Iter end) noexcept {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   size_t count{0};
   for (Iter iter = begin; iter != end; ++iter, ++count) {
     hash_append(hasher, *iter);
@@ -198,7 +198,7 @@ struct uhash {
   template <class T>
   result_type operator()(const T& item) const noexcept {
     HashAlgorithm hasher;
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     hash_append(hasher, item);
     return static_cast<result_type>(hasher);
   }
@@ -242,7 +242,7 @@ class FNV1aHasher {
 using DefaultHasher = internal::FNV1aHasher;
 
 /// The default hashing functor, akin to std::hash.
-using DefaultHash = drake::uhash<DefaultHasher>;
+using DefaultHash = maliput::drake::uhash<DefaultHasher>;
 
 /// An adapter that forwards the HashAlgorithm::operator(data, length) function
 /// concept into a runtime-provided std::function of the same signature.  This

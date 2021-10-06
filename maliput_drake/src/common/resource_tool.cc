@@ -34,7 +34,7 @@
 //   }
 
 //   if (FLAGS_print_resource_root_environment_variable_name) {
-//     std::cout << drake::kDrakeResourceRootEnvironmentVariableName << "\n";
+//     std::cout << maliput::drake::kDrakeResourceRootEnvironmentVariableName << "\n";
 //     return 0;
 //   }
 
@@ -55,5 +55,5 @@
 // }  // namespace maliput::drake
 
 // int main(int argc, char* argv[]) {
-//   return drake::main(argc, argv);
+//   return maliput::drake::main(argc, argv);
 // }

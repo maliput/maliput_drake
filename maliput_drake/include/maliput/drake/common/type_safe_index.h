@@ -136,7 +136,7 @@ namespace maliput::drake {
 /// @endcode
 /// TODO(#15354) We hope to fix this irregularity in the future.
 ///
-/// @sa drake::geometry::Identifier
+/// @sa maliput::drake::geometry::Identifier
 ///
 /// @tparam Tag The name of the tag associated with a class type. The class
 ///             need not be a defined class.
@@ -488,7 +488,7 @@ class TypeSafeIndex {
   template <typename HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const TypeSafeIndex& i) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     hash_append(hasher, i.index_);
   }
 
@@ -499,7 +499,7 @@ class TypeSafeIndex {
     if (index < 0 || index > kMaxIndex) {
       throw std::runtime_error(
           std::string(source) + " Type \"" +
-          drake::NiceTypeName::Get<TypeSafeIndex<Tag>>() +
+          maliput::drake::NiceTypeName::Get<TypeSafeIndex<Tag>>() +
           "\", has an invalid value; it must lie in the range [0, 2³¹ - 1].");
     }
   }
@@ -510,7 +510,7 @@ class TypeSafeIndex {
     if (delta > 0 && index_ > kMaxIndex - delta) {
       throw std::runtime_error(
           std::string(source) + " Type \"" +
-          drake::NiceTypeName::Get<TypeSafeIndex<Tag>>() +
+          maliput::drake::NiceTypeName::Get<TypeSafeIndex<Tag>>() +
           "\", has overflowed.");
     }
   }
@@ -583,5 +583,5 @@ namespace std {
 /// Enables use of the type-safe index to serve as a key in STL containers.
 /// @relates TypeSafeIndex
 template <typename Tag>
-struct hash<maliput::drake::TypeSafeIndex<Tag>> : public drake::DefaultHash {};
+struct hash<maliput::drake::TypeSafeIndex<Tag>> : public maliput::drake::DefaultHash {};
 }  // namespace std

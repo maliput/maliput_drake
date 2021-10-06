@@ -28,7 +28,7 @@ class BasicVector : public VectorBase<T> {
   /// Constructs an empty BasicVector.
   BasicVector() = default;
 
-  /// Initializes with the given @p size using the drake::dummy_value<T>, which
+  /// Initializes with the given @p size using the maliput::drake::dummy_value<T>, which
   /// is NaN when T = double.
   explicit BasicVector(int size)
       : values_(VectorX<T>::Constant(size, dummy_value<T>::get())) {}

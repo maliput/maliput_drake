@@ -266,4 +266,4 @@ std::unique_ptr<DenseOutput<T>> InitialValueProblem<T>::DenseSolve(
 }  // namespace maliput::drake
 
 DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::InitialValueProblem)
+    class maliput::drake::systems::InitialValueProblem)

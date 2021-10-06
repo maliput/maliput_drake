@@ -92,7 +92,7 @@ class Variable {
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const Variable& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     hash_append(hasher, item.id_);
     // We do not send the type_ or name_ to the hasher, because the id_ is
     // already unique across all instances, and two Variable instances with
@@ -108,7 +108,7 @@ class Variable {
   Type type_{Type::CONTINUOUS};
 
   // Variable class has shared_ptr<const string> instead of string to be
-  // drake::test::IsMemcpyMovable.
+  // maliput::drake::test::IsMemcpyMovable.
   // Please check https://github.com/RobotLocomotion/drake/issues/5974
   // for more information.
   std::shared_ptr<const std::string> name_;  // Name of variable.
@@ -318,13 +318,13 @@ namespace std {
 
 /* Provides std::hash<maliput::drake::symbolic::Variable>. */
 template <>
-struct hash<maliput::drake::symbolic::Variable> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Variable> : public maliput::drake::DefaultHash {};
 
 /* Provides std::less<maliput::drake::symbolic::Variable>. */
 template <>
 struct less<maliput::drake::symbolic::Variable> {
-  bool operator()(const drake::symbolic::Variable& lhs,
-                  const drake::symbolic::Variable& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Variable& lhs,
+                  const maliput::drake::symbolic::Variable& rhs) const {
     return lhs.less(rhs);
   }
 };
@@ -332,8 +332,8 @@ struct less<maliput::drake::symbolic::Variable> {
 /* Provides std::equal_to<maliput::drake::symbolic::Variable>. */
 template <>
 struct equal_to<maliput::drake::symbolic::Variable> {
-  bool operator()(const drake::symbolic::Variable& lhs,
-                  const drake::symbolic::Variable& rhs) const {
+  bool operator()(const maliput::drake::symbolic::Variable& lhs,
+                  const maliput::drake::symbolic::Variable& rhs) const {
     return lhs.equal_to(rhs);
   }
 };

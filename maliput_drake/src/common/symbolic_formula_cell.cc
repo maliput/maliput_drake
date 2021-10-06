@@ -34,7 +34,7 @@ RelationalFormulaCell::RelationalFormulaCell(const FormulaKind k,
 
 void RelationalFormulaCell::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, e_lhs_);
   hash_append(*hasher, e_rhs_);
 }
@@ -70,7 +70,7 @@ NaryFormulaCell::NaryFormulaCell(const FormulaKind k, set<Formula> formulas)
 
 void NaryFormulaCell::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, formulas_);
 }
 
@@ -181,7 +181,7 @@ FormulaVar::FormulaVar(Variable v)
 
 void FormulaVar::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, var_);
 }
 
@@ -404,7 +404,7 @@ FormulaNot::FormulaNot(Formula f)
 
 void FormulaNot::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, f_);
 }
 
@@ -443,7 +443,7 @@ FormulaForall::FormulaForall(Variables vars, Formula f)
 
 void FormulaForall::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, vars_);
   hash_append(*hasher, f_);
 }
@@ -500,7 +500,7 @@ FormulaIsnan::FormulaIsnan(Expression e)
 
 void FormulaIsnan::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, e_);
 }
 
@@ -556,7 +556,7 @@ FormulaPositiveSemidefinite::FormulaPositiveSemidefinite(
   if (!IsSymmetric(m)) {
     ostringstream oss;
     oss << "The following matrix is not symmetric and cannot be used to "
-           "construct drake::symbolic::FormulaPositiveSemidefinite:\n"
+           "construct maliput::drake::symbolic::FormulaPositiveSemidefinite:\n"
         << m;
     throw std::runtime_error(oss.str());
   }
@@ -585,7 +585,7 @@ struct VariablesCollector {
 void FormulaPositiveSemidefinite::HashAppendDetail(
     DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   // Computes a hash of a matrix only using its lower-triangular part.
   for (int i = 0; i < m_.rows(); ++i) {
     for (int j = 0; j <= i; ++j) {

@@ -7,10 +7,10 @@
 /// physics models of mechanical systems, and a growing list of sensors,
 /// actuators, controllers, planners, estimators.
 ///
-/// All dynamical systems derive from the drake::systems::System base class, and
-/// must explicitly declare all drake::systems::State,
-/// drake::systems::Parameters, and noise/disturbances inputs. The
-/// drake::systems::Diagram class permits modeling complex systems from
+/// All dynamical systems derive from the maliput::drake::systems::System base class, and
+/// must explicitly declare all maliput::drake::systems::State,
+/// maliput::drake::systems::Parameters, and noise/disturbances inputs. The
+/// maliput::drake::systems::Diagram class permits modeling complex systems from
 /// libraries of parts.
 ///
 /// For an introduction to using systems in python, see the dynamical_systems
@@ -64,15 +64,15 @@
 /// **Force/Torque Sensor** falls into this catergory.
 ///
 /// A **Force/Torque Sensor** measures nothing but the reaction force/torque
-/// of a @ref drake::multibody::WeldJoint "WeldJoint". The
-/// @ref drake::multibody::MultibodyPlant "MultibodyPlant" class provides the
-/// @ref drake::multibody::MultibodyPlant::get_reaction_forces_output_port()
+/// of a @ref maliput::drake::multibody::WeldJoint "WeldJoint". The
+/// @ref maliput::drake::multibody::MultibodyPlant "MultibodyPlant" class provides the
+/// @ref maliput::drake::multibody::MultibodyPlant::get_reaction_forces_output_port()
 /// "get_reaction_forces_output_port()" method that returns the reaction
-/// @ref drake::multibody::SpatialForce "SpatialForce" of all the joints. You
+/// @ref maliput::drake::multibody::SpatialForce "SpatialForce" of all the joints. You
 /// only need to extract the entries for the joints in which you are interested.
 /// To simulate a Force/Torque sensor, you need to either a) define a
 /// fixed joint for the force/torque sensor in the SDF/URDF model file or
-/// b) add a @ref drake::multibody::WeldJoint "WeldJoint" between two bodies.
+/// b) add a @ref maliput::drake::multibody::WeldJoint "WeldJoint" between two bodies.
 /// This joint will then serve as the Force/Torque sensor. You can also
 /// refer to *planar_gripper* for an example.
 /// @}

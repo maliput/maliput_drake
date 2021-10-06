@@ -107,7 +107,7 @@ class ChebyshevBasisElement : public PolynomialBasisElement {
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const ChebyshevBasisElement& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     // We do not send total_degree_ to the hasher, because it is already fully
     // represented by var_to_degree_map_ -- it is just a cached tally of the
     // exponents.
@@ -141,7 +141,7 @@ namespace std {
 /* Provides std::hash<maliput::drake::symbolic::ChebyshevBasisElement>. */
 template <>
 struct hash<maliput::drake::symbolic::ChebyshevBasisElement>
-    : public drake::DefaultHash {};
+    : public maliput::drake::DefaultHash {};
 }  // namespace std
 
 #if !defined(DRAKE_DOXYGEN_CXX)

@@ -165,7 +165,7 @@ class ContextBaseFixedInputAttorney {
   ContextBaseFixedInputAttorney() = delete;
 
  private:
-  friend class drake::systems::ContextBase;
+  friend class maliput::drake::systems::ContextBase;
 
   // "Output" argument is first here since it is serving as a `this` pointer.
   static void set_owning_subcontext(FixedInputPortValue* fixed,

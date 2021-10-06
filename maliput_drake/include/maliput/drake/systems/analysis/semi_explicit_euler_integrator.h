@@ -168,4 +168,4 @@ bool SemiExplicitEulerIntegrator<T>::DoStep(const T& h) {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::SemiExplicitEulerIntegrator)
+    class maliput::drake::systems::SemiExplicitEulerIntegrator)

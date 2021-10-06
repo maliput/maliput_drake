@@ -91,7 +91,7 @@ ExpressionKind Expression::get_kind() const {
 }
 
 void Expression::HashAppend(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, get_kind());
   cell().HashAppendDetail(hasher);
 }

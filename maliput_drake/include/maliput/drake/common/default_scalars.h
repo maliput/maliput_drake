@@ -12,13 +12,13 @@
 /// Similar to the Eigen library, many classes in Drake use a template argument
 /// to specify the numeric scalar type to use for computation.  We typically
 /// name that template argument <b>`<T>`</b>.  For an example, see the class
-/// drake::math::RigidTransform.
+/// maliput::drake::math::RigidTransform.
 ///
 /// Most scalar-templated classes in Drake only support a small, fixed set of
 /// scalar types:
 /// - `double` (always)
-/// - drake::AutoDiffXd (almost always)
-/// - drake::symbolic::Expression (sometimes)
+/// - maliput::drake::AutoDiffXd (almost always)
+/// - maliput::drake::symbolic::Expression (sometimes)
 ///
 /// When Drake documentation refers to "default scalars", it means all three
 /// of the types above.
@@ -53,7 +53,7 @@
 ///
 /// namespace sample {
 /// template <typename T>
-/// class MySystem final : public drake::systems::LeafSystem<T> {
+/// class MySystem final : public maliput::drake::systems::LeafSystem<T> {
 ///   ...
 /// };
 /// }  // namespace sample

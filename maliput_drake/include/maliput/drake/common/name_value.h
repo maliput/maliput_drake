@@ -41,7 +41,7 @@ member fields as `public`.  We also omit the trailing underscore from the field
 names, so that the Serialize API presented to the caller of the class is
 indifferent to whether it is phrased as a `struct` or a `class`.
 
-For how Serialize and Archive interact, see the drake::yaml::YamlReadArchive
+For how Serialize and Archive interact, see the maliput::drake::yaml::YamlReadArchive
 class overview.
 
 @}

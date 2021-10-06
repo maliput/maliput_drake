@@ -36,7 +36,7 @@ int ReportZeroHash(const std::type_info& detail) {
     log()->warn(message +
         " This is the first instance of an impaired T within this process."
         " Additional instances will not be warned about, but you may set"
-        " the drake::log() level to 'debug' to see all instances.");
+        " the maliput::drake::log() level to 'debug' to see all instances.");
   } else {
     log()->debug(message);
   }

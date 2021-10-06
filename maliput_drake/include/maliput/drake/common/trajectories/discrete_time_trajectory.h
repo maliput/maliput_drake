@@ -136,4 +136,4 @@ class DiscreteTimeTrajectory final : public Trajectory<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::trajectories::DiscreteTimeTrajectory)
+    class maliput::drake::trajectories::DiscreteTimeTrajectory)

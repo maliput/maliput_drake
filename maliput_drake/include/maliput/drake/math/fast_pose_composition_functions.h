@@ -30,7 +30,7 @@ class RigidTransform;
 
 namespace internal {
 
-/* Composes two drake::math::RotationMatrix<double> objects as quickly as
+/* Composes two maliput::drake::math::RotationMatrix<double> objects as quickly as
 possible, resulting in a new RotationMatrix.
 
 Here we calculate `R_AC = R_AB * R_BC`. It is OK for R_AC to overlap
@@ -39,8 +39,8 @@ void ComposeRR(const RotationMatrix<double>& R_AB,
                const RotationMatrix<double>& R_BC,
                RotationMatrix<double>* R_AC);
 
-/* Composes the inverse of a drake::math::RotationMatrix<double> object with
-another (non-inverted) drake::math::RotationMatrix<double> as quickly as
+/* Composes the inverse of a maliput::drake::math::RotationMatrix<double> object with
+another (non-inverted) maliput::drake::math::RotationMatrix<double> as quickly as
 possible, resulting in a new RotationMatrix.
 
 @note A valid RotationMatrix is orthonormal, and the inverse of an orthonormal
@@ -53,7 +53,7 @@ void ComposeRinvR(const RotationMatrix<double>& R_BA,
                   const RotationMatrix<double>& R_BC,
                   RotationMatrix<double>* R_AC);
 
-/** Composes two drake::math::RigidTransform<double> objects as quickly as
+/** Composes two maliput::drake::math::RigidTransform<double> objects as quickly as
 possible, resulting in a new RigidTransform.
 
 @note This function is specialized for RigidTransforms and is not just a
@@ -65,8 +65,8 @@ void ComposeXX(const RigidTransform<double>& X_AB,
                const RigidTransform<double>& X_BC,
                RigidTransform<double>* X_AC);
 
-/** Composes the inverse of a drake::math::RigidTransform<double> object with
-another (non-inverted) drake::math::RigidTransform<double> as quickly as
+/** Composes the inverse of a maliput::drake::math::RigidTransform<double> object with
+another (non-inverted) maliput::drake::math::RigidTransform<double> as quickly as
 possible, resulting in a new RigidTransform.
 
 @note This function is specialized for RigidTransforms and is not just a

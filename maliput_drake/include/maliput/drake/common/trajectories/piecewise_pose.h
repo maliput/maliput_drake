@@ -118,4 +118,4 @@ class PiecewisePose final : public PiecewiseTrajectory<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::trajectories::PiecewisePose)
+    class maliput::drake::trajectories::PiecewisePose)

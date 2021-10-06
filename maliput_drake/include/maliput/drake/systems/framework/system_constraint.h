@@ -223,19 +223,19 @@ class SystemConstraint final {
     // elegant, and so that double evaluation is as fast as possible.
     if (type() == SystemConstraintType::kEquality) {
       if (tol == 0.0) {
-        return drake::all(value.array() == 0.0);
+        return maliput::drake::all(value.array() == 0.0);
       } else {
-        return drake::all(value.cwiseAbs().array() <= tol);
+        return maliput::drake::all(value.cwiseAbs().array() <= tol);
       }
     } else {
       DRAKE_ASSERT(type() == SystemConstraintType::kInequality);
       // TODO(hongkai.dai): ignore the bounds that are infinite.
       if (tol == 0.0) {
-        return drake::all(value.array() >= lower_bound().array()) &&
-               drake::all(value.array() <= upper_bound().array());
+        return maliput::drake::all(value.array() >= lower_bound().array()) &&
+               maliput::drake::all(value.array() <= upper_bound().array());
       } else {
-        return drake::all((value - lower_bound()).array() >= -tol) &&
-               drake::all((upper_bound() - value).array() >= -tol);
+        return maliput::drake::all((value - lower_bound()).array() >= -tol) &&
+               maliput::drake::all((upper_bound() - value).array() >= -tol);
       }
     }
   }

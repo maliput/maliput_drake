@@ -628,7 +628,7 @@ struct ValueTraitsImpl<T, true> {
 template <typename T>
 struct ValueTraitsImpl<T, false> {
   static_assert(
-      drake::is_cloneable<T>::value,
+      maliput::drake::is_cloneable<T>::value,
       "Types placed into a Value<T> must either be copyable or cloneable");
 
   // We explicitly disallow Value<AbstractValue>.  In cases where it occurs, it
@@ -639,7 +639,7 @@ struct ValueTraitsImpl<T, false> {
   static_assert(!std::is_same_v<T, std::remove_cv_t<AbstractValue>>,
                 "T in Value<T> cannot be AbstractValue.");
 
-  using Storage = typename drake::copyable_unique_ptr<T>;
+  using Storage = typename maliput::drake::copyable_unique_ptr<T>;
   static void reinitialize_if_necessary(Storage* value) {
     *value = std::make_unique<T>();
   }

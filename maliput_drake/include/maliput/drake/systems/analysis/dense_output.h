@@ -182,4 +182,4 @@ class DenseOutput {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::systems::DenseOutput)
+    class maliput::drake::systems::DenseOutput)

@@ -2,8 +2,8 @@
 
 #include "maliput/drake/common/symbolic.h"
 
-using E = drake::symbolic::Expression;
-using MatrixXE = drake::MatrixX<E>;
+using E = maliput::drake::symbolic::Expression;
+using MatrixXE = maliput::drake::MatrixX<E>;
 
 namespace Eigen {
 
@@ -23,7 +23,7 @@ void DoCompute(
     throw std::logic_error("Symbolic LDLT is not supported yet");
   }
   const MatrixXd new_a =
-      a.unaryExpr([](const E& e) { return drake::ExtractDoubleOrThrow(e); });
+      a.unaryExpr([](const E& e) { return maliput::drake::ExtractDoubleOrThrow(e); });
   auto ldlt = new_a.ldlt();
   *matrix = ldlt.matrixLDLT();
   *l1_norm = NAN;  // We could recompute this, if we really needed it.

@@ -37,7 +37,7 @@ struct is_less_than_comparable_helper<T, typename std::enable_if_t<true,
  `is_same`, etc.) To determine if a class is less-than comparable simply invoke:
 
  @code
- bool value = drake::is_less_than_comparable<Foo>::value;
+ bool value = maliput::drake::is_less_than_comparable<Foo>::value;
  @endcode
 
  If `Foo` is less-than comparable, it will evaluate to true. It can also be used

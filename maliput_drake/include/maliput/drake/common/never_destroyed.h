@@ -47,7 +47,7 @@ namespace maliput::drake {
 /// enum class Foo { kBar, kBaz };
 /// Foo ParseFoo(const std::string& foo_string) {
 ///   using Dict = std::unordered_map<std::string, Foo>;
-///   static const drake::never_destroyed<Dict> string_to_enum{
+///   static const maliput::drake::never_destroyed<Dict> string_to_enum{
 ///     std::initializer_list<Dict::value_type>{
 ///       {"bar", Foo::kBar},
 ///       {"baz", Foo::kBaz},
@@ -61,7 +61,7 @@ namespace maliput::drake {
 /// initializer_list, you can use a temporary lambda to populate the value:
 /// @code
 /// const std::vector<double>& GetConstantMagicNumbers() {
-///   static const drake::never_destroyed<std::vector<double>> result{[]() {
+///   static const maliput::drake::never_destroyed<std::vector<double>> result{[]() {
 ///     std::vector<double> prototype;
 ///     std::mt19937 random_generator;
 ///     for (int i = 0; i < 10; ++i) {

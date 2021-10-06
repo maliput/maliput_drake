@@ -250,7 +250,7 @@ class Polynomial {
   template <class HashAlgorithm>
   friend void hash_append(HashAlgorithm& hasher,
                           const Polynomial& item) noexcept {
-    using drake::hash_append;
+    using maliput::drake::hash_append;
     for (const auto& p : item.monomial_to_coefficient_map_) {
       hash_append(hasher, p.first);
       hash_append(hasher, p.second);
@@ -368,7 +368,7 @@ operator*(const MatrixL& lhs, const MatrixR& rhs) {
 namespace std {
 /* Provides std::hash<maliput::drake::symbolic::Polynomial>. */
 template <>
-struct hash<maliput::drake::symbolic::Polynomial> : public drake::DefaultHash {};
+struct hash<maliput::drake::symbolic::Polynomial> : public maliput::drake::DefaultHash {};
 #if defined(__GLIBCXX__)
 // Inform GCC that this hash function is not so fast (i.e. for-loop inside).
 // This will enforce caching of hash results. See
@@ -414,19 +414,19 @@ struct NumTraits<maliput::drake::symbolic::Polynomial>
 // Informs Eigen that Polynomial op Monomial gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Polynomial, drake::symbolic::Monomial,
-    drake::symbolic::Polynomial)
+    maliput::drake::symbolic::Polynomial, maliput::drake::symbolic::Monomial,
+    maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that Polynomial op double gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Polynomial, double, drake::symbolic::Polynomial)
+    maliput::drake::symbolic::Polynomial, double, maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that Monomial op Polynomial gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Monomial, drake::symbolic::Polynomial,
-    drake::symbolic::Polynomial)
+    maliput::drake::symbolic::Monomial, maliput::drake::symbolic::Polynomial,
+    maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that Monomial op Monomial gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
@@ -438,33 +438,33 @@ DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
 // information, check line 67 of Eigen/src/Core/Dot.h and line 767 of
 // Eigen/src/Core/util/XprHelper.h.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Monomial, drake::symbolic::Monomial,
-    drake::symbolic::Polynomial)
+    maliput::drake::symbolic::Monomial, maliput::drake::symbolic::Monomial,
+    maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that Monomial op double gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    drake::symbolic::Monomial, double, drake::symbolic::Polynomial)
+    maliput::drake::symbolic::Monomial, double, maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that double op Polynomial gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    double, drake::symbolic::Polynomial, drake::symbolic::Polynomial)
+    double, maliput::drake::symbolic::Polynomial, maliput::drake::symbolic::Polynomial)
 
 // Informs Eigen that double op Monomial gets Polynomial
 // where op ∈ {+, -, *, conj_product}.
 DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS(
-    double, drake::symbolic::Monomial, drake::symbolic::Polynomial)
+    double, maliput::drake::symbolic::Monomial, maliput::drake::symbolic::Polynomial)
 
 #undef DRAKE_SYMBOLIC_SCALAR_SUM_DIFF_PRODUCT_CONJ_PRODUCT_TRAITS
 #undef DRAKE_SYMBOLIC_SCALAR_BINARY_OP_TRAITS
 
 namespace internal {
-// Informs Eigen how to cast drake::symbolic::Polynomial to
-// drake::symbolic::Expression.
+// Informs Eigen how to cast maliput::drake::symbolic::Polynomial to
+// maliput::drake::symbolic::Expression.
 template <>
-EIGEN_DEVICE_FUNC inline drake::symbolic::Expression cast(
-    const drake::symbolic::Polynomial& p) {
+EIGEN_DEVICE_FUNC inline maliput::drake::symbolic::Expression cast(
+    const maliput::drake::symbolic::Polynomial& p) {
   return p.ToExpression();
 }
 }  // namespace internal

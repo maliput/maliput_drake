@@ -855,4 +855,4 @@ class PiecewisePolynomial final : public PiecewiseTrajectory<T> {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::trajectories::PiecewisePolynomial)
+    class maliput::drake::trajectories::PiecewisePolynomial)

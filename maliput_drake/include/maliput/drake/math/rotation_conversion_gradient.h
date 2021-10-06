@@ -16,17 +16,17 @@ namespace math {
  * @return The gradient
  */
 template <typename Derived>
-typename drake::math::Gradient<Eigen::Matrix<typename Derived::Scalar, 3, 3>,
-                               drake::kQuaternionSize>::type
+typename maliput::drake::math::Gradient<Eigen::Matrix<typename Derived::Scalar, 3, 3>,
+                               maliput::drake::kQuaternionSize>::type
 dquat2rotmat(const Eigen::MatrixBase<Derived>& quaternion) {
   EIGEN_STATIC_ASSERT_VECTOR_SPECIFIC_SIZE(Eigen::MatrixBase<Derived>,
-                                           drake::kQuaternionSize);
+                                           maliput::drake::kQuaternionSize);
 
-  typename drake::math::Gradient<Eigen::Matrix<typename Derived::Scalar, 3, 3>,
-                                 drake::kQuaternionSize>::type ret;
+  typename maliput::drake::math::Gradient<Eigen::Matrix<typename Derived::Scalar, 3, 3>,
+                                 maliput::drake::kQuaternionSize>::type ret;
   typename Eigen::MatrixBase<Derived>::PlainObject qtilde;
-  typename drake::math::Gradient<Derived, drake::kQuaternionSize>::type dqtilde;
-  drake::math::NormalizeVector(quaternion, qtilde, &dqtilde);
+  typename maliput::drake::math::Gradient<Derived, maliput::drake::kQuaternionSize>::type dqtilde;
+  maliput::drake::math::NormalizeVector(quaternion, qtilde, &dqtilde);
 
   typedef typename Derived::Scalar Scalar;
   Scalar w = qtilde(0);
@@ -52,22 +52,22 @@ dquat2rotmat(const Eigen::MatrixBase<Derived>& quaternion) {
  *   G(2,j) is the gradient of yaw w.r.t x(j)
  */
 template <typename DerivedR, typename DerivedDR>
-typename drake::math::Gradient<
-    Eigen::Matrix<typename DerivedR::Scalar, drake::kRpySize, 1>,
+typename maliput::drake::math::Gradient<
+    Eigen::Matrix<typename DerivedR::Scalar, maliput::drake::kRpySize, 1>,
     DerivedDR::ColsAtCompileTime>::type
 drotmat2rpy(const Eigen::MatrixBase<DerivedR>& R,
             const Eigen::MatrixBase<DerivedDR>& dR) {
   EIGEN_STATIC_ASSERT_MATRIX_SPECIFIC_SIZE(Eigen::MatrixBase<DerivedR>,
-                                           drake::kSpaceDimension,
-                                           drake::kSpaceDimension);
+                                           maliput::drake::kSpaceDimension,
+                                           maliput::drake::kSpaceDimension);
   EIGEN_STATIC_ASSERT(
-      Eigen::MatrixBase<DerivedDR>::RowsAtCompileTime == drake::kRotmatSize,
+      Eigen::MatrixBase<DerivedDR>::RowsAtCompileTime == maliput::drake::kRotmatSize,
       THIS_METHOD_IS_ONLY_FOR_MATRICES_OF_A_SPECIFIC_SIZE);
 
   typename DerivedDR::Index nq = dR.cols();
   typedef typename DerivedR::Scalar Scalar;
   typedef
-      typename drake::math::Gradient<Eigen::Matrix<Scalar, drake::kRpySize, 1>,
+      typename maliput::drake::math::Gradient<Eigen::Matrix<Scalar, maliput::drake::kRpySize, 1>,
                                      DerivedDR::ColsAtCompileTime>::type
           ReturnType;
   ReturnType drpy(maliput::drake::kRpySize, nq);
@@ -114,21 +114,21 @@ drotmat2rpy(const Eigen::MatrixBase<DerivedR>& R,
  *   G(3,j) is the gradient of z w.r.t x_var(j)
  */
 template <typename DerivedR, typename DerivedDR>
-typename drake::math::Gradient<
-    Eigen::Matrix<typename DerivedR::Scalar, drake::kQuaternionSize, 1>,
+typename maliput::drake::math::Gradient<
+    Eigen::Matrix<typename DerivedR::Scalar, maliput::drake::kQuaternionSize, 1>,
     DerivedDR::ColsAtCompileTime>::type
 drotmat2quat(const Eigen::MatrixBase<DerivedR>& R,
              const Eigen::MatrixBase<DerivedDR>& dR) {
   EIGEN_STATIC_ASSERT_MATRIX_SPECIFIC_SIZE(Eigen::MatrixBase<DerivedR>,
-                                           drake::kSpaceDimension,
-                                           drake::kSpaceDimension);
+                                           maliput::drake::kSpaceDimension,
+                                           maliput::drake::kSpaceDimension);
   EIGEN_STATIC_ASSERT(
-      Eigen::MatrixBase<DerivedDR>::RowsAtCompileTime == drake::kRotmatSize,
+      Eigen::MatrixBase<DerivedDR>::RowsAtCompileTime == maliput::drake::kRotmatSize,
       THIS_METHOD_IS_ONLY_FOR_MATRICES_OF_A_SPECIFIC_SIZE);
 
   typedef typename DerivedR::Scalar Scalar;
-  typedef typename drake::math::Gradient<
-      Eigen::Matrix<Scalar, drake::kQuaternionSize, 1>,
+  typedef typename maliput::drake::math::Gradient<
+      Eigen::Matrix<Scalar, maliput::drake::kQuaternionSize, 1>,
       DerivedDR::ColsAtCompileTime>::type ReturnType;
   typename DerivedDR::Index nq = dR.cols();
 

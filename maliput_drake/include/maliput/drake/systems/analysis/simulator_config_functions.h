@@ -53,7 +53,7 @@ Integrator with a new one; be careful not to keep old references around.)
 
 @ingroup simulator_configuration */
 void ApplySimulatorConfig(
-    drake::systems::Simulator<double>* simulator,
+    maliput::drake::systems::Simulator<double>* simulator,
     const SimulatorConfig& config);
 
 /** Reports the simulator's current configuration, including the configuration
@@ -63,7 +63,7 @@ of the integrator.
 
 @ingroup simulator_configuration */
 SimulatorConfig ExtractSimulatorConfig(
-    const drake::systems::Simulator<double>& simulator);
+    const maliput::drake::systems::Simulator<double>& simulator);
 
 }  // namespace systems
 }  // namespace maliput::drake

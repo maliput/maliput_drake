@@ -234,7 +234,7 @@ UnaryExpressionCell::UnaryExpressionCell(const ExpressionKind k, Expression e,
 
 void UnaryExpressionCell::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, e_);
 }
 
@@ -271,7 +271,7 @@ BinaryExpressionCell::BinaryExpressionCell(const ExpressionKind k,
 
 void BinaryExpressionCell::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, e1_);
   hash_append(*hasher, e2_);
 }
@@ -321,7 +321,7 @@ ExpressionVar::ExpressionVar(Variable v)
 
 void ExpressionVar::HashAppendDetail(DelegatingHasher* hasher) const {
   DRAKE_ASSERT(hasher != nullptr);
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, var_);
 }
 
@@ -380,7 +380,7 @@ ExpressionConstant::ExpressionConstant(const double v)
 }
 
 void ExpressionConstant::HashAppendDetail(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, v_);
 }
 
@@ -463,7 +463,7 @@ ExpressionAdd::ExpressionAdd(const double constant,
 }
 
 void ExpressionAdd::HashAppendDetail(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, constant_);
   hash_append(*hasher, expr_to_coeff_map_);
 }
@@ -712,7 +712,7 @@ ExpressionMul::ExpressionMul(
 }
 
 void ExpressionMul::HashAppendDetail(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, constant_);
   hash_append(*hasher, base_to_exponent_map_);
 }
@@ -1165,7 +1165,7 @@ class DivExpandVisitor {
 
   // Makes VisitExpression a friend of this class so that VisitExpression can
   // use its private methods.
-  friend Expression drake::symbolic::VisitExpression<Expression>(
+  friend Expression maliput::drake::symbolic::VisitExpression<Expression>(
       const DivExpandVisitor*, const Expression&, const double&);
 };
 }  // namespace
@@ -1799,7 +1799,7 @@ ExpressionIfThenElse::ExpressionIfThenElse(Formula f_cond, Expression e_then,
       e_else_{std::move(e_else)} {}
 
 void ExpressionIfThenElse::HashAppendDetail(DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, f_cond_);
   hash_append(*hasher, e_then_);
   hash_append(*hasher, e_else_);
@@ -1906,7 +1906,7 @@ ExpressionUninterpretedFunction::ExpressionUninterpretedFunction(
 
 void ExpressionUninterpretedFunction::HashAppendDetail(
     DelegatingHasher* hasher) const {
-  using drake::hash_append;
+  using maliput::drake::hash_append;
   hash_append(*hasher, name_);
   hash_append_range(*hasher, arguments_.begin(), arguments_.end());
 }

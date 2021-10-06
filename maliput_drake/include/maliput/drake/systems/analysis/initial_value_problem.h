@@ -257,4 +257,4 @@ class InitialValueProblem {
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS(
-    class drake::systems::InitialValueProblem)
+    class maliput::drake::systems::InitialValueProblem)

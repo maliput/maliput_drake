@@ -11,12 +11,12 @@
 // === Simulator's parameters ===
 
 DEFINE_double(simulator_target_realtime_rate,
-              drake::systems::SimulatorConfig{}.target_realtime_rate,
+              maliput::drake::systems::SimulatorConfig{}.target_realtime_rate,
               "[Simulator flag] Desired rate relative to real time.  See "
               "documentation for Simulator::set_target_realtime_rate() for "
               "details.");
 DEFINE_bool(simulator_publish_every_time_step,
-            drake::systems::SimulatorConfig{}.publish_every_time_step,
+            maliput::drake::systems::SimulatorConfig{}.publish_every_time_step,
             "[Simulator flag] Sets whether the simulation should trigger a "
             "forced-Publish event at the end of every trajectory-advancing "
             "step. This also includes the very first publish at t = 0 (see "
@@ -28,7 +28,7 @@ DEFINE_bool(simulator_publish_every_time_step,
 // N.B. The list here must be kept in sync with GetSupportedIntegrators() in
 // simulator_config_functions.cc.
 DEFINE_string(simulator_integration_scheme,
-              drake::systems::SimulatorConfig{}.integration_scheme,
+              maliput::drake::systems::SimulatorConfig{}.integration_scheme,
               "[Integrator flag] Integration scheme to be used. Available "
               "options are: "
               "'bogacki_shampine3', "
@@ -43,16 +43,16 @@ DEFINE_string(simulator_integration_scheme,
               "'velocity_implicit_euler'");
 
 DEFINE_double(simulator_max_time_step,
-              drake::systems::SimulatorConfig{}.max_step_size,
+              maliput::drake::systems::SimulatorConfig{}.max_step_size,
               "[Integrator flag] Maximum simulation time step used for "
               "integration. [s].");
 
-DEFINE_double(simulator_accuracy, drake::systems::SimulatorConfig{}.accuracy,
+DEFINE_double(simulator_accuracy, maliput::drake::systems::SimulatorConfig{}.accuracy,
               "[Integrator flag] Sets the simulation accuracy for variable "
               "step size integrators with error control.");
 
 DEFINE_bool(simulator_use_error_control,
-            drake::systems::SimulatorConfig{}.use_error_control,
+            maliput::drake::systems::SimulatorConfig{}.use_error_control,
             "[Integrator flag] If 'true', the simulator's integrator will use "
             "error control if it supports it. Otherwise, the simulator "
             "attempts to use fixed steps.");
@@ -76,7 +76,7 @@ IntegratorBase<double>& ResetIntegratorFromGflags(
   } else {
     // Integrator is running in fixed step mode, therefore we warn the user if
     // the accuracy flag was changed from the command line.
-    if (FLAGS_simulator_accuracy != drake::systems::SimulatorConfig{}.accuracy)
+    if (FLAGS_simulator_accuracy != maliput::drake::systems::SimulatorConfig{}.accuracy)
       log()->warn(
           "Integrator accuracy provided, however the integrator is running in "
           "fixed step mode. The 'simulator_accuracy' flag will be ignored. "

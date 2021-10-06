@@ -48,7 +48,7 @@ class VectorSystem : public LeafSystem<T> {
   /// Does *not* declare scalar-type conversion support (AutoDiff, etc.).  To
   /// enable AutoDiff support, use the SystemScalarConverter-based constructor.
   /// (For that, see @ref system_scalar_conversion at the example titled
-  /// "Example using drake::systems::VectorSystem as the base class".)
+  /// "Example using maliput::drake::systems::VectorSystem as the base class".)
   VectorSystem(int input_size, int output_size,
                std::optional<bool> direct_feedthrough = std::nullopt)
       : VectorSystem(SystemScalarConverter{}, input_size, output_size,
@@ -71,7 +71,7 @@ class VectorSystem : public LeafSystem<T> {
   ///
   /// See @ref system_scalar_conversion for detailed background and examples
   /// related to scalar-type conversion support, especially the example titled
-  /// "Example using drake::systems::VectorSystem as the base class".
+  /// "Example using maliput::drake::systems::VectorSystem as the base class".
   VectorSystem(SystemScalarConverter converter, int input_size, int output_size,
                std::optional<bool> direct_feedthrough = std::nullopt)
       : LeafSystem<T>(std::move(converter)) {

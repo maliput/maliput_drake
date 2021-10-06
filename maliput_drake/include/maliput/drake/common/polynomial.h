@@ -409,7 +409,7 @@ class Polynomial {
    * @throws std::exception if `e` is not polynomial-convertible.
    * @pre e.is_polynomial() is true.
    */
-  static Polynomial<T> FromExpression(const drake::symbolic::Expression& e);
+  static Polynomial<T> FromExpression(const maliput::drake::symbolic::Expression& e);
 
   friend std::ostream& operator<<(std::ostream& os, const Monomial& m) {
     //    if (m.coefficient == 0) return os;
@@ -516,4 +516,4 @@ typedef Eigen::Matrix<Polynomiald, Eigen::Dynamic, 1> VectorXPoly;
 }  // namespace maliput::drake
 
 DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(
-    class drake::Polynomial)
+    class maliput::drake::Polynomial)
