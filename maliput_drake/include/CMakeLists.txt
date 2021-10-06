@@ -1,1 +1,1 @@
-add_subdirectory(drake)
+add_subdirectory(maliput)
