@@ -2,6 +2,25 @@
 
 A clone of [`drake`](https://github.com/RobotLocomotion/drake)'s trajectory integration support for `maliput` backends.
 
+## How to copy `drake` into `maliput_drake`?
+
+### Copying files
+
+TBD
+
+### Namespacing
+
+The following transformations are necessary to successfully namespace copied
+files:
+
+1. Replace occurrences of `namespace drake` by `namespace maliput::drake`.
+2. Replace occurrences of `::drake` by `::maliput::drake`.
+3. Replace occurrences of `#include "drake/` by `#include "maliput/drake`.
+4. Replace occurrences of `<drake::` by `<maliput::drake`.
+5. Replace occurrences of `(drake::` by `(maliput::drake::`.
+6. Replace occurrences of ` drake::` by ` maliput::drake`.
+7. Replace occurrences of `<::drake` by `<::maliput::drake`.
+
 ## Build
 
 1. Setup a maliput_drake (or a wider maliput) development workspace as described [here](https://github.com/ToyotaResearchInstitute/maliput_documentation/blob/main/docs/installation_quickstart.rst).
