@@ -10,7 +10,6 @@ add_library(common
   pointer_cast.cc
   polynomial.cc
   random.cc
-  resource_tool.cc
   sorted_pair.cc
   symbolic.cc
   symbolic_chebyshev_basis_element.cc
