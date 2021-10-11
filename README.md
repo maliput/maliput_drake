@@ -6,7 +6,9 @@ A clone of [`drake`](https://github.com/RobotLocomotion/drake)'s trajectory inte
 
 ### Copying files
 
-To copy files from a [`drake`](https://github.com/RobotLocomotion/drake) release, please do the following:
+Follow this tentative guide (it may change release to release) to copy files
+from a [`drake`](https://github.com/RobotLocomotion/drake) release to this
+package:
 
 1. Clone [`drake`](https://github.com/RobotLocomotion/drake) and point it to a
    specific release tag, e.g. [`v0.33.0`](https://github.com/RobotLocomotion/drake/releases/tag/v0.33.0):
@@ -15,11 +17,16 @@ To copy files from a [`drake`](https://github.com/RobotLocomotion/drake) release
 git clone --depth 1 --branch v0.33.0 git@github.com:RobotLocomotion/drake.git $DRAKE_WS/drake
 ```
 
-Please note the use of `DRAKE_WS` which is the path to `drake`'s workspace.
+Please note the use of `DRAKE_WS` which is the path to [`drake`](https://github.com/RobotLocomotion/drake)'s
+workspace. You might want to create a docker container to run and configure
+[`drake`](https://github.com/RobotLocomotion/drake) on it but not necessarily
+place it inside maliput workspace to avoid any dependency collision.
 
-2. Follow the instructions for the release to prepare the environment and install `drake` dependencies.
+2. Follow the instructions for the release to prepare the environment and
+   [install `drake` dependencies](https://drake.mit.edu/from_source.html).
 
-3. Derive which dependencies are necessary up to `antiderivative_function` and `scalar_initial_value_problem`:
+3. Derive which dependencies are necessary up to `antiderivative_function` and
+   `scalar_initial_value_problem`:
 
 ```sh
 cd $DRAKE_WS/drake
@@ -35,15 +42,16 @@ cd src/maliput_drake
 git checkout -b username/bump_to_drake_v0.33.0
 ```
 
-5. Remove the previous contents of the folders in `maliput_drake/src` and `maliput_drake/include`:
+5. Remove the previous contents of the folders in `maliput_drake/src` and
+   `maliput_drake/include`:
 
 ```sh
 find maliput_drake/src/ -name "*.cc" -type f -delete
 find maliput_drake/include/ -name "*.h" -type f -delete
 ```
 
-6. Copy the source files to the respective `maliput_drake/src` folder and the header files to the
-   respective `maliput_drake/include/maliput` folder.
+6. Copy the source files to the respective `maliput_drake/src` folder and the
+   header files to the respective `maliput_drake/include/maliput` folder.
 
 7. Make sure you remove unnecessary files:
 
@@ -75,7 +83,8 @@ maliput_drake/src/systems/analysis/simulator_print_stats.cc
 
 9. Commit all the changes.
 
-10. Run the steps listed in the `Namespacing` section. Make a new per change.
+10. Run the steps listed in the `Namespacing` section. Make a new commit per
+    change.
 
 11. Test the workspace before making a PR.
 
