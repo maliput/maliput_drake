@@ -6,7 +6,78 @@ A clone of [`drake`](https://github.com/RobotLocomotion/drake)'s trajectory inte
 
 ### Copying files
 
-TBD
+To copy files from a [`drake`](https://github.com/RobotLocomotion/drake) release, please do the following:
+
+1. Clone [`drake`](https://github.com/RobotLocomotion/drake) and point it to a
+   specific release tag, e.g. [`v0.33.0`](https://github.com/RobotLocomotion/drake/releases/tag/v0.33.0):
+
+```sh
+git clone --depth 1 --branch v0.33.0 git@github.com:RobotLocomotion/drake.git $DRAKE_WS/drake
+```
+
+Please note the use of `DRAKE_WS` which is the path to `drake`'s workspace.
+
+2. Follow the instructions for the release to prepare the environment and install `drake` dependencies.
+
+3. Derive which dependencies are necessary up to `antiderivative_function` and `scalar_initial_value_problem`:
+
+```sh
+cd $DRAKE_WS/drake
+bazel query 'deps(//systems/analysis:antiderivative_function)' | sed -e 's#:.*##g;' | sort | uniq
+bazel query 'deps(//systems/analysis:scalar_initial_value_problem)' | sed -e 's#:.*##g;' | sort | uniq
+```
+
+
+4. Create a new branch in this repo (`maliput_drake`) to update the files.
+
+```sh
+cd src/maliput_drake
+git checkout -b username/bump_to_drake_v0.33.0
+```
+
+5. Remove the previous contents of the folders in `maliput_drake/src` and `maliput_drake/include`:
+
+```sh
+find maliput_drake/src/ -name "*.cc" -type f -delete
+find maliput_drake/include/ -name "*.h" -type f -delete
+```
+
+6. Copy the source files to the respective `maliput_drake/src` folder and the header files to the
+   respective `maliput_drake/include/maliput` folder.
+
+7. Make sure you remove unnecessary files:
+
+```sh
+maliput_drake/include/maliput/drake/common/drake_path.h
+maliput_drake/include/maliput/drake/common/filesystem.h
+maliput_drake/include/maliput/drake/common/find_loaded_library.h
+maliput_drake/include/maliput/drake/common/find_resource.h
+maliput_drake/include/maliput/drake/common/find_runfiles.h
+maliput_drake/include/maliput/drake/common/temp_directory.h
+maliput_drake/include/maliput/drake/systems/analysis/lyapunov.h
+maliput_drake/include/maliput/drake/systems/analysis/region_of_attraction.h
+maliput_drake/include/maliput/drake/systems/analysis/simulator_print_stats.h
+maliput_drake/src/common/drake_path.cc
+maliput_drake/src/common/filesystem.cc
+maliput_drake/src/common/find_loaded_library.cc
+maliput_drake/src/common/find_resource.cc
+maliput_drake/src/common/find_runfiles.cc
+maliput_drake/src/common/find_runfiles_stub.cc
+maliput_drake/src/common/resource_tool.cc
+maliput_drake/src/common/temp_directory.cc
+maliput_drake/src/systems/analysis/lyapunov.cc
+maliput_drake/src/systems/analysis/region_of_attraction.cc
+maliput_drake/src/systems/analysis/simulator_print_stats.cc
+```
+
+8. Update the CMakeLists.txt under `maliput_drake/src/` for the library targets.
+   Make sure all source files are properly listed.
+
+9. Commit all the changes.
+
+10. Run the steps listed in the `Namespacing` section. Make a new per change.
+
+11. Test the workspace before making a PR.
 
 ### Namespacing
 
