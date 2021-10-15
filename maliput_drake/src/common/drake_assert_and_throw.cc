@@ -69,19 +69,3 @@ void AssertionFailed(const char* condition, const char* func, const char* file,
 
 }  // namespace internal
 }  // namespace maliput::drake
-
-// Configures the DRAKE_ASSERT and DRAKE_DEMAND assertion failure handling
-// behavior.
-//
-// By default, assertion failures will result in an ::abort().  If this method
-// has ever been called, failures will result in a thrown exception instead.
-//
-// Assertion configuration has process-wide scope.  Changes here will affect
-// all assertions within the current process.
-//
-// This method is intended ONLY for use by pydrake bindings, and thus is not
-// declared in any header file, to discourage anyone from using it.
-extern "C" void drake_set_assertion_failure_to_throw_exception() {
-  maliput::drake::internal::AssertionConfig::singleton().
-      assertion_failures_are_exceptions = true;
-}

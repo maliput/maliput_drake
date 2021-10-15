@@ -78,15 +78,21 @@ maliput_drake/src/systems/analysis/region_of_attraction.cc
 maliput_drake/src/systems/analysis/simulator_print_stats.cc
 ```
 
-8. Update the CMakeLists.txt under `maliput_drake/src/` for the library targets.
+8. Removes the following method from `maliput_drake/src/common/drake_assert_and_throw.cc`.
+   ```cpp
+   extern "C" void drake_set_assertion_failure_to_throw_excepts()
+   ```
+   To avoid having duplicated references in systems that both `maliput_drake` and `drake` are installed.
+
+9. Update the CMakeLists.txt under `maliput_drake/src/` for the library targets.
    Make sure all source files are properly listed.
 
-9. Commit all the changes.
+10. Commit all the changes.
 
-10. Run the steps listed in the `Namespacing` section. Make a new commit per
+11. Run the steps listed in the `Namespacing` section. Make a new commit per
     change.
 
-11. Test the workspace before making a PR.
+12. Test the workspace before making a PR.
 
 ### Namespacing
 
