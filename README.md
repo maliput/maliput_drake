@@ -87,12 +87,27 @@ maliput_drake/src/systems/analysis/simulator_print_stats.cc
 9. Update the CMakeLists.txt under `maliput_drake/src/` for the library targets.
    Make sure all source files are properly listed.
 
-10. Commit all the changes.
+10. To avoid having duplicated definitions in systems that both `maliput_drake` and `drake` are installed,
+   rename the following definitions from `maliput_drake/src/common/drake_throw.h` and `maliput_drake/src/common/drake_assert.h`.
+    ```
+    DRAKE_THROW_UNLESS to MALIPUT_DRAKE_THROW_UNLESS
+    DRAKE_DEMAND to MALIPUT_DRAKE_DEMAND
+    DRAKE_ASSERT_VOID to MALIPUT_DRAKE_ASSERT_VOID
+    DRAKE_ASSERT to MALIPUT_DRAKE_ASSERT
+    DRAKE_UNREACHABLE to MALIPUT_DRAKE_UNREACHABLE
+    DRAKE_DISABLE_ASSERTS to MALIPUT_DRAKE_DISABLE_ASSERTS
+    DRAKE_ENABLE_ASSERTS to MALIPUT_DRAKE_ENABLE_ASSERTS
+    DRAKE_ASSERT_IS_DISARMED to MALIPUT_DRAKE_ASSERT_IS_DISARMED
+    DRAKE_ASSERT_IS_ARMED to MALIPUT_DRAKE_ASSERT_IS_ARMED
+    ```
+    And replace all the occurrences.
 
-11. Run the steps listed in the `Namespacing` section. Make a new commit per
+11. Commit all the changes.
+
+12. Run the steps listed in the `Namespacing` section. Make a new commit per
     change.
 
-12. Test the workspace before making a PR.
+13. Test the workspace before making a PR.
 
 ### Namespacing
 
