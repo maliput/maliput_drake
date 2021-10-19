@@ -58,7 +58,7 @@
 /// *not* use this macro as a "logic error" assertion; it should *only* be used
 /// to silence false positive warnings.  When in doubt, throw an exception
 /// manually instead of using this macro.
-#define DRAKE_UNREACHABLE()
+#define MALIPUT_DRAKE_UNREACHABLE()
 #else  //  DRAKE_DOXYGEN_CXX
 
 // Users should NOT set these; only this header should set them.
@@ -105,7 +105,7 @@ struct ConditionTraits {
 }  // namespace assert
 }  // namespace maliput::drake
 
-#define DRAKE_UNREACHABLE()                                             \
+#define MALIPUT_DRAKE_UNREACHABLE()                                             \
   ::maliput::drake::internal::Abort(                                             \
       "Unreachable code was reached?!", __func__, __FILE__, __LINE__)
 

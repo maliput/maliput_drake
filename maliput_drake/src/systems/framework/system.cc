@@ -858,7 +858,7 @@ void System<T>::FixInputPortsFrom(const System<double>& other_system,
         continue;
       }
     }
-    DRAKE_UNREACHABLE();
+    MALIPUT_DRAKE_UNREACHABLE();
   }
 }
 
@@ -1176,7 +1176,7 @@ System<T>::MakeFixInputPortTypeChecker(
       };
     }
   }
-  DRAKE_UNREACHABLE();
+  MALIPUT_DRAKE_UNREACHABLE();
 }
 
 template <typename T>

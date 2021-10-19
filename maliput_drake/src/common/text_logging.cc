@@ -89,7 +89,7 @@ std::string logging::set_log_level(const std::string& level) {
     default: {
       // N.B. `spdlog::level::level_enum` is not a `enum class`, so the
       // compiler does not know that it has a closed set of values. For
-      // simplicity in linking, we do not use `DRAKE_UNREACHABLE`.
+      // simplicity in linking, we do not use `MALIPUT_DRAKE_UNREACHABLE`.
       throw std::runtime_error("Should not reach here!");
     }
   }

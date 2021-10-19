@@ -197,7 +197,7 @@ class ValueToAbstractValue {
   // a good message already; this method just needs to compile peacefully.
   template <typename ValueType>
   static std::unique_ptr<AbstractValue> ValueHelper(const ValueType&, ...) {
-    DRAKE_UNREACHABLE();
+    MALIPUT_DRAKE_UNREACHABLE();
   }
 };
 

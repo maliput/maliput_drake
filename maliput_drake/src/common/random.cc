@@ -28,7 +28,7 @@ T CalcProbabilityDensity(RandomDistribution distribution,
       return (-x.array()).exp().prod();
     }
   }
-  DRAKE_UNREACHABLE();
+  MALIPUT_DRAKE_UNREACHABLE();
 }
 
 // TODO(jwnimmer-tri) Use DRAKE_DEFINE_FUNCTION_TEMPLATE_INSTANTIATIONS_...

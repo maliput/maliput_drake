@@ -199,7 +199,7 @@ class WitnessFunction final {
         return ((w0 > zero && wf <= zero) ||
                 (w0 < zero && wf >= zero));
     }
-    DRAKE_UNREACHABLE();
+    MALIPUT_DRAKE_UNREACHABLE();
   }
 
   /// Gets the event that will be dispatched when the witness function

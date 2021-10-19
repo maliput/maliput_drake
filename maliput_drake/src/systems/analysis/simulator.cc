@@ -685,7 +685,7 @@ Simulator<T>::IntegrateContinuousState(
       throw std::logic_error("Unexpected integrator result");
   }
 
-  DRAKE_UNREACHABLE();
+  MALIPUT_DRAKE_UNREACHABLE();
 }
 
 template <typename T>

@@ -56,7 +56,7 @@ Result VisitFormula(Visitor* v, const Formula& f, Args&&... args) {
     case FormulaKind::PositiveSemidefinite:
       return v->VisitPositiveSemidefinite(f, std::forward<Args>(args)...);
   }
-  DRAKE_UNREACHABLE();
+  MALIPUT_DRAKE_UNREACHABLE();
 }
 
 }  // namespace symbolic

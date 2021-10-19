@@ -66,7 +66,7 @@ ostream& operator<<(ostream& os, Variable::Type type) {
     case Variable::Type::RANDOM_EXPONENTIAL:
       return os << "Random Exponential";
   }
-  DRAKE_UNREACHABLE();
+  MALIPUT_DRAKE_UNREACHABLE();
 }
 
 MatrixX<Variable> MakeMatrixVariable(const int rows, const int cols,
