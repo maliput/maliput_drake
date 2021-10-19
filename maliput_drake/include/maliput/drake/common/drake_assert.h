@@ -21,7 +21,7 @@
 ///
 /// Assertions are enabled or disabled using the following pre-processor macros:
 ///
-/// - If @p DRAKE_ENABLE_ASSERTS is defined, then @p DRAKE_ASSERT is armed.
+/// - If @p MALIPUT_DRAKE_ENABLE_ASSERTS is defined, then @p DRAKE_ASSERT is armed.
 /// - If @p DRAKE_DISABLE_ASSERTS is defined, then @p DRAKE_ASSERT is disarmed.
 /// - If both macros are defined, then it is a compile-time error.
 /// - If neither are defined, then NDEBUG governs assertions as usual.
@@ -70,9 +70,9 @@
 #endif
 
 // Decide whether Drake assertions are enabled.
-#if defined(DRAKE_ENABLE_ASSERTS) && defined(DRAKE_DISABLE_ASSERTS)
+#if defined(MALIPUT_DRAKE_ENABLE_ASSERTS) && defined(DRAKE_DISABLE_ASSERTS)
 # error Conflicting assertion toggles.
-#elif defined(DRAKE_ENABLE_ASSERTS)
+#elif defined(MALIPUT_DRAKE_ENABLE_ASSERTS)
 # define MALIPUT_DRAKE_ASSERT_IS_ARMED
 #elif defined(DRAKE_DISABLE_ASSERTS) || defined(NDEBUG)
 # define MALIPUT_DRAKE_ASSERT_IS_DISARMED
