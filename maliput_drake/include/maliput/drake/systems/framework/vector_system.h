@@ -274,7 +274,7 @@ class VectorSystem : public LeafSystem<T> {
       const Eigen::VectorBlock<const VectorX<T>>& state,
       Eigen::VectorBlock<VectorX<T>>* output) const {
     unused(context, input, state);
-    DRAKE_THROW_UNLESS(output->size() == 0);
+    MALIPUT_DRAKE_THROW_UNLESS(output->size() == 0);
   }
 
   /// Provides a convenience method for %VectorSystem subclasses.  This
@@ -293,7 +293,7 @@ class VectorSystem : public LeafSystem<T> {
       const Eigen::VectorBlock<const VectorX<T>>& state,
       Eigen::VectorBlock<VectorX<T>>* derivatives) const {
     unused(context, input, state);
-    DRAKE_THROW_UNLESS(derivatives->size() == 0);
+    MALIPUT_DRAKE_THROW_UNLESS(derivatives->size() == 0);
   }
 
   /// Provides a convenience method for %VectorSystem subclasses.  This
@@ -314,30 +314,30 @@ class VectorSystem : public LeafSystem<T> {
       const Eigen::VectorBlock<const VectorX<T>>& state,
       Eigen::VectorBlock<VectorX<T>>* next_state) const {
     unused(context, input, state);
-    DRAKE_THROW_UNLESS(next_state->size() == 0);
+    MALIPUT_DRAKE_THROW_UNLESS(next_state->size() == 0);
   }
 
  private:
   // Confirms the VectorSystem invariants when allocating the context.
   void DoValidateAllocatedLeafContext(
       const LeafContext<T>& context) const final {
-    // N.B. The DRAKE_THROW_UNLESS conditions can be triggered by subclass
+    // N.B. The MALIPUT_DRAKE_THROW_UNLESS conditions can be triggered by subclass
     // mistakes, so are part of our unit tests.  The DRAKE_DEMAND conditions
     // should be invariants guaranteed by the framework, so are asserted.
 
     // Exactly one input and output.
-    DRAKE_THROW_UNLESS(this->num_input_ports() <= 1);
-    DRAKE_THROW_UNLESS(this->num_output_ports() <= 1);
+    MALIPUT_DRAKE_THROW_UNLESS(this->num_input_ports() <= 1);
+    MALIPUT_DRAKE_THROW_UNLESS(this->num_output_ports() <= 1);
     DRAKE_DEMAND(context.num_input_ports() <= 1);
 
     // At most one of either continuous or discrete state.
-    DRAKE_THROW_UNLESS(context.num_abstract_states() == 0);
+    MALIPUT_DRAKE_THROW_UNLESS(context.num_abstract_states() == 0);
     const int continuous_size = context.num_continuous_states();
     const int num_discrete_groups = context.num_discrete_state_groups();
     DRAKE_DEMAND(continuous_size >= 0);
     DRAKE_DEMAND(num_discrete_groups >= 0);
-    DRAKE_THROW_UNLESS(num_discrete_groups <= 1);
-    DRAKE_THROW_UNLESS((continuous_size == 0) || (num_discrete_groups == 0));
+    MALIPUT_DRAKE_THROW_UNLESS(num_discrete_groups <= 1);
+    MALIPUT_DRAKE_THROW_UNLESS((continuous_size == 0) || (num_discrete_groups == 0));
   }
 };
 

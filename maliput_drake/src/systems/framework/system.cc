@@ -37,7 +37,7 @@ System<T>::AllocateCompositeEventCollection() const {
 template <typename T>
 std::unique_ptr<BasicVector<T>> System<T>::AllocateInputVector(
     const InputPort<T>& input_port) const {
-  DRAKE_THROW_UNLESS(input_port.get_data_type() == kVectorValued);
+  MALIPUT_DRAKE_THROW_UNLESS(input_port.get_data_type() == kVectorValued);
   const int index = input_port.get_index();
   DRAKE_ASSERT(index >= 0 && index < num_input_ports());
   DRAKE_ASSERT(get_input_port(index).get_data_type() == kVectorValued);
@@ -1079,7 +1079,7 @@ void System<T>::DoMapQDotToVelocity(const Context<T>& context,
   // but not identical!
   const int n = qdot.size();
   // You need to override System<T>::DoMapQDottoVelocity!
-  DRAKE_THROW_UNLESS(generalized_velocity->size() == n);
+  MALIPUT_DRAKE_THROW_UNLESS(generalized_velocity->size() == n);
   generalized_velocity->SetFromVector(qdot);
 }
 
@@ -1096,7 +1096,7 @@ void System<T>::DoMapVelocityToQDot(
   // but not identical!
   const int n = generalized_velocity.size();
   // You need to override System<T>::DoMapVelocityToQDot!
-  DRAKE_THROW_UNLESS(qdot->size() == n);
+  MALIPUT_DRAKE_THROW_UNLESS(qdot->size() == n);
   qdot->SetFromVector(generalized_velocity);
 }
 

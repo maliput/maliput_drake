@@ -7,8 +7,8 @@ namespace {
 SystemConstraintType BoundsToType(
     const Eigen::Ref<const Eigen::VectorXd>& lower,
     const Eigen::Ref<const Eigen::VectorXd>& upper) {
-  DRAKE_THROW_UNLESS(lower.size() == upper.size());
-  DRAKE_THROW_UNLESS((lower.array() <= upper.array()).all());
+  MALIPUT_DRAKE_THROW_UNLESS(lower.size() == upper.size());
+  MALIPUT_DRAKE_THROW_UNLESS((lower.array() <= upper.array()).all());
 
   // If any single index in f(x)[i] has a different lower and upper bound, then
   // this is an inequality constraint.
@@ -17,8 +17,8 @@ SystemConstraintType BoundsToType(
   }
 
   // Otherwise, it's an equality constraint.  For now, we only allow b = 0.0.
-  DRAKE_THROW_UNLESS((lower.array() == 0.0).all());
-  DRAKE_THROW_UNLESS((upper.array() == 0.0).all());
+  MALIPUT_DRAKE_THROW_UNLESS((lower.array() == 0.0).all());
+  MALIPUT_DRAKE_THROW_UNLESS((upper.array() == 0.0).all());
   return SystemConstraintType::kEquality;
 }
 }  // namespace

@@ -38,7 +38,7 @@ class ScopeExit final {
   /// invoked during stack unwinding.
   explicit ScopeExit(std::function<void()> func)
       : func_(std::move(func)) {
-    DRAKE_THROW_UNLESS(func_ != nullptr);
+    MALIPUT_DRAKE_THROW_UNLESS(func_ != nullptr);
   }
 
   /// Invokes the `func` that was passed into the constructor, unless this has

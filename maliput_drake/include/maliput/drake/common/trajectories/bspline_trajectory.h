@@ -128,7 +128,7 @@ class BsplineTrajectory final : public trajectories::Trajectory<T> {
   Serialize(Archive* a) {
     a->Visit(MakeNameValue("basis", &basis_));
     a->Visit(MakeNameValue("control_points", &control_points_));
-    DRAKE_THROW_UNLESS(CheckInvariants());
+    MALIPUT_DRAKE_THROW_UNLESS(CheckInvariants());
   }
 
  private:

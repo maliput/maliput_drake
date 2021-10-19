@@ -1462,7 +1462,7 @@ void Diagram<T>::Initialize(std::unique_ptr<Blueprint> blueprint) {
   // Every port named in the connection_map_ must actually exist.
   DRAKE_ASSERT(PortsAreValid());
   // Every subsystem must have a unique name.
-  DRAKE_THROW_UNLESS(NamesAreUniqueAndNonEmpty());
+  MALIPUT_DRAKE_THROW_UNLESS(NamesAreUniqueAndNonEmpty());
 
   // Add the inputs to the Diagram topology, and check their invariants.
   DRAKE_DEMAND(blueprint->input_port_ids.size() ==

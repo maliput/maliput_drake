@@ -453,7 +453,7 @@ class ContextBase : public internal::ContextMessageInterface {
     // Verify that the most-derived Context didn't forget to override
     // DoCloneWithoutPointers().
     ContextBase& clone = *result;
-    DRAKE_THROW_UNLESS(typeid(source) == typeid(clone));
+    MALIPUT_DRAKE_THROW_UNLESS(typeid(source) == typeid(clone));
 
     return result;
   }

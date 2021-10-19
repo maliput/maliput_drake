@@ -622,7 +622,7 @@ template <typename T>
 typename Polynomial<T>::VarType
 Polynomial<T>::VariableNameToId(const string name,
                                               const unsigned int m) {
-  DRAKE_THROW_UNLESS(IsValidVariableName(name));
+  MALIPUT_DRAKE_THROW_UNLESS(IsValidVariableName(name));
   unsigned int multiplier = 1;
   VarType name_part = 0;
   for (int i = static_cast<int>(name.size()) - 1; i >= 0; i--) {

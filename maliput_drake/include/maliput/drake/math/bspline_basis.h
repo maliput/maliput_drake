@@ -200,7 +200,7 @@ class BsplineBasis final {
   Serialize(Archive* a) {
     a->Visit(MakeNameValue("order", &order_));
     a->Visit(MakeNameValue("knots", &knots_));
-    DRAKE_THROW_UNLESS(CheckInvariants());
+    MALIPUT_DRAKE_THROW_UNLESS(CheckInvariants());
   }
 
  private:

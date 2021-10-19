@@ -62,7 +62,7 @@ namespace systems {
 
 IntegratorBase<double>& ResetIntegratorFromGflags(
     Simulator<double>* simulator) {
-  DRAKE_THROW_UNLESS(simulator != nullptr);
+  MALIPUT_DRAKE_THROW_UNLESS(simulator != nullptr);
   IntegratorBase<double>& integrator = ResetIntegratorFromFlags(
       simulator, FLAGS_simulator_integration_scheme,
       FLAGS_simulator_max_time_step);

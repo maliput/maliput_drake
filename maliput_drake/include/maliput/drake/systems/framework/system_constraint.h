@@ -46,7 +46,7 @@ class SystemConstraintBounds final {
   /// Creates constraint of type SystemConstraintType::kEquality, with the
   /// given size for `f(x)`.
   static SystemConstraintBounds Equality(int size) {
-    DRAKE_THROW_UNLESS(size >= 0);
+    MALIPUT_DRAKE_THROW_UNLESS(size >= 0);
     return SystemConstraintBounds(size);
   }
 

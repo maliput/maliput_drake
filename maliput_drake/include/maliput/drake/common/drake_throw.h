@@ -18,9 +18,9 @@ namespace internal {
 template <bool>
 constexpr void DrakeThrowUnlessWasUsedWithRawPointer() {}
 template<>
-[[deprecated("\nDRAKE DEPRECATED: When using DRAKE_THROW_UNLESS on a raw"
-" pointer, always write out DRAKE_THROW_UNLESS(foo != nullptr), do not write"
-" DRAKE_THROW_UNLESS(foo) and rely on implicit pointer-to-bool conversion."
+[[deprecated("\nDRAKE DEPRECATED: When using MALIPUT_DRAKE_THROW_UNLESS on a raw"
+" pointer, always write out MALIPUT_DRAKE_THROW_UNLESS(foo != nullptr), do not write"
+" MALIPUT_DRAKE_THROW_UNLESS(foo) and rely on implicit pointer-to-bool conversion."
 "\nThe deprecated code will be removed from Drake on or after 2021-12-01.")]]
 constexpr void DrakeThrowUnlessWasUsedWithRawPointer<true>() {}
 
@@ -34,14 +34,14 @@ constexpr void DrakeThrowUnlessWasUsedWithRawPointer<true>() {}
 /// The condition must not be a pointer, where we'd implicitly rely on its
 /// nullness. Instead, always write out "!= nullptr" to be precise.
 ///
-/// Correct: `DRAKE_THROW_UNLESS(foo != nullptr);`
-/// Incorrect: `DRAKE_THROW_UNLESS(foo);`
+/// Correct: `MALIPUT_DRAKE_THROW_UNLESS(foo != nullptr);`
+/// Incorrect: `MALIPUT_DRAKE_THROW_UNLESS(foo);`
 ///
 /// Because this macro is intended to provide a useful exception message to
 /// users, we should err on the side of extra detail about the failure. The
 /// meaning of "foo" isolated within error message text does not make it
 /// clear that a null pointer is the proximate cause of the problem.
-#define DRAKE_THROW_UNLESS(condition)                                        \
+#define MALIPUT_DRAKE_THROW_UNLESS(condition)                                        \
   do {                                                                       \
     typedef ::maliput::drake::assert::ConditionTraits<                                \
         typename std::remove_cv_t<decltype(condition)>> Trait;               \

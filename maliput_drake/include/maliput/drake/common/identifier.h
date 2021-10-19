@@ -148,7 +148,7 @@ class Identifier {
    */
   int64_t get_value() const {
     if (kDrakeAssertIsArmed) {
-      DRAKE_THROW_UNLESS(this->is_valid());
+      MALIPUT_DRAKE_THROW_UNLESS(this->is_valid());
     }
     return value_;
   }

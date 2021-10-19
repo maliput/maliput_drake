@@ -712,8 +712,8 @@ template <typename T>
 LeafOutputPort<T>& LeafSystem<T>::DeclareStateOutputPort(
     std::variant<std::string, UseDefaultName> name,
     ContinuousStateIndex state_index) {
-  DRAKE_THROW_UNLESS(state_index.is_valid());
-  DRAKE_THROW_UNLESS(state_index == 0);
+  MALIPUT_DRAKE_THROW_UNLESS(state_index.is_valid());
+  MALIPUT_DRAKE_THROW_UNLESS(state_index == 0);
   return DeclareVectorOutputPort(
       std::move(name), *model_continuous_state_vector_,
       [](const Context<T>& context, BasicVector<T>* output) {
@@ -740,9 +740,9 @@ template <typename T>
 LeafOutputPort<T>& LeafSystem<T>::DeclareStateOutputPort(
     std::variant<std::string, UseDefaultName> name,
     AbstractStateIndex state_index) {
-  DRAKE_THROW_UNLESS(state_index.is_valid());
-  DRAKE_THROW_UNLESS(state_index >= 0);
-  DRAKE_THROW_UNLESS(state_index < this->model_abstract_states_.size());
+  MALIPUT_DRAKE_THROW_UNLESS(state_index.is_valid());
+  MALIPUT_DRAKE_THROW_UNLESS(state_index >= 0);
+  MALIPUT_DRAKE_THROW_UNLESS(state_index < this->model_abstract_states_.size());
   return DeclareAbstractOutputPort(
       std::move(name),
       [this, state_index]() {

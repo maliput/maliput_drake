@@ -177,10 +177,10 @@ class ContinuousState {
   /// necessary.
   template <typename U>
   void SetFrom(const ContinuousState<U>& other) {
-    DRAKE_THROW_UNLESS(size() == other.size());
-    DRAKE_THROW_UNLESS(num_q() == other.num_q());
-    DRAKE_THROW_UNLESS(num_v() == other.num_v());
-    DRAKE_THROW_UNLESS(num_z() == other.num_z());
+    MALIPUT_DRAKE_THROW_UNLESS(size() == other.size());
+    MALIPUT_DRAKE_THROW_UNLESS(num_q() == other.num_q());
+    MALIPUT_DRAKE_THROW_UNLESS(num_v() == other.num_v());
+    MALIPUT_DRAKE_THROW_UNLESS(num_z() == other.num_z());
     SetFromVector(other.CopyToVector().unaryExpr(
         scalar_conversion::ValueConverter<T, U>{}));
   }

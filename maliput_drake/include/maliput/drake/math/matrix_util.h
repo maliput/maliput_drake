@@ -141,7 +141,7 @@ bool IsPositiveDefinite(const Eigen::MatrixBase<Derived>& matrix,
   // for this purpose, as the algorithm cannot handle indefinite matrices.
   Eigen::SelfAdjointEigenSolver<typename Derived::PlainObject> eigensolver(
       matrix);
-  DRAKE_THROW_UNLESS(eigensolver.info() == Eigen::Success);
+  MALIPUT_DRAKE_THROW_UNLESS(eigensolver.info() == Eigen::Success);
   // According to the Lapack manual, the absolute accuracy of eigenvalues is
   // eps*max(|eigenvalues|), so I will write my tolerances relative to that.
   // Anderson et al., Lapack User's Guide, 3rd ed. section 4.7, 1999.

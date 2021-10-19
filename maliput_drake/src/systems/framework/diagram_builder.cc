@@ -85,8 +85,8 @@ void DiagramBuilder<T>::Connect(
 
 template <typename T>
 void DiagramBuilder<T>::Connect(const System<T>& src, const System<T>& dest) {
-  DRAKE_THROW_UNLESS(src.num_output_ports() == 1);
-  DRAKE_THROW_UNLESS(dest.num_input_ports() == 1);
+  MALIPUT_DRAKE_THROW_UNLESS(src.num_output_ports() == 1);
+  MALIPUT_DRAKE_THROW_UNLESS(dest.num_input_ports() == 1);
   Connect(src.get_output_port(0), dest.get_input_port(0));
 }
 
@@ -135,7 +135,7 @@ InputPortIndex DiagramBuilder<T>::DeclareInput(
 template <typename T>
 void DiagramBuilder<T>::ConnectInput(
     const std::string& diagram_port_name, const InputPort<T>& input) {
-  DRAKE_THROW_UNLESS(diagram_input_indices_.count(diagram_port_name));
+  MALIPUT_DRAKE_THROW_UNLESS(diagram_input_indices_.count(diagram_port_name));
   ConnectInput(diagram_input_indices_[diagram_port_name], input);
 }
 
@@ -145,7 +145,7 @@ void DiagramBuilder<T>::ConnectInput(
   InputPortLocator id{&input.get_system(), input.get_index()};
   ThrowIfInputAlreadyWired(id);
   ThrowIfSystemNotRegistered(&input.get_system());
-  DRAKE_THROW_UNLESS(
+  MALIPUT_DRAKE_THROW_UNLESS(
       diagram_port_index < InputPortIndex(diagram_input_data_.size()));
 
   // Check that port types match.

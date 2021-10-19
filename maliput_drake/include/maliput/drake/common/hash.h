@@ -255,7 +255,7 @@ struct DelegatingHasher {
   /// Create a delegating hasher that calls the given @p func.
   explicit DelegatingHasher(Func func) : func_(std::move(func)) {
     // In order for operator() to be noexcept, it must have a non-empty func_.
-    DRAKE_THROW_UNLESS(static_cast<bool>(func_));
+    MALIPUT_DRAKE_THROW_UNLESS(static_cast<bool>(func_));
   }
 
   /// Append [data, data + length) bytes into the wrapped algorithm.

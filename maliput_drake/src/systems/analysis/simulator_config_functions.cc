@@ -149,7 +149,7 @@ IntegratorBase<T>& ResetIntegratorFromFlags(
     Simulator<T>* simulator,
     const string& scheme,
     const T& max_step_size) {
-  DRAKE_THROW_UNLESS(simulator != nullptr);
+  MALIPUT_DRAKE_THROW_UNLESS(simulator != nullptr);
 
   const auto& name_func_pairs = GetAllNamedResetIntegratorFuncs<T>();
   for (const auto& [one_name, one_func] : name_func_pairs) {
@@ -177,7 +177,7 @@ const vector<string>& GetIntegrationSchemes() {
 void ApplySimulatorConfig(
     Simulator<double>* simulator,
     const SimulatorConfig& config) {
-  DRAKE_THROW_UNLESS(simulator != nullptr);
+  MALIPUT_DRAKE_THROW_UNLESS(simulator != nullptr);
   IntegratorBase<double>& integrator = ResetIntegratorFromFlags(
           simulator, config.integration_scheme, config.max_step_size);
   if (integrator.supports_error_estimation()) {

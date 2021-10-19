@@ -155,7 +155,7 @@ class WitnessFunction final {
     // void* is only valid because we have single inheritance.
     DRAKE_DEMAND(static_cast<const void*>(system) == system_base);
     const bool has_calc = static_cast<bool>(calc_function_);
-    DRAKE_THROW_UNLESS(has_calc);
+    MALIPUT_DRAKE_THROW_UNLESS(has_calc);
     if (event_) {
       event_->set_trigger_type(TriggerType::kWitness);
     }

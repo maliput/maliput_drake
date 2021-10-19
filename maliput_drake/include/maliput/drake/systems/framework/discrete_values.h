@@ -155,21 +155,21 @@ class DiscreteValues {
   /// Returns a const reference to the vector holding data for the indicated
   /// group.
   const BasicVector<T>& get_vector(int index) const {
-    DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
+    MALIPUT_DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
     return *data_[index];
   }
 
   /// Returns a mutable reference to the vector holding data for the indicated
   /// group.
   BasicVector<T>& get_mutable_vector(int index) {
-    DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
+    MALIPUT_DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
     return *data_[index];
   }
 
   /// Returns the entire vector as a const Eigen::VectorBlock for the indicated
   /// group.
   Eigen::VectorBlock<const VectorX<T>> get_value(int index) const {
-    DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
+    MALIPUT_DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
     return data_[index]->get_value();
   }
 
@@ -177,7 +177,7 @@ class DiscreteValues {
   /// Eigen::VectorBlock, which allows mutation of the values, but does not
   /// allow resize() to be called on the vector.
   Eigen::VectorBlock<VectorX<T>> get_mutable_value(int index) {
-    DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
+    MALIPUT_DRAKE_THROW_UNLESS(0 <= index && index < num_groups());
     return data_[index]->get_mutable_value();
   }
 
@@ -192,11 +192,11 @@ class DiscreteValues {
   /// match.
   template <typename U>
   void SetFrom(const DiscreteValues<U>& other) {
-    DRAKE_THROW_UNLESS(num_groups() == other.num_groups());
+    MALIPUT_DRAKE_THROW_UNLESS(num_groups() == other.num_groups());
     for (int i = 0; i < num_groups(); i++) {
       BasicVector<T>& this_i = *data_[i];
       const BasicVector<U>& other_i = other.get_vector(i);
-      DRAKE_THROW_UNLESS(this_i.size() == other_i.size());
+      MALIPUT_DRAKE_THROW_UNLESS(this_i.size() == other_i.size());
       this_i.get_mutable_value() = other_i.get_value().unaryExpr(
           scalar_conversion::ValueConverter<T, U>{});
     }

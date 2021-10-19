@@ -841,7 +841,7 @@ class SystemBase : public internal::SystemMessageInterface {
   @throws std::exception if the System Ids don't match.
   @throws std::exception if `context` is null. */
   void ValidateContext(const ContextBase* context) const {
-    DRAKE_THROW_UNLESS(context != nullptr);
+    MALIPUT_DRAKE_THROW_UNLESS(context != nullptr);
     ValidateContext(*context);
   }
 
@@ -860,7 +860,7 @@ class SystemBase : public internal::SystemMessageInterface {
   void ValidateCreatedForThisSystem(const Clazz& object) const {
     const internal::SystemId id = [&]() {
       if constexpr (std::is_pointer_v<Clazz>) {
-        DRAKE_THROW_UNLESS(object != nullptr);
+        MALIPUT_DRAKE_THROW_UNLESS(object != nullptr);
         return object->get_system_id();
       } else {
         return object.get_system_id();

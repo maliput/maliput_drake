@@ -202,7 +202,7 @@ SimulatorStatus Simulator<T>::AdvanceTo(const T& boundary_time) {
         " Resetting simulation time requires a call to Initialize().");
   }
 
-  DRAKE_THROW_UNLESS(boundary_time >= context_->get_time());
+  MALIPUT_DRAKE_THROW_UNLESS(boundary_time >= context_->get_time());
 
   // Assume success.
   SimulatorStatus status(ExtractDoubleOrThrow(boundary_time));

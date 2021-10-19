@@ -93,7 +93,7 @@ class BasicVector : public VectorBase<T> {
 
   void ScaleAndAddToVector(const T& scale,
                            EigenPtr<VectorX<T>> vec) const final {
-    DRAKE_THROW_UNLESS(vec != nullptr);
+    MALIPUT_DRAKE_THROW_UNLESS(vec != nullptr);
     const int n = vec->rows();
     if (n != size()) { this->ThrowMismatchedSize(n); }
     *vec += scale * values_;

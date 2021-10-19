@@ -28,7 +28,7 @@ void check_stabilizable(const Eigen::Ref<const Eigen::MatrixXd>& A,
     Eigen::MatrixXcd E(n, n + m);
     E << es.eigenvalues()[i] * Eigen::MatrixXcd::Identity(n, n) - A, B;
     Eigen::ColPivHouseholderQR<Eigen::MatrixXcd> qr(E);
-    DRAKE_THROW_UNLESS(qr.rank() == n);
+    MALIPUT_DRAKE_THROW_UNLESS(qr.rank() == n);
   }
 }
 void check_detectable(const Eigen::Ref<const Eigen::MatrixXd>& A,
@@ -414,11 +414,11 @@ Eigen::MatrixXd DiscreteAlgebraicRiccatiEquation(
   DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
   Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es(Q);
   for (int i = 0; i < n; i++) {
-    DRAKE_THROW_UNLESS(es.eigenvalues()[i] >= 0);
+    MALIPUT_DRAKE_THROW_UNLESS(es.eigenvalues()[i] >= 0);
   }
   DRAKE_DEMAND(is_approx_equal_abstol(R, R.transpose(), 1e-10));
   Eigen::LLT<Eigen::MatrixXd> R_cholesky(R);
-  DRAKE_THROW_UNLESS(R_cholesky.info() == Eigen::Success);
+  MALIPUT_DRAKE_THROW_UNLESS(R_cholesky.info() == Eigen::Success);
   check_stabilizable(A, B);
   check_detectable(A, Q);
 
