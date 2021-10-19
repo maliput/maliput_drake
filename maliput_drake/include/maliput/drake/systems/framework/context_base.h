@@ -180,7 +180,7 @@ class ContextBase : public internal::ContextMessageInterface {
 
   /** Returns the number of input ports in this context. */
   int num_input_ports() const {
-    DRAKE_ASSERT(input_port_tickets_.size() == input_port_values_.size());
+    MALIPUT_DRAKE_ASSERT(input_port_tickets_.size() == input_port_values_.size());
     return static_cast<int>(input_port_tickets_.size());
   }
 
@@ -245,10 +245,10 @@ class ContextBase : public internal::ContextMessageInterface {
     ContextBase* context = this;
     while (context->parent_) {
       // Only a root context has a non-negative change event value.
-      DRAKE_ASSERT(context->current_change_event_ == -1);
+      MALIPUT_DRAKE_ASSERT(context->current_change_event_ == -1);
       context = context->parent_;
     }
-    DRAKE_ASSERT(context->current_change_event_ >= 0);
+    MALIPUT_DRAKE_ASSERT(context->current_change_event_ >= 0);
     return ++context->current_change_event_;
   }
 

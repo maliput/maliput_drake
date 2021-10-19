@@ -529,7 +529,7 @@ class Simulator {
   /// extracting information about this trajectory step. Do not call this method
   /// if there is no Context.
   const Context<T>& get_context() const {
-    DRAKE_ASSERT(context_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(context_ != nullptr);
     return *context_;
   }
 
@@ -539,7 +539,7 @@ class Simulator {
   /// You can also modify this prior to calling Initialize() to set initial
   /// conditions. Do not call this method if there is no Context.
   Context<T>& get_mutable_context()  {
-    DRAKE_ASSERT(context_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(context_ != nullptr);
     return *context_;
   }
 

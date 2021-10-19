@@ -418,7 +418,7 @@ class EigenPtr {
 
     // Access to value.
     RefType& value() {
-      DRAKE_ASSERT(has_value());
+      MALIPUT_DRAKE_ASSERT(has_value());
       return raw_value();
     }
 
@@ -453,7 +453,7 @@ class EigenPtr {
   // Consolidate getting a reference here.
   RefType& get_reference() const {
     // Keep this tiny so it inlines.
-    DRAKE_ASSERT(m_.has_value());
+    MALIPUT_DRAKE_ASSERT(m_.has_value());
     return m_.value();
   }
 

@@ -567,7 +567,7 @@ Simulator<T>::IntegrateContinuousState(
   using std::abs;
 
   // Clear the composite event collection.
-  DRAKE_ASSERT(witnessed_events != nullptr);
+  MALIPUT_DRAKE_ASSERT(witnessed_events != nullptr);
   witnessed_events->Clear();
 
   // Save the time and current state.

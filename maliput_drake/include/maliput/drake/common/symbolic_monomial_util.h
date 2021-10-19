@@ -106,7 +106,7 @@ namespace internal {
 template <typename MonomialOrder>
 void AddMonomialsOfDegreeN(const Variables& vars, int degree, const Monomial& b,
                            std::set<Monomial, MonomialOrder>* const bin) {
-  DRAKE_ASSERT(!vars.empty());
+  MALIPUT_DRAKE_ASSERT(!vars.empty());
   if (degree == 0) {
     bin->insert(b);
     return;
@@ -211,7 +211,7 @@ Eigen::Matrix<Monomial, NChooseK(n + degree, degree), 1> MonomialBasis(
     const Variables& vars) {
   static_assert(n > 0, "n should be a positive integer.");
   static_assert(degree >= 0, "degree should be a non-negative integer.");
-  DRAKE_ASSERT(vars.size() == n);
+  MALIPUT_DRAKE_ASSERT(vars.size() == n);
   return internal::ComputeMonomialBasis<NChooseK(n + degree, degree)>(vars,
                                                                       degree);
 }

@@ -319,8 +319,8 @@ std::vector<U*> Unpack(const std::vector<std::unique_ptr<U>>& in) {
 // @code{.cpp}
 //   std::vector<Thing*> things;
 //   std::vector<std::unique_ptr<Thing> owned_things;
-//   DRAKE_ASSERT(internal::IsNonNull(things));
-//   DRAKE_ASSERT(internal::IsNonNull(owned_things);
+//   MALIPUT_DRAKE_ASSERT(internal::IsNonNull(things));
+//   MALIPUT_DRAKE_ASSERT(internal::IsNonNull(owned_things);
 // @endcode
 // This function can be applied to an std::vector of any type T that can be
 // meaningfully compared to `nullptr`.

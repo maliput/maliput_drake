@@ -46,12 +46,12 @@ class Subvector final : public VectorBase<T> {
 
  private:
   const T& DoGetAtIndexUnchecked(int index) const final {
-    DRAKE_ASSERT(index < size());
+    MALIPUT_DRAKE_ASSERT(index < size());
     return (*vector_)[first_element_ + index];
   }
 
   T& DoGetAtIndexUnchecked(int index) final {
-    DRAKE_ASSERT(index < size());
+    MALIPUT_DRAKE_ASSERT(index < size());
     return (*vector_)[first_element_ + index];
   }
 

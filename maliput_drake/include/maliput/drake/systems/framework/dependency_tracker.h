@@ -510,9 +510,9 @@ class DependencyGraph {
   /** Returns a const DependencyTracker given a ticket. This is very fast.
   Behavior is undefined if the ticket is out of range [0..num_trackers()-1]. */
   const DependencyTracker& get_tracker(DependencyTicket ticket) const {
-    DRAKE_ASSERT(has_tracker(ticket));
+    MALIPUT_DRAKE_ASSERT(has_tracker(ticket));
     DependencyTracker& tracker = *graph_[ticket];
-    DRAKE_ASSERT(tracker.ticket() == ticket);
+    MALIPUT_DRAKE_ASSERT(tracker.ticket() == ticket);
     return tracker;
   }
 

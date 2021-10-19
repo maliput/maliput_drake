@@ -17,7 +17,7 @@ namespace math {
 ///
 template <class T1, class T2>
 T1 wrap_to(const T1& value, const T2& low, const T2& high) {
-  DRAKE_ASSERT(low < high);
+  MALIPUT_DRAKE_ASSERT(low < high);
   const T2 range = high - low;
   return value - range * floor((value - low) / range);
   // TODO(russt): jwnimmer preferred the following implementation (which may be

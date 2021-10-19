@@ -60,7 +60,7 @@ class LeafOutputPort final : public OutputPort<T> {
 
   /** Returns the cache entry associated with this output port. */
   const CacheEntry& cache_entry() const {
-    DRAKE_ASSERT(cache_entry_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(cache_entry_ != nullptr);
     return *cache_entry_;
   }
 

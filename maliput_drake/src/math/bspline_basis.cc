@@ -61,7 +61,7 @@ BsplineBasis<T>::BsplineBasis(int order, std::vector<T> knots)
                     "equal to twice the order ({}).",
                     knots_.size(), 2 * order));
   }
-  DRAKE_ASSERT(CheckInvariants());
+  MALIPUT_DRAKE_ASSERT(CheckInvariants());
 }
 
 template <typename T>
@@ -76,9 +76,9 @@ BsplineBasis<T>::BsplineBasis(int order, int num_basis_functions,
 template <typename T>
 std::vector<int> BsplineBasis<T>::ComputeActiveBasisFunctionIndices(
     const std::array<T, 2>& parameter_interval) const {
-  DRAKE_ASSERT(parameter_interval[0] <= parameter_interval[1]);
-  DRAKE_ASSERT(parameter_interval[0] >= initial_parameter_value());
-  DRAKE_ASSERT(parameter_interval[1] <= final_parameter_value());
+  MALIPUT_DRAKE_ASSERT(parameter_interval[0] <= parameter_interval[1]);
+  MALIPUT_DRAKE_ASSERT(parameter_interval[0] >= initial_parameter_value());
+  MALIPUT_DRAKE_ASSERT(parameter_interval[1] <= final_parameter_value());
   const int first_active_index =
       FindContainingInterval(parameter_interval[0]) - order() + 1;
   const int final_active_index = FindContainingInterval(parameter_interval[1]);
@@ -107,8 +107,8 @@ T BsplineBasis<T>::EvaluateBasisFunctionI(int index,
 
 template <typename T>
 int BsplineBasis<T>::FindContainingInterval(const T& parameter_value) const {
-  DRAKE_ASSERT(parameter_value >= initial_parameter_value());
-  DRAKE_ASSERT(parameter_value <= final_parameter_value());
+  MALIPUT_DRAKE_ASSERT(parameter_value >= initial_parameter_value());
+  MALIPUT_DRAKE_ASSERT(parameter_value <= final_parameter_value());
   const std::vector<T>& t = knots();
   const T& t_bar = parameter_value;
   return std::distance(

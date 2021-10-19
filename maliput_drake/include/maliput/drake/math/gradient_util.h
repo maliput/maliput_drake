@@ -103,7 +103,7 @@ typename MatGradMultMat<DerivedA, DerivedB, DerivedDA>::type matGradMultMat(
     const Eigen::MatrixBase<DerivedA>& A, const Eigen::MatrixBase<DerivedB>& B,
     const Eigen::MatrixBase<DerivedDA>& dA,
     const Eigen::MatrixBase<DerivedDB>& dB) {
-  DRAKE_ASSERT(dA.cols() == dB.cols());
+  MALIPUT_DRAKE_ASSERT(dA.cols() == dB.cols());
 
   typename MatGradMultMat<DerivedA, DerivedB, DerivedDA>::type ret(
       A.rows() * B.cols(), dA.cols());
@@ -139,7 +139,7 @@ template <typename DerivedDA, typename DerivedB>
 typename MatGradMult<DerivedDA, DerivedB>::type matGradMult(
     const Eigen::MatrixBase<DerivedDA>& dA,
     const Eigen::MatrixBase<DerivedB>& B) {
-  DRAKE_ASSERT(B.rows() == 0 ? dA.rows() == 0 : dA.rows() % B.rows() == 0);
+  MALIPUT_DRAKE_ASSERT(B.rows() == 0 ? dA.rows() == 0 : dA.rows() % B.rows() == 0);
   typename DerivedDA::Index A_rows = B.rows() == 0 ? 0 : dA.rows() / B.rows();
   const int A_rows_at_compile_time =
       (DerivedDA::RowsAtCompileTime == Eigen::Dynamic ||

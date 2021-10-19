@@ -130,7 +130,7 @@ void BarycentricMesh<T>::EvalBarycentricWeights(
     current_index += stride_[i] * right_index;
     count++;
   }
-  DRAKE_ASSERT(count == (num_interpolants_ - 1));
+  MALIPUT_DRAKE_ASSERT(count == (num_interpolants_ - 1));
 
   // Sort the dimensions by their relative position.  We identify which triangle
   // of the mesh we are in by moving along the faces in order of their relative

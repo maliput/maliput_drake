@@ -18,9 +18,9 @@ T GetNextSampleTime(
     const PeriodicEventData& attribute,
     const T& current_time_sec) {
   const double period = attribute.period_sec();
-  DRAKE_ASSERT(period > 0);
+  MALIPUT_DRAKE_ASSERT(period > 0);
   const double offset = attribute.offset_sec();
-  DRAKE_ASSERT(offset >= 0);
+  MALIPUT_DRAKE_ASSERT(offset >= 0);
 
   // If the first sample time hasn't arrived yet, then that is the next
   // sample time.
@@ -37,7 +37,7 @@ T GetNextSampleTime(
   if (next_t <= current_time_sec) {
     next_t = offset + (next_k + 1) * period;
   }
-  DRAKE_ASSERT(next_t > current_time_sec);
+  MALIPUT_DRAKE_ASSERT(next_t > current_time_sec);
   return next_t;
 }
 
@@ -257,7 +257,7 @@ std::multimap<int, int> LeafSystem<T>::GetDirectFeedthroughs() const {
   for (const auto& input_output : orig_unknown) {
     // Get the CacheEntry associated with the output port in this pair.
     const auto& output = this->get_output_port(input_output.second);
-    DRAKE_ASSERT(typeid(output) == typeid(LeafOutputPort<T>));
+    MALIPUT_DRAKE_ASSERT(typeid(output) == typeid(LeafOutputPort<T>));
     const auto& leaf_output = static_cast<const LeafOutputPort<T>&>(output);
     const auto& cache_entry = leaf_output.cache_entry();
 
@@ -487,14 +487,14 @@ std::unique_ptr<Parameters<T>> LeafSystem<T>::AllocateParameters() const {
   numeric_params.reserve(model_numeric_parameters_.size());
   for (int i = 0; i < model_numeric_parameters_.size(); ++i) {
     auto param = model_numeric_parameters_.CloneVectorModel<T>(i);
-    DRAKE_ASSERT(param != nullptr);
+    MALIPUT_DRAKE_ASSERT(param != nullptr);
     numeric_params.emplace_back(std::move(param));
   }
   std::vector<std::unique_ptr<AbstractValue>> abstract_params;
   abstract_params.reserve(model_abstract_parameters_.size());
   for (int i = 0; i < model_abstract_parameters_.size(); ++i) {
     auto param = model_abstract_parameters_.CloneModel(i);
-    DRAKE_ASSERT(param != nullptr);
+    MALIPUT_DRAKE_ASSERT(param != nullptr);
     abstract_params.emplace_back(std::move(param));
   }
   auto result = std::make_unique<Parameters<T>>(std::move(numeric_params),
@@ -910,7 +910,7 @@ template <typename T>
 void LeafSystem<T>::DoApplyDiscreteVariableUpdate(
     const EventCollection<DiscreteUpdateEvent<T>>& events,
     DiscreteValues<T>* discrete_state, Context<T>* context) const {
-  DRAKE_ASSERT(
+  MALIPUT_DRAKE_ASSERT(
       dynamic_cast<const LeafEventCollection<DiscreteUpdateEvent<T>>*>(
           &events) != nullptr);
   DRAKE_DEMAND(events.HasEvents());
@@ -939,7 +939,7 @@ template <typename T>
 void LeafSystem<T>::DoApplyUnrestrictedUpdate(
     const EventCollection<UnrestrictedUpdateEvent<T>>& events,
     State<T>* state, Context<T>* context) const {
-  DRAKE_ASSERT(
+  MALIPUT_DRAKE_ASSERT(
       dynamic_cast<const LeafEventCollection<UnrestrictedUpdateEvent<T>>*>(
           &events) != nullptr);
   DRAKE_DEMAND(events.HasEvents());

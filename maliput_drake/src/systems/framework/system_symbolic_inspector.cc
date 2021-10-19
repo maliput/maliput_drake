@@ -74,7 +74,7 @@ void SystemSymbolicInspector::InitializeVectorInputs(
   // For each input vector i, set each element j to a symbolic expression whose
   // value is the variable "ui_j".
   for (int i = 0; i < system.num_input_ports(); ++i) {
-    DRAKE_ASSERT(system.get_input_port(i).get_data_type() == kVectorValued);
+    MALIPUT_DRAKE_ASSERT(system.get_input_port(i).get_data_type() == kVectorValued);
     const int n = system.get_input_port(i).size();
     input_variables_[i].resize(n);
     auto value = system.AllocateInputVector(system.get_input_port(i));
@@ -157,9 +157,9 @@ bool SystemSymbolicInspector::IsAbstract(
 
 bool SystemSymbolicInspector::IsConnectedInputToOutput(
     int input_port_index, int output_port_index) const {
-  DRAKE_ASSERT(input_port_index >= 0 &&
+  MALIPUT_DRAKE_ASSERT(input_port_index >= 0 &&
                input_port_index < static_cast<int>(input_variables_.size()));
-  DRAKE_ASSERT(output_port_index >= 0 &&
+  MALIPUT_DRAKE_ASSERT(output_port_index >= 0 &&
                output_port_index < static_cast<int>(output_port_types_.size()));
 
   // If the Context contains any abstract values, any input might be connected

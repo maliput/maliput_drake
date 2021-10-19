@@ -557,7 +557,7 @@ class Expression {
 
   // Returns a const reference to the owned cell.
   const ExpressionCell& cell() const {
-    DRAKE_ASSERT(ptr_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
     return *ptr_;
   }
 

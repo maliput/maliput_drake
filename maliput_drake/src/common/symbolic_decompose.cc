@@ -141,7 +141,7 @@ void DecomposeQuadraticPolynomial(
   b->setZero();
   *c = 0;
   for (const auto& p : poly.monomial_to_coefficient_map()) {
-    DRAKE_ASSERT(is_constant(p.second));
+    MALIPUT_DRAKE_ASSERT(is_constant(p.second));
     DRAKE_DEMAND(!is_zero(p.second));
     const double coefficient = get_constant_value(p.second);
     const symbolic::Monomial& p_monomial = p.first;

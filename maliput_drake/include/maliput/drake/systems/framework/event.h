@@ -668,7 +668,7 @@ class PublishEvent final : public Event<T> {
    */
   void handle(const System<T>& system, const Context<T>& context) const {
     // At most one callback can be set.
-    DRAKE_ASSERT(!(callback_ && system_callback_));
+    MALIPUT_DRAKE_ASSERT(!(callback_ && system_callback_));
     if (callback_ != nullptr) {
       callback_(context, *this);
     } else if (system_callback_ != nullptr) {
@@ -776,7 +776,7 @@ class DiscreteUpdateEvent final : public Event<T> {
   void handle(const System<T>& system, const Context<T>& context,
               DiscreteValues<T>* discrete_state) const {
     // At most one callback can be set.
-    DRAKE_ASSERT(!(callback_ && system_callback_));
+    MALIPUT_DRAKE_ASSERT(!(callback_ && system_callback_));
     if (callback_ != nullptr) {
       callback_(context, *this, discrete_state);
     } else if (system_callback_ != nullptr) {
@@ -884,7 +884,7 @@ class UnrestrictedUpdateEvent final : public Event<T> {
   void handle(const System<T>& system, const Context<T>& context,
               State<T>* state) const {
     // At most one callback can be set.
-    DRAKE_ASSERT(!(callback_ && system_callback_));
+    MALIPUT_DRAKE_ASSERT(!(callback_ && system_callback_));
     if (callback_ != nullptr) {
       callback_(context, *this, state);
     } else if (system_callback_ != nullptr) {

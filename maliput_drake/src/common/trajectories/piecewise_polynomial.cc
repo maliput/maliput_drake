@@ -25,7 +25,7 @@ PiecewisePolynomial<T>::PiecewisePolynomial(
     const std::vector<PolynomialMatrix>& polynomials,
     const std::vector<T>& breaks)
     : PiecewiseTrajectory<T>(breaks), polynomials_(polynomials) {
-  DRAKE_ASSERT(breaks.size() == (polynomials.size() + 1));
+  MALIPUT_DRAKE_ASSERT(breaks.size() == (polynomials.size() + 1));
   for (int i = 1; i < this->get_number_of_segments(); i++) {
     if (polynomials[i].rows() != polynomials[0].rows())
       throw std::runtime_error(
@@ -43,7 +43,7 @@ PiecewisePolynomial<T>::PiecewisePolynomial(
     const std::vector<Polynomial<T>>& polynomials,
     const std::vector<T>& breaks)
     : PiecewiseTrajectory<T>(breaks) {
-  DRAKE_ASSERT(breaks.size() == (polynomials.size() + 1));
+  MALIPUT_DRAKE_ASSERT(breaks.size() == (polynomials.size() + 1));
 
   for (size_t i = 0; i < polynomials.size(); i++) {
     PolynomialMatrix matrix(1, 1);
@@ -390,7 +390,7 @@ void PiecewisePolynomial<T>::ReverseTime() {
         // p_before(t+h).  But we can perform the time-reversal at the same
         // time, using the variant p_after(t) = p_before(h-t).
         const auto& vars = matrix(row, col).GetVariables();
-        DRAKE_ASSERT(vars.size() == 1);
+        MALIPUT_DRAKE_ASSERT(vars.size() == 1);
         const typename Polynomial<T>::VarType& t = *vars.begin();
         matrix(row, col) =
             matrix(row, col).Substitute(t, h - Polynomial<T>(1.0, t));

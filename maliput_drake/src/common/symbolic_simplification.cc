@@ -277,7 +277,7 @@ class UnificationVisitor {
                             const double c0_e,
                             const map<Expression, double>& map_e,
                             Substitution* const subst) const {
-    DRAKE_ASSERT((c0_p == 0.0 && c0_e == 0.0) || (c0_p != 0.0 && c0_e != 0.0));
+    MALIPUT_DRAKE_ASSERT((c0_p == 0.0 && c0_e == 0.0) || (c0_p != 0.0 && c0_e != 0.0));
     if (c0_p != c0_e) {
       return false;
     }
@@ -309,7 +309,7 @@ class UnificationVisitor {
                            const double c0_e,
                            const map<Expression, double>& map_e,
                            Substitution* const subst) const {
-    DRAKE_ASSERT(c0_e != 0.0);
+    MALIPUT_DRAKE_ASSERT(c0_e != 0.0);
     const size_t n{map_p.size()};
     const size_t m{map_e.size()};
     if (!(n <= m + 1)) {
@@ -339,7 +339,7 @@ class UnificationVisitor {
                                map<Expression, double>::const_iterator it_e,
                                const int n, const int m,
                                Substitution* const subst) const {
-    DRAKE_ASSERT(n <= m);
+    MALIPUT_DRAKE_ASSERT(n <= m);
     int i = 1;
     for (; i < n; ++i, ++it_p, ++it_e) {
       // Check Unify(cᵢtᵢ, c'ᵢt'ᵢ) holds.
@@ -545,7 +545,7 @@ class UnificationVisitor {
                                   const double c_e,
                                   const map<Expression, Expression>& map_e,
                                   Substitution* const subst) const {
-    DRAKE_ASSERT((c_p == 1.0 && c_e == 1.0) || (c_p != 1.0 && c_e != 1.0));
+    MALIPUT_DRAKE_ASSERT((c_p == 1.0 && c_e == 1.0) || (c_p != 1.0 && c_e != 1.0));
     if (c_p != c_e) {
       return false;
     }
@@ -579,7 +579,7 @@ class UnificationVisitor {
                                  const double c_e,
                                  const map<Expression, Expression>& map_e,
                                  Substitution* const subst) const {
-    DRAKE_ASSERT(c_e != 1.0);
+    MALIPUT_DRAKE_ASSERT(c_e != 1.0);
     const size_t n{map_p.size()};
     const size_t m{map_e.size()};
     if (!(n <= m + 1)) {
@@ -610,7 +610,7 @@ class UnificationVisitor {
       map<Expression, Expression>::const_iterator it_p,
       map<Expression, Expression>::const_iterator it_e, const int n,
       const int m, Substitution* const subst) const {
-    DRAKE_ASSERT(n >= 1 && n <= m);
+    MALIPUT_DRAKE_ASSERT(n >= 1 && n <= m);
     // Checks Unify(pow(bᵢ, tᵢ), pow(b'ᵢ, t'ᵢ)) holds.
     int i = 1;
     for (; i < n; ++i, ++it_p, ++it_e) {

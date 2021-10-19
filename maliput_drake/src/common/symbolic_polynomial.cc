@@ -370,12 +370,12 @@ Polynomial::Polynomial(const Monomial& m)
       indeterminates_{m.GetVariables()},
       decision_variables_{} {
   // No need to call CheckInvariant() because the following should hold.
-  DRAKE_ASSERT(decision_variables().empty());
+  MALIPUT_DRAKE_ASSERT(decision_variables().empty());
 }
 
 Polynomial::Polynomial(const Expression& e) : Polynomial{e, e.GetVariables()} {
   // No need to call CheckInvariant() because the following should hold.
-  DRAKE_ASSERT(decision_variables().empty());
+  MALIPUT_DRAKE_ASSERT(decision_variables().empty());
 }
 
 Polynomial::Polynomial(const Expression& e, Variables indeterminates)
@@ -453,7 +453,7 @@ pair<int, Monomial> DifferentiateMonomial(const Monomial& m,
   }
   map<Variable, int> powers{m.get_powers()};
   auto it = powers.find(x);
-  DRAKE_ASSERT(it != powers.end() && it->second >= 1);
+  MALIPUT_DRAKE_ASSERT(it != powers.end() && it->second >= 1);
   const int n{it->second--};
   if (it->second == 0) {
     powers.erase(it);

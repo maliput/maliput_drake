@@ -15,7 +15,7 @@ DiagramContinuousState<T>::DiagramContinuousState(
           Span(substates, x_selector), Span(substates, q_selector),
           Span(substates, v_selector), Span(substates, z_selector)),
       substates_(std::move(substates)) {
-  DRAKE_ASSERT(internal::IsNonNull(substates_));
+  MALIPUT_DRAKE_ASSERT(internal::IsNonNull(substates_));
 }
 
 template <typename T>
@@ -23,7 +23,7 @@ DiagramContinuousState<T>::DiagramContinuousState(
     std::vector<std::unique_ptr<ContinuousState<T>>> substates)
     : DiagramContinuousState<T>(internal::Unpack(substates)) {
   owned_substates_ = std::move(substates);
-  DRAKE_ASSERT(internal::IsNonNull(owned_substates_));
+  MALIPUT_DRAKE_ASSERT(internal::IsNonNull(owned_substates_));
 }
 
 template <typename T>

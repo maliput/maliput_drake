@@ -118,13 +118,13 @@ class VectorSystem : public LeafSystem<T> {
   Eigen::VectorBlock<const VectorX<T>> GetVectorState(
       const Context<T>& context) const {
     // Obtain the block form of xc or xd.
-    DRAKE_ASSERT(context.num_abstract_states() == 0);
+    MALIPUT_DRAKE_ASSERT(context.num_abstract_states() == 0);
     const BasicVector<T>* state_vector{};
     if (context.num_discrete_state_groups() == 0) {
       const VectorBase<T>& vector_base = context.get_continuous_state_vector();
       state_vector = dynamic_cast<const BasicVector<T>*>(&vector_base);
     } else {
-      DRAKE_ASSERT(context.has_only_discrete_state());
+      MALIPUT_DRAKE_ASSERT(context.has_only_discrete_state());
       state_vector = &context.get_discrete_state(0);
     }
     DRAKE_DEMAND(state_vector != nullptr);
@@ -144,7 +144,7 @@ class VectorSystem : public LeafSystem<T> {
         EvalVectorInput(context);
 
     // Obtain the block form of xc.
-    DRAKE_ASSERT(context.has_only_continuous_state());
+    MALIPUT_DRAKE_ASSERT(context.has_only_continuous_state());
     const VectorBase<T>& state_vector = context.get_continuous_state_vector();
     const Eigen::VectorBlock<const VectorX<T>> state_block =
         dynamic_cast<const BasicVector<T>&>(state_vector).get_value();
@@ -174,13 +174,13 @@ class VectorSystem : public LeafSystem<T> {
         EvalVectorInput(context);
 
     // Obtain the block form of xd before the update (i.e., the prior state).
-    DRAKE_ASSERT(context.has_only_discrete_state());
+    MALIPUT_DRAKE_ASSERT(context.has_only_discrete_state());
     const BasicVector<T>& state_vector = context.get_discrete_state(0);
     const Eigen::VectorBlock<const VectorX<T>> state_block =
         state_vector.get_value();
 
     // Obtain the block form of xd after the update (i.e., the next state).
-    DRAKE_ASSERT(discrete_state != nullptr);
+    MALIPUT_DRAKE_ASSERT(discrete_state != nullptr);
     Eigen::VectorBlock<VectorX<T>> discrete_update_block =
         discrete_state->get_mutable_value();
 
@@ -194,7 +194,7 @@ class VectorSystem : public LeafSystem<T> {
   void CalcVectorOutput(const Context<T>& context,
                         BasicVector<T>* output) const {
     // Should only get here if we've declared an output.
-    DRAKE_ASSERT(this->num_output_ports() > 0);
+    MALIPUT_DRAKE_ASSERT(this->num_output_ports() > 0);
 
     // Decide whether we should evaluate our input port and pass its value to
     // our subclass's DoCalcVectorOutput method.  When should_eval_input is

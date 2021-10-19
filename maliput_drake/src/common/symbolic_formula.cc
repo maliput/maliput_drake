@@ -34,7 +34,7 @@ Formula::Formula(const Variable& var)
     : ptr_{make_shared<const FormulaVar>(var)} {}
 
 FormulaKind Formula::get_kind() const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   return ptr_->get_kind();
 }
 
@@ -45,13 +45,13 @@ void Formula::HashAppend(DelegatingHasher* hasher) const {
 }
 
 Variables Formula::GetFreeVariables() const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   return ptr_->GetFreeVariables();
 }
 
 bool Formula::EqualTo(const Formula& f) const {
-  DRAKE_ASSERT(ptr_ != nullptr);
-  DRAKE_ASSERT(f.ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(f.ptr_ != nullptr);
   if (ptr_ == f.ptr_) {
     // pointer equality
     return true;
@@ -78,7 +78,7 @@ bool Formula::Less(const Formula& f) const {
 
 bool Formula::Evaluate(const Environment& env,
                        RandomGenerator* const random_generator) const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   if (random_generator == nullptr) {
     return ptr_->Evaluate(env);
   } else {
@@ -88,17 +88,17 @@ bool Formula::Evaluate(const Environment& env,
 }
 
 bool Formula::Evaluate(RandomGenerator* const random_generator) const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   return Evaluate(Environment{}, random_generator);
 }
 
 Formula Formula::Substitute(const Variable& var, const Expression& e) const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   return Formula{ptr_->Substitute({{var, e}})};
 }
 
 Formula Formula::Substitute(const Substitution& s) const {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   if (!s.empty()) {
     return Formula{ptr_->Substitute(s)};
   }
@@ -236,7 +236,7 @@ Formula operator!(const Formula& f) {
 Formula operator!(const Variable& v) { return !Formula(v); }
 
 ostream& operator<<(ostream& os, const Formula& f) {
-  DRAKE_ASSERT(f.ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(f.ptr_ != nullptr);
   return f.ptr_->Display(os);
 }
 
@@ -359,16 +359,16 @@ bool is_positive_semidefinite(const Formula& f) {
 }
 
 const Variable& get_variable(const Formula& f) {
-  DRAKE_ASSERT(is_variable(f));
+  MALIPUT_DRAKE_ASSERT(is_variable(f));
   return to_variable(f)->get_variable();
 }
 
 const Expression& get_lhs_expression(const Formula& f) {
-  DRAKE_ASSERT(is_relational(f));
+  MALIPUT_DRAKE_ASSERT(is_relational(f));
   return to_relational(f)->get_lhs_expression();
 }
 const Expression& get_rhs_expression(const Formula& f) {
-  DRAKE_ASSERT(is_relational(f));
+  MALIPUT_DRAKE_ASSERT(is_relational(f));
   return to_relational(f)->get_rhs_expression();
 }
 

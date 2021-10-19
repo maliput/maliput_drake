@@ -39,8 +39,8 @@ std::unique_ptr<BasicVector<T>> System<T>::AllocateInputVector(
     const InputPort<T>& input_port) const {
   MALIPUT_DRAKE_THROW_UNLESS(input_port.get_data_type() == kVectorValued);
   const int index = input_port.get_index();
-  DRAKE_ASSERT(index >= 0 && index < num_input_ports());
-  DRAKE_ASSERT(get_input_port(index).get_data_type() == kVectorValued);
+  MALIPUT_DRAKE_ASSERT(index >= 0 && index < num_input_ports());
+  MALIPUT_DRAKE_ASSERT(get_input_port(index).get_data_type() == kVectorValued);
   std::unique_ptr<AbstractValue> value = DoAllocateInput(input_port);
   return value->get_value<BasicVector<T>>().Clone();
 }
@@ -49,7 +49,7 @@ template <typename T>
 std::unique_ptr<AbstractValue> System<T>::AllocateInputAbstract(
     const InputPort<T>& input_port) const {
   const int index = input_port.get_index();
-  DRAKE_ASSERT(index >= 0 && index < num_input_ports());
+  MALIPUT_DRAKE_ASSERT(index >= 0 && index < num_input_ports());
   return DoAllocateInput(input_port);
 }
 
@@ -537,7 +537,7 @@ const Context<T>& System<T>::GetSubsystemContext(
 template <typename T>
 Context<T>& System<T>::GetMutableSubsystemContext(const System<T>& subsystem,
                                                   Context<T>* context) const {
-  DRAKE_ASSERT(context != nullptr);
+  MALIPUT_DRAKE_ASSERT(context != nullptr);
   // Make use of the const method to avoid code duplication.
   const Context<T>& subcontext = GetSubsystemContext(subsystem, *context);
   return const_cast<Context<T>&>(subcontext);
@@ -1103,13 +1103,13 @@ void System<T>::DoMapVelocityToQDot(
 template <typename T>
 Eigen::VectorBlock<VectorX<T>> System<T>::GetMutableOutputVector(
     SystemOutput<T>* output, int port_index) const {
-  DRAKE_ASSERT(0 <= port_index && port_index < num_output_ports());
+  MALIPUT_DRAKE_ASSERT(0 <= port_index && port_index < num_output_ports());
   DRAKE_DEMAND(output != nullptr);
   ValidateCreatedForThisSystem(output);
 
   BasicVector<T>* output_vector = output->GetMutableVectorData(port_index);
-  DRAKE_ASSERT(output_vector != nullptr);
-  DRAKE_ASSERT(output_vector->size() == get_output_port(port_index).size());
+  MALIPUT_DRAKE_ASSERT(output_vector != nullptr);
+  MALIPUT_DRAKE_ASSERT(output_vector->size() == get_output_port(port_index).size());
 
   return output_vector->get_mutable_value();
 }

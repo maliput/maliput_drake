@@ -45,14 +45,14 @@ class VectorBase {
   /// Returns the element at the given index in the vector.
   /// @pre 0 <= `index` < size()
   T& operator[](int index) {
-    DRAKE_ASSERT(index >= 0);
+    MALIPUT_DRAKE_ASSERT(index >= 0);
     return DoGetAtIndexUnchecked(index);
   }
 
   /// Returns the element at the given index in the vector.
   /// @pre 0 <= `index` < size()
   const T& operator[](int index) const {
-    DRAKE_ASSERT(index >= 0);
+    MALIPUT_DRAKE_ASSERT(index >= 0);
     return DoGetAtIndexUnchecked(index);
   }
 

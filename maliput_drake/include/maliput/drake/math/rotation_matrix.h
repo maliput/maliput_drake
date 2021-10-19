@@ -402,7 +402,7 @@ class RotationMatrix {
     // found in  Eigen/src/plugins/BlockMethods.h.  The Eigen Matrix3 R_AB_ that
     // underlies this class is a column major matrix.  To return a row,
     // InnerPanel = false is passed as the last template parameter above.
-    DRAKE_ASSERT(0 <= index && index <= 2);
+    MALIPUT_DRAKE_ASSERT(0 <= index && index <= 2);
     return R_AB_.row(index);
   }
 
@@ -424,7 +424,7 @@ class RotationMatrix {
     // found in  Eigen/src/plugins/BlockMethods.h.  The Eigen Matrix3 R_AB_ that
     // underlies this class is a column major matrix.  To return a column,
     // InnerPanel = true is passed as the last template parameter above.
-    DRAKE_ASSERT(0 <= index && index <= 2);
+    MALIPUT_DRAKE_ASSERT(0 <= index && index <= 2);
     return R_AB_.col(index);
   }
 

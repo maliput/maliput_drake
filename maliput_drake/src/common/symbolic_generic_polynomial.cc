@@ -168,8 +168,8 @@ class DecomposePolynomialVisitor {
       // Since we call e.Expand() before `Visit` function, `base` is already
       // expanded. If the variables in base intersect with indeterminates, then
       // it has to be a subset of indeterminates.
-      DRAKE_ASSERT(base.GetVariables().IsSubsetOf(indeterminates));
-      DRAKE_ASSERT(base.GetVariables().size() == 1);
+      MALIPUT_DRAKE_ASSERT(base.GetVariables().IsSubsetOf(indeterminates));
+      MALIPUT_DRAKE_ASSERT(base.GetVariables().size() == 1);
       return make_pair(MonomialBasisElement{get_variable(base), n}, 1.0);
     }
   }
@@ -380,14 +380,14 @@ GenericPolynomial<BasisElement>::GenericPolynomial(const BasisElement& m)
       indeterminates_{m.GetVariables()},
       decision_variables_{} {
   // No need to call CheckInvariant() because the following should hold.
-  DRAKE_ASSERT(decision_variables().empty());
+  MALIPUT_DRAKE_ASSERT(decision_variables().empty());
 }
 
 template <typename BasisElement>
 GenericPolynomial<BasisElement>::GenericPolynomial(const Expression& e)
     : GenericPolynomial<BasisElement>{e, e.GetVariables()} {
   // No need to call CheckInvariant() because the following should hold.
-  DRAKE_ASSERT(decision_variables().empty());
+  MALIPUT_DRAKE_ASSERT(decision_variables().empty());
 }
 
 template <typename BasisElement>

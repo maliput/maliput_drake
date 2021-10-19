@@ -23,7 +23,7 @@ std::string Indent(int depth) {
 void DependencyTracker::NoteValueChange(int64_t change_event) const {
   DRAKE_LOGGER_DEBUG("Tracker '{}' value change event {} ...",
                      GetPathDescription(), change_event);
-  DRAKE_ASSERT(change_event > 0);
+  MALIPUT_DRAKE_ASSERT(change_event > 0);
 
   ++num_value_change_notifications_received_;
   if (last_change_event_ == change_event) {
@@ -48,8 +48,8 @@ void DependencyTracker::NotePrerequisiteChange(
       "{}Tracker '{}': prerequisite '{}' changed (event {}) ...",
       Indent(depth), GetPathDescription(), prerequisite.GetPathDescription(),
       change_event);
-  DRAKE_ASSERT(change_event > 0);
-  DRAKE_ASSERT(HasPrerequisite(prerequisite));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(change_event > 0);
+  MALIPUT_DRAKE_ASSERT(HasPrerequisite(prerequisite));  // Expensive.
 
   ++num_prerequisite_notifications_received_;
   if (last_change_event_ == change_event) {
@@ -71,11 +71,11 @@ void DependencyTracker::NotifySubscribers(int64_t change_event,
   DRAKE_LOGGER_DEBUG("{}... {} downstream subscribers.{}", Indent(depth),
                      num_subscribers(),
                      num_subscribers() > 0 ? " Notifying:" : "");
-  DRAKE_ASSERT(change_event > 0);
-  DRAKE_ASSERT(depth >= 0);
+  MALIPUT_DRAKE_ASSERT(change_event > 0);
+  MALIPUT_DRAKE_ASSERT(depth >= 0);
 
   for (const DependencyTracker* subscriber : subscribers_) {
-    DRAKE_ASSERT(subscriber != nullptr);
+    MALIPUT_DRAKE_ASSERT(subscriber != nullptr);
     DRAKE_LOGGER_DEBUG("{}->{}", Indent(depth),
                        subscriber->GetPathDescription());
     subscriber->NotePrerequisiteChange(change_event, *this, depth + 1);
@@ -95,7 +95,7 @@ void DependencyTracker::SubscribeToPrerequisite(
                      GetPathDescription(), prerequisite->GetPathDescription());
 
   // Make sure we haven't already added this prerequisite.
-  DRAKE_ASSERT(!HasPrerequisite(*prerequisite));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(!HasPrerequisite(*prerequisite));  // Expensive.
   prerequisites_.push_back(prerequisite);
 
   prerequisite->AddDownstreamSubscriber(*this);
@@ -106,9 +106,9 @@ void DependencyTracker::AddDownstreamSubscriber(
   DRAKE_LOGGER_DEBUG("Tracker '{}' adding subscriber '{}'",
                      GetPathDescription(), subscriber.GetPathDescription());
   // Make sure we haven't already added this subscriber.
-  DRAKE_ASSERT(!HasSubscriber(subscriber));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(!HasSubscriber(subscriber));  // Expensive.
   // Subscriber must have *already* recorded this prerequisite.
-  DRAKE_ASSERT(subscriber.HasPrerequisite(*this));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(subscriber.HasPrerequisite(*this));  // Expensive.
 
   subscribers_.push_back(&subscriber);
 }
@@ -139,7 +139,7 @@ void DependencyTracker::UnsubscribeFromPrerequisite(
                      GetPathDescription(), prerequisite->GetPathDescription());
 
   // Make sure we have already added this prerequisite.
-  DRAKE_ASSERT(HasPrerequisite(*prerequisite));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(HasPrerequisite(*prerequisite));  // Expensive.
   Remove<const DependencyTracker*>(prerequisite, &prerequisites_);
 
   prerequisite->RemoveDownstreamSubscriber(*this);
@@ -150,9 +150,9 @@ void DependencyTracker::RemoveDownstreamSubscriber(
   DRAKE_LOGGER_DEBUG("Tracker '{}' removing subscriber '{}'",
                      GetPathDescription(), subscriber.GetPathDescription());
   // Make sure we already added this subscriber.
-  DRAKE_ASSERT(HasSubscriber(subscriber));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(HasSubscriber(subscriber));  // Expensive.
   // Subscriber must have *already* removed this prerequisite.
-  DRAKE_ASSERT(!subscriber.HasPrerequisite(*this));  // Expensive.
+  MALIPUT_DRAKE_ASSERT(!subscriber.HasPrerequisite(*this));  // Expensive.
 
   Remove<const DependencyTracker*>(&subscriber, &subscribers_);
 }
@@ -233,7 +233,7 @@ void DependencyTracker::RepairTrackerPointers(
   // Set the subscriber pointers.
   DRAKE_DEMAND(num_subscribers() == source.num_subscribers());
   for (int i = 0; i < num_subscribers(); ++i) {
-    DRAKE_ASSERT(subscribers_[i] == nullptr);
+    MALIPUT_DRAKE_ASSERT(subscribers_[i] == nullptr);
     auto map_entry = tracker_map.find(source.subscribers()[i]);
     DRAKE_DEMAND(map_entry != tracker_map.end());
     subscribers_[i] = map_entry->second;
@@ -242,7 +242,7 @@ void DependencyTracker::RepairTrackerPointers(
   // Set the prerequisite pointers.
   DRAKE_DEMAND(num_prerequisites() == source.num_prerequisites());
   for (int i = 0; i < num_prerequisites(); ++i) {
-    DRAKE_ASSERT(prerequisites_[i] == nullptr);
+    MALIPUT_DRAKE_ASSERT(prerequisites_[i] == nullptr);
     auto map_entry = tracker_map.find(source.prerequisites()[i]);
     DRAKE_DEMAND(map_entry != tracker_map.end());
     prerequisites_[i] = map_entry->second;

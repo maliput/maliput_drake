@@ -31,21 +31,21 @@ AbstractValues::AbstractValues(std::unique_ptr<AbstractValue> datum)
 int AbstractValues::size() const { return static_cast<int>(data_.size()); }
 
 const AbstractValue& AbstractValues::get_value(int index) const {
-  DRAKE_ASSERT(index >= 0 && index < size());
-  DRAKE_ASSERT(data_[index] != nullptr);
+  MALIPUT_DRAKE_ASSERT(index >= 0 && index < size());
+  MALIPUT_DRAKE_ASSERT(data_[index] != nullptr);
   return *data_[index];
 }
 
 AbstractValue& AbstractValues::get_mutable_value(int index) {
-  DRAKE_ASSERT(index >= 0 && index < size());
-  DRAKE_ASSERT(data_[index] != nullptr);
+  MALIPUT_DRAKE_ASSERT(index >= 0 && index < size());
+  MALIPUT_DRAKE_ASSERT(data_[index] != nullptr);
   return *data_[index];
 }
 
 void AbstractValues::SetFrom(const AbstractValues& other) {
-  DRAKE_ASSERT(size() == other.size());
+  MALIPUT_DRAKE_ASSERT(size() == other.size());
   for (int i = 0; i < size(); i++) {
-    DRAKE_ASSERT(data_[i] != nullptr);
+    MALIPUT_DRAKE_ASSERT(data_[i] != nullptr);
     data_[i]->SetFrom(other.get_value(i));
   }
 }

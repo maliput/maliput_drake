@@ -64,12 +64,12 @@ class LeafContext : public Context<T> {
   using ContextBase::AddAbstractParameterTicket;
 
   const State<T>& do_access_state() const final {
-    DRAKE_ASSERT(state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(state_ != nullptr);
     return *state_;
   }
 
   State<T>& do_access_mutable_state() final {
-    DRAKE_ASSERT(state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(state_ != nullptr);
     return *state_;
   }
 

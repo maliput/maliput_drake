@@ -215,12 +215,12 @@ class SystemScalarConverter {
 template <typename T, typename U>
 void SystemScalarConverter::Add(const ConverterFunction<T, U>& func) {
   // Make sure func contains a target (i.e., is not null-ish).
-  DRAKE_ASSERT(static_cast<bool>(func));
+  MALIPUT_DRAKE_ASSERT(static_cast<bool>(func));
   // Copy `func` into a lambda that ends up stored into `funcs_`.  The lambda
   // is typed as `void* => void*` in order to have a non-templated signature
   // and thus fit into a homogeneously-typed std::unordered_map.
   Insert(typeid(T), typeid(U), [func](const void* const bare_u) {
-    DRAKE_ASSERT(bare_u != nullptr);
+    MALIPUT_DRAKE_ASSERT(bare_u != nullptr);
     const System<U>& other = *static_cast<const System<U>*>(bare_u);
     return func(other).release();
   });
@@ -281,7 +281,7 @@ void SystemScalarConverter::MaybeAddConstructor() {
     // The lambda is typed as `void* => void*` in order to have a non-templated
     // signature and thus fit into a homogeneously-typed std::unordered_map.
     auto func = [](const void* const other_system_u) -> void* {
-      DRAKE_ASSERT(other_system_u != nullptr);
+      MALIPUT_DRAKE_ASSERT(other_system_u != nullptr);
       const System<U>& other = *static_cast<const System<U>*>(other_system_u);
       // Dispatch to an overload based on whether S<U> ==> S<T> is supported.
       // (At runtime, this block is only executed for supported conversions,

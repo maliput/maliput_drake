@@ -6,7 +6,7 @@
 namespace maliput::drake {
 namespace internal {
 
-// This is what DRAKE_ASSERT and DRAKE_DEMAND throw when our assertions are
+// This is what MALIPUT_DRAKE_ASSERT and DRAKE_DEMAND throw when our assertions are
 // configured to throw.
 class assertion_error : public std::runtime_error {
  public:

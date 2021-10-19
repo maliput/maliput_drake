@@ -267,7 +267,7 @@ void DiagramContext<T>::DoPropagateTimeChange(
     const std::optional<T>& true_time,
     int64_t change_event) {
   for (auto& subcontext : contexts_) {
-    DRAKE_ASSERT(subcontext != nullptr);
+    MALIPUT_DRAKE_ASSERT(subcontext != nullptr);
     Context<T>::PropagateTimeChange(&*subcontext, time_sec, true_time,
                                     change_event);
   }
@@ -278,7 +278,7 @@ void DiagramContext<T>::DoPropagateAccuracyChange(
     const std::optional<double>& accuracy,
     int64_t change_event) {
   for (auto& subcontext : contexts_) {
-    DRAKE_ASSERT(subcontext != nullptr);
+    MALIPUT_DRAKE_ASSERT(subcontext != nullptr);
     Context<T>::PropagateAccuracyChange(&*subcontext, accuracy, change_event);
   }
 }
@@ -288,7 +288,7 @@ void DiagramContext<T>::DoPropagateBulkChange(
     int64_t change_event,
     void (ContextBase::*note_bulk_change)(int64_t change_event)) {
   for (auto& subcontext : contexts_) {
-    DRAKE_ASSERT(subcontext != nullptr);
+    MALIPUT_DRAKE_ASSERT(subcontext != nullptr);
     ContextBase::PropagateBulkChange(&*subcontext, change_event,
                                      note_bulk_change);
   }
@@ -298,7 +298,7 @@ template <typename T>
 void DiagramContext<T>::DoPropagateCachingChange(
     void (Cache::*caching_change)()) const {
   for (auto& subcontext : contexts_) {
-    DRAKE_ASSERT(subcontext != nullptr);
+    MALIPUT_DRAKE_ASSERT(subcontext != nullptr);
     ContextBase::PropagateCachingChange(*subcontext, caching_change);
   }
 }

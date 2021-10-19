@@ -34,7 +34,7 @@ void SystemScalarConverter::Insert(
     const ErasedConverterFunc& converter) {
   const auto& key = Key{t_info, u_info};
   const auto& insert_result = funcs_.insert({key, converter});
-  DRAKE_ASSERT(insert_result.second);
+  MALIPUT_DRAKE_ASSERT(insert_result.second);
 }
 
 template <typename T, typename U>

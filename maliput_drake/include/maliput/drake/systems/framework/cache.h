@@ -699,9 +699,9 @@ class Cache {
   if there is no CacheEntryValue with that index. Use has_cache_entry_value()
   first if you aren't sure. */
   const CacheEntryValue& get_cache_entry_value(CacheIndex index) const {
-    DRAKE_ASSERT(has_cache_entry_value(index));
+    MALIPUT_DRAKE_ASSERT(has_cache_entry_value(index));
     const CacheEntryValue& cache_value = *store_[index];
-    DRAKE_ASSERT(cache_value.cache_index() == index);
+    MALIPUT_DRAKE_ASSERT(cache_value.cache_index() == index);
     return cache_value;
   }
 

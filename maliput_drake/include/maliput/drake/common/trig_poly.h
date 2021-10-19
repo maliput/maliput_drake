@@ -95,9 +95,9 @@ class TrigPoly final {
             vars_in_use.count(sin_cos_entry.second.s))) {
         sin_cos_map_.erase(sin_cos_entry.first);
       }
-      DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.first));
-      DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.second.s));
-      DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.second.c));
+      MALIPUT_DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.first));
+      MALIPUT_DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.second.s));
+      MALIPUT_DRAKE_ASSERT(!vars_seen_in_map.count(sin_cos_entry.second.c));
       vars_seen_in_map.insert(sin_cos_entry.first);
       vars_seen_in_map.insert(sin_cos_entry.second.s);
       vars_seen_in_map.insert(sin_cos_entry.second.c);
@@ -271,8 +271,8 @@ class TrigPoly final {
       const std::map<VarType, U>& var_values) const {
     std::map<VarType, U> all_var_values = var_values;
     for (const auto& sin_cos_item : sin_cos_map_) {
-      DRAKE_ASSERT(!var_values.count(sin_cos_item.second.s));
-      DRAKE_ASSERT(!var_values.count(sin_cos_item.second.c));
+      MALIPUT_DRAKE_ASSERT(!var_values.count(sin_cos_item.second.s));
+      MALIPUT_DRAKE_ASSERT(!var_values.count(sin_cos_item.second.c));
       all_var_values[sin_cos_item.second.s] =
           std::sin(var_values.at(sin_cos_item.first));
       all_var_values[sin_cos_item.second.c] =
@@ -291,8 +291,8 @@ class TrigPoly final {
       const std::map<VarType, T>& var_values) const {
     std::map<VarType, T> var_values_with_sincos = var_values;
     for (const auto& sin_cos_item : sin_cos_map_) {
-      DRAKE_ASSERT(!var_values.count(sin_cos_item.second.s));
-      DRAKE_ASSERT(!var_values.count(sin_cos_item.second.c));
+      MALIPUT_DRAKE_ASSERT(!var_values.count(sin_cos_item.second.s));
+      MALIPUT_DRAKE_ASSERT(!var_values.count(sin_cos_item.second.c));
       if (!var_values.count(sin_cos_item.first)) {
         continue;
       }

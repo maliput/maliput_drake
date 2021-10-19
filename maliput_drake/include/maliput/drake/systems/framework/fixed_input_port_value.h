@@ -94,13 +94,13 @@ class FixedInputPortValue {
 
   /** Returns the ticket used to find the associated DependencyTracker. */
   DependencyTicket ticket() const {
-    DRAKE_ASSERT(ticket_.is_valid());
+    MALIPUT_DRAKE_ASSERT(ticket_.is_valid());
     return ticket_;
   }
 
   /** Returns a const reference to the context that owns this object. */
   const ContextBase& get_owning_context() const {
-    DRAKE_ASSERT(owning_subcontext_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(owning_subcontext_ != nullptr);
     return *owning_subcontext_;
   }
 

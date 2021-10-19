@@ -114,12 +114,12 @@ class BasicVector : public VectorBase<T> {
 
  protected:
   const T& DoGetAtIndexUnchecked(int index) const final {
-    DRAKE_ASSERT(index < size());
+    MALIPUT_DRAKE_ASSERT(index < size());
     return values_[index];
   }
 
   T& DoGetAtIndexUnchecked(int index) final {
-    DRAKE_ASSERT(index < size());
+    MALIPUT_DRAKE_ASSERT(index < size());
     return values_[index];
   }
 

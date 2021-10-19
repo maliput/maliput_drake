@@ -505,7 +505,7 @@ inline AutoDiffScalar<VectorXd> pow(AutoDiffScalar<VectorXd> a, double b) {
 inline const AutoDiffScalar<VectorXd> min(const AutoDiffScalar<VectorXd>& a,
                                           const AutoDiffScalar<VectorXd>& b) {
   // If both a and b have derivatives, then their derivative sizes must match.
-  DRAKE_ASSERT(
+  MALIPUT_DRAKE_ASSERT(
       a.derivatives().size() == 0 || b.derivatives().size() == 0 ||
       a.derivatives().size() == b.derivatives().size());
   // The smaller of a or b wins; ties go to a iff it has any derivatives.
@@ -516,7 +516,7 @@ inline const AutoDiffScalar<VectorXd> min(const AutoDiffScalar<VectorXd>& a,
 inline const AutoDiffScalar<VectorXd> max(const AutoDiffScalar<VectorXd>& a,
                                           const AutoDiffScalar<VectorXd>& b) {
   // If both a and b have derivatives, then their derivative sizes must match.
-  DRAKE_ASSERT(
+  MALIPUT_DRAKE_ASSERT(
       a.derivatives().size() == 0 || b.derivatives().size() == 0 ||
       a.derivatives().size() == b.derivatives().size());
   // The larger of a or b wins; ties go to a iff it has any derivatives.

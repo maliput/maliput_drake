@@ -289,7 +289,7 @@ void CodeGenSparseMeta(const string& function_name, const int parameter_size,
 std::string CodeGen(
     const std::string& function_name, const std::vector<Variable>& parameters,
     const Eigen::Ref<const Eigen::SparseMatrix<Expression>>& M) {
-  DRAKE_ASSERT(M.isCompressed());
+  MALIPUT_DRAKE_ASSERT(M.isCompressed());
   ostringstream oss;
   internal::CodeGenSparseData(function_name, parameters, M.cols() + 1,
                               M.nonZeros(), M.outerIndexPtr(),

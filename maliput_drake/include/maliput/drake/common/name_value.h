@@ -70,8 +70,8 @@ class NameValue {
   /// lifetime of this object.  Neither pointer can be nullptr.
   NameValue(const char* name_in, T* value_in)
       : name_(name_in), value_(value_in) {
-    DRAKE_ASSERT(name_in != nullptr);
-    DRAKE_ASSERT(value_in != nullptr);
+    MALIPUT_DRAKE_ASSERT(name_in != nullptr);
+    MALIPUT_DRAKE_ASSERT(value_in != nullptr);
   }
 
   /// @name Accessors to the raw pointers

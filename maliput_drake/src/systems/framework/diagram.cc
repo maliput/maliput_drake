@@ -59,7 +59,7 @@ typename Diagram<T>::InputPortLocator
 Diagram<T>::GetArbitraryInputPortLocator(InputPortIndex port_index) const {
   DRAKE_DEMAND(port_index >= 0 && port_index < this->num_input_ports());
   const auto ids = GetInputPortLocators(port_index);
-  DRAKE_ASSERT(!ids.empty());
+  MALIPUT_DRAKE_ASSERT(!ids.empty());
   return ids[0];
 }
 
@@ -668,7 +668,7 @@ void Diagram<T>::DoGetWitnessFunctions(
   SubsystemIndex index(0);
 
   for (const auto& system : registered_systems_) {
-    DRAKE_ASSERT(index == GetSystemIndexOrAbort(system.get()));
+    MALIPUT_DRAKE_ASSERT(index == GetSystemIndexOrAbort(system.get()));
     temp_witnesses.clear();
     system->GetWitnessFunctions(diagram_context->GetSubsystemContext(index),
                                 &temp_witnesses);
@@ -905,7 +905,7 @@ void Diagram<T>::DoCalcNextUpdateTime(const Context<T>& context,
     return std::none_of(vec.begin(), vec.end(),
                         [](const T& v) { return isnan(v); });
   };
-  DRAKE_ASSERT(none_are_nan(event_times_buffer));
+  MALIPUT_DRAKE_ASSERT(none_are_nan(event_times_buffer));
 
   // For all the subsystems whose next update time is bigger than
   // next_update_time, clear their event collections.
@@ -1036,7 +1036,7 @@ const AbstractValue* Diagram<T>::EvalConnectedSubsystemInputPort(
   // The upstream source is an output port of one of this Diagram's child
   // subsystems; evaluate it.
   // TODO(david-german-tri): Add online algebraic loop detection here.
-  DRAKE_ASSERT(is_connected);
+  MALIPUT_DRAKE_ASSERT(is_connected);
   const OutputPortLocator& prerequisite = upstream_it->second;
   return &this->EvalSubsystemOutputPort(diagram_context, prerequisite);
 }
@@ -1055,10 +1055,10 @@ const SystemBase& Diagram<T>::GetRootSystemBase() const {
 template <typename T>
 bool Diagram<T>::DiagramHasDirectFeedthrough(int input_port, int output_port)
     const {
-  DRAKE_ASSERT(input_port >= 0);
-  DRAKE_ASSERT(input_port < this->num_input_ports());
-  DRAKE_ASSERT(output_port >= 0);
-  DRAKE_ASSERT(output_port < this->num_output_ports());
+  MALIPUT_DRAKE_ASSERT(input_port >= 0);
+  MALIPUT_DRAKE_ASSERT(input_port < this->num_input_ports());
+  MALIPUT_DRAKE_ASSERT(output_port >= 0);
+  MALIPUT_DRAKE_ASSERT(output_port < this->num_output_ports());
 
   const auto input_ids = GetInputPortLocators(InputPortIndex(input_port));
   std::set<InputPortLocator> target_input_ids(input_ids.begin(),
@@ -1072,7 +1072,7 @@ bool Diagram<T>::DiagramHasDirectFeedthrough(int input_port, int output_port)
   while (!active_set.empty()) {
     const OutputPortLocator current_output_id = *active_set.begin();
     size_t removed_count = active_set.erase(current_output_id);
-    DRAKE_ASSERT(removed_count == 1);
+    MALIPUT_DRAKE_ASSERT(removed_count == 1);
     const System<T>* sys = current_output_id.first;
     for (const auto& [sys_input, sys_output] : sys->GetDirectFeedthroughs()) {
       if (sys_output == current_output_id.second) {
@@ -1460,7 +1460,7 @@ void Diagram<T>::Initialize(std::unique_ptr<Blueprint> blueprint) {
   // Every system must appear exactly once.
   DRAKE_DEMAND(registered_systems_.size() == system_index_map_.size());
   // Every port named in the connection_map_ must actually exist.
-  DRAKE_ASSERT(PortsAreValid());
+  MALIPUT_DRAKE_ASSERT(PortsAreValid());
   // Every subsystem must have a unique name.
   MALIPUT_DRAKE_THROW_UNLESS(NamesAreUniqueAndNonEmpty());
 

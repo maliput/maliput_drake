@@ -20,7 +20,7 @@ ExponentialPlusPiecewisePolynomial<T>::
       piecewise_polynomial_part_(piecewise_polynomial_part) {
   using std::isfinite;
   DRAKE_DEMAND(isfinite(piecewise_polynomial_part.start_time()));
-  DRAKE_ASSERT(piecewise_polynomial_part.cols() == 1);
+  MALIPUT_DRAKE_ASSERT(piecewise_polynomial_part.cols() == 1);
 }
 
 template <typename T>
@@ -42,7 +42,7 @@ MatrixX<T> ExponentialPlusPiecewisePolynomial<T>::value(const T& t) const {
 template <typename T>
 ExponentialPlusPiecewisePolynomial<T>
 ExponentialPlusPiecewisePolynomial<T>::derivative(int derivative_order) const {
-  DRAKE_ASSERT(derivative_order >= 0);
+  MALIPUT_DRAKE_ASSERT(derivative_order >= 0);
   // quite inefficient, especially for high order derivatives due to all the
   // temporaries...
   MatrixX<T> K_new = K_;

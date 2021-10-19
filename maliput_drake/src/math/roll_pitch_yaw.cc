@@ -196,7 +196,7 @@ void RollPitchYaw<T>::SetFromQuaternionAndRotationMatrix(
   // Use: (12*eps) + (4 mults + 1 add) * 1/2 eps = 17.5 eps.
   const RollPitchYaw<T> roll_pitch_yaw(rpy);
   const RotationMatrix<T> R_rpy = RotationMatrix<T>(roll_pitch_yaw);
-  DRAKE_ASSERT(R_rpy.IsNearlyEqualTo(R, 20 * kEpsilon));
+  MALIPUT_DRAKE_ASSERT(R_rpy.IsNearlyEqualTo(R, 20 * kEpsilon));
 #endif
 }
 
@@ -218,7 +218,7 @@ void RollPitchYaw<T>::ThrowPitchAngleViolatesGimbalLockTolerance(
     const T& pitch_angle) {
     const double pitch_radians = ExtractDoubleOrThrow(pitch_angle);
     const double cos_pitch_angle = std::cos(pitch_radians);
-    DRAKE_ASSERT(DoesCosPitchAngleViolateGimbalLockTolerance(cos_pitch_angle));
+    MALIPUT_DRAKE_ASSERT(DoesCosPitchAngleViolateGimbalLockTolerance(cos_pitch_angle));
     const double tolerance_degrees =
         GimbalLockPitchAngleTolerance() * 180 / M_PI;
     std::string message = fmt::format("RollPitchYaw::{}():"

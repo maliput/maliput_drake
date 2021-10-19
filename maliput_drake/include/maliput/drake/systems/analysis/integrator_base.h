@@ -693,7 +693,7 @@ class IntegratorBase {
    */
   // TODO(edrumwri): Update this comment when stretch size is configurable.
   void set_maximum_step_size(const T& max_step_size) {
-    DRAKE_ASSERT(max_step_size >= 0.0);
+    MALIPUT_DRAKE_ASSERT(max_step_size >= 0.0);
     max_step_size_ = max_step_size;
   }
 
@@ -794,7 +794,7 @@ class IntegratorBase {
    @sa get_working_minimum_step_size()
    */
   void set_requested_minimum_step_size(const T& min_step_size) {
-    DRAKE_ASSERT(min_step_size >= 0.0);
+    MALIPUT_DRAKE_ASSERT(min_step_size >= 0.0);
     req_min_step_size_ = min_step_size;
   }
 

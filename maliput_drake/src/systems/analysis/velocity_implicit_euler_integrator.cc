@@ -95,7 +95,7 @@ void VelocityImplicitEulerIntegrator<T>::CalcVelocityJacobian(const T& t,
       this->get_jacobian_computation_scheme() ==
       ImplicitIntegrator<T>::JacobianComputationScheme::kCentralDifference) {
     // Compute the Jacobian using numerical differencing.
-    DRAKE_ASSERT(qdot_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(qdot_ != nullptr);
     // Define the lambda l_of_y to evaluate ℓ(y).
     std::function<void(const VectorX<T>&, VectorX<T>*)> l_of_y =
         [&qk, &t, &qn, &h, this](const VectorX<T>& y_state,
@@ -185,8 +185,8 @@ void VelocityImplicitEulerIntegrator<T>::ComputeAutoDiffVelocityJacobian(
     *Jy = MatrixX<T>::Zero(ny, ny);
   }
 
-  DRAKE_ASSERT(Jy->rows() == ny);
-  DRAKE_ASSERT(Jy->cols() == ny);
+  MALIPUT_DRAKE_ASSERT(Jy->rows() == ny);
+  MALIPUT_DRAKE_ASSERT(Jy->cols() == ny);
 }
 
 template <class T>
@@ -344,7 +344,7 @@ bool VelocityImplicitEulerIntegrator<T>::StepVelocityImplicitEuler(
   using std::abs;
 
   // Verify the trial number is valid.
-  DRAKE_ASSERT(trial >= 1 && trial <= 4);
+  MALIPUT_DRAKE_ASSERT(trial >= 1 && trial <= 4);
   DRAKE_LOGGER_DEBUG(
       "VelocityImplicitEulerIntegrator::StepVelocityImplicitEuler(h={}, t={})",
       h, t0);
@@ -352,7 +352,7 @@ bool VelocityImplicitEulerIntegrator<T>::StepVelocityImplicitEuler(
   const System<T>& system = this->get_system();
   // Verify xtplus. We also verify the size to make sure we're not making
   // unnecessary heap allocations.
-  DRAKE_ASSERT(xtplus != nullptr && xtplus->size() == xn.size() &&
+  MALIPUT_DRAKE_ASSERT(xtplus != nullptr && xtplus->size() == xn.size() &&
                xtplus_guess.size() == xn.size());
 
   // Initialize xtplus to the guess
@@ -376,7 +376,7 @@ bool VelocityImplicitEulerIntegrator<T>::StepVelocityImplicitEuler(
   VectorX<T> last_qtplus = qtplus;
 
   // Verify the size of qdot_.
-  DRAKE_ASSERT(qdot_ != nullptr && qdot_->size() == nq);
+  MALIPUT_DRAKE_ASSERT(qdot_ != nullptr && qdot_->size() == nq);
 
   // We compute our residuals at tf = t0 + h.
   const T tf = t0 + h;
@@ -549,8 +549,8 @@ bool VelocityImplicitEulerIntegrator<T>::AttemptStepPaired(
     "VelocityImplicitEulerIntegrator::AttemptStepPaired(h={}, "
     "t={})", h, t0);
   using std::abs;
-  DRAKE_ASSERT(xtplus_vie != nullptr);
-  DRAKE_ASSERT(xtplus_hvie != nullptr);
+  MALIPUT_DRAKE_ASSERT(xtplus_vie != nullptr);
+  MALIPUT_DRAKE_ASSERT(xtplus_hvie != nullptr);
 
   // Use the current state as the candidate value for the next state.
   // [Hairer 1996] validates this choice (p. 120).

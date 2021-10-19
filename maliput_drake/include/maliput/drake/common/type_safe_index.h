@@ -199,7 +199,7 @@ class TypeSafeIndex {
     // All other error testing, with assert armed, indirectly enforces the
     // invariant that the only way to get an invalid index is via the default
     // constructor. This assertion will catch any crack in that effort.
-    DRAKE_ASSERT((index_ >= 0) || (index_ == kDefaultInvalid));
+    MALIPUT_DRAKE_ASSERT((index_ >= 0) || (index_ == kDefaultInvalid));
     return index_ >= 0;
   }
 

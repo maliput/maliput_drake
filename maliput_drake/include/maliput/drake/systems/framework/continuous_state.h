@@ -127,13 +127,13 @@ class ContinuousState {
 
   /// Returns a reference to the entire continuous state vector.
   const VectorBase<T>& get_vector() const {
-    DRAKE_ASSERT(state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(state_ != nullptr);
     return *state_;
   }
 
   /// Returns a mutable reference to the entire continuous state vector.
   VectorBase<T>& get_mutable_vector() {
-    DRAKE_ASSERT(state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(state_ != nullptr);
     return *state_.get();
   }
 
@@ -187,7 +187,7 @@ class ContinuousState {
 
   /// Sets the entire continuous state vector from an Eigen expression.
   void SetFromVector(const Eigen::Ref<const VectorX<T>>& value) {
-    DRAKE_ASSERT(value.size() == state_->size());
+    MALIPUT_DRAKE_ASSERT(value.size() == state_->size());
     this->get_mutable_vector().SetFromVector(value);
   }
 

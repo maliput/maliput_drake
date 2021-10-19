@@ -79,7 +79,7 @@ void initializeAutoDiffGivenGradientMatrix(
   static_assert(static_cast<int>(Derived::SizeAtCompileTime) ==
                     static_cast<int>(DerivedGradient::RowsAtCompileTime),
                 "gradient has wrong number of rows at compile time");
-  DRAKE_ASSERT(val.size() == gradient.rows() &&
+  MALIPUT_DRAKE_ASSERT(val.size() == gradient.rows() &&
                "gradient has wrong number of rows at runtime");
   typedef AutoDiffMatrixType<Derived, DerivedGradient::ColsAtCompileTime>
       ExpectedAutoDiffType;

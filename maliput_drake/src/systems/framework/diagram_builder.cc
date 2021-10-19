@@ -286,12 +286,12 @@ bool HasCycleRecurse(
     const std::map<PortIdentifier, std::set<PortIdentifier>>& edges,
     std::set<PortIdentifier>* visited,
     std::vector<PortIdentifier>* stack) {
-  DRAKE_ASSERT(visited->count(n) == 0);
+  MALIPUT_DRAKE_ASSERT(visited->count(n) == 0);
   visited->insert(n);
 
   auto edge_iter = edges.find(n);
   if (edge_iter != edges.end()) {
-    DRAKE_ASSERT(std::find(stack->begin(), stack->end(), n) == stack->end());
+    MALIPUT_DRAKE_ASSERT(std::find(stack->begin(), stack->end(), n) == stack->end());
     stack->push_back(n);
     for (const auto& target : edge_iter->second) {
       if (visited->count(target) == 0 &&

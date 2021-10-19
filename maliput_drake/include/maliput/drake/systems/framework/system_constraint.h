@@ -228,7 +228,7 @@ class SystemConstraint final {
         return maliput::drake::all(value.cwiseAbs().array() <= tol);
       }
     } else {
-      DRAKE_ASSERT(type() == SystemConstraintType::kInequality);
+      MALIPUT_DRAKE_ASSERT(type() == SystemConstraintType::kInequality);
       // TODO(hongkai.dai): ignore the bounds that are infinite.
       if (tol == 0.0) {
         return maliput::drake::all(value.array() >= lower_bound().array()) &&

@@ -227,7 +227,7 @@ class LeafSystem : public System<T> {
         dynamic_cast<const systems::LeafContext<T>&>(context);
     const auto* const params =
         dynamic_cast<const U<T>*>(&leaf_context.get_numeric_parameter(index));
-    DRAKE_ASSERT(params != nullptr);
+    MALIPUT_DRAKE_ASSERT(params != nullptr);
     return *params;
   }
 
@@ -240,10 +240,10 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<BasicVector<T>, U<T>>,
                   "U must be a subclass of BasicVector.");
     auto* leaf_context = dynamic_cast<systems::LeafContext<T>*>(context);
-    DRAKE_ASSERT(leaf_context != nullptr);
+    MALIPUT_DRAKE_ASSERT(leaf_context != nullptr);
     auto* const params = dynamic_cast<U<T>*>(
         &leaf_context->get_mutable_numeric_parameter(index));
-    DRAKE_ASSERT(params != nullptr);
+    MALIPUT_DRAKE_ASSERT(params != nullptr);
     return *params;
   }
 

@@ -104,8 +104,8 @@ void ContextBase::SetFixedInputPortValue(
     // All the dependency wiring should be in place already.
     ticket_to_use = old_value->ticket();
     DRAKE_DEMAND(graph_.has_tracker(ticket_to_use));
-    DRAKE_ASSERT(graph_.get_tracker(ticket_to_use).HasSubscriber(port_tracker));
-    DRAKE_ASSERT(
+    MALIPUT_DRAKE_ASSERT(graph_.get_tracker(ticket_to_use).HasSubscriber(port_tracker));
+    MALIPUT_DRAKE_ASSERT(
         port_tracker.HasPrerequisite(graph_.get_tracker(ticket_to_use)));
   } else {
     // Create a new tracker and subscribe to it.

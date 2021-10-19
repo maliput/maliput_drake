@@ -110,8 +110,8 @@ Expression ExpandMultiplication(const Expression& e1, const Expression& e2,
 // already expanded.
 Expression ExpandMultiplication(const Expression& e1, const Expression& e2) {
   // Precondition: e1 and e2 are already expanded.
-  DRAKE_ASSERT(e1.EqualTo(e1.Expand()));
-  DRAKE_ASSERT(e2.EqualTo(e2.Expand()));
+  MALIPUT_DRAKE_ASSERT(e1.EqualTo(e1.Expand()));
+  MALIPUT_DRAKE_ASSERT(e2.EqualTo(e2.Expand()));
 
   if (is_addition(e1)) {
     //   (c0 + c1 * e_{1,1} + ... + c_n * e_{1, n}) * e2
@@ -177,8 +177,8 @@ Expression ExpandMultiplication(const Expression& e1, const Expression& e2,
 // Helper function expanding pow(base, n). It assumes that base is expanded.
 Expression ExpandPow(const Expression& base, const int n) {
   // Precondition: base is already expanded.
-  DRAKE_ASSERT(base.EqualTo(base.Expand()));
-  DRAKE_ASSERT(n >= 1);
+  MALIPUT_DRAKE_ASSERT(base.EqualTo(base.Expand()));
+  MALIPUT_DRAKE_ASSERT(n >= 1);
   if (n == 1) {
     return base;
   }
@@ -195,8 +195,8 @@ Expression ExpandPow(const Expression& base, const int n) {
 // and exponent are already expanded.
 Expression ExpandPow(const Expression& base, const Expression& exponent) {
   // Precondition: base and exponent are already expanded.
-  DRAKE_ASSERT(base.EqualTo(base.Expand()));
-  DRAKE_ASSERT(exponent.EqualTo(exponent.Expand()));
+  MALIPUT_DRAKE_ASSERT(base.EqualTo(base.Expand()));
+  MALIPUT_DRAKE_ASSERT(exponent.EqualTo(exponent.Expand()));
   if (is_multiplication(base)) {
     //   pow(c * ∏ᵢ pow(e₁ᵢ, e₂ᵢ), exponent)
     // = pow(c, exponent) * ∏ᵢ pow(e₁ᵢ, e₂ᵢ * exponent)
@@ -233,7 +233,7 @@ UnaryExpressionCell::UnaryExpressionCell(const ExpressionKind k, Expression e,
     : ExpressionCell{k, is_poly, is_expanded}, e_{std::move(e)} {}
 
 void UnaryExpressionCell::HashAppendDetail(DelegatingHasher* hasher) const {
-  DRAKE_ASSERT(hasher != nullptr);
+  MALIPUT_DRAKE_ASSERT(hasher != nullptr);
   using maliput::drake::hash_append;
   hash_append(*hasher, e_);
 }
@@ -244,14 +244,14 @@ Variables UnaryExpressionCell::GetVariables() const {
 
 bool UnaryExpressionCell::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const auto& unary_e = static_cast<const UnaryExpressionCell&>(e);
   return e_.EqualTo(unary_e.e_);
 }
 
 bool UnaryExpressionCell::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const auto& unary_e = static_cast<const UnaryExpressionCell&>(e);
   return e_.Less(unary_e.e_);
 }
@@ -270,7 +270,7 @@ BinaryExpressionCell::BinaryExpressionCell(const ExpressionKind k,
       e2_{std::move(e2)} {}
 
 void BinaryExpressionCell::HashAppendDetail(DelegatingHasher* hasher) const {
-  DRAKE_ASSERT(hasher != nullptr);
+  MALIPUT_DRAKE_ASSERT(hasher != nullptr);
   using maliput::drake::hash_append;
   hash_append(*hasher, e1_);
   hash_append(*hasher, e2_);
@@ -284,14 +284,14 @@ Variables BinaryExpressionCell::GetVariables() const {
 
 bool BinaryExpressionCell::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const auto& binary_e = static_cast<const BinaryExpressionCell&>(e);
   return e1_.EqualTo(binary_e.e1_) && e2_.EqualTo(binary_e.e2_);
 }
 
 bool BinaryExpressionCell::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const auto& binary_e = static_cast<const BinaryExpressionCell&>(e);
   if (e1_.Less(binary_e.e1_)) {
     return true;
@@ -320,7 +320,7 @@ ExpressionVar::ExpressionVar(Variable v)
 }
 
 void ExpressionVar::HashAppendDetail(DelegatingHasher* hasher) const {
-  DRAKE_ASSERT(hasher != nullptr);
+  MALIPUT_DRAKE_ASSERT(hasher != nullptr);
   using maliput::drake::hash_append;
   hash_append(*hasher, var_);
 }
@@ -329,13 +329,13 @@ Variables ExpressionVar::GetVariables() const { return {get_variable()}; }
 
 bool ExpressionVar::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   return var_.equal_to(static_cast<const ExpressionVar&>(e).var_);
 }
 
 bool ExpressionVar::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   // Note the below is using the overloaded operator< between ExpressionVar
   // which is based on variable IDs.
   return var_.less(static_cast<const ExpressionVar&>(e).var_);
@@ -344,7 +344,7 @@ bool ExpressionVar::Less(const ExpressionCell& e) const {
 double ExpressionVar::Evaluate(const Environment& env) const {
   Environment::const_iterator const it{env.find(var_)};
   if (it != env.cend()) {
-    DRAKE_ASSERT(!std::isnan(it->second));
+    MALIPUT_DRAKE_ASSERT(!std::isnan(it->second));
     return it->second;
   }
   ostringstream oss;
@@ -376,7 +376,7 @@ ostream& ExpressionVar::Display(ostream& os) const { return os << var_; }
 
 ExpressionConstant::ExpressionConstant(const double v)
     : ExpressionCell{ExpressionKind::Constant, true, true}, v_{v} {
-  DRAKE_ASSERT(!std::isnan(v));
+  MALIPUT_DRAKE_ASSERT(!std::isnan(v));
 }
 
 void ExpressionConstant::HashAppendDetail(DelegatingHasher* hasher) const {
@@ -388,13 +388,13 @@ Variables ExpressionConstant::GetVariables() const { return Variables{}; }
 
 bool ExpressionConstant::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   return v_ == static_cast<const ExpressionConstant&>(e).v_;
 }
 
 bool ExpressionConstant::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   return v_ < static_cast<const ExpressionConstant&>(e).v_;
 }
 
@@ -425,13 +425,13 @@ Variables ExpressionNaN::GetVariables() const { return Variables{}; }
 
 bool ExpressionNaN::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   return true;
 }
 
 bool ExpressionNaN::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   return false;
 }
 
@@ -459,7 +459,7 @@ ExpressionAdd::ExpressionAdd(const double constant,
                      determine_polynomial(expr_to_coeff_map), false},
       constant_(constant),
       expr_to_coeff_map_(expr_to_coeff_map) {
-  DRAKE_ASSERT(!expr_to_coeff_map_.empty());
+  MALIPUT_DRAKE_ASSERT(!expr_to_coeff_map_.empty());
 }
 
 void ExpressionAdd::HashAppendDetail(DelegatingHasher* hasher) const {
@@ -478,7 +478,7 @@ Variables ExpressionAdd::GetVariables() const {
 
 bool ExpressionAdd::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionAdd& add_e{static_cast<const ExpressionAdd&>(e)};
   // Compare constant.
   if (constant_ != add_e.constant_) {
@@ -495,7 +495,7 @@ bool ExpressionAdd::EqualTo(const ExpressionCell& e) const {
 
 bool ExpressionAdd::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionAdd& add_e{static_cast<const ExpressionAdd&>(e)};
   // Compare the constants.
   if (constant_ < add_e.constant_) {
@@ -566,7 +566,7 @@ Expression ExpressionAdd::Differentiate(const Variable& x) const {
 }
 
 ostream& ExpressionAdd::Display(ostream& os) const {
-  DRAKE_ASSERT(!expr_to_coeff_map_.empty());
+  MALIPUT_DRAKE_ASSERT(!expr_to_coeff_map_.empty());
   bool print_plus{false};
   os << "(";
   if (constant_ != 0.0) {
@@ -584,7 +584,7 @@ ostream& ExpressionAdd::Display(ostream& os) const {
 ostream& ExpressionAdd::DisplayTerm(ostream& os, const bool print_plus,
                                     const double coeff,
                                     const Expression& term) const {
-  DRAKE_ASSERT(coeff != 0.0);
+  MALIPUT_DRAKE_ASSERT(coeff != 0.0);
   if (coeff > 0.0) {
     if (print_plus) {
       os << " + ";
@@ -623,7 +623,7 @@ void ExpressionAddFactory::AddExpression(const Expression& e) {
   }
   if (is_multiplication(e)) {
     const double constant{get_constant_in_multiplication(e)};
-    DRAKE_ASSERT(constant != 0.0);
+    MALIPUT_DRAKE_ASSERT(constant != 0.0);
     if (constant != 1.0) {
       // Instead of adding (1.0 * (constant * b1^t1 ... bn^tn)),
       // add (constant, 1.0 * b1^t1 ... bn^tn).
@@ -673,8 +673,8 @@ void ExpressionAddFactory::AddConstant(const double constant) {
 }
 
 void ExpressionAddFactory::AddTerm(const double coeff, const Expression& term) {
-  DRAKE_ASSERT(!is_constant(term));
-  DRAKE_ASSERT(coeff != 0.0);
+  MALIPUT_DRAKE_ASSERT(!is_constant(term));
+  MALIPUT_DRAKE_ASSERT(coeff != 0.0);
 
   const auto it(expr_to_coeff_map_.find(term));
   if (it != expr_to_coeff_map_.end()) {
@@ -708,7 +708,7 @@ ExpressionMul::ExpressionMul(
                      determine_polynomial(base_to_exponent_map), false},
       constant_(constant),
       base_to_exponent_map_(base_to_exponent_map) {
-  DRAKE_ASSERT(!base_to_exponent_map_.empty());
+  MALIPUT_DRAKE_ASSERT(!base_to_exponent_map_.empty());
 }
 
 void ExpressionMul::HashAppendDetail(DelegatingHasher* hasher) const {
@@ -728,7 +728,7 @@ Variables ExpressionMul::GetVariables() const {
 
 bool ExpressionMul::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionMul& mul_e{static_cast<const ExpressionMul&>(e)};
   // Compare constant.
   if (constant_ != mul_e.constant_) {
@@ -746,7 +746,7 @@ bool ExpressionMul::EqualTo(const ExpressionCell& e) const {
 
 bool ExpressionMul::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionMul& mul_e{static_cast<const ExpressionMul&>(e)};
   // Compare the constants.
   if (constant_ < mul_e.constant_) {
@@ -863,7 +863,7 @@ Expression ExpressionMul::Differentiate(const Variable& x) const {
 }
 
 ostream& ExpressionMul::Display(ostream& os) const {
-  DRAKE_ASSERT(!base_to_exponent_map_.empty());
+  MALIPUT_DRAKE_ASSERT(!base_to_exponent_map_.empty());
   bool print_mul{false};
   os << "(";
   if (constant_ != 1.0) {
@@ -972,7 +972,7 @@ void ExpressionMulFactory::AddTerm(const Expression& base,
                                    const Expression& exponent) {
   // The following assertion holds because of
   // ExpressionMulFactory::AddExpression.
-  DRAKE_ASSERT(!(is_constant(base) && is_constant(exponent)));
+  MALIPUT_DRAKE_ASSERT(!(is_constant(base) && is_constant(exponent)));
   if (is_pow(base)) {
     // If (base, exponent) = (pow(e1, e2), exponent)), then add (e1, e2 *
     // exponent)
@@ -1814,7 +1814,7 @@ Variables ExpressionIfThenElse::GetVariables() const {
 
 bool ExpressionIfThenElse::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionIfThenElse& ite_e{
       static_cast<const ExpressionIfThenElse&>(e)};
   return f_cond_.EqualTo(ite_e.f_cond_) && e_then_.EqualTo(ite_e.e_then_) &&
@@ -1823,7 +1823,7 @@ bool ExpressionIfThenElse::EqualTo(const ExpressionCell& e) const {
 
 bool ExpressionIfThenElse::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionIfThenElse& ite_e{
       static_cast<const ExpressionIfThenElse&>(e)};
   if (f_cond_.Less(ite_e.f_cond_)) {
@@ -1921,7 +1921,7 @@ Variables ExpressionUninterpretedFunction::GetVariables() const {
 
 bool ExpressionUninterpretedFunction::EqualTo(const ExpressionCell& e) const {
   // Expression::EqualTo guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionUninterpretedFunction& uf_e{
       static_cast<const ExpressionUninterpretedFunction&>(e)};
   return name_ == uf_e.name_ &&
@@ -1934,7 +1934,7 @@ bool ExpressionUninterpretedFunction::EqualTo(const ExpressionCell& e) const {
 
 bool ExpressionUninterpretedFunction::Less(const ExpressionCell& e) const {
   // Expression::Less guarantees the following assertion.
-  DRAKE_ASSERT(get_kind() == e.get_kind());
+  MALIPUT_DRAKE_ASSERT(get_kind() == e.get_kind());
   const ExpressionUninterpretedFunction& uf_e{
       static_cast<const ExpressionUninterpretedFunction&>(e)};
   if (name_ < uf_e.name_) {
@@ -2080,22 +2080,22 @@ bool is_uninterpreted_function(const ExpressionCell& c) {
 }
 
 const ExpressionConstant& to_constant(const Expression& e) {
-  DRAKE_ASSERT(is_constant(e));
+  MALIPUT_DRAKE_ASSERT(is_constant(e));
   return static_cast<const ExpressionConstant&>(e.cell());
 }
 
 ExpressionConstant& to_constant(Expression* const e) {
-  DRAKE_ASSERT(e && is_constant(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_constant(*e));
   return static_cast<ExpressionConstant&>(e->mutable_cell());
 }
 
 const ExpressionVar& to_variable(const Expression& e) {
-  DRAKE_ASSERT(is_variable(e));
+  MALIPUT_DRAKE_ASSERT(is_variable(e));
   return static_cast<const ExpressionVar&>(e.cell());
 }
 
 ExpressionVar& to_variable(Expression* const e) {
-  DRAKE_ASSERT(e && is_variable(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_variable(*e));
   return static_cast<ExpressionVar&>(e->mutable_cell());
 }
 
@@ -2107,12 +2107,12 @@ bool is_unary(const ExpressionCell& cell) {
 }
 
 const UnaryExpressionCell& to_unary(const Expression& e) {
-  DRAKE_ASSERT(is_unary(e.cell()));
+  MALIPUT_DRAKE_ASSERT(is_unary(e.cell()));
   return static_cast<const UnaryExpressionCell&>(e.cell());
 }
 
 UnaryExpressionCell& to_unary(Expression* const e) {
-  DRAKE_ASSERT(e && is_unary(e->cell()));
+  MALIPUT_DRAKE_ASSERT(e && is_unary(e->cell()));
   return static_cast<UnaryExpressionCell&>(e->mutable_cell());
 }
 
@@ -2122,254 +2122,254 @@ bool is_binary(const ExpressionCell& cell) {
 }
 
 const BinaryExpressionCell& to_binary(const Expression& e) {
-  DRAKE_ASSERT(is_binary(e.cell()));
+  MALIPUT_DRAKE_ASSERT(is_binary(e.cell()));
   return static_cast<const BinaryExpressionCell&>(e.cell());
 }
 
 BinaryExpressionCell& to_binary(Expression* const e) {
-  DRAKE_ASSERT(e && is_binary(e->cell()));
+  MALIPUT_DRAKE_ASSERT(e && is_binary(e->cell()));
   return static_cast<BinaryExpressionCell&>(e->mutable_cell());
 }
 
 const ExpressionAdd& to_addition(const Expression& e) {
-  DRAKE_ASSERT(is_addition(e));
+  MALIPUT_DRAKE_ASSERT(is_addition(e));
   return static_cast<const ExpressionAdd&>(e.cell());
 }
 
 ExpressionAdd& to_addition(Expression* const e) {
-  DRAKE_ASSERT(e && is_addition(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_addition(*e));
   return static_cast<ExpressionAdd&>(e->mutable_cell());
 }
 
 const ExpressionMul& to_multiplication(const Expression& e) {
-  DRAKE_ASSERT(is_multiplication(e));
+  MALIPUT_DRAKE_ASSERT(is_multiplication(e));
   return static_cast<const ExpressionMul&>(e.cell());
 }
 
 ExpressionMul& to_multiplication(Expression* const e) {
-  DRAKE_ASSERT(e && is_multiplication(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_multiplication(*e));
   return static_cast<ExpressionMul&>(e->mutable_cell());
 }
 
 const ExpressionDiv& to_division(const Expression& e) {
-  DRAKE_ASSERT(is_division(e));
+  MALIPUT_DRAKE_ASSERT(is_division(e));
   return static_cast<const ExpressionDiv&>(e.cell());
 }
 
 ExpressionDiv& to_division(Expression* const e) {
-  DRAKE_ASSERT(e && is_division(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_division(*e));
   return static_cast<ExpressionDiv&>(e->mutable_cell());
 }
 
 const ExpressionLog& to_log(const Expression& e) {
-  DRAKE_ASSERT(is_log(e));
+  MALIPUT_DRAKE_ASSERT(is_log(e));
   return static_cast<const ExpressionLog&>(e.cell());
 }
 
 ExpressionLog& to_log(Expression* const e) {
-  DRAKE_ASSERT(e && is_log(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_log(*e));
   return static_cast<ExpressionLog&>(e->mutable_cell());
 }
 
 const ExpressionAbs& to_abs(const Expression& e) {
-  DRAKE_ASSERT(is_abs(e));
+  MALIPUT_DRAKE_ASSERT(is_abs(e));
   return static_cast<const ExpressionAbs&>(e.cell());
 }
 
 ExpressionAbs& to_abs(Expression* const e) {
-  DRAKE_ASSERT(e && is_abs(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_abs(*e));
   return static_cast<ExpressionAbs&>(e->mutable_cell());
 }
 
 const ExpressionExp& to_exp(const Expression& e) {
-  DRAKE_ASSERT(is_exp(e));
+  MALIPUT_DRAKE_ASSERT(is_exp(e));
   return static_cast<const ExpressionExp&>(e.cell());
 }
 
 ExpressionExp& to_exp(Expression* const e) {
-  DRAKE_ASSERT(e && is_exp(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_exp(*e));
   return static_cast<ExpressionExp&>(e->mutable_cell());
 }
 
 const ExpressionSqrt& to_sqrt(const Expression& e) {
-  DRAKE_ASSERT(is_sqrt(e));
+  MALIPUT_DRAKE_ASSERT(is_sqrt(e));
   return static_cast<const ExpressionSqrt&>(e.cell());
 }
 
 ExpressionSqrt& to_sqrt(Expression* const e) {
-  DRAKE_ASSERT(e && is_sqrt(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_sqrt(*e));
   return static_cast<ExpressionSqrt&>(e->mutable_cell());
 }
 
 const ExpressionPow& to_pow(const Expression& e) {
-  DRAKE_ASSERT(is_pow(e));
+  MALIPUT_DRAKE_ASSERT(is_pow(e));
   return static_cast<const ExpressionPow&>(e.cell());
 }
 
 ExpressionPow& to_pow(Expression* const e) {
-  DRAKE_ASSERT(e && is_pow(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_pow(*e));
   return static_cast<ExpressionPow&>(e->mutable_cell());
 }
 
 const ExpressionSin& to_sin(const Expression& e) {
-  DRAKE_ASSERT(is_sin(e));
+  MALIPUT_DRAKE_ASSERT(is_sin(e));
   return static_cast<const ExpressionSin&>(e.cell());
 }
 
 ExpressionSin& to_sin(Expression* const e) {
-  DRAKE_ASSERT(e && is_sin(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_sin(*e));
   return static_cast<ExpressionSin&>(e->mutable_cell());
 }
 
 const ExpressionCos& to_cos(const Expression& e) {
-  DRAKE_ASSERT(is_cos(e));
+  MALIPUT_DRAKE_ASSERT(is_cos(e));
   return static_cast<const ExpressionCos&>(e.cell());
 }
 
 ExpressionCos& to_cos(Expression* const e) {
-  DRAKE_ASSERT(e && is_cos(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_cos(*e));
   return static_cast<ExpressionCos&>(e->mutable_cell());
 }
 
 const ExpressionTan& to_tan(const Expression& e) {
-  DRAKE_ASSERT(is_tan(e));
+  MALIPUT_DRAKE_ASSERT(is_tan(e));
   return static_cast<const ExpressionTan&>(e.cell());
 }
 
 ExpressionTan& to_tan(Expression* const e) {
-  DRAKE_ASSERT(e && is_tan(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_tan(*e));
   return static_cast<ExpressionTan&>(e->mutable_cell());
 }
 
 const ExpressionAsin& to_asin(const Expression& e) {
-  DRAKE_ASSERT(is_asin(e));
+  MALIPUT_DRAKE_ASSERT(is_asin(e));
   return static_cast<const ExpressionAsin&>(e.cell());
 }
 
 ExpressionAsin& to_asin(Expression* const e) {
-  DRAKE_ASSERT(e && is_asin(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_asin(*e));
   return static_cast<ExpressionAsin&>(e->mutable_cell());
 }
 
 const ExpressionAcos& to_acos(const Expression& e) {
-  DRAKE_ASSERT(is_acos(e));
+  MALIPUT_DRAKE_ASSERT(is_acos(e));
   return static_cast<const ExpressionAcos&>(e.cell());
 }
 
 ExpressionAcos& to_acos(Expression* const e) {
-  DRAKE_ASSERT(e && is_acos(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_acos(*e));
   return static_cast<ExpressionAcos&>(e->mutable_cell());
 }
 
 const ExpressionAtan& to_atan(const Expression& e) {
-  DRAKE_ASSERT(is_atan(e));
+  MALIPUT_DRAKE_ASSERT(is_atan(e));
   return static_cast<const ExpressionAtan&>(e.cell());
 }
 
 ExpressionAtan& to_atan(Expression* const e) {
-  DRAKE_ASSERT(e && is_atan(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_atan(*e));
   return static_cast<ExpressionAtan&>(e->mutable_cell());
 }
 
 const ExpressionAtan2& to_atan2(const Expression& e) {
-  DRAKE_ASSERT(is_atan2(e));
+  MALIPUT_DRAKE_ASSERT(is_atan2(e));
   return static_cast<const ExpressionAtan2&>(e.cell());
 }
 
 ExpressionAtan2& to_atan2(Expression* const e) {
-  DRAKE_ASSERT(e && is_atan2(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_atan2(*e));
   return static_cast<ExpressionAtan2&>(e->mutable_cell());
 }
 
 const ExpressionSinh& to_sinh(const Expression& e) {
-  DRAKE_ASSERT(is_sinh(e));
+  MALIPUT_DRAKE_ASSERT(is_sinh(e));
   return static_cast<const ExpressionSinh&>(e.cell());
 }
 
 ExpressionSinh& to_sinh(Expression* const e) {
-  DRAKE_ASSERT(e && is_sinh(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_sinh(*e));
   return static_cast<ExpressionSinh&>(e->mutable_cell());
 }
 
 const ExpressionCosh& to_cosh(const Expression& e) {
-  DRAKE_ASSERT(is_cosh(e));
+  MALIPUT_DRAKE_ASSERT(is_cosh(e));
   return static_cast<const ExpressionCosh&>(e.cell());
 }
 
 ExpressionCosh& to_cosh(Expression* const e) {
-  DRAKE_ASSERT(e && is_cosh(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_cosh(*e));
   return static_cast<ExpressionCosh&>(e->mutable_cell());
 }
 
 const ExpressionTanh& to_tanh(const Expression& e) {
-  DRAKE_ASSERT(is_tanh(e));
+  MALIPUT_DRAKE_ASSERT(is_tanh(e));
   return static_cast<const ExpressionTanh&>(e.cell());
 }
 
 ExpressionTanh& to_tanh(Expression* const e) {
-  DRAKE_ASSERT(e && is_tanh(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_tanh(*e));
   return static_cast<ExpressionTanh&>(e->mutable_cell());
 }
 
 const ExpressionMin& to_min(const Expression& e) {
-  DRAKE_ASSERT(is_min(e));
+  MALIPUT_DRAKE_ASSERT(is_min(e));
   return static_cast<const ExpressionMin&>(e.cell());
 }
 
 ExpressionMin& to_min(Expression* const e) {
-  DRAKE_ASSERT(e && is_min(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_min(*e));
   return static_cast<ExpressionMin&>(e->mutable_cell());
 }
 
 const ExpressionMax& to_max(const Expression& e) {
-  DRAKE_ASSERT(is_max(e));
+  MALIPUT_DRAKE_ASSERT(is_max(e));
   return static_cast<const ExpressionMax&>(e.cell());
 }
 
 ExpressionMax& to_max(Expression* const e) {
-  DRAKE_ASSERT(e && is_max(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_max(*e));
   return static_cast<ExpressionMax&>(e->mutable_cell());
 }
 
 const ExpressionCeiling& to_ceil(const Expression& e) {
-  DRAKE_ASSERT(is_ceil(e));
+  MALIPUT_DRAKE_ASSERT(is_ceil(e));
   return static_cast<const ExpressionCeiling&>(e.cell());
 }
 
 ExpressionCeiling& to_ceil(Expression* const e) {
-  DRAKE_ASSERT(e && is_ceil(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_ceil(*e));
   return static_cast<ExpressionCeiling&>(e->mutable_cell());
 }
 
 const ExpressionFloor& to_floor(const Expression& e) {
-  DRAKE_ASSERT(is_floor(e));
+  MALIPUT_DRAKE_ASSERT(is_floor(e));
   return static_cast<const ExpressionFloor&>(e.cell());
 }
 
 ExpressionFloor& to_floor(Expression* const e) {
-  DRAKE_ASSERT(e && is_floor(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_floor(*e));
   return static_cast<ExpressionFloor&>(e->mutable_cell());
 }
 
 const ExpressionIfThenElse& to_if_then_else(const Expression& e) {
-  DRAKE_ASSERT(is_if_then_else(e));
+  MALIPUT_DRAKE_ASSERT(is_if_then_else(e));
   return static_cast<const ExpressionIfThenElse&>(e.cell());
 }
 
 ExpressionIfThenElse& to_if_then_else(Expression* const e) {
-  DRAKE_ASSERT(e && is_if_then_else(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_if_then_else(*e));
   return static_cast<ExpressionIfThenElse&>(e->mutable_cell());
 }
 
 const ExpressionUninterpretedFunction& to_uninterpreted_function(
     const Expression& e) {
-  DRAKE_ASSERT(is_uninterpreted_function(e));
+  MALIPUT_DRAKE_ASSERT(is_uninterpreted_function(e));
   return static_cast<const ExpressionUninterpretedFunction&>(e.cell());
 }
 
 ExpressionUninterpretedFunction& to_uninterpreted_function(
     Expression* const e) {
-  DRAKE_ASSERT(e && is_uninterpreted_function(*e));
+  MALIPUT_DRAKE_ASSERT(e && is_uninterpreted_function(*e));
   return static_cast<ExpressionUninterpretedFunction&>(e->mutable_cell());
 }
 

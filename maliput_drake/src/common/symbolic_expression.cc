@@ -45,14 +45,14 @@ namespace {
 // Negates an addition expression.
 // - (E_1 + ... + E_n) => (-E_1 + ... + -E_n)
 Expression NegateAddition(const Expression& e) {
-  DRAKE_ASSERT(is_addition(e));
+  MALIPUT_DRAKE_ASSERT(is_addition(e));
   return ExpressionAddFactory{to_addition(e)}.Negate().GetExpression();
 }
 
 // Negates a multiplication expression.
 // - (c0 * E_1 * ... * E_n) => (-c0 * E_1 * ... * E_n)
 Expression NegateMultiplication(const Expression& e) {
-  DRAKE_ASSERT(is_multiplication(e));
+  MALIPUT_DRAKE_ASSERT(is_multiplication(e));
   return ExpressionMulFactory{to_multiplication(e)}.Negate().GetExpression();
 }
 }  // namespace
@@ -83,7 +83,7 @@ Expression::Expression(const double d) : Expression{make_cell(d)} {}
 
 Expression::Expression(std::shared_ptr<ExpressionCell> ptr)
     : ptr_{std::move(ptr)} {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
 }
 
 ExpressionKind Expression::get_kind() const {
@@ -97,7 +97,7 @@ void Expression::HashAppend(DelegatingHasher* hasher) const {
 }
 
 ExpressionCell& Expression::mutable_cell() {
-  DRAKE_ASSERT(ptr_ != nullptr);
+  MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
   DRAKE_DEMAND(ptr_.use_count() == 1);
   return *ptr_;
 }
@@ -996,9 +996,9 @@ using MultiIndex = vector<int>;
 void DoEnumerateMultiIndex(const int order, const int num_vars,
                            const int start_dim, const MultiIndex& base,
                            vector<MultiIndex>* const vec) {
-  DRAKE_ASSERT(order > 0);
-  DRAKE_ASSERT(start_dim >= 0);
-  DRAKE_ASSERT(base.size() == static_cast<size_t>(num_vars));
+  MALIPUT_DRAKE_ASSERT(order > 0);
+  MALIPUT_DRAKE_ASSERT(start_dim >= 0);
+  MALIPUT_DRAKE_ASSERT(base.size() == static_cast<size_t>(num_vars));
   if (order == 0) {
     return;
   }
@@ -1020,8 +1020,8 @@ void DoEnumerateMultiIndex(const int order, const int num_vars,
 
 // Returns the set of multi-indices of order `order` whose size is `num-vars`.
 vector<MultiIndex> EnumerateMultiIndex(const int order, const int num_vars) {
-  DRAKE_ASSERT(order > 0);
-  DRAKE_ASSERT(num_vars >= 1);
+  MALIPUT_DRAKE_ASSERT(order > 0);
+  MALIPUT_DRAKE_ASSERT(num_vars >= 1);
   vector<MultiIndex> vec;
   MultiIndex base(num_vars, 0);  // base = (0, ..., 0)
   DoEnumerateMultiIndex(order, num_vars, 0, base, &vec);
@@ -1030,7 +1030,7 @@ vector<MultiIndex> EnumerateMultiIndex(const int order, const int num_vars) {
 
 // Computes the factorial of n.
 int Factorial(const int n) {
-  DRAKE_ASSERT(n >= 0);
+  MALIPUT_DRAKE_ASSERT(n >= 0);
   int f = 1;
   for (int i = 2; i <= n; ++i) {
     f *= i;
@@ -1064,7 +1064,7 @@ Expression Derivative(Expression f, const MultiIndex& alpha,
 // Given terms = [e₁, ..., eₙ] and alpha = (α₁, ..., αₙ), returns
 // pow(e₁,α₁) * ... * pow(eₙ,αₙ)
 Expression Exp(const vector<Expression>& terms, const MultiIndex& alpha) {
-  DRAKE_ASSERT(terms.size() == alpha.size());
+  MALIPUT_DRAKE_ASSERT(terms.size() == alpha.size());
   ExpressionMulFactory factory;
   for (size_t i = 0; i < terms.size(); ++i) {
     factory.AddExpression(pow(terms[i], alpha[i]));
@@ -1076,8 +1076,8 @@ Expression Exp(const vector<Expression>& terms, const MultiIndex& alpha) {
 void DoTaylorExpand(const Expression& f, const Environment& a,
                     const vector<Expression>& terms, const int order,
                     const int num_vars, ExpressionAddFactory* const factory) {
-  DRAKE_ASSERT(order > 0);
-  DRAKE_ASSERT(terms.size() == static_cast<size_t>(num_vars));
+  MALIPUT_DRAKE_ASSERT(order > 0);
+  MALIPUT_DRAKE_ASSERT(terms.size() == static_cast<size_t>(num_vars));
   const vector<MultiIndex> multi_indices{EnumerateMultiIndex(order, num_vars)};
   for (const MultiIndex& alpha : multi_indices) {
     factory->AddExpression(Derivative(f, alpha, a) * Exp(terms, alpha) /

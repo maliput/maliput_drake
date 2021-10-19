@@ -163,8 +163,8 @@ ComputeNumericalGradient(
     // Resize if we haven't yet.
     // N.B. The size of y is known not until the first function evaluation.
     // Therefore we delay the resizing of J to this point.
-    DRAKE_ASSERT(y_minus.size() == y_plus.size());
-    DRAKE_ASSERT(x_minus.size() == x_plus.size());
+    MALIPUT_DRAKE_ASSERT(y_minus.size() == y_plus.size());
+    MALIPUT_DRAKE_ASSERT(x_minus.size() == x_plus.size());
     if (J.size() == 0) J.resize(y_minus.size(), x_minus.size());
 
     J.col(i) = (y_plus - y_minus) / dxi;

@@ -12,7 +12,7 @@ namespace maliput::drake {
 /// there are nonempty vectors of different sizes.
 inline void autodiffxd_make_coherent(const AutoDiffXd& donor,
                                      AutoDiffXd* recipient) {
-  DRAKE_ASSERT(recipient != nullptr);
+  MALIPUT_DRAKE_ASSERT(recipient != nullptr);
   if (recipient->derivatives().size() == 0) {
     recipient->derivatives() =
         Eigen::VectorXd::Zero(donor.derivatives().size());

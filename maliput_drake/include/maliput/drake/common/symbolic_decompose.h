@@ -124,7 +124,7 @@ DecomposeAffineExpression(
   int num_variable = 0;
   for (const auto& p : poly.monomial_to_coefficient_map()) {
     const auto& p_monomial = p.first;
-    DRAKE_ASSERT(is_constant(p.second));
+    MALIPUT_DRAKE_ASSERT(is_constant(p.second));
     const double p_coeff = symbolic::get_constant_value(p.second);
     if (p_monomial.total_degree() > 1) {
       std::stringstream oss;

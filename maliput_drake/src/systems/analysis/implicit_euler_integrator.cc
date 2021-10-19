@@ -112,10 +112,10 @@ bool ImplicitEulerIntegrator<T>::StepAbstract(
   using std::min;
 
   // Verify the trial number is valid.
-  DRAKE_ASSERT(trial >= 1 && trial <= 4);
+  MALIPUT_DRAKE_ASSERT(trial >= 1 && trial <= 4);
 
   // Verify xtplus
-  DRAKE_ASSERT(xtplus && xtplus->size() == xt0.size());
+  MALIPUT_DRAKE_ASSERT(xtplus && xtplus->size() == xt0.size());
 
   DRAKE_LOGGER_DEBUG("StepAbstract() entered for t={}, h={}, trial={}",
       t0, h, trial);
@@ -390,8 +390,8 @@ template <class T>
 bool ImplicitEulerIntegrator<T>::AttemptStepPaired(const T& t0, const T& h,
     const VectorX<T>& xt0, VectorX<T>* xtplus_ie, VectorX<T>* xtplus_hie) {
   using std::abs;
-  DRAKE_ASSERT(xtplus_ie != nullptr);
-  DRAKE_ASSERT(xtplus_hie != nullptr);
+  MALIPUT_DRAKE_ASSERT(xtplus_ie != nullptr);
+  MALIPUT_DRAKE_ASSERT(xtplus_hie != nullptr);
 
   // Compute the derivative at time and state (t0, x(t0)). NOTE: the derivative
   // is calculated at this point (early on in the integration process) in order

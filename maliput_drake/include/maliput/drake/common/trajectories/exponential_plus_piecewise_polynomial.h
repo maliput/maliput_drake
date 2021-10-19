@@ -38,14 +38,14 @@ class ExponentialPlusPiecewisePolynomial final
         A_(A),
         alpha_(alpha),
         piecewise_polynomial_part_(piecewise_polynomial_part) {
-    DRAKE_ASSERT(K.rows() == rows());
-    DRAKE_ASSERT(K.cols() == A.rows());
-    DRAKE_ASSERT(A.rows() == A.cols());
-    DRAKE_ASSERT(alpha.rows() == A.cols());
-    DRAKE_ASSERT(alpha.cols() ==
+    MALIPUT_DRAKE_ASSERT(K.rows() == rows());
+    MALIPUT_DRAKE_ASSERT(K.cols() == A.rows());
+    MALIPUT_DRAKE_ASSERT(A.rows() == A.cols());
+    MALIPUT_DRAKE_ASSERT(alpha.rows() == A.cols());
+    MALIPUT_DRAKE_ASSERT(alpha.cols() ==
                  piecewise_polynomial_part.get_number_of_segments());
-    DRAKE_ASSERT(piecewise_polynomial_part.rows() == rows());
-    DRAKE_ASSERT(piecewise_polynomial_part.cols() == 1);
+    MALIPUT_DRAKE_ASSERT(piecewise_polynomial_part.rows() == rows());
+    MALIPUT_DRAKE_ASSERT(piecewise_polynomial_part.cols() == 1);
   }
 
   // from PiecewisePolynomial

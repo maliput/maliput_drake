@@ -46,7 +46,7 @@ class SystemOutput {
   /** Returns the last-saved value of output port `index` as an AbstractValue.
   This works for any output port regardless of it actual type. */
   const AbstractValue* get_data(int index) const {
-    DRAKE_ASSERT(0 <= index && index < num_ports());
+    MALIPUT_DRAKE_ASSERT(0 <= index && index < num_ports());
     return port_values_[index].get();
   }
 
@@ -54,7 +54,7 @@ class SystemOutput {
   although the actual concrete type is preserved from the actual output port.
   @throws std::exception if the port is not vector-valued. */
   const BasicVector<T>* get_vector_data(int index) const {
-    DRAKE_ASSERT(0 <= index && index < num_ports());
+    MALIPUT_DRAKE_ASSERT(0 <= index && index < num_ports());
     return &port_values_[index]->template get_value<BasicVector<T>>();
   }
 
@@ -64,7 +64,7 @@ class SystemOutput {
   users should just call `System<T>::CalcOutputs()` to get all the output
   port values at once. */
   AbstractValue* GetMutableData(int index) {
-    DRAKE_ASSERT(0 <= index && index < num_ports());
+    MALIPUT_DRAKE_ASSERT(0 <= index && index < num_ports());
     return port_values_[index].get_mutable();
   }
 
@@ -75,7 +75,7 @@ class SystemOutput {
   port values at once.
   @throws std::exception if the port is not vector-valued. */
   BasicVector<T>* GetMutableVectorData(int index) {
-    DRAKE_ASSERT(0 <= index && index < num_ports());
+    MALIPUT_DRAKE_ASSERT(0 <= index && index < num_ports());
     return &port_values_[index]->template get_mutable_value<BasicVector<T>>();
   }
 

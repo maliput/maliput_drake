@@ -128,7 +128,7 @@ template <typename T>
 void Context<T>::PropagateTimeChange(
     Context<T>* context, const T& time, const std::optional<T>& true_time,
     int64_t change_event) {
-  DRAKE_ASSERT(context != nullptr);
+  MALIPUT_DRAKE_ASSERT(context != nullptr);
   context->NoteTimeChanged(change_event);
   context->time_ = time;
   context->true_time_ = true_time;
@@ -139,7 +139,7 @@ template <typename T>
 void Context<T>::PropagateAccuracyChange(
     Context<T>* context, const std::optional<double>& accuracy,
     int64_t change_event) {
-  DRAKE_ASSERT(context != nullptr);
+  MALIPUT_DRAKE_ASSERT(context != nullptr);
   context->NoteAccuracyChanged(change_event);
   context->accuracy_ = accuracy;
   context->DoPropagateAccuracyChange(accuracy, change_event);

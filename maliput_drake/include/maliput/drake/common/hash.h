@@ -95,7 +95,7 @@ std::enable_if_t<std::is_floating_point_v<T>>
 hash_append(
     HashAlgorithm& hasher, const T& item) noexcept {
   // Hashing a NaN makes no sense, since they cannot compare as equal.
-  DRAKE_ASSERT(!std::isnan(item));
+  MALIPUT_DRAKE_ASSERT(!std::isnan(item));
   // +0.0 and -0.0 are equal, so must hash identically.
   if (item == 0.0) {
     const T zero{0.0};

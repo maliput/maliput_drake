@@ -40,12 +40,12 @@ class State {
   }
 
   const ContinuousState<T>& get_continuous_state() const {
-    DRAKE_ASSERT(continuous_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(continuous_state_ != nullptr);
     return *continuous_state_.get();
   }
 
   ContinuousState<T>& get_mutable_continuous_state() {
-    DRAKE_ASSERT(continuous_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(continuous_state_ != nullptr);
     return *continuous_state_.get();
   }
 
@@ -55,12 +55,12 @@ class State {
   }
 
   const DiscreteValues<T>& get_discrete_state() const {
-    DRAKE_ASSERT(discrete_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(discrete_state_ != nullptr);
     return *discrete_state_.get();
   }
 
   DiscreteValues<T>& get_mutable_discrete_state() {
-    DRAKE_ASSERT(discrete_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(discrete_state_ != nullptr);
     return *discrete_state_.get();
   }
 
@@ -80,12 +80,12 @@ class State {
   }
 
   const AbstractValues& get_abstract_state() const {
-    DRAKE_ASSERT(abstract_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(abstract_state_ != nullptr);
     return *abstract_state_.get();
   }
 
   AbstractValues& get_mutable_abstract_state() {
-    DRAKE_ASSERT(abstract_state_ != nullptr);
+    MALIPUT_DRAKE_ASSERT(abstract_state_ != nullptr);
     return *abstract_state_.get();
   }
 
