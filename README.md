@@ -82,12 +82,12 @@ maliput_drake/src/systems/analysis/simulator_print_stats.cc
    ```cpp
    extern "C" void drake_set_assertion_failure_to_throw_excepts()
    ```
-   To avoid having duplicated references in systems that both `maliput_drake` and `drake` are installed.
+   To avoid having duplicated references in systems where both `maliput_drake` and `drake` are installed.
 
 9. Update the CMakeLists.txt under `maliput_drake/src/` for the library targets.
    Make sure all source files are properly listed.
 
-10. To avoid having duplicated definitions in systems that both `maliput_drake` and `drake` are installed,
+10. To avoid having duplicated definitions in systems where both `maliput_drake` and `drake` are installed,
    rename the following definitions from `maliput_drake/src/common/drake_throw.h` and `maliput_drake/src/common/drake_assert.h`.
     ```
     DRAKE_THROW_UNLESS to MALIPUT_DRAKE_THROW_UNLESS
