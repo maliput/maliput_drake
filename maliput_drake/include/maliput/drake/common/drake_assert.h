@@ -27,7 +27,7 @@
 /// - If neither are defined, then NDEBUG governs assertions as usual.
 ///
 /// This header will define exactly one of either @p MALIPUT_DRAKE_ASSERT_IS_ARMED or
-/// @p DRAKE_ASSERT_IS_DISARMED to indicate whether @p DRAKE_ASSERT is armed.
+/// @p MALIPUT_DRAKE_ASSERT_IS_DISARMED to indicate whether @p DRAKE_ASSERT is armed.
 ///
 /// This header will define both `constexpr bool maliput::drake::kDrakeAssertIsArmed`
 /// and `constexpr bool maliput::drake::kDrakeAssertIsDisarmed` globals.
@@ -65,8 +65,8 @@
 #ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
 # error Unexpected MALIPUT_DRAKE_ASSERT_IS_ARMED defined.
 #endif
-#ifdef DRAKE_ASSERT_IS_DISARMED
-# error Unexpected DRAKE_ASSERT_IS_DISARMED defined.
+#ifdef MALIPUT_DRAKE_ASSERT_IS_DISARMED
+# error Unexpected MALIPUT_DRAKE_ASSERT_IS_DISARMED defined.
 #endif
 
 // Decide whether Drake assertions are enabled.
@@ -75,7 +75,7 @@
 #elif defined(DRAKE_ENABLE_ASSERTS)
 # define MALIPUT_DRAKE_ASSERT_IS_ARMED
 #elif defined(DRAKE_DISABLE_ASSERTS) || defined(NDEBUG)
-# define DRAKE_ASSERT_IS_DISARMED
+# define MALIPUT_DRAKE_ASSERT_IS_DISARMED
 #else
 # define MALIPUT_DRAKE_ASSERT_IS_ARMED
 #endif
