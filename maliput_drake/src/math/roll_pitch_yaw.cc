@@ -169,7 +169,7 @@ void RollPitchYaw<T>::SetFromQuaternionAndRotationMatrix(
       CalcRollPitchYawFromQuaternionAndRotationMatrix(quaternion, R.matrix());
   SetOrThrowIfNotValidInDebugBuild(rpy);
 
-#ifdef DRAKE_ASSERT_IS_ARMED
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
   // Verify that arguments to this method make sense.  Ensure the
   // rotation_matrix and quaternion correspond to the same orientation.
   constexpr double kEpsilon = std::numeric_limits<double>::epsilon();

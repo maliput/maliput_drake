@@ -245,7 +245,7 @@ class CacheEntryValue {
   situation (and you probably are not!), use GetAbstractValueOrThrow()
   instead. */
   const AbstractValue& get_abstract_value() const {
-#ifdef DRAKE_ASSERT_IS_ARMED
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
     return GetAbstractValueOrThrowHelper(__func__);
 #else
     return *value_;
@@ -261,7 +261,7 @@ class CacheEntryValue {
   @tparam V The known actual value type. */
   template <typename V>
   const V& get_value() const {
-#ifdef DRAKE_ASSERT_IS_ARMED
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
     return GetValueOrThrowHelper<V>(__func__);
 #else
     return value_->get_value<V>();
@@ -281,7 +281,7 @@ class CacheEntryValue {
   @tparam V The known actual value type. */
   template <typename V>
   void set_value(const V& new_value) {
-#ifdef DRAKE_ASSERT_IS_ARMED
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
     SetValueOrThrowHelper<V>(__func__, new_value);
 #else
     ThrowIfFrozen(__func__);

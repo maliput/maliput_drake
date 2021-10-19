@@ -26,7 +26,7 @@
 /// - If both macros are defined, then it is a compile-time error.
 /// - If neither are defined, then NDEBUG governs assertions as usual.
 ///
-/// This header will define exactly one of either @p DRAKE_ASSERT_IS_ARMED or
+/// This header will define exactly one of either @p MALIPUT_DRAKE_ASSERT_IS_ARMED or
 /// @p DRAKE_ASSERT_IS_DISARMED to indicate whether @p DRAKE_ASSERT is armed.
 ///
 /// This header will define both `constexpr bool maliput::drake::kDrakeAssertIsArmed`
@@ -62,8 +62,8 @@
 #else  //  DRAKE_DOXYGEN_CXX
 
 // Users should NOT set these; only this header should set them.
-#ifdef DRAKE_ASSERT_IS_ARMED
-# error Unexpected DRAKE_ASSERT_IS_ARMED defined.
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
+# error Unexpected MALIPUT_DRAKE_ASSERT_IS_ARMED defined.
 #endif
 #ifdef DRAKE_ASSERT_IS_DISARMED
 # error Unexpected DRAKE_ASSERT_IS_DISARMED defined.
@@ -73,11 +73,11 @@
 #if defined(DRAKE_ENABLE_ASSERTS) && defined(DRAKE_DISABLE_ASSERTS)
 # error Conflicting assertion toggles.
 #elif defined(DRAKE_ENABLE_ASSERTS)
-# define DRAKE_ASSERT_IS_ARMED
+# define MALIPUT_DRAKE_ASSERT_IS_ARMED
 #elif defined(DRAKE_DISABLE_ASSERTS) || defined(NDEBUG)
 # define DRAKE_ASSERT_IS_DISARMED
 #else
-# define DRAKE_ASSERT_IS_ARMED
+# define MALIPUT_DRAKE_ASSERT_IS_ARMED
 #endif
 
 namespace maliput::drake {
@@ -120,7 +120,7 @@ struct ConditionTraits {
     }                                                                        \
   } while (0)
 
-#ifdef DRAKE_ASSERT_IS_ARMED
+#ifdef MALIPUT_DRAKE_ASSERT_IS_ARMED
 // Assertions are enabled.
 namespace maliput::drake {
 constexpr bool kDrakeAssertIsArmed = true;
