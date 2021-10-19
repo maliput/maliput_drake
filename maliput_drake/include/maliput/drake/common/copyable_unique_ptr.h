@@ -217,7 +217,7 @@ class copyable_unique_ptr : public std::unique_ptr<T> {
   copyable_unique_ptr& operator=(const std::unique_ptr<T>& src) {
     if (&src != this) {
       // can't be same ptr unless null
-      DRAKE_DEMAND((get() != src.get()) || !get());
+      MALIPUT_DRAKE_DEMAND((get() != src.get()) || !get());
       std::unique_ptr<T>::reset(CopyOrNull(src.get()));
     }
     return *this;
@@ -232,7 +232,7 @@ class copyable_unique_ptr : public std::unique_ptr<T> {
   template <typename U>
   copyable_unique_ptr& operator=(const std::unique_ptr<U>& u_ptr) {
     // can't be same ptr unless null
-    DRAKE_DEMAND((get() != u_ptr.get()) || !get());
+    MALIPUT_DRAKE_DEMAND((get() != u_ptr.get()) || !get());
     std::unique_ptr<T>::reset(CopyOrNull(u_ptr.get()));
     return *this;
   }

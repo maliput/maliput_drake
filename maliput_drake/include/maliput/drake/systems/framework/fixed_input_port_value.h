@@ -48,7 +48,7 @@ class FixedInputPortValue {
 
   /** Returns a reference to the contained abstract value. */
   const AbstractValue& get_value() const {
-    DRAKE_DEMAND(value_ != nullptr);  // Should always be a value.
+    MALIPUT_DRAKE_DEMAND(value_ != nullptr);  // Should always be a value.
     return *value_;
   }
 
@@ -116,7 +116,7 @@ class FixedInputPortValue {
   // number to 1. The value must not be null.
   explicit FixedInputPortValue(std::unique_ptr<AbstractValue> value)
       : value_(std::move(value)), serial_number_{1} {
-    DRAKE_DEMAND(value_ != nullptr);
+    MALIPUT_DRAKE_DEMAND(value_ != nullptr);
   }
 
   // Copy constructor is only used for cloning and is not a complete copy --
@@ -126,14 +126,14 @@ class FixedInputPortValue {
   // Informs this FixedInputPortValue of its assigned DependencyTracker
   // so it knows who to notify when its value changes.
   void set_ticket(DependencyTicket ticket) {
-    DRAKE_DEMAND(ticket.is_valid() && !ticket_.is_valid());
+    MALIPUT_DRAKE_DEMAND(ticket.is_valid() && !ticket_.is_valid());
     ticket_ = ticket;
   }
 
   // Informs this %FixedInputPortValue of the subcontext that owns it.
   // Aborts if this has already been done or given bad args.
   void set_owning_subcontext(ContextBase* owning_subcontext) {
-    DRAKE_DEMAND(owning_subcontext != nullptr && owning_subcontext_ == nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr && owning_subcontext_ == nullptr);
     owning_subcontext_ = owning_subcontext;
   }
 
@@ -170,13 +170,13 @@ class ContextBaseFixedInputAttorney {
   // "Output" argument is first here since it is serving as a `this` pointer.
   static void set_owning_subcontext(FixedInputPortValue* fixed,
                                     ContextBase* owning_subcontext) {
-    DRAKE_DEMAND(fixed != nullptr);
+    MALIPUT_DRAKE_DEMAND(fixed != nullptr);
     fixed->set_owning_subcontext(owning_subcontext);
   }
 
   static void set_ticket(FixedInputPortValue* fixed,
                          DependencyTicket ticket) {
-    DRAKE_DEMAND(fixed != nullptr);
+    MALIPUT_DRAKE_DEMAND(fixed != nullptr);
     fixed->set_ticket(ticket);
   }
 

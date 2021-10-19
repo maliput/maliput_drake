@@ -157,7 +157,7 @@ bool BogackiShampine3Integrator<T>::DoStep(const T& h) {
 
   // If the size of the system has changed, the error estimate will no longer
   // be sized correctly. Verify that the error estimate is the correct size.
-  DRAKE_DEMAND(this->get_error_estimate()->size() == xc.size());
+  MALIPUT_DRAKE_DEMAND(this->get_error_estimate()->size() == xc.size());
   this->get_mutable_error_estimate()->SetFromVector(err_est_vec_->
       CopyToVector().cwiseAbs());
 

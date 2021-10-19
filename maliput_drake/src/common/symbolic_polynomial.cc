@@ -753,7 +753,7 @@ Polynomial& Polynomial::AddProduct(const Expression& coeff, const Monomial& m) {
 
 Polynomial Polynomial::RemoveTermsWithSmallCoefficients(
     double coefficient_tol) const {
-  DRAKE_DEMAND(coefficient_tol > 0);
+  MALIPUT_DRAKE_DEMAND(coefficient_tol > 0);
   MapType cleaned_polynomial{};
   for (const auto& term : monomial_to_coefficient_map_) {
     if (is_constant(term.second) &&
@@ -847,7 +847,7 @@ Polynomial pow(const Polynomial& p, int n) {
 
 MatrixX<Polynomial> Jacobian(const Eigen::Ref<const VectorX<Polynomial>>& f,
                              const Eigen::Ref<const VectorX<Variable>>& vars) {
-  DRAKE_DEMAND(vars.size() != 0);
+  MALIPUT_DRAKE_DEMAND(vars.size() != 0);
   const auto n{f.size()};
   const auto m{vars.size()};
   MatrixX<Polynomial> J(n, m);

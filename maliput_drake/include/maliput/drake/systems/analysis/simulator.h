@@ -710,7 +710,7 @@ class Simulator {
   // TODO(sherm1) Add an option where the Simulator returns failed status
   // rather than throwing.
   void CallMonitorUpdateStatusAndMaybeThrow(SimulatorStatus* status) {
-    DRAKE_DEMAND(status != nullptr);
+    MALIPUT_DRAKE_DEMAND(status != nullptr);
     if (!get_monitor()) return;
     const EventStatus monitor_status = get_monitor()(*context_);
     if (monitor_status.severity() == EventStatus::kReachedTermination) {
@@ -907,7 +907,7 @@ T GetPreviousNormalizedValue(const T& value) {
   // Case (a) uses nexttoward(.).
   const long double inf = std::numeric_limits<long double>::infinity();
   const double prev_value = nexttoward(value, -inf);
-  DRAKE_DEMAND(
+  MALIPUT_DRAKE_DEMAND(
       std::fpclassify(ExtractDoubleOrThrow(prev_value)) == FP_NORMAL ||
       std::fpclassify(ExtractDoubleOrThrow(prev_value)) == FP_ZERO);
   return prev_value;

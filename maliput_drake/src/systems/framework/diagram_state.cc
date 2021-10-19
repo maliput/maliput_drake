@@ -14,7 +14,7 @@ DiagramState<T>::DiagramState(int size)
 
 template <typename T>
 void DiagramState<T>::Finalize() {
-  DRAKE_DEMAND(!finalized_);
+  MALIPUT_DRAKE_DEMAND(!finalized_);
   finalized_ = true;
   std::vector<ContinuousState<T>*> sub_xcs;
   sub_xcs.reserve(num_substates());

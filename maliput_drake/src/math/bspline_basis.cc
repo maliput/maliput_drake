@@ -24,7 +24,7 @@ std::vector<T> MakeKnotVector(int order, int num_basis_functions,
         "equal to the order ({}).",
         num_basis_functions, order));
   }
-  DRAKE_DEMAND(initial_parameter_value <= final_parameter_value);
+  MALIPUT_DRAKE_DEMAND(initial_parameter_value <= final_parameter_value);
   const int num_knots{num_basis_functions + order};
   std::vector<T> knots(num_knots);
   const T knot_interval = (final_parameter_value - initial_parameter_value) /

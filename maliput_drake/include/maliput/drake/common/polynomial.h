@@ -213,7 +213,7 @@ class Polynomial {
       throw std::runtime_error(
           "this method can only be used for univariate polynomials");
 
-    DRAKE_DEMAND(derivative_order >= 0);
+    MALIPUT_DRAKE_DEMAND(derivative_order >= 0);
     ProductType value = 0;
     using std::pow;
     for (typename std::vector<Monomial>::const_iterator iter =
@@ -482,7 +482,7 @@ template <typename T>
 Polynomial<T> pow(
     const Polynomial<T>& base,
     typename Polynomial<T>::PowerType exponent) {
-  DRAKE_DEMAND(exponent >= 0);
+  MALIPUT_DRAKE_DEMAND(exponent >= 0);
   if (exponent == 0) {
     return Polynomial<T>{1.0};
   }

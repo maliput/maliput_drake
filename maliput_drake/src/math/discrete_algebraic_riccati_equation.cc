@@ -407,16 +407,16 @@ Eigen::MatrixXd DiscreteAlgebraicRiccatiEquation(
     const Eigen::Ref<const Eigen::MatrixXd>& R) {
   int n = B.rows(), m = B.cols();
 
-  DRAKE_DEMAND(m <= n);
-  DRAKE_DEMAND(A.rows() == n && A.cols() == n);
-  DRAKE_DEMAND(Q.rows() == n && Q.cols() == n);
-  DRAKE_DEMAND(R.rows() == m && R.cols() == m);
-  DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(m <= n);
+  MALIPUT_DRAKE_DEMAND(A.rows() == n && A.cols() == n);
+  MALIPUT_DRAKE_DEMAND(Q.rows() == n && Q.cols() == n);
+  MALIPUT_DRAKE_DEMAND(R.rows() == m && R.cols() == m);
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
   Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es(Q);
   for (int i = 0; i < n; i++) {
     MALIPUT_DRAKE_THROW_UNLESS(es.eigenvalues()[i] >= 0);
   }
-  DRAKE_DEMAND(is_approx_equal_abstol(R, R.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(R, R.transpose(), 1e-10));
   Eigen::LLT<Eigen::MatrixXd> R_cholesky(R);
   MALIPUT_DRAKE_THROW_UNLESS(R_cholesky.info() == Eigen::Success);
   check_stabilizable(A, B);
@@ -458,7 +458,7 @@ Eigen::MatrixXd DiscreteAlgebraicRiccatiEquation(
     const Eigen::Ref<const Eigen::MatrixXd>& Q,
     const Eigen::Ref<const Eigen::MatrixXd>& R,
     const Eigen::Ref<const Eigen::MatrixXd>& N) {
-    DRAKE_DEMAND(N.rows() == B.rows() && N.cols() == B.cols());
+    MALIPUT_DRAKE_DEMAND(N.rows() == B.rows() && N.cols() == B.cols());
 
     // This is a change of variables to make the DARE that includes Q, R, and N
     // cost matrices fit the form of the DARE that includes only Q and R cost

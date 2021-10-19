@@ -76,7 +76,7 @@ ContinuousState<T>::ContinuousState(
 template <typename T>
 std::unique_ptr<ContinuousState<T>> ContinuousState<T>::DoClone() const {
   auto state = dynamic_cast<const BasicVector<T>*>(state_.get());
-  DRAKE_DEMAND(state != nullptr);
+  MALIPUT_DRAKE_DEMAND(state != nullptr);
   return std::make_unique<ContinuousState>(state->Clone(), num_q(), num_v(),
                                            num_z());
 }
@@ -84,17 +84,17 @@ std::unique_ptr<ContinuousState<T>> ContinuousState<T>::DoClone() const {
 template <typename T>
 void ContinuousState<T>::DemandInvariants() const {
   // Nothing is nullptr.
-  DRAKE_DEMAND(generalized_position_ != nullptr);
-  DRAKE_DEMAND(generalized_velocity_ != nullptr);
-  DRAKE_DEMAND(misc_continuous_state_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(generalized_position_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(generalized_velocity_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(misc_continuous_state_ != nullptr);
 
   // The sizes are consistent.
-  DRAKE_DEMAND(num_q() >= 0);
-  DRAKE_DEMAND(num_v() >= 0);
-  DRAKE_DEMAND(num_z() >= 0);
-  DRAKE_DEMAND(num_v() <= num_q());
+  MALIPUT_DRAKE_DEMAND(num_q() >= 0);
+  MALIPUT_DRAKE_DEMAND(num_v() >= 0);
+  MALIPUT_DRAKE_DEMAND(num_z() >= 0);
+  MALIPUT_DRAKE_DEMAND(num_v() <= num_q());
   const int num_total = (num_q() + num_v() + num_z());
-  DRAKE_DEMAND(state_->size() == num_total);
+  MALIPUT_DRAKE_DEMAND(state_->size() == num_total);
 
   // The storage addresses of `state_` elements contain no duplicates.
   std::unordered_set<const T*> state_element_pointers;
@@ -102,7 +102,7 @@ void ContinuousState<T>::DemandInvariants() const {
     const T* element = &(state_->GetAtIndex(i));
     state_element_pointers.emplace(element);
   }
-  DRAKE_DEMAND(static_cast<int>(state_element_pointers.size()) == num_total);
+  MALIPUT_DRAKE_DEMAND(static_cast<int>(state_element_pointers.size()) == num_total);
 
   // The storage addresses of (q, v, z) elements contain no duplicates, and
   // are drawn from the set of storage addresses of `state_` elements.
@@ -112,19 +112,19 @@ void ContinuousState<T>::DemandInvariants() const {
   for (int i = 0; i < num_q(); ++i) {
     const T* element = &(generalized_position_->GetAtIndex(i));
     qvz_element_pointers.emplace(element);
-    DRAKE_DEMAND(state_element_pointers.count(element) == 1);
+    MALIPUT_DRAKE_DEMAND(state_element_pointers.count(element) == 1);
   }
   for (int i = 0; i < num_v(); ++i) {
     const T* element = &(generalized_velocity_->GetAtIndex(i));
     qvz_element_pointers.emplace(element);
-    DRAKE_DEMAND(state_element_pointers.count(element) == 1);
+    MALIPUT_DRAKE_DEMAND(state_element_pointers.count(element) == 1);
   }
   for (int i = 0; i < num_z(); ++i) {
     const T* element = &(misc_continuous_state_->GetAtIndex(i));
     qvz_element_pointers.emplace(element);
-    DRAKE_DEMAND(state_element_pointers.count(element) == 1);
+    MALIPUT_DRAKE_DEMAND(state_element_pointers.count(element) == 1);
   }
-  DRAKE_DEMAND(static_cast<int>(qvz_element_pointers.size()) == num_total);
+  MALIPUT_DRAKE_DEMAND(static_cast<int>(qvz_element_pointers.size()) == num_total);
 }
 
 }  // namespace systems

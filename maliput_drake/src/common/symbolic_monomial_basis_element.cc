@@ -20,7 +20,7 @@ namespace {
 // symbolic::Expression&).
 std::map<Variable, int> ToMonomialPower(const Expression& e) {
   // TODO(soonho): Re-implement this function by using a Polynomial visitor.
-  DRAKE_DEMAND(e.is_polynomial());
+  MALIPUT_DRAKE_DEMAND(e.is_polynomial());
   std::map<Variable, int> powers;
   if (is_one(e)) {  // This block is deliberately left empty.
   } else if (is_constant(e)) {
@@ -32,7 +32,7 @@ std::map<Variable, int> ToMonomialPower(const Expression& e) {
     const Expression& base{get_first_argument(e)};
     const Expression& exponent{get_second_argument(e)};
     // The following holds because `e` is polynomial.
-    DRAKE_DEMAND(is_constant(exponent));
+    MALIPUT_DRAKE_DEMAND(is_constant(exponent));
     // The following static_cast (double -> int) does not lose information
     // because of the precondition `e.is_polynomial()`.
     const int n{static_cast<int>(get_constant_value(exponent))};

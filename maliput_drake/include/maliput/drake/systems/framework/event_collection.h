@@ -217,8 +217,8 @@ class DiagramEventCollection final : public EventCollection<EventType> {
   void set_and_own_subevent_collection(
       int index,
       std::unique_ptr<EventCollection<EventType>> subevent_collection) {
-    DRAKE_DEMAND(subevent_collection != nullptr);
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(subevent_collection != nullptr);
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     owned_subevent_collection_[index] = std::move(subevent_collection);
     subevent_collection_[index] = owned_subevent_collection_[index].get();
   }
@@ -232,8 +232,8 @@ class DiagramEventCollection final : public EventCollection<EventType> {
    */
   void set_subevent_collection(
       int index, EventCollection<EventType>* subevent_collection) {
-    DRAKE_DEMAND(subevent_collection != nullptr);
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(subevent_collection != nullptr);
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     subevent_collection_[index] = subevent_collection;
   }
 
@@ -245,7 +245,7 @@ class DiagramEventCollection final : public EventCollection<EventType> {
    * [0, num_subsystems() - 1].
    */
   const EventCollection<EventType>& get_subevent_collection(int index) const {
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     return *subevent_collection_[index];
   }
 
@@ -253,7 +253,7 @@ class DiagramEventCollection final : public EventCollection<EventType> {
    * Returns a mutable pointer to subsystem's EventCollection at `index`.
    */
   EventCollection<EventType>& get_mutable_subevent_collection(int index) {
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     return *subevent_collection_[index];
   }
 
@@ -293,7 +293,7 @@ class DiagramEventCollection final : public EventCollection<EventType> {
     const DiagramEventCollection<EventType>& other =
         dynamic_cast<const DiagramEventCollection<EventType>&>(
             other_collection);
-    DRAKE_DEMAND(num_subsystems() == other.num_subsystems());
+    MALIPUT_DRAKE_DEMAND(num_subsystems() == other.num_subsystems());
 
     for (int i = 0; i < num_subsystems(); i++) {
       subevent_collection_[i]->AddToEnd(other.get_subevent_collection(i));
@@ -368,7 +368,7 @@ class LeafEventCollection final : public EventCollection<EventType> {
    * transferred. Aborts if event is null.
    */
   void add_event(std::unique_ptr<EventType> event) final {
-    DRAKE_DEMAND(event != nullptr);
+    MALIPUT_DRAKE_DEMAND(event != nullptr);
     AddEvent(std::move(*event));
   }
 
@@ -522,7 +522,7 @@ class CompositeEventCollection {
    */
   DRAKE_DEPRECATED("2021-09-01", "Use AddPublishEvent instead.")
   void add_publish_event(std::unique_ptr<PublishEvent<T>> event) {
-    DRAKE_DEMAND(event != nullptr);
+    MALIPUT_DRAKE_DEMAND(event != nullptr);
     AddPublishEvent(std::move(*event));
   }
 
@@ -547,7 +547,7 @@ class CompositeEventCollection {
   DRAKE_DEPRECATED("2021-09-01", "Use AddDiscreteUpdateEvent instead.")
   void add_discrete_update_event(
       std::unique_ptr<DiscreteUpdateEvent<T>> event) {
-    DRAKE_DEMAND(event != nullptr);
+    MALIPUT_DRAKE_DEMAND(event != nullptr);
     AddDiscreteUpdateEvent(std::move(*event));
   }
 
@@ -572,7 +572,7 @@ class CompositeEventCollection {
   DRAKE_DEPRECATED("2021-09-01", "Use AddUnrestrictedUpdateEvent instead.")
   void add_unrestricted_update_event(
       std::unique_ptr<UnrestrictedUpdateEvent<T>> event) {
-    DRAKE_DEMAND(event != nullptr);
+    MALIPUT_DRAKE_DEMAND(event != nullptr);
     AddUnrestrictedUpdateEvent(std::move(*event));
   }
 
@@ -686,9 +686,9 @@ class CompositeEventCollection {
       : publish_events_(std::move(pub)),
         discrete_update_events_(std::move(discrete)),
         unrestricted_update_events_(std::move(unrestricted)) {
-    DRAKE_DEMAND(publish_events_ != nullptr);
-    DRAKE_DEMAND(discrete_update_events_ != nullptr);
-    DRAKE_DEMAND(unrestricted_update_events_ != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish_events_ != nullptr);
+    MALIPUT_DRAKE_DEMAND(discrete_update_events_ != nullptr);
+    MALIPUT_DRAKE_DEMAND(unrestricted_update_events_ != nullptr);
   }
 
  private:
@@ -821,7 +821,7 @@ class DiagramCompositeEventCollection final
   // given subsystem. Aborts if the 0-index `index` is greater than or equal
   // to the number of subsystems or if `index` is negative.
   CompositeEventCollection<T>& get_mutable_subevent_collection(int index) {
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     return *owned_subevent_collection_[index].get();
   }
 
@@ -829,7 +829,7 @@ class DiagramCompositeEventCollection final
   // the given subsystem. Aborts if the 0-index `index` is greater than or
   // equal to the number of subsystems or if `index` is negative.
   const CompositeEventCollection<T>& get_subevent_collection(int index) const {
-    DRAKE_DEMAND(index >= 0 && index < num_subsystems());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subsystems());
     return *owned_subevent_collection_[index].get();
   }
 

@@ -38,7 +38,7 @@ int TotalDegree(const map<Variable, int>& powers) {
 // symbolic::Expression&).
 map<Variable, int> ToMonomialPower(const Expression& e) {
   // TODO(soonho): Re-implement this function by using a Polynomial visitor.
-  DRAKE_DEMAND(e.is_polynomial());
+  MALIPUT_DRAKE_DEMAND(e.is_polynomial());
   map<Variable, int> powers;
   if (is_one(e)) {  // This block is deliberately left empty.
   } else if (is_constant(e)) {
@@ -49,7 +49,7 @@ map<Variable, int> ToMonomialPower(const Expression& e) {
     const Expression& base{get_first_argument(e)};
     const Expression& exponent{get_second_argument(e)};
     // The following holds because `e` is polynomial.
-    DRAKE_DEMAND(is_constant(exponent));
+    MALIPUT_DRAKE_DEMAND(is_constant(exponent));
     // The following static_cast (double -> int) does not lose information
     // because of the precondition `e.is_polynomial()`.
     const int n{static_cast<int>(get_constant_value(exponent))};
@@ -86,7 +86,7 @@ map<Variable, int> ToMonomialPower(const Expression& e) {
 map<Variable, int> ToMonomialPower(
     const Eigen::Ref<const VectorX<Variable>>& vars,
     const Eigen::Ref<const Eigen::VectorXi>& exponents) {
-  DRAKE_DEMAND(vars.size() == exponents.size());
+  MALIPUT_DRAKE_DEMAND(vars.size() == exponents.size());
   map<Variable, int> powers;
   for (int i = 0; i < vars.size(); ++i) {
     if (exponents[i] > 0) {
@@ -109,7 +109,7 @@ Monomial::Monomial(const Variable& var) : total_degree_{1}, powers_{{var, 1}} {}
 
 Monomial::Monomial(const Variable& var, const int exponent)
     : total_degree_{exponent} {
-  DRAKE_DEMAND(exponent >= 0);
+  MALIPUT_DRAKE_DEMAND(exponent >= 0);
   if (exponent > 0) {
     powers_.emplace(var, exponent);
   }

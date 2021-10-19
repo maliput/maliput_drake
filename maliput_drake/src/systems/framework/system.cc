@@ -16,7 +16,7 @@ System<T>::~System() {}
 
 template <typename T>
 void System<T>::Accept(SystemVisitor<T>* v) const {
-  DRAKE_DEMAND(v != nullptr);
+  MALIPUT_DRAKE_DEMAND(v != nullptr);
   v->VisitSystem(*this);
 }
 
@@ -84,15 +84,15 @@ void System<T>::SetDefaultContext(Context<T>* context) const {
 
   SetDefaultState(*context, &context->get_mutable_state());
 
-  DRAKE_DEMAND(n_xc == context->num_continuous_states());
-  DRAKE_DEMAND(n_xd == context->num_discrete_state_groups());
-  DRAKE_DEMAND(n_xa == context->num_abstract_states());
+  MALIPUT_DRAKE_DEMAND(n_xc == context->num_continuous_states());
+  MALIPUT_DRAKE_DEMAND(n_xd == context->num_discrete_state_groups());
+  MALIPUT_DRAKE_DEMAND(n_xa == context->num_abstract_states());
 
   // Set the default parameters, checking that the number of parameters does
   // not change.
   const int num_params = context->num_numeric_parameter_groups();
   SetDefaultParameters(*context, &context->get_mutable_parameters());
-  DRAKE_DEMAND(num_params == context->num_numeric_parameter_groups());
+  MALIPUT_DRAKE_DEMAND(num_params == context->num_numeric_parameter_groups());
 }
 
 template <typename T>
@@ -123,16 +123,16 @@ void System<T>::SetRandomContext(Context<T>* context,
 
   SetRandomState(*context, &context->get_mutable_state(), generator);
 
-  DRAKE_DEMAND(n_xc == context->num_continuous_states());
-  DRAKE_DEMAND(n_xd == context->num_discrete_state_groups());
-  DRAKE_DEMAND(n_xa == context->num_abstract_states());
+  MALIPUT_DRAKE_DEMAND(n_xc == context->num_continuous_states());
+  MALIPUT_DRAKE_DEMAND(n_xd == context->num_discrete_state_groups());
+  MALIPUT_DRAKE_DEMAND(n_xa == context->num_abstract_states());
 
   // Set the default parameters, checking that the number of parameters does
   // not change.
   const int num_params = context->num_numeric_parameter_groups();
   SetRandomParameters(*context, &context->get_mutable_parameters(),
                       generator);
-  DRAKE_DEMAND(num_params == context->num_numeric_parameter_groups());
+  MALIPUT_DRAKE_DEMAND(num_params == context->num_numeric_parameter_groups());
 }
 
 template <typename T>
@@ -144,7 +144,7 @@ void System<T>::AllocateFixedInputs(Context<T>* context) const {
     if (port.get_data_type() == kVectorValued) {
       port.FixValue(context, *AllocateInputVector(port));
     } else {
-      DRAKE_DEMAND(port.get_data_type() == kAbstractValued);
+      MALIPUT_DRAKE_DEMAND(port.get_data_type() == kAbstractValued);
       port.FixValue(context, *AllocateInputAbstract(port));
     }
   }
@@ -254,7 +254,7 @@ SystemConstraintIndex System<T>::AddExternalConstraint(
 template <typename T>
 void System<T>::CalcTimeDerivatives(const Context<T>& context,
                                     ContinuousState<T>* derivatives) const {
-  DRAKE_DEMAND(derivatives != nullptr);
+  MALIPUT_DRAKE_DEMAND(derivatives != nullptr);
   ValidateContext(context);
   ValidateCreatedForThisSystem(derivatives);
   DoCalcTimeDerivatives(context, derivatives);
@@ -264,7 +264,7 @@ template <typename T>
 void System<T>::CalcImplicitTimeDerivativesResidual(
     const Context<T>& context, const ContinuousState<T>& proposed_derivatives,
     EigenPtr<VectorX<T>> residual) const {
-  DRAKE_DEMAND(residual != nullptr);
+  MALIPUT_DRAKE_DEMAND(residual != nullptr);
   if (residual->size() != this->implicit_time_derivatives_residual_size()) {
     throw std::logic_error(fmt::format(
         "CalcImplicitTimeDerivativesResidual(): expected "
@@ -349,7 +349,7 @@ T System<T>::CalcNextUpdateTime(const Context<T>& context,
                                 CompositeEventCollection<T>* events) const {
   ValidateContext(context);
   ValidateCreatedForThisSystem(events);
-  DRAKE_DEMAND(events != nullptr);
+  MALIPUT_DRAKE_DEMAND(events != nullptr);
   events->Clear();
   T time{NAN};
   DoCalcNextUpdateTime(context, events, &time);
@@ -452,7 +452,7 @@ std::map<PeriodicEventData, std::vector<const Event<T>*>,
 template <typename T>
 void System<T>::CalcOutput(const Context<T>& context,
                            SystemOutput<T>* outputs) const {
-  DRAKE_DEMAND(outputs != nullptr);
+  MALIPUT_DRAKE_DEMAND(outputs != nullptr);
   ValidateContext(context);
   ValidateCreatedForThisSystem(outputs);
   for (OutputPortIndex i(0); i < num_output_ports(); ++i) {
@@ -561,7 +561,7 @@ const Context<T>& System<T>::GetMyContextFromRoot(
 template <typename T>
 Context<T>& System<T>::GetMyMutableContextFromRoot(
     Context<T>* root_context) const {
-  DRAKE_DEMAND(root_context != nullptr);
+  MALIPUT_DRAKE_DEMAND(root_context != nullptr);
   // Make use of the const method to avoid code duplication.
   const Context<T>& subcontext = GetMyContextFromRoot(*root_context);
   return const_cast<Context<T>&>(subcontext);
@@ -743,7 +743,7 @@ template <typename T>
 boolean<T> System<T>::CheckSystemConstraintsSatisfied(
     const Context<T>& context, double tol) const {
   ValidateContext(context);
-  DRAKE_DEMAND(tol >= 0.0);
+  MALIPUT_DRAKE_DEMAND(tol >= 0.0);
   boolean<T> result{true};
   for (const auto& constraint : constraints_) {
     result = result && constraint->CheckSatisfied(context, tol);
@@ -767,7 +767,7 @@ VectorX<T> System<T>::CopyContinuousStateVector(
 
 template <typename T>
 std::string System<T>::GetGraphvizString(int max_depth) const {
-  DRAKE_DEMAND(max_depth >= 0);
+  MALIPUT_DRAKE_DEMAND(max_depth >= 0);
   std::stringstream dot;
   dot << "digraph _" << this->GetGraphvizId() << " {" << std::endl;
   dot << "rankdir=LR" << std::endl;
@@ -871,8 +871,8 @@ template <typename T>
 void System<T>::GetWitnessFunctions(
     const Context<T>& context,
     std::vector<const WitnessFunction<T>*>* w) const {
-  DRAKE_DEMAND(w != nullptr);
-  DRAKE_DEMAND(w->empty());
+  MALIPUT_DRAKE_DEMAND(w != nullptr);
+  MALIPUT_DRAKE_DEMAND(w->empty());
   ValidateContext(context);
   DoGetWitnessFunctions(context, w);
 }
@@ -977,8 +977,8 @@ InputPort<T>& System<T>::DeclareInputPort(
 template <typename T>
 SystemConstraintIndex System<T>::AddConstraint(
     std::unique_ptr<SystemConstraint<T>> constraint) {
-  DRAKE_DEMAND(constraint != nullptr);
-  DRAKE_DEMAND(&constraint->get_system() == this);
+  MALIPUT_DRAKE_DEMAND(constraint != nullptr);
+  MALIPUT_DRAKE_DEMAND(&constraint->get_system() == this);
   if (!external_constraints_.empty()) {
     throw std::logic_error(fmt::format(
         "System {} cannot add an internal constraint (named {}) "
@@ -997,7 +997,7 @@ void System<T>::DoCalcTimeDerivatives(const Context<T>& context,
   // This default implementation is only valid for Systems with no continuous
   // state. Other Systems must override this method!
   unused(context);
-  DRAKE_DEMAND(derivatives->size() == 0);
+  MALIPUT_DRAKE_DEMAND(derivatives->size() == 0);
 }
 
 template <typename T>
@@ -1104,7 +1104,7 @@ template <typename T>
 Eigen::VectorBlock<VectorX<T>> System<T>::GetMutableOutputVector(
     SystemOutput<T>* output, int port_index) const {
   MALIPUT_DRAKE_ASSERT(0 <= port_index && port_index < num_output_ports());
-  DRAKE_DEMAND(output != nullptr);
+  MALIPUT_DRAKE_DEMAND(output != nullptr);
   ValidateCreatedForThisSystem(output);
 
   BasicVector<T>* output_vector = output->GetMutableVectorData(port_index);
@@ -1202,7 +1202,7 @@ const BasicVector<T>* System<T>::EvalBasicVectorInputImpl(
 
   // Shouldn't have been possible to create this vector-valued port with
   // the wrong size.
-  DRAKE_DEMAND(basic_vector->size() == port.size());
+  MALIPUT_DRAKE_DEMAND(basic_vector->size() == port.size());
 
   return basic_vector;
 }

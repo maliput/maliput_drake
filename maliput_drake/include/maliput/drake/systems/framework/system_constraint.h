@@ -175,7 +175,7 @@ class SystemConstraint final {
         context_calc_function_(std::move(calc_function)),
         bounds_(std::move(bounds)),
         description_(std::move(description)) {
-    DRAKE_DEMAND(system != nullptr);
+    MALIPUT_DRAKE_DEMAND(system != nullptr);
   }
 
   /// (Advanced) Constructs a SystemConstraint.  Depending on the `bounds` it
@@ -195,7 +195,7 @@ class SystemConstraint final {
         context_calc_function_{},
         bounds_(std::move(bounds)),
         description_(std::move(description)) {
-    DRAKE_DEMAND(system != nullptr);
+    MALIPUT_DRAKE_DEMAND(system != nullptr);
   }
 
   /// Evaluates the function pointer passed in through the constructor,
@@ -209,14 +209,14 @@ class SystemConstraint final {
     } else {
       system_calc_function_(*system_, context, value);
     }
-    DRAKE_DEMAND(value->size() == size());
+    MALIPUT_DRAKE_DEMAND(value->size() == size());
   }
 
   /// Evaluates the function pointer, and check if all of the outputs
   /// are within the desired bounds.
   boolean<T> CheckSatisfied(const Context<T>& context, double tol) const {
     MaybeValidateSystemIdsMatch(context);
-    DRAKE_DEMAND(tol >= 0.0);
+    MALIPUT_DRAKE_DEMAND(tol >= 0.0);
     VectorX<T> value(size());
     Calc(context, &value);
     // Special-case (tol == 0.0) cases both so that the symbolic form is
@@ -279,7 +279,7 @@ class SystemConstraint final {
   // If this object has a system id, check that it matches the id of the
   // context parameter.
   void MaybeValidateSystemIdsMatch(const Context<T>& context) const {
-    DRAKE_DEMAND(!system_id_.has_value() ||
+    MALIPUT_DRAKE_DEMAND(!system_id_.has_value() ||
                  *system_id_ == context.get_system_id());
   }
 

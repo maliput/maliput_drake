@@ -299,7 +299,7 @@ class LeafSystem : public System<T> {
       EventStatus (MySystem::*publish)(const Context<T>&) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(publish != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -325,7 +325,7 @@ class LeafSystem : public System<T> {
                                        const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(publish != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -366,7 +366,7 @@ class LeafSystem : public System<T> {
           const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -395,7 +395,7 @@ class LeafSystem : public System<T> {
       void (MySystem::*update)(const Context<T>&, DiscreteValues<T>*) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -435,7 +435,7 @@ class LeafSystem : public System<T> {
       EventStatus (MySystem::*update)(const Context<T>&, State<T>*) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -462,7 +462,7 @@ class LeafSystem : public System<T> {
       void (MySystem::*update)(const Context<T>&, State<T>*) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePeriodicEvent(
         period_sec, offset_sec,
@@ -503,7 +503,7 @@ class LeafSystem : public System<T> {
   template <typename EventType>
   void DeclarePeriodicEvent(double period_sec, double offset_sec,
                             const EventType& event) {
-    DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
+    MALIPUT_DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
         event.get_trigger_type() == TriggerType::kPeriodic);
     PeriodicEventData periodic_data;
     periodic_data.set_period_sec(period_sec);
@@ -606,7 +606,7 @@ class LeafSystem : public System<T> {
       EventStatus (MySystem::*publish)(const Context<T>&) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(publish != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish != nullptr);
 
     DeclarePerStepEvent<PublishEvent<T>>(PublishEvent<T>(
         TriggerType::kPerStep,
@@ -643,7 +643,7 @@ class LeafSystem : public System<T> {
       const Context<T>&, DiscreteValues<T>*) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePerStepEvent(
         DiscreteUpdateEvent<T>(
@@ -681,7 +681,7 @@ class LeafSystem : public System<T> {
       EventStatus (MySystem::*update)(const Context<T>&, State<T>*) const) {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclarePerStepEvent(UnrestrictedUpdateEvent<T>(
         TriggerType::kPerStep,
@@ -722,7 +722,7 @@ class LeafSystem : public System<T> {
   already set to TriggerType::kPerStep. */
   template <typename EventType>
   void DeclarePerStepEvent(const EventType& event) {
-    DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
+    MALIPUT_DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
         event.get_trigger_type() == TriggerType::kPerStep);
     event.AddToComposite(TriggerType::kPerStep, &per_step_events_);
   }
@@ -770,8 +770,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(publish != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish != nullptr);
 
     DeclareInitializationEvent<PublishEvent<T>>(PublishEvent<T>(
         TriggerType::kInitialization,
@@ -808,8 +808,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclareInitializationEvent(DiscreteUpdateEvent<T>(
         TriggerType::kInitialization,
@@ -848,8 +848,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     DeclareInitializationEvent(UnrestrictedUpdateEvent<T>(
         TriggerType::kInitialization,
@@ -888,7 +888,7 @@ class LeafSystem : public System<T> {
   already set to TriggerType::kInitialization. */
   template <typename EventType>
   void DeclareInitializationEvent(const EventType& event) {
-    DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
+    MALIPUT_DRAKE_DEMAND(event.get_trigger_type() == TriggerType::kUnknown ||
         event.get_trigger_type() == TriggerType::kInitialization);
     event.AddToComposite(TriggerType::kInitialization, &initialization_events_);
   }
@@ -942,8 +942,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(publish != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(publish != nullptr);
 
     // Instantiate the event.
     PublishEvent<T> forced(
@@ -980,8 +980,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     // Instantiate the event.
     DiscreteUpdateEvent<T> forced(
@@ -1022,8 +1022,8 @@ class LeafSystem : public System<T> {
     static_assert(std::is_base_of_v<LeafSystem<T>, MySystem>,
                   "Expected to be invoked from a LeafSystem-derived System.");
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
-    DRAKE_DEMAND(update != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(update != nullptr);
 
     // Instantiate the event.
     UnrestrictedUpdateEvent<T> forced(
@@ -1344,7 +1344,7 @@ class LeafSystem : public System<T> {
     // in the calculator functor, so that it will be able to invoke the given
     // mmember function `calc()`.
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
     // Currently all vector ports in Drake require a fixed size that is known
     // at the time the port is declared.
     auto& port = CreateVectorLeafOutputPort(
@@ -1355,7 +1355,7 @@ class LeafSystem : public System<T> {
         // the given member function.
         [this_ptr, calc](const Context<T>& context, BasicVector<T>* result) {
           auto typed_result = dynamic_cast<BasicVectorSubtype*>(result);
-          DRAKE_DEMAND(typed_result != nullptr);
+          MALIPUT_DRAKE_DEMAND(typed_result != nullptr);
           (this_ptr->*calc)(context, typed_result);
         },
         std::move(prerequisites_of_calc));
@@ -1534,7 +1534,7 @@ class LeafSystem : public System<T> {
       std::set<DependencyTicket> prerequisites_of_calc = {
           all_sources_ticket()}) {
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
     ValueProducer::AllocateCallback allocate = [this_ptr, make]() {
       return AbstractValue::Make<OutputType>((this_ptr->*make)());
     };
@@ -1725,7 +1725,7 @@ class LeafSystem : public System<T> {
     auto fn = [this, publish_callback](
         const Context<T>& context, const PublishEvent<T>& publish_event) {
       auto system_ptr = dynamic_cast<const MySystem*>(this);
-      DRAKE_DEMAND(system_ptr != nullptr);
+      MALIPUT_DRAKE_DEMAND(system_ptr != nullptr);
       return (system_ptr->*publish_callback)(context, publish_event);
     };
     PublishEvent<T> publish_event(fn);
@@ -1753,7 +1753,7 @@ class LeafSystem : public System<T> {
     auto fn = [this, du_callback](const Context<T>& context,
         const DiscreteUpdateEvent<T>& du_event, DiscreteValues<T>* values) {
       auto system_ptr = dynamic_cast<const MySystem*>(this);
-      DRAKE_DEMAND(system_ptr != nullptr);
+      MALIPUT_DRAKE_DEMAND(system_ptr != nullptr);
       return (system_ptr->*du_callback)(context, du_event, values);
     };
     DiscreteUpdateEvent<T> du_event(fn);
@@ -1781,7 +1781,7 @@ class LeafSystem : public System<T> {
     auto fn = [this, uu_callback](const Context<T>& context,
         const UnrestrictedUpdateEvent<T>& uu_event, State<T>* state) {
       auto system_ptr = dynamic_cast<const MySystem*>(this);
-      DRAKE_DEMAND(system_ptr != nullptr);
+      MALIPUT_DRAKE_DEMAND(system_ptr != nullptr);
       return (system_ptr->*uu_callback)(context, uu_event, state);
     };
     UnrestrictedUpdateEvent<T> uu_event(fn);
@@ -1850,10 +1850,10 @@ class LeafSystem : public System<T> {
       void (MySystem::*calc)(const Context<T>&, VectorX<T>*) const,
       int count, std::string description) {
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
     return DeclareEqualityConstraint(
         [this_ptr, calc](const Context<T>& context, VectorX<T>* value) {
-          DRAKE_DEMAND(value != nullptr);
+          MALIPUT_DRAKE_DEMAND(value != nullptr);
           (this_ptr->*calc)(context, value);
         },
         count, std::move(description));
@@ -1897,10 +1897,10 @@ class LeafSystem : public System<T> {
       SystemConstraintBounds bounds,
       std::string description) {
     auto this_ptr = dynamic_cast<const MySystem*>(this);
-    DRAKE_DEMAND(this_ptr != nullptr);
+    MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
     return DeclareInequalityConstraint(
         [this_ptr, calc](const Context<T>& context, VectorX<T>* value) {
-          DRAKE_DEMAND(value != nullptr);
+          MALIPUT_DRAKE_DEMAND(value != nullptr);
           (this_ptr->*calc)(context, value);
         },
         std::move(bounds), std::move(description));

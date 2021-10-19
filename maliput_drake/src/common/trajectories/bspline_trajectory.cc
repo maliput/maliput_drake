@@ -24,7 +24,7 @@ template <typename T>
 BsplineTrajectory<T>::BsplineTrajectory(BsplineBasis<T> basis,
                                         std::vector<MatrixX<T>> control_points)
     : basis_(std::move(basis)), control_points_(std::move(control_points)) {
-  DRAKE_DEMAND(CheckInvariants());
+  MALIPUT_DRAKE_DEMAND(CheckInvariants());
 }
 
 template <typename T>
@@ -99,7 +99,7 @@ void BsplineTrajectory<T>::InsertKnots(const std::vector<T>& additional_knots) {
     const std::vector<T>& t = basis_.knots();
     const T& t_bar = additional_knots.front();
     const int k = basis_.order();
-    DRAKE_DEMAND(start_time() <= t_bar && t_bar <= end_time());
+    MALIPUT_DRAKE_DEMAND(start_time() <= t_bar && t_bar <= end_time());
 
     /* Find the index, 𝑙, of the greatest knot that is less than or equal to
     t_bar and strictly less than end_time(). */
@@ -158,8 +158,8 @@ BsplineTrajectory<T> BsplineTrajectory<T>::CopyBlock(
 
 template <typename T>
 BsplineTrajectory<T> BsplineTrajectory<T>::CopyHead(int n) const {
-  DRAKE_DEMAND(cols() == 1);
-  DRAKE_DEMAND(n > 0);
+  MALIPUT_DRAKE_DEMAND(cols() == 1);
+  MALIPUT_DRAKE_DEMAND(n > 0);
   return CopyBlock(0, 0, n, 1);
 }
 

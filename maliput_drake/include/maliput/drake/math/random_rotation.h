@@ -22,7 +22,7 @@ namespace math {
 /// pages 124-132. Academic, New York, 1992.
 template <typename T = double, class Generator = RandomGenerator>
 Eigen::Quaternion<T> UniformlyRandomQuaternion(Generator* generator) {
-  DRAKE_DEMAND(generator != nullptr);
+  MALIPUT_DRAKE_DEMAND(generator != nullptr);
   std::uniform_real_distribution<T> uniform(0., 1.);
   const T u1 = uniform(*generator);
   const T u2 = uniform(*generator);
@@ -43,7 +43,7 @@ Eigen::Quaternion<T> UniformlyRandomQuaternion(Generator* generator) {
 /// distribution over the sphere.
 template <typename T = double, class Generator = RandomGenerator>
 Eigen::AngleAxis<T> UniformlyRandomAngleAxis(Generator* generator) {
-  DRAKE_DEMAND(generator != nullptr);
+  MALIPUT_DRAKE_DEMAND(generator != nullptr);
   const Eigen::Quaternion<T> quaternion =
       UniformlyRandomQuaternion<T>(generator);
   return internal::QuaternionToAngleAxisLikeEigen(quaternion);
@@ -54,7 +54,7 @@ Eigen::AngleAxis<T> UniformlyRandomAngleAxis(Generator* generator) {
 /// distribution over the sphere.
 template <typename T = double, class Generator = RandomGenerator>
 RotationMatrix<T> UniformlyRandomRotationMatrix(Generator* generator) {
-  DRAKE_DEMAND(generator != nullptr);
+  MALIPUT_DRAKE_DEMAND(generator != nullptr);
   const Eigen::Quaternion<T> quaternion =
       UniformlyRandomQuaternion<T>(generator);
   return RotationMatrix<T>(quaternion);
@@ -65,7 +65,7 @@ RotationMatrix<T> UniformlyRandomRotationMatrix(Generator* generator) {
 /// distribution over the sphere.
 template <typename T = double, class Generator = RandomGenerator>
 Vector3<T> UniformlyRandomRPY(Generator* generator) {
-  DRAKE_DEMAND(generator != nullptr);
+  MALIPUT_DRAKE_DEMAND(generator != nullptr);
   const Eigen::Quaternion<T> q = UniformlyRandomQuaternion<T>(generator);
   const RollPitchYaw<T> rpy(q);
   return rpy.vector();

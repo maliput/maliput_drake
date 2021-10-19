@@ -138,7 +138,7 @@ class InputPort final : public InputPortBase {
   template <typename ValueType>
   FixedInputPortValue& FixValue(Context<T>* context,
                                 const ValueType& value) const {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     ValidateSystemId(context->get_system_id());
     const bool is_vector_port = (get_data_type() == kVectorValued);
     std::unique_ptr<AbstractValue> abstract_value =
@@ -189,10 +189,10 @@ class InputPort final : public InputPortBase {
       : InputPortBase(system_interface, system_id, std::move(name), index,
                       ticket, data_type, size, random_type, std::move(eval)),
         system_(*system) {
-    DRAKE_DEMAND(system != nullptr);
+    MALIPUT_DRAKE_DEMAND(system != nullptr);
     // Check the precondition on identical parameters; note that comparing as
     // void* is only valid because we have single inheritance.
-    DRAKE_DEMAND(static_cast<const void*>(system) == system_interface);
+    MALIPUT_DRAKE_DEMAND(static_cast<const void*>(system) == system_interface);
   }
 
   const System<T>& system_;

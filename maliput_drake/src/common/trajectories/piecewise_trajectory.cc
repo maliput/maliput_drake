@@ -16,7 +16,7 @@ template <typename T>
 PiecewiseTrajectory<T>::PiecewiseTrajectory(const std::vector<T>& breaks)
     : Trajectory<T>(), breaks_(breaks) {
   for (int i = 1; i < get_number_of_segments() + 1; i++) {
-    DRAKE_DEMAND(breaks_[i] - breaks_[i - 1] >= kEpsilonTime);
+    MALIPUT_DRAKE_DEMAND(breaks_[i] - breaks_[i - 1] >= kEpsilonTime);
   }
 }
 
@@ -60,10 +60,10 @@ T PiecewiseTrajectory<T>::end_time() const {
 template <typename T>
 int PiecewiseTrajectory<T>::GetSegmentIndexRecursive(const T& time, int start,
                                                      int end) const {
-  DRAKE_DEMAND(end >= start);
-  DRAKE_DEMAND(end < static_cast<int>(breaks_.size()));
-  DRAKE_DEMAND(start >= 0);
-  DRAKE_DEMAND(time <= breaks_[end] && time >= breaks_[start]);
+  MALIPUT_DRAKE_DEMAND(end >= start);
+  MALIPUT_DRAKE_DEMAND(end < static_cast<int>(breaks_.size()));
+  MALIPUT_DRAKE_DEMAND(start >= 0);
+  MALIPUT_DRAKE_DEMAND(time <= breaks_[end] && time >= breaks_[start]);
 
   int mid = (start + end) / 2;
 

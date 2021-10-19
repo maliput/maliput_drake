@@ -12,12 +12,12 @@ Eigen::MatrixXd ContinuousAlgebraicRiccatiEquation(
     const Eigen::Ref<const Eigen::MatrixXd>& Q,
     const Eigen::LLT<Eigen::MatrixXd>& R_cholesky) {
   const Eigen::Index n = B.rows(), m = B.cols();
-  DRAKE_DEMAND(A.rows() == n && A.cols() == n);
-  DRAKE_DEMAND(Q.rows() == n && Q.cols() == n);
-  DRAKE_DEMAND(R_cholesky.matrixL().rows() == m &&
+  MALIPUT_DRAKE_DEMAND(A.rows() == n && A.cols() == n);
+  MALIPUT_DRAKE_DEMAND(Q.rows() == n && Q.cols() == n);
+  MALIPUT_DRAKE_DEMAND(R_cholesky.matrixL().rows() == m &&
                R_cholesky.matrixL().cols() == m);
 
-  DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
 
   Eigen::MatrixXd H(2 * n, 2 * n);
 
@@ -70,7 +70,7 @@ Eigen::MatrixXd ContinuousAlgebraicRiccatiEquation(
     const Eigen::Ref<const Eigen::MatrixXd>& B,
     const Eigen::Ref<const Eigen::MatrixXd>& Q,
     const Eigen::Ref<const Eigen::MatrixXd>& R) {
-  DRAKE_DEMAND(is_approx_equal_abstol(R, R.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(R, R.transpose(), 1e-10));
 
   Eigen::LLT<Eigen::MatrixXd> R_cholesky(R);
   if (R_cholesky.info() != Eigen::Success)

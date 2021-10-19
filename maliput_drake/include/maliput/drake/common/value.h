@@ -614,7 +614,7 @@ struct ValueTraitsImpl<T, true> {
   static void reinitialize_if_necessary(Storage*) {}
   static const T& to_storage(const T& other) { return other; }
   static const Storage& to_storage(const std::unique_ptr<T>& other) {
-    DRAKE_DEMAND(other.get() != nullptr);
+    MALIPUT_DRAKE_DEMAND(other.get() != nullptr);
     return *other;
   }
   static const T& access(const Storage& storage) { return storage; }
@@ -647,7 +647,7 @@ struct ValueTraitsImpl<T, false> {
     return Storage{other.Clone()};
   }
   static Storage to_storage(std::unique_ptr<T> other) {
-    DRAKE_DEMAND(other.get() != nullptr);
+    MALIPUT_DRAKE_DEMAND(other.get() != nullptr);
     return Storage{std::move(other)};
   }
   static const T& access(const Storage& storage) { return *storage; }

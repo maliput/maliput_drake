@@ -14,7 +14,7 @@ int ModelValues::size() const {
 void ModelValues::AddModel(
     int index, std::unique_ptr<AbstractValue> model_value) {
   // Grow the values_ so that our new model will live at @p index.
-  DRAKE_DEMAND(index >= size());
+  MALIPUT_DRAKE_DEMAND(index >= size());
   values_.resize(index);
   values_.emplace_back(std::move(model_value));
 }
@@ -24,7 +24,7 @@ std::unique_ptr<AbstractValue> ModelValues::CloneModel(int index) const {
     const AbstractValue* const model_value = values_[index].get();
     if (model_value != nullptr) {
       std::unique_ptr<AbstractValue> result = model_value->Clone();
-      DRAKE_DEMAND(result.get() != nullptr);
+      MALIPUT_DRAKE_DEMAND(result.get() != nullptr);
       return result;
     }
   }

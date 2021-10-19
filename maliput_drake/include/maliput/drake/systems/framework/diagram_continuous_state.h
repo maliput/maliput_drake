@@ -59,8 +59,8 @@ class DiagramContinuousState final: public ContinuousState<T> {
   /// Returns the continuous state at the given `index`. Aborts if `index` is
   /// out-of-bounds.
   const ContinuousState<T>& get_substate(int index) const {
-    DRAKE_DEMAND(0 <= index && index < num_substates());
-    DRAKE_DEMAND(substates_[index] != nullptr);
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_substates());
+    MALIPUT_DRAKE_DEMAND(substates_[index] != nullptr);
     return *substates_[index];
   }
 

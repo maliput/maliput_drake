@@ -57,7 +57,7 @@ std::shared_ptr<T> GetScopedSingleton() {
         weak_ref_ = result;
       }
 
-      DRAKE_DEMAND(result.get() != nullptr);
+      MALIPUT_DRAKE_DEMAND(result.get() != nullptr);
       return result;
     }
 

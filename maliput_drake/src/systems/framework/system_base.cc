@@ -69,11 +69,11 @@ CacheEntry& SystemBase::DeclareCacheEntryWithKnownTicket(
 }
 
 void SystemBase::InitializeContextBase(ContextBase* context_ptr) const {
-  DRAKE_DEMAND(context_ptr != nullptr);
+  MALIPUT_DRAKE_DEMAND(context_ptr != nullptr);
   ContextBase& context = *context_ptr;
 
   // Initialization should happen only once per Context.
-  DRAKE_DEMAND(
+  MALIPUT_DRAKE_DEMAND(
       !internal::SystemBaseContextBaseAttorney::is_context_base_initialized(
           context));
 
@@ -211,7 +211,7 @@ const AbstractValue* SystemBase::EvalAbstractInputImpl(
 
 void SystemBase::ThrowNegativePortIndex(const char* func,
                                         int port_index) const {
-  DRAKE_DEMAND(port_index < 0);
+  MALIPUT_DRAKE_DEMAND(port_index < 0);
   throw std::out_of_range(
       fmt::format("{}: negative port index {} is illegal. (System {})",
                   FmtFunc(func), port_index, GetSystemPathname()));

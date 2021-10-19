@@ -198,8 +198,8 @@ bool VelocityImplicitEulerIntegrator<T>::MaybeFreshenVelocityMatrices(
         compute_and_factor_iteration_matrix,
     typename ImplicitIntegrator<T>::IterationMatrix* iteration_matrix,
     MatrixX<T>* Jy) {
-  DRAKE_DEMAND(Jy != nullptr);
-  DRAKE_DEMAND(iteration_matrix != nullptr);
+  MALIPUT_DRAKE_DEMAND(Jy != nullptr);
+  MALIPUT_DRAKE_DEMAND(iteration_matrix != nullptr);
   // Compute the initial Jacobian and iteration matrices and factor them, if
   // necessary.
   if (!this->get_reuse() || Jy->rows() == 0 || this->IsBadJacobian(*Jy)) {
@@ -272,8 +272,8 @@ void VelocityImplicitEulerIntegrator<T>::FreshenVelocityMatricesIfFullNewton(
         compute_and_factor_iteration_matrix,
     typename ImplicitIntegrator<T>::IterationMatrix* iteration_matrix,
     MatrixX<T>* Jy) {
-  DRAKE_DEMAND(iteration_matrix != nullptr);
-  DRAKE_DEMAND(Jy != nullptr);
+  MALIPUT_DRAKE_DEMAND(iteration_matrix != nullptr);
+  MALIPUT_DRAKE_DEMAND(Jy != nullptr);
 
   // Return immediately if full-Newton is not in use.
   if (!this->get_use_full_newton()) return;
@@ -302,8 +302,8 @@ VectorX<U> VelocityImplicitEulerIntegrator<T>::ComputeLOfY(
     const T& t, const VectorX<U>& y, const VectorX<T>& qk,
     const VectorX<T>& qn, const T& h, BasicVector<U>* qdot,
     const System<U>& system, Context<U>* context) {
-  DRAKE_DEMAND(qdot != nullptr);
-  DRAKE_DEMAND(context != nullptr);
+  MALIPUT_DRAKE_DEMAND(qdot != nullptr);
+  MALIPUT_DRAKE_DEMAND(context != nullptr);
   int nq = qn.size();
   int ny = y.size();
 
@@ -455,7 +455,7 @@ bool VelocityImplicitEulerIntegrator<T>::StepVelocityImplicitEuler(
     if (status == ImplicitIntegrator<T>::ConvergenceStatus::kDiverged)
       break;
     // Otherwise, continue to the next Newton-Raphson iteration.
-    DRAKE_DEMAND(status ==
+    MALIPUT_DRAKE_DEMAND(status ==
                  ImplicitIntegrator<T>::ConvergenceStatus::kNotConverged);
 
     last_dx_norm = dx_norm;

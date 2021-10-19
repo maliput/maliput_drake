@@ -28,7 +28,7 @@ bool IntegratorBase<T>::StepOnceErrorControlledAtMost(const T& h_max) {
     // Integrator has not taken a step. Set the current step size to the
     // initial step size.
     step_size_to_attempt = get_initial_step_size_target();
-    DRAKE_DEMAND(!isnan(step_size_to_attempt));
+    MALIPUT_DRAKE_DEMAND(!isnan(step_size_to_attempt));
   }
 
   // This variable indicates when the integrator has been pushed to its minimum
@@ -162,8 +162,8 @@ T IntegratorBase<T>::CalcStateChangeNorm(
     pinvN_dq_change_ = std::make_unique<BasicVector<T>>(dgv.size());
     weighted_q_change_ = std::make_unique<BasicVector<T>>(dgq.size());
   }
-  DRAKE_DEMAND(pinvN_dq_change_->size() == dgv.size());
-  DRAKE_DEMAND(weighted_q_change_->size() == dgq.size());
+  MALIPUT_DRAKE_DEMAND(pinvN_dq_change_->size() == dgv.size());
+  MALIPUT_DRAKE_DEMAND(weighted_q_change_->size() == dgq.size());
 
   // TODO(edrumwri): Acquire characteristic time properly from the system
   //                 (i.e., modify the System to provide this value).

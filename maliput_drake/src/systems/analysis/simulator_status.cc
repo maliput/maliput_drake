@@ -11,7 +11,7 @@ namespace systems {
 /** Returns a human-readable message explaining the return result. */
 std::string SimulatorStatus::FormatMessage() const {
   if (reason() == kReachedBoundaryTime) {
-    DRAKE_DEMAND(return_time() == boundary_time());
+    MALIPUT_DRAKE_DEMAND(return_time() == boundary_time());
     return fmt::format(
         "Simulator successfully reached the boundary time ({}).",
         boundary_time());
@@ -19,7 +19,7 @@ std::string SimulatorStatus::FormatMessage() const {
 
   // Equality is unlikely but allowed in case a termination request happens
   // at exactly the boundary time.
-  DRAKE_DEMAND(return_time() <= boundary_time());
+  MALIPUT_DRAKE_DEMAND(return_time() <= boundary_time());
 
   // Attempt to identify the relevant subsystem in human-readable terms. If no
   // subsystem was provided we just call it "System". Otherwise, we obtain its
@@ -40,7 +40,7 @@ std::string SimulatorStatus::FormatMessage() const {
         return_time(), system_id, message());
   }
 
-  DRAKE_DEMAND(reason() == kEventHandlerFailed);
+  MALIPUT_DRAKE_DEMAND(reason() == kEventHandlerFailed);
   return fmt::format(
       "Simulator stopped at time {} because {} failed "
       "with message: \"{}\"",

@@ -78,7 +78,7 @@ class Supervector final : public VectorBase<T> {
     // than the specified index.
     const auto it =
         std::upper_bound(lookup_table_.begin(), lookup_table_.end(), index);
-    DRAKE_DEMAND(it != lookup_table_.end());
+    MALIPUT_DRAKE_DEMAND(it != lookup_table_.end());
 
     // Use the lookup result to identify the subvector that contains the index.
     const int subvector_id =

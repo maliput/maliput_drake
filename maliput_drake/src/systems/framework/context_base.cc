@@ -50,10 +50,10 @@ FixedInputPortValue& ContextBase::FixInputPort(
 void ContextBase::AddInputPort(
     InputPortIndex expected_index, DependencyTicket ticket,
     std::function<void(const AbstractValue&)> fixed_input_type_checker) {
-  DRAKE_DEMAND(expected_index.is_valid() && ticket.is_valid());
-  DRAKE_DEMAND(expected_index == num_input_ports());
-  DRAKE_DEMAND(input_port_tickets_.size() == input_port_values_.size());
-  DRAKE_DEMAND(input_port_tickets_.size() == input_port_type_checkers_.size());
+  MALIPUT_DRAKE_DEMAND(expected_index.is_valid() && ticket.is_valid());
+  MALIPUT_DRAKE_DEMAND(expected_index == num_input_ports());
+  MALIPUT_DRAKE_DEMAND(input_port_tickets_.size() == input_port_values_.size());
+  MALIPUT_DRAKE_DEMAND(input_port_tickets_.size() == input_port_type_checkers_.size());
   if (!fixed_input_type_checker) {
     fixed_input_type_checker = [](const AbstractValue&) {};
   }
@@ -70,8 +70,8 @@ void ContextBase::AddInputPort(
 void ContextBase::AddOutputPort(
     OutputPortIndex expected_index, DependencyTicket ticket,
     const internal::OutputPortPrerequisite& prerequisite) {
-  DRAKE_DEMAND(expected_index.is_valid() && ticket.is_valid());
-  DRAKE_DEMAND(expected_index == num_output_ports());
+  MALIPUT_DRAKE_DEMAND(expected_index.is_valid() && ticket.is_valid());
+  MALIPUT_DRAKE_DEMAND(expected_index == num_output_ports());
   auto& yi_tracker = graph_.CreateNewDependencyTracker(
       ticket, "y_" + std::to_string(expected_index));
   output_port_tickets_.push_back(ticket);
@@ -88,8 +88,8 @@ void ContextBase::AddOutputPort(
 void ContextBase::SetFixedInputPortValue(
     InputPortIndex index,
     std::unique_ptr<FixedInputPortValue> port_value) {
-  DRAKE_DEMAND(0 <= index && index < num_input_ports());
-  DRAKE_DEMAND(port_value != nullptr);
+  MALIPUT_DRAKE_DEMAND(0 <= index && index < num_input_ports());
+  MALIPUT_DRAKE_DEMAND(port_value != nullptr);
 
   // Fail-fast if the user supplied the wrong type or size.
   input_port_type_checkers_[index](port_value->get_value());
@@ -103,7 +103,7 @@ void ContextBase::SetFixedInputPortValue(
   if (old_value != nullptr) {
     // All the dependency wiring should be in place already.
     ticket_to_use = old_value->ticket();
-    DRAKE_DEMAND(graph_.has_tracker(ticket_to_use));
+    MALIPUT_DRAKE_DEMAND(graph_.has_tracker(ticket_to_use));
     MALIPUT_DRAKE_ASSERT(graph_.get_tracker(ticket_to_use).HasSubscriber(port_tracker));
     MALIPUT_DRAKE_ASSERT(
         port_tracker.HasPrerequisite(graph_.get_tracker(ticket_to_use)));

@@ -567,7 +567,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator==(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::equal_to<void>());
 }
 
@@ -640,7 +640,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator<=(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::less_equal<void>());
 }
 
@@ -693,7 +693,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator<(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::less<void>());
 }
 
@@ -744,7 +744,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator>=(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::greater_equal<void>());
 }
 
@@ -803,7 +803,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator>(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::greater<void>());
 }
 
@@ -861,7 +861,7 @@ typename std::enable_if_t<
     typename internal::RelationalOpTraits<DerivedA, DerivedB>::ReturnType>
 operator!=(const DerivedA& a1, const DerivedB& a2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
+  MALIPUT_DRAKE_DEMAND(a1.rows() == a2.rows() && a1.cols() == a2.cols());
   return a1.binaryExpr(a2, std::not_equal_to<void>());
 }
 
@@ -953,7 +953,7 @@ typename std::enable_if_t<
     Formula>
 operator==(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::equal_to<void>()).redux(internal::logic_and);
 }
 
@@ -986,7 +986,7 @@ typename std::enable_if_t<
     Formula>
 operator!=(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::not_equal_to<void>()).redux(internal::logic_or);
 }
 
@@ -1014,7 +1014,7 @@ typename std::enable_if_t<
     Formula>
 operator<(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::less<void>()).redux(internal::logic_and);
 }
 
@@ -1042,7 +1042,7 @@ typename std::enable_if_t<
     Formula>
 operator<=(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::less_equal<void>()).redux(internal::logic_and);
 }
 
@@ -1070,7 +1070,7 @@ typename std::enable_if_t<
     Formula>
 operator>(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::greater<void>()).redux(internal::logic_and);
 }
 
@@ -1098,7 +1098,7 @@ typename std::enable_if_t<
     Formula>
 operator>=(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   return m1.binaryExpr(m2, std::greater_equal<void>())
       .redux(internal::logic_and);
 }

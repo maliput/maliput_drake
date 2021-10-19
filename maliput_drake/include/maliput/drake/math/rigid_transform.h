@@ -626,7 +626,7 @@ class RigidTransform {
   template <typename Derived>
   static void ThrowIfInvalidBottomRow(const Eigen::MatrixBase<Derived>& pose) {
     const int num_rows = pose.rows(), num_cols = pose.cols();
-    DRAKE_DEMAND(num_rows == 4 && num_cols == 4);
+    MALIPUT_DRAKE_DEMAND(num_rows == 4 && num_cols == 4);
     if (pose(3, 0) != 0 || pose(3, 1) != 0 ||
         pose(3, 2) != 0 || pose(3, 3) != 1) {
       throw std::logic_error(fmt::format(

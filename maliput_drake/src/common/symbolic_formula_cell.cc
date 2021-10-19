@@ -175,8 +175,8 @@ FormulaVar::FormulaVar(Variable v)
     : FormulaCell{FormulaKind::Var}, var_{std::move(v)} {
   // Dummy symbolic variable (ID = 0) should not be used in constructing
   // symbolic formulas.
-  DRAKE_DEMAND(!var_.is_dummy());
-  DRAKE_DEMAND(var_.get_type() == Variable::Type::BOOLEAN);
+  MALIPUT_DRAKE_DEMAND(!var_.is_dummy());
+  MALIPUT_DRAKE_DEMAND(var_.get_type() == Variable::Type::BOOLEAN);
 }
 
 void FormulaVar::HashAppendDetail(DelegatingHasher* hasher) const {

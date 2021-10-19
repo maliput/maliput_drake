@@ -22,10 +22,10 @@ PortBase::PortBase(
       data_type_(data_type),
       size_(size),
       name_(std::move(name)) {
-  DRAKE_DEMAND(kind_string != nullptr);
-  DRAKE_DEMAND(owning_system != nullptr);
-  DRAKE_DEMAND(owning_system_id.is_valid());
-  DRAKE_DEMAND(!name_.empty());
+  MALIPUT_DRAKE_DEMAND(kind_string != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_system != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_system_id.is_valid());
+  MALIPUT_DRAKE_DEMAND(!name_.empty());
 }
 
 PortBase::~PortBase() = default;

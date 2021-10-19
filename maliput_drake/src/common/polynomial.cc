@@ -293,7 +293,7 @@ Polynomial<T> Polynomial<T>::Substitute(
 template <typename T>
 Polynomial<T> Polynomial<T>::Derivative(
     int derivative_order) const {
-  DRAKE_DEMAND(derivative_order >= 0);
+  MALIPUT_DRAKE_DEMAND(derivative_order >= 0);
   if (!is_univariate_)
     throw runtime_error(
         "Derivative is only defined for univariate polynomials");

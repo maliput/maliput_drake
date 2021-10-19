@@ -6,7 +6,7 @@ namespace maliput::drake {
 namespace symbolic {
 ChebyshevPolynomial::ChebyshevPolynomial(Variable var, int degree)
     : var_{std::move(var)}, degree_{degree} {
-  DRAKE_DEMAND(degree_ >= 0);
+  MALIPUT_DRAKE_DEMAND(degree_ >= 0);
 }
 
 namespace {

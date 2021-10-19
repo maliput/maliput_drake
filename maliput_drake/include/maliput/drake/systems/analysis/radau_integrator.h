@@ -83,7 +83,7 @@ class RadauIntegrator final : public ImplicitIntegrator<T> {
     if (num_stages == 2) {
       return 3;
     } else {
-      DRAKE_DEMAND(num_stages == 1);
+      MALIPUT_DRAKE_DEMAND(num_stages == 1);
       return 2;
     }
   }

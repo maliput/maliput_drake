@@ -88,7 +88,7 @@ class SystemBase : public internal::SystemMessageInterface {
 
     // We depend on derived classes to call our InitializeContextBase() method
     // after allocating the appropriate concrete Context.
-    DRAKE_DEMAND(
+    MALIPUT_DRAKE_DEMAND(
         internal::SystemBaseContextBaseAttorney::is_context_base_initialized(
             *context));
 
@@ -646,7 +646,7 @@ class SystemBase : public internal::SystemMessageInterface {
   by `index`.
   @pre `index` selects an existing input port of this System. */
   DependencyTicket input_port_ticket(InputPortIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < num_input_ports());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_input_ports());
     return input_ports_[index]->ticket();
   }
 
@@ -693,7 +693,7 @@ class SystemBase : public internal::SystemMessageInterface {
   ticket so must be listed separately.
   @pre `index` selects an existing cache entry in this System. */
   DependencyTicket cache_entry_ticket(CacheIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < num_cache_entries());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_cache_entries());
     return cache_entries_[index]->ticket();
   }
 
@@ -773,7 +773,7 @@ class SystemBase : public internal::SystemMessageInterface {
   meaningfully depend on that system's own output ports.
   @pre `index` selects an existing output port of this System. */
   DependencyTicket output_port_ticket(OutputPortIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < num_output_ports());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_output_ports());
     return output_ports_[index]->ticket();
   }
   //@}
@@ -882,10 +882,10 @@ class SystemBase : public internal::SystemMessageInterface {
   // TODO(sherm1) Add check on suitability of `size` parameter for the port's
   // data type.
   void AddInputPort(std::unique_ptr<InputPortBase> port) {
-    DRAKE_DEMAND(port != nullptr);
-    DRAKE_DEMAND(&port->get_system_interface() == this);
-    DRAKE_DEMAND(port->get_index() == num_input_ports());
-    DRAKE_DEMAND(!port->get_name().empty());
+    MALIPUT_DRAKE_DEMAND(port != nullptr);
+    MALIPUT_DRAKE_DEMAND(&port->get_system_interface() == this);
+    MALIPUT_DRAKE_DEMAND(port->get_index() == num_input_ports());
+    MALIPUT_DRAKE_DEMAND(!port->get_name().empty());
 
     // Check that name is unique.
     for (InputPortIndex i{0}; i < num_input_ports(); i++) {
@@ -907,10 +907,10 @@ class SystemBase : public internal::SystemMessageInterface {
   // TODO(sherm1) Add check on suitability of `size` parameter for the port's
   // data type.
   void AddOutputPort(std::unique_ptr<OutputPortBase> port) {
-    DRAKE_DEMAND(port != nullptr);
-    DRAKE_DEMAND(&port->get_system_interface() == this);
-    DRAKE_DEMAND(port->get_index() == num_output_ports());
-    DRAKE_DEMAND(!port->get_name().empty());
+    MALIPUT_DRAKE_DEMAND(port != nullptr);
+    MALIPUT_DRAKE_DEMAND(&port->get_system_interface() == this);
+    MALIPUT_DRAKE_DEMAND(port->get_index() == num_output_ports());
+    MALIPUT_DRAKE_DEMAND(!port->get_name().empty());
 
     // Check that name is unique.
     for (OutputPortIndex i{0}; i < num_output_ports(); i++) {
@@ -934,7 +934,7 @@ class SystemBase : public internal::SystemMessageInterface {
         given_name == kUseDefaultName
            ? std::string("u") + std::to_string(num_input_ports())
            : std::get<std::string>(std::move(given_name));
-    DRAKE_DEMAND(!result.empty());
+    MALIPUT_DRAKE_DEMAND(!result.empty());
     return result;
   }
 
@@ -948,7 +948,7 @@ class SystemBase : public internal::SystemMessageInterface {
         given_name == kUseDefaultName
            ? std::string("y") + std::to_string(num_output_ports())
            : std::get<std::string>(std::move(given_name));
-    DRAKE_DEMAND(!result.empty());
+    MALIPUT_DRAKE_DEMAND(!result.empty());
     return result;
   }
 
@@ -957,8 +957,8 @@ class SystemBase : public internal::SystemMessageInterface {
   @pre The supplied index must be the next available one; that is, indexes
        must be assigned sequentially. */
   void AddDiscreteStateGroup(DiscreteStateIndex index) {
-    DRAKE_DEMAND(index == discrete_state_tickets_.size());
-    DRAKE_DEMAND(index == context_sizes_.num_discrete_state_groups);
+    MALIPUT_DRAKE_DEMAND(index == discrete_state_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(index == context_sizes_.num_discrete_state_groups);
     const DependencyTicket ticket(assign_next_dependency_ticket());
     discrete_state_tickets_.push_back(
         {ticket, "discrete state group " + std::to_string(index)});
@@ -971,8 +971,8 @@ class SystemBase : public internal::SystemMessageInterface {
        must be assigned sequentially. */
   void AddAbstractState(AbstractStateIndex index) {
     const DependencyTicket ticket(assign_next_dependency_ticket());
-    DRAKE_DEMAND(index == abstract_state_tickets_.size());
-    DRAKE_DEMAND(index == context_sizes_.num_abstract_states);
+    MALIPUT_DRAKE_DEMAND(index == abstract_state_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(index == context_sizes_.num_abstract_states);
     abstract_state_tickets_.push_back(
         {ticket, "abstract state " + std::to_string(index)});
     ++context_sizes_.num_abstract_states;
@@ -983,8 +983,8 @@ class SystemBase : public internal::SystemMessageInterface {
   @pre The supplied index must be the next available one; that is, indexes
        must be assigned sequentially. */
   void AddNumericParameter(NumericParameterIndex index) {
-    DRAKE_DEMAND(index == numeric_parameter_tickets_.size());
-    DRAKE_DEMAND(index == context_sizes_.num_numeric_parameter_groups);
+    MALIPUT_DRAKE_DEMAND(index == numeric_parameter_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(index == context_sizes_.num_numeric_parameter_groups);
     const DependencyTicket ticket(assign_next_dependency_ticket());
     numeric_parameter_tickets_.push_back(
         {ticket, "numeric parameter " + std::to_string(index)});
@@ -997,8 +997,8 @@ class SystemBase : public internal::SystemMessageInterface {
        must be assigned sequentially. */
   void AddAbstractParameter(AbstractParameterIndex index) {
     const DependencyTicket ticket(assign_next_dependency_ticket());
-    DRAKE_DEMAND(index == abstract_parameter_tickets_.size());
-    DRAKE_DEMAND(index == context_sizes_.num_abstract_parameters);
+    MALIPUT_DRAKE_DEMAND(index == abstract_parameter_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(index == context_sizes_.num_abstract_parameters);
     abstract_parameter_tickets_.push_back(
         {ticket, "abstract parameter " + std::to_string(index)});
     ++context_sizes_.num_abstract_parameters;
@@ -1036,8 +1036,8 @@ class SystemBase : public internal::SystemMessageInterface {
   static void set_parent_service(
       SystemBase* child,
       const internal::SystemParentServiceInterface* parent_service) {
-    DRAKE_DEMAND(child != nullptr && parent_service != nullptr);
-    DRAKE_DEMAND(child->parent_service_ == nullptr ||
+    MALIPUT_DRAKE_DEMAND(child != nullptr && parent_service != nullptr);
+    MALIPUT_DRAKE_DEMAND(child->parent_service_ == nullptr ||
                  child->parent_service_ == parent_service);
     child->parent_service_ = parent_service;
   }
@@ -1226,25 +1226,25 @@ class SystemBase : public internal::SystemMessageInterface {
 
   const TrackerInfo& discrete_state_tracker_info(
       DiscreteStateIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < discrete_state_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < discrete_state_tickets_.size());
     return discrete_state_tickets_[index];
   }
 
   const TrackerInfo& abstract_state_tracker_info(
       AbstractStateIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < abstract_state_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < abstract_state_tickets_.size());
     return abstract_state_tickets_[index];
   }
 
   const TrackerInfo& numeric_parameter_tracker_info(
       NumericParameterIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < numeric_parameter_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < numeric_parameter_tickets_.size());
     return numeric_parameter_tickets_[index];
   }
 
   const TrackerInfo& abstract_parameter_tracker_info(
       AbstractParameterIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < abstract_parameter_tickets_.size());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < abstract_parameter_tickets_.size());
     return abstract_parameter_tickets_[index];
   }
 
@@ -1320,7 +1320,7 @@ CacheEntry& SystemBase::DeclareCacheEntry(
   static_assert(std::is_base_of_v<ContextBase, MyContext>,
                 "Expected to be invoked with a ContextBase-derived Context.");
   auto this_ptr = dynamic_cast<const MySystem*>(this);
-  DRAKE_DEMAND(this_ptr != nullptr);
+  MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
   auto alloc_callback = [this_ptr, make]() {
     return AbstractValue::Make((this_ptr->*make)());
   };
@@ -1368,7 +1368,7 @@ CacheEntry& SystemBase::DeclareCacheEntry(
   static_assert(std::is_base_of_v<ContextBase, MyContext>,
                 "Expected to be invoked with a ContextBase-derived Context.");
   auto this_ptr = dynamic_cast<const MySystem*>(this);
-  DRAKE_DEMAND(this_ptr != nullptr);
+  MALIPUT_DRAKE_DEMAND(this_ptr != nullptr);
   auto allocate_callback = internal::AbstractValueCloner(model_value);
   auto calc_callback = [this_ptr, calc](const ContextBase& context,
                                         AbstractValue* result) {

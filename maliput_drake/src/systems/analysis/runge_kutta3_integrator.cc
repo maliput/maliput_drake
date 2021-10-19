@@ -128,7 +128,7 @@ bool RungeKutta3Integrator<T>::DoStep(const T& h) {
 
   // If the size of the system has changed, the error estimate will no longer
   // be sized correctly. Verify that the error estimate is the correct size.
-  DRAKE_DEMAND(this->get_error_estimate()->size() == xc.size());
+  MALIPUT_DRAKE_DEMAND(this->get_error_estimate()->size() == xc.size());
 
   // Calculate the error estimate using an Eigen vector then copy it to the
   // continuous state vector, where the various state components can be

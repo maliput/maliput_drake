@@ -271,7 +271,7 @@ bool RadauIntegrator<T, num_stages>::StepRadau(const T& t0, const T& h,
     if (status == ImplicitIntegrator<T>::ConvergenceStatus::kDiverged)
       break;
     // Otherwise, continue to the next Newton-Raphson iteration.
-    DRAKE_DEMAND(status ==
+    MALIPUT_DRAKE_DEMAND(status ==
                  ImplicitIntegrator<T>::ConvergenceStatus::kNotConverged);
 
     // Update the norm of the state update.
@@ -429,7 +429,7 @@ bool RadauIntegrator<T, num_stages>::StepImplicitTrapezoidDetail(
     if (status == ImplicitIntegrator<T>::ConvergenceStatus::kDiverged)
       break;
     // Otherwise, continue to the next Newton-Raphson iteration.
-    DRAKE_DEMAND(status ==
+    MALIPUT_DRAKE_DEMAND(status ==
                  ImplicitIntegrator<T>::ConvergenceStatus::kNotConverged);
 
     // Update the norm of the state update.
@@ -563,14 +563,14 @@ bool RadauIntegrator<T, num_stages>::DoImplicitIntegratorStep(const T& h) {
       // The BS3 integrator provides exactly the same order as 2-stage
       // Radau + embedded implicit trapezoid.
       const int evals_before_bs3 = bs3_->get_num_derivative_evaluations();
-      DRAKE_DEMAND(bs3_->IntegrateWithSingleFixedStepToTime(t0 + h));
+      MALIPUT_DRAKE_DEMAND(bs3_->IntegrateWithSingleFixedStepToTime(t0 + h));
       const int evals_after_bs3 = bs3_->get_num_derivative_evaluations();
       this->get_mutable_error_estimate()->SetFrom(*bs3_->get_error_estimate());
       this->add_derivative_evaluations(evals_after_bs3 - evals_before_bs3);
     } else {
       // First-order Euler + RK2 provides exactly the same order as 1-stage
       // Radau + embedded implicit trapezoid.
-      DRAKE_DEMAND(num_stages == 1);
+      MALIPUT_DRAKE_DEMAND(num_stages == 1);
 
       // Compute the Euler step.
       xdot_ = this->EvalTimeDerivatives(*context).CopyToVector();
@@ -578,7 +578,7 @@ bool RadauIntegrator<T, num_stages>::DoImplicitIntegratorStep(const T& h) {
 
       // Compute the RK2 step.
       const int evals_before_rk2 = rk2_->get_num_derivative_evaluations();
-      DRAKE_DEMAND(rk2_->IntegrateWithSingleFixedStepToTime(t0 + h));
+      MALIPUT_DRAKE_DEMAND(rk2_->IntegrateWithSingleFixedStepToTime(t0 + h));
       const int evals_after_rk2 = rk2_->get_num_derivative_evaluations();
 
       // Update the error estimation ODE counts.

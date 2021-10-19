@@ -113,8 +113,8 @@ DecomposeAffineExpression(
     const symbolic::Expression& e,
     const std::unordered_map<symbolic::Variable::Id, int>& map_var_to_index,
     const Eigen::MatrixBase<Derived>& coeffs, double* constant_term) {
-  DRAKE_DEMAND(coeffs.rows() == 1);
-  DRAKE_DEMAND(coeffs.cols() == static_cast<int>(map_var_to_index.size()));
+  MALIPUT_DRAKE_DEMAND(coeffs.rows() == 1);
+  MALIPUT_DRAKE_DEMAND(coeffs.cols() == static_cast<int>(map_var_to_index.size()));
   if (!e.is_polynomial()) {
     std::ostringstream oss;
     oss << "Expression " << e << "is not a polynomial.\n";
@@ -133,7 +133,7 @@ DecomposeAffineExpression(
     } else if (p_monomial.total_degree() == 1) {
       // Linear coefficient.
       const auto& p_monomial_powers = p_monomial.get_powers();
-      DRAKE_DEMAND(p_monomial_powers.size() == 1);
+      MALIPUT_DRAKE_DEMAND(p_monomial_powers.size() == 1);
       const symbolic::Variable::Id var_id =
           p_monomial_powers.begin()->first.get_id();
       // TODO(eric.cousineau): Avoid using const_cast.

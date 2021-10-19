@@ -158,8 +158,8 @@ class DependencyTracker {
   // entry values that are created later. See the private constructor
   // documentation for more information.
   void set_cache_entry_value(CacheEntryValue* cache_value) {
-    DRAKE_DEMAND(cache_value != nullptr);
-    DRAKE_DEMAND(!has_associated_cache_entry_);
+    MALIPUT_DRAKE_DEMAND(cache_value != nullptr);
+    MALIPUT_DRAKE_DEMAND(!has_associated_cache_entry_);
     cache_value_ = cache_value;
     has_associated_cache_entry_ = true;
   }
@@ -169,7 +169,7 @@ class DependencyTracker {
   // This is for validating that this tracker is associated with the right
   // cache entry. Don't use this during runtime invalidation.
   const CacheEntryValue* cache_entry_value() const {
-    DRAKE_DEMAND(cache_value_ != nullptr);
+    MALIPUT_DRAKE_DEMAND(cache_value_ != nullptr);
     if (!has_associated_cache_entry_)
       return nullptr;  // cache_value_ actually points to a dummy entry.
     return cache_value_;
@@ -379,7 +379,7 @@ class DependencyTracker {
   void NotifySubscribers(int64_t change_event, int depth) const;
 
   std::string GetSystemPathname() const {
-    DRAKE_DEMAND(owning_subcontext_!= nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext_!= nullptr);
     return owning_subcontext_->GetSystemPathname();
   }
 
@@ -455,7 +455,7 @@ class DependencyGraph {
   explicit DependencyGraph(
       const internal::ContextMessageInterface* owning_subcontext)
       : owning_subcontext_(owning_subcontext) {
-    DRAKE_DEMAND(owning_subcontext != nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
   }
 
   /** Deletes all DependencyTracker objects; no notifications are issued. */
@@ -475,7 +475,7 @@ class DependencyGraph {
   DependencyTracker& CreateNewDependencyTracker(
       DependencyTicket known_ticket, std::string description,
       CacheEntryValue* cache_value = nullptr) {
-    DRAKE_DEMAND(!has_tracker(known_ticket));
+    MALIPUT_DRAKE_DEMAND(!has_tracker(known_ticket));
     if (known_ticket >= trackers_size()) graph_.resize(known_ticket + 1);
     // Can't use make_unique here because constructor is private.
     graph_[known_ticket].reset(new DependencyTracker(
@@ -496,7 +496,7 @@ class DependencyGraph {
   /** Returns true if there is a DependencyTracker in this graph that has the
   given ticket number. */
   bool has_tracker(DependencyTicket ticket) const {
-    DRAKE_DEMAND(ticket.is_valid());
+    MALIPUT_DRAKE_DEMAND(ticket.is_valid());
     if (ticket >= trackers_size()) return false;
     return graph_[ticket] != nullptr;
   }

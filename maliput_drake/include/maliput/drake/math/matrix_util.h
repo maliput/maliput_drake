@@ -133,8 +133,8 @@ template <typename Derived>
 bool IsPositiveDefinite(const Eigen::MatrixBase<Derived>& matrix,
                         double eigenvalue_tolerance = 0.0,
                         double symmetry_tolerance = 0.0) {
-  DRAKE_DEMAND(eigenvalue_tolerance >= 0);
-  DRAKE_DEMAND(symmetry_tolerance >= 0);
+  MALIPUT_DRAKE_DEMAND(eigenvalue_tolerance >= 0);
+  MALIPUT_DRAKE_DEMAND(symmetry_tolerance >= 0);
   if (!IsSymmetric(matrix, symmetry_tolerance)) return false;
 
   // Note: Eigen's documentation clearly warns against using the faster LDLT

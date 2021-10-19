@@ -140,8 +140,8 @@ template <int rows>
 Eigen::Matrix<Monomial, rows, 1> ComputeMonomialBasis(
     const Variables& vars, int degree,
     DegreeType degree_type = DegreeType::kAny) {
-  DRAKE_DEMAND(!vars.empty());
-  DRAKE_DEMAND(degree >= 0);
+  MALIPUT_DRAKE_DEMAND(!vars.empty());
+  MALIPUT_DRAKE_DEMAND(degree >= 0);
   // 1. Collect monomials.
   std::set<Monomial, GradedReverseLexOrder<std::less<Variable>>> monomials;
   int start_degree = 0;
@@ -166,7 +166,7 @@ Eigen::Matrix<Monomial, rows, 1> ComputeMonomialBasis(
     AddMonomialsOfDegreeN(vars, i, Monomial{}, &monomials);
   }
   // 2. Prepare the return value, basis.
-  DRAKE_DEMAND((rows == Eigen::Dynamic) ||
+  MALIPUT_DRAKE_DEMAND((rows == Eigen::Dynamic) ||
                (static_cast<size_t>(rows) == monomials.size()));
   Eigen::Matrix<Monomial, rows, 1> basis(monomials.size());
   size_t i{0};

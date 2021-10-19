@@ -52,7 +52,7 @@ std::unique_ptr<VectorBase<T>> DiagramContinuousState<T>::Span(
     std::function<VectorBase<T>&(ContinuousState<T>*)> selector) {
   std::vector<VectorBase<T>*> sub_xs;
   for (const auto& substate : substates) {
-    DRAKE_DEMAND(substate != nullptr);
+    MALIPUT_DRAKE_DEMAND(substate != nullptr);
     sub_xs.push_back(&selector(substate));
   }
   return std::make_unique<Supervector<T>>(sub_xs);

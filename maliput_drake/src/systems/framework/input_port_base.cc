@@ -24,7 +24,7 @@ InputPortBase::InputPortBase(
   if (is_random() && data_type != kVectorValued) {
     throw std::logic_error("Random input ports must be vector valued.");
   }
-  DRAKE_DEMAND(eval_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(eval_ != nullptr);
 }
 
 InputPortBase::~InputPortBase() = default;

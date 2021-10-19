@@ -55,9 +55,9 @@ string GetIntegratorName() {
 
   // Strip off "Integrator<double>" suffix to leave just "FooBar".
   const string suffix = "Integrator<double>";
-  DRAKE_DEMAND(class_name.size() > suffix.size());
+  MALIPUT_DRAKE_DEMAND(class_name.size() > suffix.size());
   const size_t suffix_begin = class_name.size() - suffix.size();
-  DRAKE_DEMAND(class_name.substr(suffix_begin) == suffix);
+  MALIPUT_DRAKE_DEMAND(class_name.substr(suffix_begin) == suffix);
   const string camel_name = class_name.substr(0, suffix_begin);
 
   // Convert "FooBar to "foo_bar".
@@ -202,7 +202,7 @@ SimulatorConfig ExtractSimulatorConfig(
   if (integrator.supports_error_estimation()) {
     result.use_error_control = !integrator.get_fixed_step_mode();
     const double accuracy_in_use = integrator.get_accuracy_in_use();
-    DRAKE_DEMAND(!std::isnan(accuracy_in_use));
+    MALIPUT_DRAKE_DEMAND(!std::isnan(accuracy_in_use));
     result.accuracy = accuracy_in_use;
   } else {
     result.use_error_control = false;

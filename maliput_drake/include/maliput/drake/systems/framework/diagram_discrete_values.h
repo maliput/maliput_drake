@@ -76,8 +76,8 @@ class DiagramDiscreteValues final: public DiscreteValues<T> {
   /// Returns a const reference to one of the referenced DiscreteValues
   /// objects which may or may not be owned locally.
   const DiscreteValues<T>& get_subdiscrete(SubsystemIndex index) const {
-    DRAKE_DEMAND(0 <= index && index < num_subdiscretes());
-    DRAKE_DEMAND(subdiscretes_[index] != nullptr);
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_subdiscretes());
+    MALIPUT_DRAKE_DEMAND(subdiscretes_[index] != nullptr);
     return *subdiscretes_[index];
   }
 

@@ -127,7 +127,7 @@ class VectorSystem : public LeafSystem<T> {
       MALIPUT_DRAKE_ASSERT(context.has_only_discrete_state());
       state_vector = &context.get_discrete_state(0);
     }
-    DRAKE_DEMAND(state_vector != nullptr);
+    MALIPUT_DRAKE_DEMAND(state_vector != nullptr);
     return state_vector->get_value();
   }
 
@@ -322,20 +322,20 @@ class VectorSystem : public LeafSystem<T> {
   void DoValidateAllocatedLeafContext(
       const LeafContext<T>& context) const final {
     // N.B. The MALIPUT_DRAKE_THROW_UNLESS conditions can be triggered by subclass
-    // mistakes, so are part of our unit tests.  The DRAKE_DEMAND conditions
+    // mistakes, so are part of our unit tests.  The MALIPUT_DRAKE_DEMAND conditions
     // should be invariants guaranteed by the framework, so are asserted.
 
     // Exactly one input and output.
     MALIPUT_DRAKE_THROW_UNLESS(this->num_input_ports() <= 1);
     MALIPUT_DRAKE_THROW_UNLESS(this->num_output_ports() <= 1);
-    DRAKE_DEMAND(context.num_input_ports() <= 1);
+    MALIPUT_DRAKE_DEMAND(context.num_input_ports() <= 1);
 
     // At most one of either continuous or discrete state.
     MALIPUT_DRAKE_THROW_UNLESS(context.num_abstract_states() == 0);
     const int continuous_size = context.num_continuous_states();
     const int num_discrete_groups = context.num_discrete_state_groups();
-    DRAKE_DEMAND(continuous_size >= 0);
-    DRAKE_DEMAND(num_discrete_groups >= 0);
+    MALIPUT_DRAKE_DEMAND(continuous_size >= 0);
+    MALIPUT_DRAKE_DEMAND(num_discrete_groups >= 0);
     MALIPUT_DRAKE_THROW_UNLESS(num_discrete_groups <= 1);
     MALIPUT_DRAKE_THROW_UNLESS((continuous_size == 0) || (num_discrete_groups == 0));
   }

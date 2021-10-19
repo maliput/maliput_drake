@@ -313,10 +313,10 @@ ExpressionVar::ExpressionVar(Variable v)
     : ExpressionCell{ExpressionKind::Var, true, true}, var_{std::move(v)} {
   // Dummy symbolic variable (ID = 0) should not be used in constructing
   // symbolic expressions.
-  DRAKE_DEMAND(!var_.is_dummy());
+  MALIPUT_DRAKE_DEMAND(!var_.is_dummy());
   // Boolean symbolic variable should not be used in constructing symbolic
   // expressions.
-  DRAKE_DEMAND(var_.get_type() != Variable::Type::BOOLEAN);
+  MALIPUT_DRAKE_DEMAND(var_.get_type() != Variable::Type::BOOLEAN);
 }
 
 void ExpressionVar::HashAppendDetail(DelegatingHasher* hasher) const {
@@ -399,14 +399,14 @@ bool ExpressionConstant::Less(const ExpressionCell& e) const {
 }
 
 double ExpressionConstant::Evaluate(const Environment&) const {
-  DRAKE_DEMAND(!std::isnan(v_));
+  MALIPUT_DRAKE_DEMAND(!std::isnan(v_));
   return v_;
 }
 
 Expression ExpressionConstant::Expand() const { return Expression{v_}; }
 
 Expression ExpressionConstant::Substitute(const Substitution&) const {
-  DRAKE_DEMAND(!std::isnan(v_));
+  MALIPUT_DRAKE_DEMAND(!std::isnan(v_));
   return Expression{v_};
 }
 

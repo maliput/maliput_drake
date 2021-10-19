@@ -692,7 +692,7 @@ template <typename BasisElement>
 GenericPolynomial<BasisElement>
 GenericPolynomial<BasisElement>::RemoveTermsWithSmallCoefficients(
     double coefficient_tol) const {
-  DRAKE_DEMAND(coefficient_tol >= 0);
+  MALIPUT_DRAKE_DEMAND(coefficient_tol >= 0);
   MapType cleaned_polynomial{};
   for (const auto& [basis_element, coeff] : basis_element_to_coefficient_map_) {
     if (is_constant(coeff) &&

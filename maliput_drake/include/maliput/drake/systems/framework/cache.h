@@ -498,8 +498,8 @@ class CacheEntryValue {
         description_(std::move(description)),
         owning_subcontext_(owning_subcontext),
         value_(std::move(initial_value)) {
-    DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
-    DRAKE_DEMAND(owning_subcontext != nullptr);
+    MALIPUT_DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
+    MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
     // OK if initial_value is null here.
   }
 
@@ -510,8 +510,8 @@ class CacheEntryValue {
   // This is the post-copy cleanup method.
   void set_owning_subcontext(
       const internal::ContextMessageInterface* owning_subcontext) {
-    DRAKE_DEMAND(owning_subcontext != nullptr);
-    DRAKE_DEMAND(owning_subcontext_ == nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext_ == nullptr);
     owning_subcontext_ = owning_subcontext;
   }
 
@@ -656,7 +656,7 @@ class Cache {
   service of its owning subcontext. The supplied pointer must not be null. */
   explicit Cache(const internal::ContextMessageInterface* owning_subcontext)
       : owning_subcontext_(owning_subcontext) {
-    DRAKE_DEMAND(owning_subcontext != nullptr);
+    MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
   }
 
   /** Destruction deletes all cache entries and their contained values; no
@@ -683,7 +683,7 @@ class Cache {
   /** Returns true if there is a CacheEntryValue in this cache that has the
   given index. */
   bool has_cache_entry_value(CacheIndex index) const {
-    DRAKE_DEMAND(index.is_valid());
+    MALIPUT_DRAKE_DEMAND(index.is_valid());
     if (index >= cache_size()) return false;
     return store_[index] != nullptr;
   }

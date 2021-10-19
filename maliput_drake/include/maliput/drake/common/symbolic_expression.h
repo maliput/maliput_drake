@@ -1447,7 +1447,7 @@ typename std::enable_if_t<
     bool>
 CheckStructuralEquality(const DerivedA& m1, const DerivedB& m2) {
   EIGEN_STATIC_ASSERT_SAME_MATRIX_SIZE(DerivedA, DerivedB);
-  DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
+  MALIPUT_DRAKE_DEMAND(m1.rows() == m2.rows() && m1.cols() == m2.cols());
   // Note that std::equal_to<Expression> calls Expression::EqualTo which checks
   // structural equality between two expressions.
   return m1.binaryExpr(m2, std::equal_to<Expression>{}).all();

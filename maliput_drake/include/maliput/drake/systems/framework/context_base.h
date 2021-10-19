@@ -191,13 +191,13 @@ class ContextBase : public internal::ContextMessageInterface {
 
   /** Returns the dependency ticket associated with a particular input port. */
   DependencyTicket input_port_ticket(InputPortIndex port_num) {
-    DRAKE_DEMAND(port_num < num_input_ports());
+    MALIPUT_DRAKE_DEMAND(port_num < num_input_ports());
     return input_port_tickets_[port_num];
   }
 
   /** Returns the dependency ticket associated with a particular output port. */
   DependencyTicket output_port_ticket(OutputPortIndex port_num) {
-    DRAKE_DEMAND(port_num < num_output_ports());
+    MALIPUT_DRAKE_DEMAND(port_num < num_output_ports());
     return output_port_tickets_[port_num];
   }
 
@@ -224,7 +224,7 @@ class ContextBase : public internal::ContextMessageInterface {
   fixed, otherwise nullptr.
   @pre `index` selects an existing input port of this Context. */
   const FixedInputPortValue* MaybeGetFixedInputPortValue(int index) const {
-    DRAKE_DEMAND(0 <= index && index < num_input_ports());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_input_ports());
     return input_port_values_[index].get();
   }
 
@@ -232,7 +232,7 @@ class ContextBase : public internal::ContextMessageInterface {
   is fixed, otherwise nullptr.
   @pre `index` selects an existing input port of this Context. */
   FixedInputPortValue* MaybeGetMutableFixedInputPortValue(int index) {
-    DRAKE_DEMAND(0 <= index && index < num_input_ports());
+    MALIPUT_DRAKE_DEMAND(0 <= index && index < num_input_ports());
     return input_port_values_[index].get_mutable();
   }
 
@@ -517,9 +517,9 @@ class ContextBase : public internal::ContextMessageInterface {
   // Output argument is listed first because it is serving as the 'this'
   // pointer here.
   static void set_parent(ContextBase* child, ContextBase* parent) {
-    DRAKE_DEMAND(child != nullptr);
-    DRAKE_DEMAND(parent != nullptr);
-    DRAKE_DEMAND(child->parent_ == nullptr);
+    MALIPUT_DRAKE_DEMAND(child != nullptr);
+    MALIPUT_DRAKE_DEMAND(parent != nullptr);
+    MALIPUT_DRAKE_DEMAND(child->parent_ == nullptr);
     child->parent_ = parent;
     // This field is only used by the root context so set to an invalid
     // value here.
@@ -681,11 +681,11 @@ class SystemBaseContextBaseAttorney {
   friend class maliput::drake::systems::SystemBase;
 
   static void set_system_name(ContextBase* context, const std::string& name) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->set_system_name(name);
   }
   static void set_system_id(ContextBase* context, internal::SystemId id) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->set_system_id(id);
   }
   static const ContextBase* get_parent_base(const ContextBase& context) {
@@ -696,7 +696,7 @@ class SystemBaseContextBaseAttorney {
       ContextBase* context, InputPortIndex expected_index,
       DependencyTicket ticket,
       std::function<void(const AbstractValue&)> type_checker) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddInputPort(expected_index, ticket, std::move(type_checker));
   }
 
@@ -704,32 +704,32 @@ class SystemBaseContextBaseAttorney {
       ContextBase* context, OutputPortIndex expected_index,
       DependencyTicket ticket,
       const internal::OutputPortPrerequisite& prerequisite) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddOutputPort(expected_index, ticket, prerequisite);
   }
 
   // Provide SystemBase mutable access to the ticket lists.
   static void AddDiscreteStateTicket(ContextBase* context,
                                      DependencyTicket ticket) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddDiscreteStateTicket(ticket);
   }
 
   static void AddAbstractStateTicket(ContextBase* context,
                                      DependencyTicket ticket) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddAbstractStateTicket(ticket);
   }
 
   static void AddNumericParameterTicket(ContextBase* context,
                                         DependencyTicket ticket) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddNumericParameterTicket(ticket);
   }
 
   static void AddAbstractParameterTicket(ContextBase* context,
                                          DependencyTicket ticket) {
-    DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
     context->AddAbstractParameterTicket(ticket);
   }
 
@@ -740,8 +740,8 @@ class SystemBaseContextBaseAttorney {
   // SystemBase should invoke this when ContextBase has been successfully
   // initialized.
   static void mark_context_base_initialized(ContextBase* context) {
-    DRAKE_DEMAND(context != nullptr);
-    DRAKE_DEMAND(!context->is_context_base_initialized_);
+    MALIPUT_DRAKE_DEMAND(context != nullptr);
+    MALIPUT_DRAKE_DEMAND(!context->is_context_base_initialized_);
     context->is_context_base_initialized_ = true;
   }
 };

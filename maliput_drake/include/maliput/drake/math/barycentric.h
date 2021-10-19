@@ -130,9 +130,9 @@ class BarycentricMesh {
       const Eigen::Ref<const MatrixX<ValueT>>& mesh_values,
       const Eigen::Ref<const VectorX<T>>& input,
       EigenPtr<VectorX<ValueT>> output) const {
-    DRAKE_DEMAND(output != nullptr);
-    DRAKE_DEMAND(input.size() == get_input_size());
-    DRAKE_DEMAND(mesh_values.cols() == get_num_mesh_points());
+    MALIPUT_DRAKE_DEMAND(output != nullptr);
+    MALIPUT_DRAKE_DEMAND(input.size() == get_input_size());
+    MALIPUT_DRAKE_DEMAND(mesh_values.cols() == get_num_mesh_points());
 
     Eigen::VectorXi mesh_indices(num_interpolants_);
     VectorX<T> weights(num_interpolants_);

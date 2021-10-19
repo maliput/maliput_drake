@@ -118,8 +118,8 @@ void AddPolynomialBasisElementsOfDegreeN(
 template <int rows, typename BasisElement>
 Eigen::Matrix<BasisElement, rows, 1> ComputePolynomialBasisUpToDegree(
     const Variables& vars, int degree, internal::DegreeType degree_type) {
-  DRAKE_DEMAND(!vars.empty());
-  DRAKE_DEMAND(degree >= 0);
+  MALIPUT_DRAKE_DEMAND(!vars.empty());
+  MALIPUT_DRAKE_DEMAND(degree >= 0);
   // 1. Collect elements.
   std::set<BasisElement,
            BasisElementGradedReverseLexOrder<std::less<Variable>, BasisElement>>
@@ -147,7 +147,7 @@ Eigen::Matrix<BasisElement, rows, 1> ComputePolynomialBasisUpToDegree(
                                                   &basis_elements_set);
   }
   // 2. Prepare the return value, basis.
-  DRAKE_DEMAND((rows == Eigen::Dynamic) ||
+  MALIPUT_DRAKE_DEMAND((rows == Eigen::Dynamic) ||
                (static_cast<size_t>(rows) == basis_elements_set.size()));
   Eigen::Matrix<BasisElement, rows, 1> basis(basis_elements_set.size());
   int i{0};

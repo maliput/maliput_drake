@@ -9,7 +9,7 @@ namespace maliput::drake {
 namespace systems {
 
 std::string CacheEntryValue::GetPathDescription() const {
-  DRAKE_DEMAND(owning_subcontext_!= nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext_!= nullptr);
   return owning_subcontext_->GetSystemPathname() + ":" + description();
 }
 
@@ -47,7 +47,7 @@ void CacheEntryValue::ThrowIfBadOtherValue(
   if (other_value == nullptr)
     throw std::logic_error(FormatName(api) + "other_value is empty.");
 
-  DRAKE_DEMAND(value_ != nullptr);  // Should have been checked already.
+  MALIPUT_DRAKE_DEMAND(value_ != nullptr);  // Should have been checked already.
 
   if (value_->type_info() != other_value->type_info()) {
     throw std::logic_error(FormatName(api) +
@@ -62,8 +62,8 @@ CacheEntryValue& Cache::CreateNewCacheEntryValue(
     const std::string& description,
     const std::set<DependencyTicket>& prerequisites,
     DependencyGraph* trackers) {
-  DRAKE_DEMAND(trackers != nullptr);
-  DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
+  MALIPUT_DRAKE_DEMAND(trackers != nullptr);
+  MALIPUT_DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
 
   // Make sure there is a place for this cache entry in the cache.
   if (index >= cache_size())
@@ -72,7 +72,7 @@ CacheEntryValue& Cache::CreateNewCacheEntryValue(
   // Create the new cache entry value and install it into this Cache. Note that
   // indirection here means the CacheEntryValue object's address is stable
   // even when store_ is resized.
-  DRAKE_DEMAND(store_[index] == nullptr);
+  MALIPUT_DRAKE_DEMAND(store_[index] == nullptr);
   // Can't use make_unique because constructor is private.
   store_[index] = std::unique_ptr<CacheEntryValue>(
       new CacheEntryValue(index, ticket, description, owning_subcontext_,
@@ -87,7 +87,7 @@ CacheEntryValue& Cache::CreateNewCacheEntryValue(
   DependencyTracker* tracker{};
   if (trackers->has_tracker(ticket)) {
     // Pre-existing trackers should only be present for well-known tickets.
-    DRAKE_DEMAND(ticket < internal::kNextAvailableTicket);
+    MALIPUT_DRAKE_DEMAND(ticket < internal::kNextAvailableTicket);
     tracker = &trackers->get_mutable_tracker(ticket);
     tracker->set_cache_entry_value(&value);
   } else {
@@ -127,8 +127,8 @@ void Cache::SetAllEntriesOutOfDate() {
 
 void Cache::RepairCachePointers(
     const internal::ContextMessageInterface* owning_subcontext) {
-  DRAKE_DEMAND(owning_subcontext != nullptr);
-  DRAKE_DEMAND(owning_subcontext_ == nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext_ == nullptr);
   owning_subcontext_ = owning_subcontext;
   for (auto& entry : store_)
     if (entry) entry->set_owning_subcontext(owning_subcontext);

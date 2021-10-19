@@ -183,7 +183,7 @@ bool ImplicitEulerIntegrator<T>::StepAbstract(
     if (status == ImplicitIntegrator<T>::ConvergenceStatus::kDiverged)
       break;
     // Otherwise, continue to the next Newton-Raphson iteration.
-    DRAKE_DEMAND(status ==
+    MALIPUT_DRAKE_DEMAND(status ==
                  ImplicitIntegrator<T>::ConvergenceStatus::kNotConverged);
 
     // Update the norm of the state update.

@@ -137,7 +137,7 @@ ostream& operator<<(ostream& os, const Environment& env) {
 
 Environment PopulateRandomVariables(Environment env, const Variables& variables,
                                     RandomGenerator* const random_generator) {
-  DRAKE_DEMAND(random_generator != nullptr);
+  MALIPUT_DRAKE_DEMAND(random_generator != nullptr);
   for (const Variable& var : variables) {
     const auto it = env.find(var);
     if (it != env.end()) {

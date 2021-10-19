@@ -21,9 +21,9 @@ CacheEntry::CacheEntry(
       description_(std::move(description)),
       value_producer_(std::move(value_producer)),
       prerequisites_of_calc_(std::move(prerequisites_of_calc)) {
-  DRAKE_DEMAND(owning_system != nullptr);
-  DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
-  DRAKE_DEMAND(value_producer_.is_valid());
+  MALIPUT_DRAKE_DEMAND(owning_system != nullptr);
+  MALIPUT_DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
+  MALIPUT_DRAKE_DEMAND(value_producer_.is_valid());
 
   if (prerequisites_of_calc_.empty()) {
     throw std::logic_error(FormatName("CacheEntry") +
@@ -57,7 +57,7 @@ std::unique_ptr<AbstractValue> CacheEntry::Allocate() const {
 
 void CacheEntry::Calc(const ContextBase& context,
                       AbstractValue* value) const {
-  DRAKE_DEMAND(value != nullptr);
+  MALIPUT_DRAKE_DEMAND(value != nullptr);
   MALIPUT_DRAKE_ASSERT_VOID(owning_system_->ValidateContext(context));
   MALIPUT_DRAKE_ASSERT_VOID(CheckValidAbstractValue(context, *value));
 

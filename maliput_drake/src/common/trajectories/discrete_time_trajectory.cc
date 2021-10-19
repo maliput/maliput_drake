@@ -43,17 +43,17 @@ DiscreteTimeTrajectory<T>::DiscreteTimeTrajectory(
     : times_(times),
       values_(values),
       time_comparison_tolerance_(time_comparison_tolerance) {
-  DRAKE_DEMAND(times.size() == values.size());
+  MALIPUT_DRAKE_DEMAND(times.size() == values.size());
   // Ensure that times are convertible to double.
   for (const auto& t : times) {
     ExtractDoubleOrThrow(t);
   }
   for (int i = 1; i < static_cast<int>(times_.size()); i++) {
-    DRAKE_DEMAND(times[i] - times[i - 1] >= time_comparison_tolerance_);
-    DRAKE_DEMAND(values[i].rows() == values[0].rows());
-    DRAKE_DEMAND(values[i].cols() == values[0].cols());
+    MALIPUT_DRAKE_DEMAND(times[i] - times[i - 1] >= time_comparison_tolerance_);
+    MALIPUT_DRAKE_DEMAND(values[i].rows() == values[0].rows());
+    MALIPUT_DRAKE_DEMAND(values[i].cols() == values[0].cols());
   }
-  DRAKE_DEMAND(time_comparison_tolerance_ >= 0);
+  MALIPUT_DRAKE_DEMAND(time_comparison_tolerance_ >= 0);
 }
 
 template <typename T>
@@ -104,25 +104,25 @@ MatrixX<T> DiscreteTimeTrajectory<T>::value(const T& t) const {
 
 template <typename T>
 Eigen::Index DiscreteTimeTrajectory<T>::rows() const {
-  DRAKE_DEMAND(times_.size() > 0);
+  MALIPUT_DRAKE_DEMAND(times_.size() > 0);
   return values_[0].rows();
 }
 
 template <typename T>
 Eigen::Index DiscreteTimeTrajectory<T>::cols() const {
-  DRAKE_DEMAND(times_.size() > 0);
+  MALIPUT_DRAKE_DEMAND(times_.size() > 0);
   return values_[0].cols();
 }
 
 template <typename T>
 T DiscreteTimeTrajectory<T>::start_time() const {
-  DRAKE_DEMAND(times_.size() > 0);
+  MALIPUT_DRAKE_DEMAND(times_.size() > 0);
   return times_[0];
 }
 
 template <typename T>
 T DiscreteTimeTrajectory<T>::end_time() const {
-  DRAKE_DEMAND(times_.size() > 0);
+  MALIPUT_DRAKE_DEMAND(times_.size() > 0);
   return times_[times_.size() - 1];
 }
 

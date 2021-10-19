@@ -52,8 +52,8 @@ void DecomposeLinearExpressions(
     const Eigen::Ref<const VectorX<Expression>>& expressions,
     const Eigen::Ref<const VectorX<symbolic::Variable>>& vars,
     EigenPtr<Eigen::MatrixXd> M) {
-  DRAKE_DEMAND(M != nullptr);
-  DRAKE_DEMAND(M->rows() == expressions.rows() && M->cols() == vars.rows());
+  MALIPUT_DRAKE_DEMAND(M != nullptr);
+  MALIPUT_DRAKE_DEMAND(M->rows() == expressions.rows() && M->cols() == vars.rows());
   for (int i = 0; i < expressions.size(); ++i) {
     const Expression& e{expressions(i)};
     if (!e.is_polynomial()) {
@@ -79,9 +79,9 @@ void DecomposeAffineExpressions(
     const Eigen::Ref<const VectorX<Expression>>& expressions,
     const Eigen::Ref<const VectorX<symbolic::Variable>>& vars,
     EigenPtr<Eigen::MatrixXd> M, EigenPtr<Eigen::VectorXd> v) {
-  DRAKE_DEMAND(M != nullptr && v != nullptr);
-  DRAKE_DEMAND(M->rows() == expressions.rows() && M->cols() == vars.rows());
-  DRAKE_DEMAND(v->rows() == expressions.rows());
+  MALIPUT_DRAKE_DEMAND(M != nullptr && v != nullptr);
+  MALIPUT_DRAKE_DEMAND(M->rows() == expressions.rows() && M->cols() == vars.rows());
+  MALIPUT_DRAKE_DEMAND(v->rows() == expressions.rows());
   for (int i = 0; i < expressions.size(); ++i) {
     const Expression& e{expressions(i)};
     if (!e.is_polynomial()) {
@@ -104,7 +104,7 @@ void DecomposeAffineExpressions(
 void ExtractAndAppendVariablesFromExpression(
     const Expression& e, VectorX<Variable>* vars,
     std::unordered_map<Variable::Id, int>* map_var_to_index) {
-  DRAKE_DEMAND(static_cast<int>(map_var_to_index->size()) == vars->size());
+  MALIPUT_DRAKE_DEMAND(static_cast<int>(map_var_to_index->size()) == vars->size());
   for (const Variable& var : e.GetVariables()) {
     if (map_var_to_index->find(var.get_id()) == map_var_to_index->end()) {
       map_var_to_index->emplace(var.get_id(), vars->size());
@@ -134,15 +134,15 @@ void DecomposeQuadraticPolynomial(
     const std::unordered_map<Variable::Id, int>& map_var_to_index,
     Eigen::MatrixXd* Q, Eigen::VectorXd* b, double* c) {
   const int num_variables = map_var_to_index.size();
-  DRAKE_DEMAND(Q->rows() == num_variables);
-  DRAKE_DEMAND(Q->cols() == num_variables);
-  DRAKE_DEMAND(b->rows() == num_variables);
+  MALIPUT_DRAKE_DEMAND(Q->rows() == num_variables);
+  MALIPUT_DRAKE_DEMAND(Q->cols() == num_variables);
+  MALIPUT_DRAKE_DEMAND(b->rows() == num_variables);
   Q->setZero();
   b->setZero();
   *c = 0;
   for (const auto& p : poly.monomial_to_coefficient_map()) {
     MALIPUT_DRAKE_ASSERT(is_constant(p.second));
-    DRAKE_DEMAND(!is_zero(p.second));
+    MALIPUT_DRAKE_DEMAND(!is_zero(p.second));
     const double coefficient = get_constant_value(p.second);
     const symbolic::Monomial& p_monomial = p.first;
     if (p_monomial.total_degree() > 2) {
@@ -158,10 +158,10 @@ void DecomposeQuadraticPolynomial(
       // cross terms.
       auto it = monomial_powers.begin();
       const int x1_index = map_var_to_index.at(it->first.get_id());
-      DRAKE_DEMAND(it->second == 1);
+      MALIPUT_DRAKE_DEMAND(it->second == 1);
       ++it;
       const int x2_index = map_var_to_index.at(it->first.get_id());
-      DRAKE_DEMAND(it->second == 1);
+      MALIPUT_DRAKE_DEMAND(it->second == 1);
       (*Q)(x1_index, x2_index) += coefficient;
       (*Q)(x2_index, x1_index) = (*Q)(x1_index, x2_index);
     } else if (monomial_powers.size() == 1) {
@@ -169,7 +169,7 @@ void DecomposeQuadraticPolynomial(
       // 1. quadratic term a*x^2
       // 2. linear term b*x
       auto it = monomial_powers.begin();
-      DRAKE_DEMAND(it->second == 2 || it->second == 1);
+      MALIPUT_DRAKE_DEMAND(it->second == 2 || it->second == 1);
       const int x_index = map_var_to_index.at(it->first.get_id());
       if (it->second == 2) {
         // quadratic term a * x^2

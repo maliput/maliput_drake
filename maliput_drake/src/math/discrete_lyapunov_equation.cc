@@ -28,7 +28,7 @@ MatrixXd RealDiscreteLyapunovEquation(const Eigen::Ref<const MatrixXd>& A,
         "RealDiscreteLyapunovEquation(): A and Q must be square and of equal "
         "size!");
   }
-  DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
 
   VectorXcd eig_val{A.eigenvalues()};
   for (int i = 0; i < eig_val.size(); ++i) {
@@ -91,7 +91,7 @@ Vector1d Solve1By1RealDiscreteLyapunovEquation(
 
 Matrix2d Solve2By2RealDiscreteLyapunovEquation(
     const Eigen::Ref<const Matrix2d>& A, const Eigen::Ref<const Matrix2d>& Q) {
-  DRAKE_DEMAND(std::isnan(Q(1, 0)));
+  MALIPUT_DRAKE_DEMAND(std::isnan(Q(1, 0)));
   // Rewrite AᵀXA - X + Q = 0 (case where A,Q are 2-by-2) into linear set A_vec
   // *vec(X) = -vec(Q) and solve for X.
   Matrix3d A_vec;

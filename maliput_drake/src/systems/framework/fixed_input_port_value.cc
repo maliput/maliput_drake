@@ -6,7 +6,7 @@ namespace maliput::drake {
 namespace systems {
 
 AbstractValue* FixedInputPortValue::GetMutableData() {
-  DRAKE_DEMAND(owning_subcontext_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext_ != nullptr);
   ContextBase& context = *owning_subcontext_;
   const DependencyTracker& tracker = context.get_tracker(ticket_);
   const int64_t change_event = context.start_new_change_event();

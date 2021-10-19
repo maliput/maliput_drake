@@ -33,7 +33,7 @@ Simulator<T>::Simulator(const System<T>* system,
   if (!context_) context_ = system_.CreateDefaultContext();
 
   // Create a default integrator and initialize it.
-  DRAKE_DEMAND(SimulatorConfig{}.integration_scheme == "runge_kutta3");
+  MALIPUT_DRAKE_DEMAND(SimulatorConfig{}.integration_scheme == "runge_kutta3");
   integrator_ = std::unique_ptr<IntegratorBase<T>>(
       new RungeKutta3Integrator<T>(system_, context_.get()));
   integrator_->request_initial_step_size_target(
@@ -88,12 +88,12 @@ SimulatorStatus Simulator<T>::Initialize(const InitializeParams& params) {
 
   // Gets all per-step events to be handled.
   per_step_events_ = system_.AllocateCompositeEventCollection();
-  DRAKE_DEMAND(per_step_events_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(per_step_events_ != nullptr);
   system_.GetPerStepEvents(*context_, per_step_events_.get());
 
   // Allocate timed events collection.
   timed_events_ = system_.AllocateCompositeEventCollection();
-  DRAKE_DEMAND(timed_events_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(timed_events_ != nullptr);
 
   // Ensure that CalcNextUpdateTime() can return the current time by perturbing
   // current time as slightly toward negative infinity as we can allow.
@@ -195,7 +195,7 @@ SimulatorStatus Simulator<T>::AdvanceTo(const T& boundary_time) {
       return initialize_status;
   }
 
-  DRAKE_DEMAND(!std::isnan(last_known_simtime_));
+  MALIPUT_DRAKE_DEMAND(!std::isnan(last_known_simtime_));
   if (last_known_simtime_ != context_->get_time()) {
     throw std::logic_error(
         "Simulation time has changed since last Initialize() or AdvanceTo()."
@@ -208,9 +208,9 @@ SimulatorStatus Simulator<T>::AdvanceTo(const T& boundary_time) {
   SimulatorStatus status(ExtractDoubleOrThrow(boundary_time));
 
   // Integrate until desired interval has completed.
-  DRAKE_DEMAND(timed_events_ != nullptr);
-  DRAKE_DEMAND(witnessed_events_ != nullptr);
-  DRAKE_DEMAND(merged_events_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(timed_events_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(witnessed_events_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(merged_events_ != nullptr);
 
   // Clear events for the loop iteration.
   merged_events_->Clear();
@@ -247,10 +247,10 @@ SimulatorStatus Simulator<T>::AdvanceTo(const T& boundary_time) {
     // events.
     const T time_of_next_timed_event =
         system_.CalcNextUpdateTime(*context_, timed_events_.get());
-    DRAKE_DEMAND(time_of_next_timed_event >= step_start_time);
+    MALIPUT_DRAKE_DEMAND(time_of_next_timed_event >= step_start_time);
 
     using std::isfinite;
-    DRAKE_DEMAND(!isfinite(time_of_next_timed_event) ||
+    MALIPUT_DRAKE_DEMAND(!isfinite(time_of_next_timed_event) ||
                  timed_events_->HasEvents());
 
     // Determine whether the set of events requested by the System at
@@ -399,7 +399,7 @@ void Simulator<T>::IsolateWitnessTriggers(
     std::vector<const WitnessFunction<T>*>* triggered_witnesses) {
 
   // Verify that the vector of triggered witnesses is non-null.
-  DRAKE_DEMAND(triggered_witnesses != nullptr);
+  MALIPUT_DRAKE_DEMAND(triggered_witnesses != nullptr);
 
   // TODO(edrumwri): Speed this process using interpolation between states,
   // more powerful root finding methods, and/or introducing the concept of
@@ -643,7 +643,7 @@ Simulator<T>::IntegrateContinuousState(
       // IntegratorBase::IntegrateNoFurtherThanTime(.) pledges to step no
       // further than min(next_publish_time, next_update_time, boundary_time),
       // so we'll verify that assertion.
-      DRAKE_DEMAND(ti <= next_update_time && tf <= next_publish_time);
+      MALIPUT_DRAKE_DEMAND(ti <= next_update_time && tf <= next_publish_time);
       if (ti == next_update_time || ti == next_publish_time) {
         return kBothTriggered;
       } else {
@@ -654,14 +654,14 @@ Simulator<T>::IntegrateContinuousState(
       // the continuous state was integrated to the intermediate time ti, where
       // t0 < ti < tf. Since any publishes/updates must occur at tf, there
       // should be no triggers.
-      DRAKE_DEMAND(t0 < ti && ti < tf);
+      MALIPUT_DRAKE_DEMAND(t0 < ti && ti < tf);
 
       // The contract for IntegratorBase::IntegrateNoFurtherThanTime() specifies
       // that tf must be less than or equal to next_update_time and
       // next_publish_time. Since ti must be strictly less than tf, it follows
       // that ti must be strictly less than next_update_time and
       // next_publish_time.
-      DRAKE_DEMAND(next_update_time > ti && next_publish_time > ti);
+      MALIPUT_DRAKE_DEMAND(next_update_time > ti && next_publish_time > ti);
       return kNothingTriggered;
     }
   }

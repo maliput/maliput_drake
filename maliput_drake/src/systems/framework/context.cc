@@ -169,7 +169,7 @@ void Context<T>::init_abstract_state(std::unique_ptr<AbstractValues> xa) {
 
 template <typename T>
 void Context<T>::init_parameters(std::unique_ptr<Parameters<T>> params) {
-  DRAKE_DEMAND(params != nullptr);
+  MALIPUT_DRAKE_DEMAND(params != nullptr);
   parameters_ = std::move(params);
 }
 

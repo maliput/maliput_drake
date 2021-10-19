@@ -87,7 +87,7 @@ class LeafOutputPort final : public OutputPort<T> {
       : OutputPort<T>(system, system_interface, system_id, std::move(name),
                       index, ticket, data_type, size),
         cache_entry_(cache_entry) {
-    DRAKE_DEMAND(cache_entry != nullptr);
+    MALIPUT_DRAKE_DEMAND(cache_entry != nullptr);
   }
 
   // Invokes the cache entry's allocation function.

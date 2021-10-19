@@ -90,7 +90,7 @@ void DependencyTracker::NotifySubscribers(int64_t change_event,
 // runtime execution fast.
 void DependencyTracker::SubscribeToPrerequisite(
     DependencyTracker* prerequisite) {
-  DRAKE_DEMAND(prerequisite != nullptr);
+  MALIPUT_DRAKE_DEMAND(prerequisite != nullptr);
   DRAKE_LOGGER_DEBUG("Tracker '{}' subscribing to prerequisite '{}'",
                      GetPathDescription(), prerequisite->GetPathDescription());
 
@@ -126,7 +126,7 @@ bool Contains(const T& value, const std::vector<T>& to_search) {
 template <typename T>
 void Remove(const T& value, std::vector<T>* to_search) {
   auto found = std::find(to_search->begin(), to_search->end(), value);
-  DRAKE_DEMAND(found != to_search->end());
+  MALIPUT_DRAKE_DEMAND(found != to_search->end());
   to_search->erase(found);
 }
 }  // namespace
@@ -134,7 +134,7 @@ void Remove(const T& value, std::vector<T>* to_search) {
 // Remove a subscription that we made earlier.
 void DependencyTracker::UnsubscribeFromPrerequisite(
     DependencyTracker* prerequisite) {
-  DRAKE_DEMAND(prerequisite != nullptr);
+  MALIPUT_DRAKE_DEMAND(prerequisite != nullptr);
   DRAKE_LOGGER_DEBUG("Tracker '{}' unsubscribing from prerequisite '{}'",
                      GetPathDescription(), prerequisite->GetPathDescription());
 
@@ -214,12 +214,12 @@ void DependencyTracker::RepairTrackerPointers(
     const DependencyTracker& source,
     const DependencyTracker::PointerMap& tracker_map,
     const internal::ContextMessageInterface* owning_subcontext, Cache* cache) {
-  DRAKE_DEMAND(owning_subcontext != nullptr);
-  DRAKE_DEMAND(cache != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
+  MALIPUT_DRAKE_DEMAND(cache != nullptr);
   owning_subcontext_ = owning_subcontext;
 
   // Set the cache entry pointer.
-  DRAKE_DEMAND(has_associated_cache_entry_ ==
+  MALIPUT_DRAKE_DEMAND(has_associated_cache_entry_ ==
                source.has_associated_cache_entry_);
   if (has_associated_cache_entry_) {
     const CacheIndex source_index(source.cache_value_->cache_index());
@@ -231,20 +231,20 @@ void DependencyTracker::RepairTrackerPointers(
   }
 
   // Set the subscriber pointers.
-  DRAKE_DEMAND(num_subscribers() == source.num_subscribers());
+  MALIPUT_DRAKE_DEMAND(num_subscribers() == source.num_subscribers());
   for (int i = 0; i < num_subscribers(); ++i) {
     MALIPUT_DRAKE_ASSERT(subscribers_[i] == nullptr);
     auto map_entry = tracker_map.find(source.subscribers()[i]);
-    DRAKE_DEMAND(map_entry != tracker_map.end());
+    MALIPUT_DRAKE_DEMAND(map_entry != tracker_map.end());
     subscribers_[i] = map_entry->second;
   }
 
   // Set the prerequisite pointers.
-  DRAKE_DEMAND(num_prerequisites() == source.num_prerequisites());
+  MALIPUT_DRAKE_DEMAND(num_prerequisites() == source.num_prerequisites());
   for (int i = 0; i < num_prerequisites(); ++i) {
     MALIPUT_DRAKE_ASSERT(prerequisites_[i] == nullptr);
     auto map_entry = tracker_map.find(source.prerequisites()[i]);
-    DRAKE_DEMAND(map_entry != tracker_map.end());
+    MALIPUT_DRAKE_DEMAND(map_entry != tracker_map.end());
     prerequisites_[i] = map_entry->second;
   }
 
@@ -255,14 +255,14 @@ void DependencyTracker::RepairTrackerPointers(
 void DependencyGraph::AppendToTrackerPointerMap(
     const DependencyGraph& clone,
     DependencyTracker::PointerMap* tracker_map) const {
-  DRAKE_DEMAND(tracker_map != nullptr);
-  DRAKE_DEMAND(clone.trackers_size() == trackers_size());
+  MALIPUT_DRAKE_DEMAND(tracker_map != nullptr);
+  MALIPUT_DRAKE_DEMAND(clone.trackers_size() == trackers_size());
   for (DependencyTicket ticket(0); ticket < trackers_size(); ++ticket) {
     if (!has_tracker(ticket))
       continue;
     const bool added = tracker_map->emplace(&get_tracker(ticket),
                                             &clone.get_tracker(ticket)).second;
-    DRAKE_DEMAND(added);  // Shouldn't have been there.
+    MALIPUT_DRAKE_DEMAND(added);  // Shouldn't have been there.
   }
 }
 
@@ -271,7 +271,7 @@ void DependencyGraph::RepairTrackerPointers(
     const DependencyTracker::PointerMap& tracker_map,
     const internal::ContextMessageInterface* owning_subcontext,
     Cache* new_cache) {
-  DRAKE_DEMAND(owning_subcontext != nullptr);
+  MALIPUT_DRAKE_DEMAND(owning_subcontext != nullptr);
   owning_subcontext_ = owning_subcontext;
   for (DependencyTicket ticket(0); ticket < trackers_size(); ++ticket) {
     if (!has_tracker(ticket))

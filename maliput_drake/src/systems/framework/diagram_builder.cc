@@ -117,7 +117,7 @@ InputPortIndex DiagramBuilder<T>::DeclareInput(
       name == kUseDefaultName
           ? input.get_system().get_name() + "_" + input.get_name()
           : std::get<std::string>(std::move(name));
-  DRAKE_DEMAND(!port_name.empty());
+  MALIPUT_DRAKE_DEMAND(!port_name.empty());
 
   // Reject duplicate declarations.
   if (diagram_input_indices_.count(port_name) != 0) {
@@ -206,7 +206,7 @@ OutputPortIndex DiagramBuilder<T>::ExportOutput(
       name == kUseDefaultName
           ? output.get_system().get_name() + "_" + output.get_name()
           : std::get<std::string>(std::move(name));
-  DRAKE_DEMAND(!port_name.empty());
+  MALIPUT_DRAKE_DEMAND(!port_name.empty());
   output_port_names_.emplace_back(std::move(port_name));
 
   return return_id;
@@ -245,7 +245,7 @@ void DiagramBuilder<T>::ThrowIfInputAlreadyWired(
 template <typename T>
 void DiagramBuilder<T>::ThrowIfSystemNotRegistered(
     const System<T>* system) const {
-  DRAKE_DEMAND(system != nullptr);
+  MALIPUT_DRAKE_DEMAND(system != nullptr);
   if (systems_.count(system) == 0) {
     throw std::logic_error(fmt::format(
         "DiagramBuilder: Cannot operate on ports of System {} "

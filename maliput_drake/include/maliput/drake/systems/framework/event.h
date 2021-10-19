@@ -510,8 +510,8 @@ class Event {
    */
   void AddToComposite(TriggerType trigger_type,
                       CompositeEventCollection<T>* events) const {
-    DRAKE_DEMAND(events != nullptr);
-    DRAKE_DEMAND(trigger_type_ == TriggerType::kUnknown ||
+    MALIPUT_DRAKE_DEMAND(events != nullptr);
+    MALIPUT_DRAKE_DEMAND(trigger_type_ == TriggerType::kUnknown ||
                  trigger_type_ == trigger_type);
     DoAddToComposite(trigger_type, &*events);
   }
@@ -521,8 +521,8 @@ class Event {
    * correct trigger type set. Must not have an unknown trigger type.
    */
   void AddToComposite(CompositeEventCollection<T>* events) const {
-    DRAKE_DEMAND(events != nullptr);
-    DRAKE_DEMAND(trigger_type_ != TriggerType::kUnknown);
+    MALIPUT_DRAKE_DEMAND(events != nullptr);
+    MALIPUT_DRAKE_DEMAND(trigger_type_ != TriggerType::kUnknown);
     DoAddToComposite(trigger_type_, &*events);
   }
 

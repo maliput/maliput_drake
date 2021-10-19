@@ -10,8 +10,8 @@ namespace trajectories {
 template <typename T>
 PiecewisePose<T>::PiecewisePose(const PiecewisePolynomial<T>& pos_traj,
                                 const PiecewiseQuaternionSlerp<T>& rot_traj) {
-  DRAKE_DEMAND(pos_traj.rows() == 3);
-  DRAKE_DEMAND(pos_traj.cols() == 1);
+  MALIPUT_DRAKE_DEMAND(pos_traj.rows() == 3);
+  MALIPUT_DRAKE_DEMAND(pos_traj.cols() == 1);
   position_ = pos_traj;
   velocity_ = position_.derivative();
   acceleration_ = velocity_.derivative();

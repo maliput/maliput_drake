@@ -14,8 +14,8 @@ DiagramContext<T>::DiagramContext(int num_subcontexts)
 template <typename T>
 void DiagramContext<T>::AddSystem(
     SubsystemIndex index, std::unique_ptr<Context<T>> context) {
-  DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
-  DRAKE_DEMAND(contexts_[index] == nullptr);
+  MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
+  MALIPUT_DRAKE_DEMAND(contexts_[index] == nullptr);
   ContextBase::set_parent(context.get(), this);
   contexts_[index] = std::move(context);
 }
@@ -28,7 +28,7 @@ void DiagramContext<T>::SubscribeExportedInputPortToDiagramPort(
   const SubsystemIndex subsystem_index = subsystem_input_port.first;
   const InputPortIndex subsystem_iport_index = subsystem_input_port.second;
   Context<T>& subcontext = GetMutableSubsystemContext(subsystem_index);
-  DRAKE_DEMAND(0 <= subsystem_iport_index &&
+  MALIPUT_DRAKE_DEMAND(0 <= subsystem_iport_index &&
                subsystem_iport_index < subcontext.num_input_ports());
 
   // Get this Diagram's input port that serves as the source.
@@ -50,7 +50,7 @@ void DiagramContext<T>::SubscribeDiagramPortToExportedOutputPort(
   const SubsystemIndex subsystem_index = subsystem_output_port.first;
   const OutputPortIndex subsystem_oport_index = subsystem_output_port.second;
   Context<T>& subcontext = GetMutableSubsystemContext(subsystem_index);
-  DRAKE_DEMAND(0 <= subsystem_oport_index &&
+  MALIPUT_DRAKE_DEMAND(0 <= subsystem_oport_index &&
                subsystem_oport_index < subcontext.num_output_ports());
 
   // Get the child subsystem's output port tracker that serves as the source.
@@ -75,15 +75,15 @@ void DiagramContext<T>::SubscribeInputPortToOutputPort(
   const SubsystemIndex oport_system_index = output_port.first;
   const OutputPortIndex oport_index = output_port.second;
   Context<T>& oport_context = GetMutableSubsystemContext(oport_system_index);
-  DRAKE_DEMAND(oport_index >= 0);
-  DRAKE_DEMAND(oport_index < oport_context.num_output_ports());
+  MALIPUT_DRAKE_DEMAND(oport_index >= 0);
+  MALIPUT_DRAKE_DEMAND(oport_index < oport_context.num_output_ports());
 
   // Identify and validate the destination input port.
   const SubsystemIndex iport_system_index = input_port.first;
   const InputPortIndex iport_index = input_port.second;
   Context<T>& iport_context = GetMutableSubsystemContext(iport_system_index);
-  DRAKE_DEMAND(iport_index >= 0);
-  DRAKE_DEMAND(iport_index < iport_context.num_input_ports());
+  MALIPUT_DRAKE_DEMAND(iport_index >= 0);
+  MALIPUT_DRAKE_DEMAND(iport_index < iport_context.num_input_ports());
 
   // Dig out the dependency trackers for both ports so we can subscribe the
   // input port tracker to the output port tracker.
@@ -120,7 +120,7 @@ void DiagramContext<T>::SubscribeDiagramCompositeTrackersToChildrens() {
 
   // Validate the claim above that Diagrams do not have tickets for individual
   // variables and parameters.
-  DRAKE_DEMAND(!this->owns_any_variables_or_parameters());
+  MALIPUT_DRAKE_DEMAND(!this->owns_any_variables_or_parameters());
 
   // Collect the diagram trackers for each composite item above.
   DependencyGraph& graph = this->get_mutable_dependency_graph();
@@ -185,7 +185,7 @@ DiagramContext<T>::DiagramContext(const DiagramContext& source)
       state_(std::make_unique<DiagramState<T>>(source.num_subcontexts())) {
   // Clone all the subsystem contexts.
   for (SubsystemIndex i(0); i < num_subcontexts(); ++i) {
-    DRAKE_DEMAND(source.contexts_[i] != nullptr);
+    MALIPUT_DRAKE_DEMAND(source.contexts_[i] != nullptr);
     AddSystem(i, Context<T>::CloneWithoutPointers(*source.contexts_[i]));
   }
 
@@ -308,7 +308,7 @@ void DiagramContext<T>::DoPropagateBuildTrackerPointerMap(
     const ContextBase& clone,
     DependencyTracker::PointerMap* tracker_map) const {
   auto& clone_diagram = dynamic_cast<const DiagramContext<T>&>(clone);
-  DRAKE_DEMAND(clone_diagram.contexts_.size() == contexts_.size());
+  MALIPUT_DRAKE_DEMAND(clone_diagram.contexts_.size() == contexts_.size());
   for (SubsystemIndex i(0); i < num_subcontexts(); ++i) {
     ContextBase::BuildTrackerPointerMap(
         *contexts_[i], *clone_diagram.contexts_[i], &*tracker_map);
@@ -320,7 +320,7 @@ void DiagramContext<T>::DoPropagateFixContextPointers(
     const ContextBase& source,
     const DependencyTracker::PointerMap& tracker_map) {
   auto& source_diagram = dynamic_cast<const DiagramContext<T>&>(source);
-  DRAKE_DEMAND(contexts_.size() == source_diagram.contexts_.size());
+  MALIPUT_DRAKE_DEMAND(contexts_.size() == source_diagram.contexts_.size());
   for (SubsystemIndex i(0); i < num_subcontexts(); ++i) {
     ContextBase::FixContextPointers(*source_diagram.contexts_[i], tracker_map,
                                     &*contexts_[i]);

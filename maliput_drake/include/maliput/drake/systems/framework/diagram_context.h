@@ -107,8 +107,8 @@ class DiagramContext final : public Context<T> {
   /// Aborts if @p index is out of bounds, or if no system has been added to the
   /// DiagramContext at that index.
   const Context<T>& GetSubsystemContext(SubsystemIndex index) const {
-    DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
-    DRAKE_DEMAND(contexts_[index] != nullptr);
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
+    MALIPUT_DRAKE_DEMAND(contexts_[index] != nullptr);
     return *contexts_[index].get();
   }
 
@@ -117,8 +117,8 @@ class DiagramContext final : public Context<T> {
   /// Aborts if @p index is out of bounds, or if no system has been added to the
   /// DiagramContext at that index.
   Context<T>& GetMutableSubsystemContext(SubsystemIndex index) {
-    DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
-    DRAKE_DEMAND(contexts_[index] != nullptr);
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_subcontexts());
+    MALIPUT_DRAKE_DEMAND(contexts_[index] != nullptr);
     return *contexts_[index].get();
   }
 

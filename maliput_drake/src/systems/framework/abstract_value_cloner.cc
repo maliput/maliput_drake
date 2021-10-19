@@ -13,7 +13,7 @@ namespace internal {
 AbstractValueCloner::AbstractValueCloner(
     std::unique_ptr<AbstractValue> model_value)
     : model_value_(std::move(model_value)) {
-  DRAKE_DEMAND(model_value_ != nullptr);
+  MALIPUT_DRAKE_DEMAND(model_value_ != nullptr);
 }
 
 AbstractValueCloner::~AbstractValueCloner() = default;

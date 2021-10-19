@@ -98,7 +98,7 @@ void Expression::HashAppend(DelegatingHasher* hasher) const {
 
 ExpressionCell& Expression::mutable_cell() {
   MALIPUT_DRAKE_ASSERT(ptr_ != nullptr);
-  DRAKE_DEMAND(ptr_.use_count() == 1);
+  MALIPUT_DRAKE_DEMAND(ptr_.use_count() == 1);
   return *ptr_;
 }
 
@@ -900,7 +900,7 @@ VectorX<Variable> GetVariableVector(
 
 MatrixX<Expression> Jacobian(const Eigen::Ref<const VectorX<Expression>>& f,
                              const vector<Variable>& vars) {
-  DRAKE_DEMAND(!vars.empty());
+  MALIPUT_DRAKE_DEMAND(!vars.empty());
   const Eigen::Ref<const VectorX<Expression>>::Index n{f.size()};
   const size_t m{vars.size()};
   MatrixX<Expression> J(n, m);
@@ -1090,7 +1090,7 @@ Expression TaylorExpand(const Expression& f, const Environment& a,
                         const int order) {
   // The implementation uses the formulation:
   //      Taylor(f, a, order) = ∑_{|α| ≤ order} ∂fᵅ(a) / α! * (x - a)ᵅ.
-  DRAKE_DEMAND(order >= 1);
+  MALIPUT_DRAKE_DEMAND(order >= 1);
   ExpressionAddFactory factory;
   factory.AddExpression(f.EvaluatePartial(a));
   const int num_vars = a.size();

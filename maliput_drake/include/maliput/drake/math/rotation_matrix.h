@@ -842,7 +842,7 @@ class RotationMatrix {
   template <typename Derived>
   static Matrix3<typename Derived::Scalar> ProjectMatrix3ToOrthonormalMatrix3(
       const Eigen::MatrixBase<Derived>& M, T* quality_factor) {
-    DRAKE_DEMAND(M.rows() == 3 && M.cols() == 3);
+    MALIPUT_DRAKE_DEMAND(M.rows() == 3 && M.cols() == 3);
     const auto svd = M.jacobiSvd(Eigen::ComputeFullU | Eigen::ComputeFullV);
     if (quality_factor != nullptr) {
       // Singular values are always non-negative and sorted in decreasing order.

@@ -165,7 +165,7 @@ Vector3<T> PiecewiseQuaternionSlerp<T>::angular_acceleration(const T&) const {
 template <typename T>
 void PiecewiseQuaternionSlerp<T>::Append(
     const T& time, const Quaternion<T>& quaternion) {
-  DRAKE_DEMAND(this->breaks().empty() || time > this->breaks().back());
+  MALIPUT_DRAKE_DEMAND(this->breaks().empty() || time > this->breaks().back());
   if (quaternions_.empty()) {
     quaternions_.push_back(quaternion.normalized());
   } else {

@@ -76,7 +76,7 @@ class SystemSymbolicInspector {
   /// Returns a reference to the symbolic representation of the input.
   /// @param i The input port number.
   Eigen::VectorBlock<const VectorX<symbolic::Variable>> input(int i) const {
-    DRAKE_DEMAND(i >= 0 && i < static_cast<int>(input_variables_.size()));
+    MALIPUT_DRAKE_DEMAND(i >= 0 && i < static_cast<int>(input_variables_.size()));
     return input_variables_[i].head(input_variables_[i].rows());
   }
 
@@ -91,7 +91,7 @@ class SystemSymbolicInspector {
   /// @param i The discrete state group number.
   Eigen::VectorBlock<const VectorX<symbolic::Variable>> discrete_state(
       int i) const {
-    DRAKE_DEMAND(i >= 0 &&
+    MALIPUT_DRAKE_DEMAND(i >= 0 &&
                  i < static_cast<int>(discrete_state_variables_.size()));
     return discrete_state_variables_[i].head(
         discrete_state_variables_[i].rows());
@@ -102,7 +102,7 @@ class SystemSymbolicInspector {
   /// @param i The numeric parameter group number.
   Eigen::VectorBlock<const VectorX<symbolic::Variable>> numeric_parameters(
       int i) const {
-    DRAKE_DEMAND(i >= 0 && i < static_cast<int>(numeric_parameters_.size()));
+    MALIPUT_DRAKE_DEMAND(i >= 0 && i < static_cast<int>(numeric_parameters_.size()));
     return numeric_parameters_[i].head(numeric_parameters_[i].rows());
   }
 
@@ -117,14 +117,14 @@ class SystemSymbolicInspector {
   /// @param i The discrete state group number.
   Eigen::VectorBlock<const VectorX<symbolic::Expression>> discrete_update(
       int i) const {
-    DRAKE_DEMAND(i >= 0 && i < context_->num_discrete_state_groups());
+    MALIPUT_DRAKE_DEMAND(i >= 0 && i < context_->num_discrete_state_groups());
     return discrete_updates_->get_vector(i).get_value();
   }
 
   /// Returns a reference to the symbolic representation of the output.
   /// @param i The output port number.
   Eigen::VectorBlock<const VectorX<symbolic::Expression>> output(int i) const {
-    DRAKE_DEMAND(output_port_types_[i] == kVectorValued);
+    MALIPUT_DRAKE_DEMAND(output_port_types_[i] == kVectorValued);
     return output_->get_vector_data(i)->get_value();
   }
 

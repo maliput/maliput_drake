@@ -16,7 +16,7 @@ namespace {
 std::map<Variable, int> ToVarToDegreeMap(
     const Eigen::Ref<const VectorX<Variable>>& vars,
     const Eigen::Ref<const Eigen::VectorXi>& exponents) {
-  DRAKE_DEMAND(vars.size() == exponents.size());
+  MALIPUT_DRAKE_DEMAND(vars.size() == exponents.size());
   std::map<Variable, int> powers;
   for (int i = 0; i < vars.size(); ++i) {
     if (powers.count(vars[i]) > 0) {

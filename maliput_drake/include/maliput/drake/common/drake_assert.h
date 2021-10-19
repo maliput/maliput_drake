@@ -46,7 +46,7 @@
 /// Evaluates @p condition and iff the value is false will trigger an assertion
 /// failure with a message showing at least the condition text, function name,
 /// file, and line.
-#define DRAKE_DEMAND(condition)
+#define MALIPUT_DRAKE_DEMAND(condition)
 /// Silences a "no return value" compiler warning by calling a function that
 /// always raises an exception or aborts (i.e., a function marked noreturn).
 /// Only use this macro at a point where (1) a point in the code is truly
@@ -109,7 +109,7 @@ struct ConditionTraits {
   ::maliput::drake::internal::Abort(                                             \
       "Unreachable code was reached?!", __func__, __FILE__, __LINE__)
 
-#define DRAKE_DEMAND(condition)                                              \
+#define MALIPUT_DRAKE_DEMAND(condition)                                              \
   do {                                                                       \
     typedef ::maliput::drake::assert::ConditionTraits<                                \
         typename std::remove_cv_t<decltype(condition)>> Trait;               \
@@ -126,7 +126,7 @@ namespace maliput::drake {
 constexpr bool kDrakeAssertIsArmed = true;
 constexpr bool kDrakeAssertIsDisarmed = false;
 }  // namespace maliput::drake
-# define MALIPUT_DRAKE_ASSERT(condition) DRAKE_DEMAND(condition)
+# define MALIPUT_DRAKE_ASSERT(condition) MALIPUT_DRAKE_DEMAND(condition)
 # define MALIPUT_DRAKE_ASSERT_VOID(expression) do {                     \
     static_assert(                                              \
         std::is_convertible_v<decltype(expression), void>,      \

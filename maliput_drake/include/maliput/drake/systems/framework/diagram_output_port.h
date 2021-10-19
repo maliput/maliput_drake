@@ -83,9 +83,9 @@ class DiagramOutputPort final : public OutputPort<T> {
                       source_output_port->size()),
         source_output_port_(source_output_port),
         source_subsystem_index_(source_subsystem_index) {
-    DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
-    DRAKE_DEMAND(source_subsystem_index.is_valid());
-    DRAKE_DEMAND(source_output_port != nullptr);
+    MALIPUT_DRAKE_DEMAND(index.is_valid() && ticket.is_valid());
+    MALIPUT_DRAKE_DEMAND(source_subsystem_index.is_valid());
+    MALIPUT_DRAKE_DEMAND(source_output_port != nullptr);
   }
 
   // Asks the source system output port to allocate an appropriate object.
@@ -132,7 +132,7 @@ class DiagramOutputPort final : public OutputPort<T> {
     // they do so safely.
     const DiagramContext<T>* diagram_context_downcast =
         static_cast<const DiagramContext<T>*>(&diagram_context);
-    DRAKE_DEMAND(diagram_context_downcast != nullptr);
+    MALIPUT_DRAKE_DEMAND(diagram_context_downcast != nullptr);
     return diagram_context_downcast->GetSubsystemContext(
         source_subsystem_index_);
   }

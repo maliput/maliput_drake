@@ -143,7 +143,7 @@ template <typename T>
 void LeafSystem<T>::SetDefaultState(
     const Context<T>& context, State<T>* state) const {
   this->ValidateContext(context);
-  DRAKE_DEMAND(state != nullptr);
+  MALIPUT_DRAKE_DEMAND(state != nullptr);
   this->ValidateCreatedForThisSystem(state);
   ContinuousState<T>& xc = state->get_mutable_continuous_state();
   xc.SetFromVector(model_continuous_state_vector_->get_value());
@@ -151,7 +151,7 @@ void LeafSystem<T>::SetDefaultState(
   DiscreteValues<T>& xd = state->get_mutable_discrete_state();
 
   // Check that _if_ we have models, there is one for each group.
-  DRAKE_DEMAND(model_discrete_state_.num_groups() == 0 ||
+  MALIPUT_DRAKE_DEMAND(model_discrete_state_.num_groups() == 0 ||
       model_discrete_state_.num_groups() == xd.num_groups());
 
   if (model_discrete_state_.num_groups() > 0) {
@@ -242,7 +242,7 @@ std::multimap<int, int> LeafSystem<T>::GetDirectFeedthroughs() const {
   // A helper function that removes an item from `unknown`.
   const auto remove_unknown = [&unknown](const auto& in_out_pair) {
     const auto num_erased = unknown.erase(in_out_pair);
-    DRAKE_DEMAND(num_erased == 1);
+    MALIPUT_DRAKE_DEMAND(num_erased == 1);
   };
 
   // A helper function that adds this in/out pair to the feedthrough result.
@@ -347,7 +347,7 @@ std::unique_ptr<LeafContext<T>> LeafSystem<T>::DoMakeLeafContext() const {
 template <typename T>
 T LeafSystem<T>::DoCalcWitnessValue(
     const Context<T>& context, const WitnessFunction<T>& witness_func) const {
-  DRAKE_DEMAND(this == &witness_func.get_system());
+  MALIPUT_DRAKE_DEMAND(this == &witness_func.get_system());
   return witness_func.CalcWitnessValue(context);
 }
 
@@ -355,11 +355,11 @@ template <typename T>
 void LeafSystem<T>::AddTriggeredWitnessFunctionToCompositeEventCollection(
     Event<T>* event,
     CompositeEventCollection<T>* events) const {
-  DRAKE_DEMAND(event != nullptr);
-  DRAKE_DEMAND(event->get_event_data() != nullptr);
-  DRAKE_DEMAND(dynamic_cast<const WitnessTriggeredEventData<T>*>(
+  MALIPUT_DRAKE_DEMAND(event != nullptr);
+  MALIPUT_DRAKE_DEMAND(event->get_event_data() != nullptr);
+  MALIPUT_DRAKE_DEMAND(dynamic_cast<const WitnessTriggeredEventData<T>*>(
       event->get_event_data()) != nullptr);
-  DRAKE_DEMAND(events != nullptr);
+  MALIPUT_DRAKE_DEMAND(events != nullptr);
   event->AddToComposite(events);
 }
 
@@ -443,7 +443,7 @@ template <typename T>
 void LeafSystem<T>::GetGraphvizInputPortToken(
     const InputPort<T>& port, int max_depth, std::stringstream* dot) const {
   unused(max_depth);
-  DRAKE_DEMAND(&port.get_system() == this);
+  MALIPUT_DRAKE_DEMAND(&port.get_system() == this);
   *dot << this->GetGraphvizId() << ":u" << port.get_index();
 }
 
@@ -451,14 +451,14 @@ template <typename T>
 void LeafSystem<T>::GetGraphvizOutputPortToken(
     const OutputPort<T>& port, int max_depth, std::stringstream* dot) const {
   unused(max_depth);
-  DRAKE_DEMAND(&port.get_system() == this);
+  MALIPUT_DRAKE_DEMAND(&port.get_system() == this);
   *dot << this->GetGraphvizId() << ":y" << port.get_index();
 }
 
 template <typename T>
 std::unique_ptr<ContinuousState<T>> LeafSystem<T>::AllocateContinuousState()
     const {
-  DRAKE_DEMAND(model_continuous_state_vector_->size() ==
+  MALIPUT_DRAKE_DEMAND(model_continuous_state_vector_->size() ==
                this->num_continuous_states());
   const SystemBase::ContextSizes& sizes = this->get_context_sizes();
   auto result = std::make_unique<ContinuousState<T>>(
@@ -569,7 +569,7 @@ ContinuousStateIndex LeafSystem<T>::DeclareContinuousState(
 template <typename T>
 ContinuousStateIndex LeafSystem<T>::DeclareContinuousState(
     const BasicVector<T>& model_vector, int num_q, int num_v, int num_z) {
-  DRAKE_DEMAND(model_vector.size() == num_q + num_v + num_z);
+  MALIPUT_DRAKE_DEMAND(model_vector.size() == num_q + num_v + num_z);
   model_continuous_state_vector_ = model_vector.Clone();
 
   // Note that only the last DeclareContinuousState() takes effect;
@@ -614,7 +614,7 @@ DiscreteStateIndex LeafSystem<T>::DeclareDiscreteState(
 template <typename T>
 DiscreteStateIndex LeafSystem<T>::DeclareDiscreteState(
     int num_state_variables) {
-  DRAKE_DEMAND(num_state_variables >= 0);
+  MALIPUT_DRAKE_DEMAND(num_state_variables >= 0);
   return DeclareDiscreteState(VectorX<T>::Zero(num_state_variables));
 }
 
@@ -885,7 +885,7 @@ void LeafSystem<T>::DispatchPublishHandler(
   const LeafEventCollection<PublishEvent<T>>& leaf_events =
      dynamic_cast<const LeafEventCollection<PublishEvent<T>>&>(events);
   // Only call DoPublish if there are publish events.
-  DRAKE_DEMAND(leaf_events.HasEvents());
+  MALIPUT_DRAKE_DEMAND(leaf_events.HasEvents());
   this->DoPublish(context, leaf_events.get_events());
 }
 
@@ -897,7 +897,7 @@ void LeafSystem<T>::DispatchDiscreteVariableUpdateHandler(
   const LeafEventCollection<DiscreteUpdateEvent<T>>& leaf_events =
       dynamic_cast<const LeafEventCollection<DiscreteUpdateEvent<T>>&>(
           events);
-  DRAKE_DEMAND(leaf_events.HasEvents());
+  MALIPUT_DRAKE_DEMAND(leaf_events.HasEvents());
 
   // Must initialize the output argument with the current contents of the
   // discrete state.
@@ -913,7 +913,7 @@ void LeafSystem<T>::DoApplyDiscreteVariableUpdate(
   MALIPUT_DRAKE_ASSERT(
       dynamic_cast<const LeafEventCollection<DiscreteUpdateEvent<T>>*>(
           &events) != nullptr);
-  DRAKE_DEMAND(events.HasEvents());
+  MALIPUT_DRAKE_DEMAND(events.HasEvents());
   // TODO(sherm1) Should swap rather than copy.
   context->get_mutable_discrete_state().SetFrom(*discrete_state);
 }
@@ -926,7 +926,7 @@ void LeafSystem<T>::DispatchUnrestrictedUpdateHandler(
   const LeafEventCollection<UnrestrictedUpdateEvent<T>>& leaf_events =
       dynamic_cast<const LeafEventCollection<UnrestrictedUpdateEvent<T>>&>(
           events);
-  DRAKE_DEMAND(leaf_events.HasEvents());
+  MALIPUT_DRAKE_DEMAND(leaf_events.HasEvents());
 
   // Must initialize the output argument with the current contents of the
   // state.
@@ -942,7 +942,7 @@ void LeafSystem<T>::DoApplyUnrestrictedUpdate(
   MALIPUT_DRAKE_ASSERT(
       dynamic_cast<const LeafEventCollection<UnrestrictedUpdateEvent<T>>*>(
           &events) != nullptr);
-  DRAKE_DEMAND(events.HasEvents());
+  MALIPUT_DRAKE_DEMAND(events.HasEvents());
   // TODO(sherm1) Should swap rather than copy.
   context->get_mutable_state().SetFrom(*state);
 }
@@ -1019,7 +1019,7 @@ LeafOutputPort<T>& LeafSystem<T>::CreateCachedLeafOutputPort(
     std::string name, const std::optional<int>& fixed_size,
     ValueProducer value_producer,
     std::set<DependencyTicket> calc_prerequisites) {
-  DRAKE_DEMAND(!calc_prerequisites.empty());
+  MALIPUT_DRAKE_DEMAND(!calc_prerequisites.empty());
   // Create a cache entry for this output port.
   const OutputPortIndex oport_index(this->num_output_ports());
   CacheEntry& cache_entry = this->DeclareCacheEntry(

@@ -33,7 +33,7 @@ struct GrayCodesMatrix<Eigen::Dynamic> {
 template<int NumDigits = Eigen::Dynamic>
 typename GrayCodesMatrix<NumDigits>::type
 CalculateReflectedGrayCodes(int num_digits = NumDigits) {
-  DRAKE_DEMAND(num_digits >= 0);
+  MALIPUT_DRAKE_DEMAND(num_digits >= 0);
   int num_codes = num_digits <= 0 ? 0 : 1 << num_digits;
   typename GrayCodesMatrix<NumDigits>::type gray_codes(num_codes, num_digits);
   // TODO(hongkai.dai): implement this part more efficiently.

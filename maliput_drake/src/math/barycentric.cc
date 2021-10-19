@@ -18,10 +18,10 @@ BarycentricMesh<T>::BarycentricMesh(MeshGrid input_grid)
     : input_grid_(std::move(input_grid)),
       stride_(input_grid_.size()),
       num_interpolants_{1} {
-  DRAKE_DEMAND(input_grid_.size() > 0);
+  MALIPUT_DRAKE_DEMAND(input_grid_.size() > 0);
   for (int i = 0; i < get_input_size(); i++) {
     // Must define at least one mesh point per dimension.
-    DRAKE_DEMAND(!input_grid_[i].empty());
+    MALIPUT_DRAKE_DEMAND(!input_grid_[i].empty());
 
     // Gain one interpolant for every non-singleton dimension.
     if (input_grid_[i].size() > 1) num_interpolants_++;
@@ -33,8 +33,8 @@ BarycentricMesh<T>::BarycentricMesh(MeshGrid input_grid)
 template <typename T>
 void BarycentricMesh<T>::get_mesh_point(int index,
                                         EigenPtr<Eigen::VectorXd> point) const {
-  DRAKE_DEMAND(index >= 0);
-  DRAKE_DEMAND(point != nullptr);
+  MALIPUT_DRAKE_DEMAND(index >= 0);
+  MALIPUT_DRAKE_DEMAND(point != nullptr);
   point->resize(get_input_size());
   // Iterate through the input dimensions, assigning the value and reducing
   // the index to be relevant only to the remaining dimensions.
@@ -44,7 +44,7 @@ void BarycentricMesh<T>::get_mesh_point(int index,
     (*point)[i] = *(std::next(input_grid_[i].begin(), dim_index));
     index /= coords.size();  // intentionally truncate to int.
   }
-  DRAKE_DEMAND(index == 0);  // otherwise the index was out of range.
+  MALIPUT_DRAKE_DEMAND(index == 0);  // otherwise the index was out of range.
 }
 
 template <typename T>
@@ -72,8 +72,8 @@ void BarycentricMesh<T>::EvalBarycentricWeights(
     const Eigen::Ref<const VectorX<T>>& input,
     EigenPtr<Eigen::VectorXi> mesh_indices,
     EigenPtr<VectorX<T>> weights) const {
-  DRAKE_DEMAND(input.size() == static_cast<int>(input_grid_.size()));
-  DRAKE_DEMAND(mesh_indices != nullptr && weights != nullptr);
+  MALIPUT_DRAKE_DEMAND(input.size() == static_cast<int>(input_grid_.size()));
+  MALIPUT_DRAKE_DEMAND(mesh_indices != nullptr && weights != nullptr);
 
   // std::pair of fractional position [0,1] and dimension index (position first,
   // so that std::pair's default operator< works for us).

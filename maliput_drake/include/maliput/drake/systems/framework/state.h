@@ -35,7 +35,7 @@ class State {
   virtual ~State();
 
   void set_continuous_state(std::unique_ptr<ContinuousState<T>> xc) {
-    DRAKE_DEMAND(xc != nullptr);
+    MALIPUT_DRAKE_DEMAND(xc != nullptr);
     continuous_state_ = std::move(xc);
   }
 
@@ -50,7 +50,7 @@ class State {
   }
 
   void set_discrete_state(std::unique_ptr<DiscreteValues<T>> xd) {
-    DRAKE_DEMAND(xd != nullptr);
+    MALIPUT_DRAKE_DEMAND(xd != nullptr);
     discrete_state_ = std::move(xd);
   }
 
@@ -75,7 +75,7 @@ class State {
   }
 
   void set_abstract_state(std::unique_ptr<AbstractValues> xa) {
-    DRAKE_DEMAND(xa != nullptr);
+    MALIPUT_DRAKE_DEMAND(xa != nullptr);
     abstract_state_ = std::move(xa);
   }
 

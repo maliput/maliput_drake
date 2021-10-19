@@ -28,7 +28,7 @@ MatrixXd RealContinuousLyapunovEquation(const Eigen::Ref<const MatrixXd>& A,
         "RealContinuousLyapunovEquation(): A and Q must be square and of equal "
         "size!");
   }
-  DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
+  MALIPUT_DRAKE_DEMAND(is_approx_equal_abstol(Q, Q.transpose(), 1e-10));
 
   // The cases where A is 1-by-1 or 2-by-2 are caught as we have an efficient
   // methods at hand to solve these without the use of Schur factorization.

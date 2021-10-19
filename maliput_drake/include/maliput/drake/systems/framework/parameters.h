@@ -90,7 +90,7 @@ class Parameters {
 
   void set_numeric_parameters(
       std::unique_ptr<DiscreteValues<T>> numeric_params) {
-    DRAKE_DEMAND(numeric_params != nullptr);
+    MALIPUT_DRAKE_DEMAND(numeric_params != nullptr);
     numeric_parameters_ = std::move(numeric_params);
   }
 
@@ -127,7 +127,7 @@ class Parameters {
 
   void set_abstract_parameters(
       std::unique_ptr<AbstractValues> abstract_params) {
-    DRAKE_DEMAND(abstract_params != nullptr);
+    MALIPUT_DRAKE_DEMAND(abstract_params != nullptr);
     abstract_parameters_ = std::move(abstract_params);
   }
 

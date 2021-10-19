@@ -25,7 +25,7 @@ class DiagramState : public State<T> {
   /// out of bounds. Does not take ownership of @p substate, which must live
   /// as long as this object.
   void set_substate(int index, State<T>* substate) {
-    DRAKE_DEMAND(index >= 0 && index < num_substates());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_substates());
     substates_[index] = substate;
   }
 
@@ -38,13 +38,13 @@ class DiagramState : public State<T> {
 
   /// Returns the substate at @p index.
   const State<T>& get_substate(int index) const {
-    DRAKE_DEMAND(index >= 0 && index < num_substates());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_substates());
     return *substates_[index];
   }
 
   /// Returns the substate at @p index.
   State<T>& get_mutable_substate(int index) {
-    DRAKE_DEMAND(index >= 0 && index < num_substates());
+    MALIPUT_DRAKE_DEMAND(index >= 0 && index < num_substates());
     return *substates_[index];
   }
 
