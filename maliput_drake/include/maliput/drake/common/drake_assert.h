@@ -42,7 +42,7 @@
 /// Like @p MALIPUT_DRAKE_ASSERT, except that the expression must be void-valued; this
 /// allows for guarding expensive assertion-checking subroutines using the same
 /// macros as stand-alone assertions.
-#define DRAKE_ASSERT_VOID(expression)
+#define MALIPUT_DRAKE_ASSERT_VOID(expression)
 /// Evaluates @p condition and iff the value is false will trigger an assertion
 /// failure with a message showing at least the condition text, function name,
 /// file, and line.
@@ -127,7 +127,7 @@ constexpr bool kDrakeAssertIsArmed = true;
 constexpr bool kDrakeAssertIsDisarmed = false;
 }  // namespace maliput::drake
 # define MALIPUT_DRAKE_ASSERT(condition) DRAKE_DEMAND(condition)
-# define DRAKE_ASSERT_VOID(expression) do {                     \
+# define MALIPUT_DRAKE_ASSERT_VOID(expression) do {                     \
     static_assert(                                              \
         std::is_convertible_v<decltype(expression), void>,      \
         "Expression should be void.");                          \
@@ -143,7 +143,7 @@ constexpr bool kDrakeAssertIsDisarmed = true;
     ::maliput::drake::assert::ConditionTraits<                                  \
         typename std::remove_cv_t<decltype(condition)>>::is_valid,     \
     "Condition should be bool-convertible.");
-# define DRAKE_ASSERT_VOID(expression) static_assert(           \
+# define MALIPUT_DRAKE_ASSERT_VOID(expression) static_assert(           \
     std::is_convertible_v<decltype(expression), void>,          \
     "Expression should be void.")
 #endif

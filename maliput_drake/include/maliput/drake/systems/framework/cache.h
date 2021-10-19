@@ -299,8 +299,8 @@ class CacheEntryValue {
   @throws std::exception if the cache is frozen.
   */
   void swap_value(std::unique_ptr<AbstractValue>* other_value) {
-    DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
-    DRAKE_ASSERT_VOID(ThrowIfBadOtherValue(__func__, other_value));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfBadOtherValue(__func__, other_value));
     ThrowIfFrozen(__func__);
     value_.swap(*other_value);
     ++serial_number_;
@@ -319,7 +319,7 @@ class CacheEntryValue {
   there is no value here; use has_value() if you aren't sure.
   @see needs_recomputation() */
   bool is_out_of_date() const {
-    DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
     return (flags_ & kValueIsOutOfDate) != 0;
   }
 
@@ -333,7 +333,7 @@ class CacheEntryValue {
   However, operation of _this_ method is unaffected by whether the cache
   is frozen. */
   bool needs_recomputation() const {
-    DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
     return flags_ != kReadyToUse;
   }
 
@@ -354,7 +354,7 @@ class CacheEntryValue {
   will be accessible in the frozen cache, regardless of whether it is any
   good! */
   void mark_up_to_date() {
-    DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNoValuePresent(__func__));
     flags_ &= ~kValueIsOutOfDate;
   }
 

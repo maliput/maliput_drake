@@ -14,7 +14,7 @@ RotationMatrix<T> RotationMatrix<T>::MakeFromOneUnitVector(
     const Vector3<T>& u_A, int axis_index) {
   // In Debug builds, verify axis_index is 0 or 1 or 2 and u_A is unit length.
   MALIPUT_DRAKE_ASSERT(axis_index >= 0 && axis_index <= 2);
-  DRAKE_ASSERT_VOID(ThrowIfNotUnitLength(u_A, __func__));
+  MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotUnitLength(u_A, __func__));
 
   if constexpr (scalar_predicate<T>::is_bool == false) {
     throw std::logic_error(

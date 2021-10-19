@@ -16,7 +16,7 @@ namespace internal {
 /// Checks some BasicVector invariants on @p basic_vector.
 ///
 /// Because this function uses shady implementation tricks, it should ONLY be
-/// called from within DRAKE_ASSERT_VOID or unit test code.
+/// called from within MALIPUT_DRAKE_ASSERT_VOID or unit test code.
 ///
 /// This function is likely to be expensive (on the order of a full copy), so
 /// should be used sparingly.  In particular, only a few select locations
@@ -44,7 +44,7 @@ void CheckBasicVectorInvariants(const BasicVector<T>* basic_vector) {
 /// BasicVector invariants.  Otherwise, does nothing.
 ///
 /// Because this function uses shady implementation tricks, it should ONLY be
-/// called from within DRAKE_ASSERT_VOID or unit test code.
+/// called from within MALIPUT_DRAKE_ASSERT_VOID or unit test code.
 ///
 /// This function is likely to be expensive (on the order of a full copy), so
 /// should be used sparingly.  In particular, only a few select locations

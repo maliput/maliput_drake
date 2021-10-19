@@ -880,7 +880,7 @@ void Diagram<T>::DoCalcNextUpdateTime(const Context<T>& context,
         std::numeric_limits<
         typename Eigen::NumTraits<T>::Literal>::quiet_NaN());
   };
-  DRAKE_ASSERT_VOID(set_to_nan(&event_times_buffer));
+  MALIPUT_DRAKE_ASSERT_VOID(set_to_nan(&event_times_buffer));
 
   *next_update_time = std::numeric_limits<double>::infinity();
 

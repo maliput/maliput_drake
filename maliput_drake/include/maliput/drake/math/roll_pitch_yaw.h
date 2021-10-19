@@ -606,7 +606,7 @@ class RollPitchYaw {
   // @param[in] rpy allegedly valid roll-pitch-yaw angles.
   // @throws std::exception in debug builds if rpy fails IsValid(rpy).
   RollPitchYaw<T>& SetOrThrowIfNotValidInDebugBuild(const Vector3<T>& rpy) {
-    DRAKE_ASSERT_VOID(ThrowIfNotValid(rpy));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotValid(rpy));
     roll_pitch_yaw_ = rpy;
     return *this;
   }

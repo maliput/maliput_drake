@@ -355,7 +355,7 @@ class RotationMatrix {
   /// @param[in] R an allegedly valid rotation matrix.
   /// @throws std::exception in debug builds if R fails IsValid(R).
   void set(const Matrix3<T>& R) {
-    DRAKE_ASSERT_VOID(ThrowIfNotValid(R));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotValid(R));
     SetUnchecked(R);
   }
 
@@ -678,7 +678,7 @@ class RotationMatrix {
     const T scale = canonical_factor / q.norm();
     q.coeffs() *= scale;
 
-    DRAKE_ASSERT_VOID(ThrowIfNotValid(QuaternionToRotationMatrix(q, T(2))));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotValid(QuaternionToRotationMatrix(q, T(2))));
     return q;
   }
 
@@ -753,7 +753,7 @@ class RotationMatrix {
     R_AB_.col(0) = Bx;
     R_AB_.col(1) = By;
     R_AB_.col(2) = Bz;
-    DRAKE_ASSERT_VOID(ThrowIfNotValid(R_AB_));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotValid(R_AB_));
   }
 
   // Sets `this` %RotationMatrix `R_AB` from right-handed orthogonal unit
@@ -769,7 +769,7 @@ class RotationMatrix {
     R_AB_.row(0) = Ax;
     R_AB_.row(1) = Ay;
     R_AB_.row(2) = Az;
-    DRAKE_ASSERT_VOID(ThrowIfNotValid(R_AB_));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfNotValid(R_AB_));
   }
 
   // Computes the infinity norm of R - `other` (i.e., the maximum absolute

@@ -362,7 +362,7 @@ Polynomial::Polynomial(MapType init)
     : monomial_to_coefficient_map_{move(init)},
       indeterminates_{GetIndeterminates(monomial_to_coefficient_map_)},
       decision_variables_{GetDecisionVariables(monomial_to_coefficient_map_)} {
-  DRAKE_ASSERT_VOID(CheckInvariant());
+  MALIPUT_DRAKE_ASSERT_VOID(CheckInvariant());
 };
 
 Polynomial::Polynomial(const Monomial& m)
@@ -578,7 +578,7 @@ Polynomial& Polynomial::operator+=(const Polynomial& p) {
   }
   indeterminates_ += p.indeterminates();
   decision_variables_ += p.decision_variables();
-  DRAKE_ASSERT_VOID(CheckInvariant());
+  MALIPUT_DRAKE_ASSERT_VOID(CheckInvariant());
   return *this;
 }
 
@@ -638,7 +638,7 @@ Polynomial& Polynomial::operator*=(const Polynomial& p) {
   monomial_to_coefficient_map_ = std::move(new_map);
   indeterminates_ += p.indeterminates();
   decision_variables_ += p.decision_variables();
-  DRAKE_ASSERT_VOID(CheckInvariant());
+  MALIPUT_DRAKE_ASSERT_VOID(CheckInvariant());
   return *this;
 }
 
@@ -652,7 +652,7 @@ Polynomial& Polynomial::operator*=(const Monomial& m) {
   }
   monomial_to_coefficient_map_ = std::move(new_map);
   indeterminates_ += m.GetVariables();
-  DRAKE_ASSERT_VOID(CheckInvariant());
+  MALIPUT_DRAKE_ASSERT_VOID(CheckInvariant());
   return *this;
 }
 
@@ -747,7 +747,7 @@ Polynomial& Polynomial::AddProduct(const Expression& coeff, const Monomial& m) {
   DoAddProduct(coeff, m, &monomial_to_coefficient_map_);
   indeterminates_ += m.GetVariables();
   decision_variables_ += coeff.GetVariables();
-  DRAKE_ASSERT_VOID(CheckInvariant());
+  MALIPUT_DRAKE_ASSERT_VOID(CheckInvariant());
   return *this;
 }
 

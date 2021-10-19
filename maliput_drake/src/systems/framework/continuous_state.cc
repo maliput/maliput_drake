@@ -20,7 +20,7 @@ ContinuousState<T>::ContinuousState(std::unique_ptr<VectorBase<T>> state) {
       new Subvector<T>(state_.get(), 0, 0));
   misc_continuous_state_.reset(
       new Subvector<T>(state_.get(), 0, state_->size()));
-  DRAKE_ASSERT_VOID(DemandInvariants());
+  MALIPUT_DRAKE_ASSERT_VOID(DemandInvariants());
 }
 
 template <typename T>
@@ -43,7 +43,7 @@ ContinuousState<T>::ContinuousState(
   generalized_velocity_.reset(new Subvector<T>(state_.get(), num_q, num_v));
   misc_continuous_state_.reset(
       new Subvector<T>(state_.get(), num_q + num_v, num_z));
-  DRAKE_ASSERT_VOID(DemandInvariants());
+  MALIPUT_DRAKE_ASSERT_VOID(DemandInvariants());
 }
 
 template <typename T>
@@ -70,7 +70,7 @@ ContinuousState<T>::ContinuousState(
       generalized_position_(std::move(q)),
       generalized_velocity_(std::move(v)),
       misc_continuous_state_(std::move(z)) {
-  DRAKE_ASSERT_VOID(DemandInvariants());
+  MALIPUT_DRAKE_ASSERT_VOID(DemandInvariants());
 }
 
 template <typename T>

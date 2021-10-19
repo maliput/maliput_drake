@@ -142,7 +142,7 @@ class OutputPort : public OutputPortBase {
           "OutputPort::Allocate(): allocator returned a nullptr for {}.",
           GetFullDescription()));
     }
-    DRAKE_ASSERT_VOID(CheckValidAllocation(*value));
+    MALIPUT_DRAKE_ASSERT_VOID(CheckValidAllocation(*value));
     return value;
   }
 
@@ -155,7 +155,7 @@ class OutputPort : public OutputPortBase {
   void Calc(const Context<T>& context, AbstractValue* value) const {
     DRAKE_DEMAND(value != nullptr);
     ValidateSystemId(context.get_system_id());
-    DRAKE_ASSERT_VOID(ThrowIfInvalidPortValueType(context, *value));
+    MALIPUT_DRAKE_ASSERT_VOID(ThrowIfInvalidPortValueType(context, *value));
     DoCalc(context, value);
   }
 
