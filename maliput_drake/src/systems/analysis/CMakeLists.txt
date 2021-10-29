@@ -20,7 +20,6 @@ add_library(analysis
   simulator.cc
   simulator_config.cc
   simulator_config_functions.cc
-  simulator_gflags.cc
   simulator_status.cc
   stepwise_dense_output.cc
   velocity_implicit_euler_integrator.cc
