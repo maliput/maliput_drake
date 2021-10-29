@@ -1,5 +1,4 @@
 add_library(common
-  add_text_logging_gflags.cc
   cond.cc
   double_overloads.cc
   drake_assert_and_throw.cc
@@ -56,7 +55,6 @@ target_link_libraries(
     dl
     Eigen3::Eigen
     fmt::fmt
-    gflags
     spdlog::spdlog
 )
 

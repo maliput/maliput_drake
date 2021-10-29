@@ -15,8 +15,6 @@ find_package(ament_cmake REQUIRED)
 
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3)
-
-find_package(gflags REQUIRED)
 find_package(fmt 4.0.0 EXACT QUIET)
 if(NOT ${fmt_FOUND})
   find_package(fmt 6.1.2 REQUIRED)

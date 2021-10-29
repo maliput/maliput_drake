@@ -79,6 +79,7 @@ maliput_drake/include/maliput/drake/systems/analysis/simulator_gflags.h
 maliput_drake/include/maliput/drake/systems/analysis/simulator_print_stats.h
 maliput_drake/include/maliput/drake/systems/analysis/simulator_status.h
 maliput_drake/include/maliput/drake/systems/analysis/velocity_implicit_euler_integrator.h
+maliput_drake/src/common/add_text_logging_gflags.cc
 maliput_drake/src/common/drake_path.cc
 maliput_drake/src/common/filesystem.cc
 maliput_drake/src/common/find_loaded_library.cc
