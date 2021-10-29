@@ -1,23 +1,14 @@
 add_library(analysis
   antiderivative_function.cc
-  bogacki_shampine3_integrator.cc
   dense_output.cc
-  explicit_euler_integrator.cc
   hermitian_dense_output.cc
-  implicit_euler_integrator.cc
-  implicit_integrator.cc
   initial_value_problem.cc
   integrator_base.cc
-  radau_integrator.cc
-  runge_kutta2_integrator.cc
   runge_kutta3_integrator.cc
-  runge_kutta5_integrator.cc
   scalar_dense_output.cc
   scalar_initial_value_problem.cc
   scalar_view_dense_output.cc
-  semi_explicit_euler_integrator.cc
   stepwise_dense_output.cc
-  velocity_implicit_euler_integrator.cc
 )
 
 add_library(maliput_drake::analysis ALIAS analysis)
