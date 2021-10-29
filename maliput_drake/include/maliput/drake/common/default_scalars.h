@@ -3,6 +3,11 @@
 #include "maliput/drake/common/autodiff.h"
 #include "maliput/drake/common/symbolic.h"
 
+// Note: this file has been changed to only declare template instantiations
+// for double. Maliput backends do not have support for autodiff or symbolic
+// expressions so there is no point in adding extra compile time for something
+// that will not be used at all.
+
 // N.B. `CommonScalarPack` and `NonSymbolicScalarPack` in `systems_pybind.h`
 // should be kept in sync with this file.
 
@@ -77,33 +82,27 @@
 /// This should only be used in .cc files, never in .h files.
 #define DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS( \
     SomeType) \
-template SomeType<double>; \
-template SomeType<::maliput::drake::AutoDiffXd>; \
-template SomeType<::maliput::drake::symbolic::Expression>;
+template SomeType<double>;
 
 /// Defines template instantiations for Drake's default nonsymbolic scalars.
 /// This should only be used in .cc files, never in .h files.
 #define \
   DRAKE_DEFINE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS( \
       SomeType) \
-template SomeType<double>; \
-template SomeType<::maliput::drake::AutoDiffXd>;
+template SomeType<double>;
 
 /// Declares that template instantiations exist for Drake's default scalars.
 /// This should only be used in .h files, never in .cc files.
 #define DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_SCALARS(  \
     SomeType) \
-extern template SomeType<double>; \
-extern template SomeType<::maliput::drake::AutoDiffXd>; \
-extern template SomeType<::maliput::drake::symbolic::Expression>;
+extern template SomeType<double>;
 
 /// Declares that template instantiations exist for Drake's default nonsymbolic
 /// scalars.  This should only be used in .h files, never in .cc files.
 #define \
   DRAKE_DECLARE_CLASS_TEMPLATE_INSTANTIATIONS_ON_DEFAULT_NONSYMBOLIC_SCALARS( \
       SomeType) \
-extern template SomeType<double>; \
-extern template SomeType<::maliput::drake::AutoDiffXd>;
+extern template SomeType<double>;
 
 /// @}
 
@@ -202,9 +201,7 @@ constexpr auto Make_Function_Pointers_Pack1() { \
 } \
 static constexpr auto Function_Femplates __attribute__((used)) = \
     Make_Function_Pointers_Pack1< \
-        double, \
-        ::maliput::drake::AutoDiffXd, \
-        ::maliput::drake::symbolic::Expression>();
+        double>();
 
 /// Defines template instantiations for Drake's default nonsymbolic scalars.
 /// This should only be used in .cc files, never in .h files.
@@ -225,7 +222,6 @@ constexpr auto Make_Function_Pointers_Nonsym_Pack1() { \
 } \
 static constexpr auto Function_Templates_Nonsym __attribute__((used)) = \
     Make_Function_Pointers_Nonsym_Pack1< \
-        double, \
-        ::maliput::drake::AutoDiffXd>();
+        double>();
 
 /// @}

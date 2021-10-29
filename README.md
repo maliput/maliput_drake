@@ -132,12 +132,16 @@ maliput_drake/src/systems/analysis/simulator_print_stats.cc
     ```
     And replace all the occurrences.
 
-11. Commit all the changes.
+11. Edit `maliput_drake/include/maliput/drake/common/default_scalars.h` to remove all `AutoDiff` and
+    `Symbolic` template instantiations. That would reduce the compile time and library size given
+    that the entire maliput API supports `doubles` only.
 
-12. Run the steps listed in the `Namespacing` section. Make a new commit per
+12. Commit all the changes.
+
+13. Run the steps listed in the `Namespacing` section. Make a new commit per
     change.
 
-13. Test the workspace before making a PR.
+14. Test the workspace before making a PR.
 
 ### Namespacing
 
