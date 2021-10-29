@@ -30,7 +30,6 @@ target_link_libraries(
   analysis
     Eigen3::Eigen
     fmt::fmt
-    gflags
     maliput_drake::common
     maliput_drake::math
     maliput_drake::framework
