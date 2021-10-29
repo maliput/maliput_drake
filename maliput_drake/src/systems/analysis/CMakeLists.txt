@@ -16,7 +16,6 @@ add_library(analysis
   scalar_initial_value_problem.cc
   scalar_view_dense_output.cc
   semi_explicit_euler_integrator.cc
-  simulator_status.cc
   stepwise_dense_output.cc
   velocity_implicit_euler_integrator.cc
 )
