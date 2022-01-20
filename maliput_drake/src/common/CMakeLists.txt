@@ -55,7 +55,6 @@ target_link_libraries(
     dl
     Eigen3::Eigen
     fmt::fmt
-    spdlog::spdlog
 )
 
 install(
