@@ -1,3 +1,7 @@
+| GCC |
+| --------- |
+|[![gcc](https://github.com/ToyotaResearchInstitute/maliput_drake/actions/workflows/build.yml/badge.svg)](https://github.com/ToyotaResearchInstitute/maliput_drake/actions/workflows/build.yml) |
+
 # `maliput_drake`
 
 A clone of [`drake`](https://github.com/RobotLocomotion/drake)'s trajectory integration support for `maliput` backends.
