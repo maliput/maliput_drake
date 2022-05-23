@@ -15,10 +15,7 @@ find_package(ament_cmake REQUIRED)
 
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3)
-find_package(fmt 4.0.0 EXACT QUIET)
-if(NOT ${fmt_FOUND})
-  find_package(fmt 6.1.2 REQUIRED)
-endif()
+find_package(fmt 6.1.2 EXACT REQUIRED)
 
 ##############################################################################
 # Project Configuration
@@ -57,5 +54,5 @@ ament_export_dependencies(ament_cmake)
 ament_export_dependencies(fmt)
 ament_export_dependencies(eigen3_cmake_module)
 ament_export_dependencies(Eigen3)
-ament_export_interfaces(${PROJECT_NAME}-targets HAS_LIBRARY_TARGET)
+ament_export_targets(${PROJECT_NAME}-targets HAS_LIBRARY_TARGET)
 ament_package()
