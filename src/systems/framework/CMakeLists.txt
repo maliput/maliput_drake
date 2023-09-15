@@ -29,7 +29,6 @@ add_library(framework
   system_base.cc
   system.cc
   system_constraint.cc
-  system_html.cc
   system_output.cc
   system_scalar_converter.cc
   system_symbolic_inspector.cc
