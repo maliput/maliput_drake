@@ -8,13 +8,6 @@ add_library(framework
   context.cc
   continuous_state.cc
   dependency_tracker.cc
-  diagram_builder.cc
-  diagram.cc
-  diagram_context.cc
-  diagram_continuous_state.cc
-  diagram_discrete_values.cc
-  diagram_output_port.cc
-  diagram_state.cc
   discrete_values.cc
   event_collection.cc
   fixed_input_port_value.cc

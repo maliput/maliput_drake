@@ -1,6 +1,5 @@
 #include "maliput/drake/systems/framework/system_html.h"
 
-#include "maliput/drake/systems/framework/diagram.h"
 #include "maliput/drake/systems/framework/system.h"
 #include "maliput/drake/systems/framework/system_visitor.h"
 
@@ -34,59 +33,6 @@ class NodeWriter : public SystemVisitor<double> {
     *html_ << "},\n";
   }
 
-  void VisitDiagram(const Diagram<double>& diagram) final {
-    // Add a node for the diagram.
-    *html_ << "{ ";
-    *html_ << "key: \"" << diagram.get_name() << "\", ";
-    *html_ << "name: \"" << diagram.get_name() << "\", ";
-    *html_ << "group: \"" << parent_ << "\", ";
-    *html_ << "isGroup: true, ";
-    *html_ << "expanded: " << ((depth_ > 0) ? "true" : "false") << ", ";
-    *html_ << "},\n";
-
-    // Add exported inputs.
-    if (diagram.num_input_ports() > 0) {
-      *html_ << "{ ";
-      *html_ << "key: \"" << diagram.get_name() << "_inputs\", ";
-      *html_ << "name: \"Input Ports\", ";
-      *html_ << "group: \"" << diagram.get_name() << "\", ";
-      *html_ << "isGroup: true, ";
-      *html_ << "},\n";
-    }
-    for (int i = 0; i < diagram.num_input_ports(); ++i) {
-      *html_ << "{ ";
-      *html_ << "key: \"" << diagram.get_name() << "_u" << i << "\", ";
-      *html_ << "name: \"" << diagram.get_input_port(i).get_name() << "\", ";
-      *html_ << "group: \"" << diagram.get_name() << "_inputs\", ";
-      *html_ << "category: \"input_port\", ";
-      *html_ << "},\n";
-    }
-
-    // Add exported outputs.
-    if (diagram.num_output_ports() > 0) {
-      *html_ << "{ ";
-      *html_ << "key: \"" << diagram.get_name() << "_outputs\", ";
-      *html_ << "name: \"Output Ports\", ";
-      *html_ << "group: \"" << diagram.get_name() << "\", ";
-      *html_ << "isGroup: true, ";
-      *html_ << "},\n";
-    }
-    for (int i = 0; i < diagram.num_output_ports(); ++i) {
-      *html_ << "{ ";
-      *html_ << "key: \"" << diagram.get_name() << "_y" << i << "\", ";
-      *html_ << "name: \"" << diagram.get_output_port(i).get_name() << "\", ";
-      *html_ << "group: \"" << diagram.get_name() << "_outputs\", ";
-      *html_ << "category: \"output_port\", ";
-      *html_ << "},\n";
-    }
-
-    // Add the subsystems.
-    NodeWriter writer(diagram.get_name(), html_, depth_ - 1);
-    for (const System<double>* subsystem : diagram.GetSystems()) {
-      subsystem->Accept(&writer);
-    }
-  }
-
  private:
   const std::string parent_;
   std::stringstream* html_;
@@ -105,9 +51,9 @@ class FromPortTokenWriter : public SystemVisitor<double> {
     *html_ << "fromPort: \"y" << port_index_ << "\", ";
   }
 
-  void VisitDiagram(const Diagram<double>& diagram) final {
-    *html_ << "from: \"" << diagram.get_name() << "_y" << port_index_ << "\", ";
-  }
+  // void VisitDiagram(const Diagram<double>& diagram) final {
+  //   *html_ << "from: \"" << diagram.get_name() << "_y" << port_index_ << "\", ";
+  // }
 
  private:
   const int port_index_;
@@ -126,9 +72,9 @@ class ToPortTokenWriter : public SystemVisitor<double> {
     *html_ << "toPort: \"u" << port_index_ << "\", ";
   }
 
-  void VisitDiagram(const Diagram<double>& diagram) final {
-    *html_ << "to: \"" << diagram.get_name() << "_u" << port_index_ << "\", ";
-  }
+  // void VisitDiagram(const Diagram<double>& diagram) final {
+  //   *html_ << "to: \"" << diagram.get_name() << "_u" << port_index_ << "\", ";
+  // }
 
  private:
   const int port_index_;
@@ -143,54 +89,6 @@ class LinkWriter : public SystemVisitor<double> {
   void VisitSystem(const System<double>& system) final {
     // No links to write.
     unused(system);
-  }
-
-  void VisitDiagram(const Diagram<double>& diagram) final {
-    // Add the connections as edges.
-    for (const auto& edge : diagram.connection_map()) {
-      const Diagram<double>::OutputPortLocator& src = edge.second;
-      const System<double>* src_sys = src.first;
-      const Diagram<double>::InputPortLocator& dest = edge.first;
-      const System<double>* dest_sys = dest.first;
-      *html_ << "{ ";
-      FromPortTokenWriter input_writer(src.second, html_);
-      src_sys->Accept(&input_writer);
-      ToPortTokenWriter output_writer(dest.second, html_);
-      dest_sys->Accept(&output_writer);
-      *html_ << "},\n";
-    }
-
-    // Add edges from the input port nodes to the subsystems that
-    // actually service that port.
-    for (InputPortIndex i(0); i < diagram.num_input_ports(); ++i) {
-      const auto& dests = diagram.GetInputPortLocators(i);
-      for (const auto& dest : dests) {
-        const System<double>* dest_sys = dest.first;
-        *html_ << "{ ";
-        *html_ << "from: \"" << diagram.get_name() << "_u" << i << "\", ";
-        ToPortTokenWriter output_writer(dest.second, html_);
-        dest_sys->Accept(&output_writer);
-        *html_ << "},\n";
-      }
-    }
-
-    // Add edges to the output ports.
-    for (OutputPortIndex i(0); i < diagram.num_output_ports(); ++i) {
-      const Diagram<double>::OutputPortLocator& src =
-          diagram.get_output_port_locator(i);
-      const System<double>* src_sys = src.first;
-      *html_ << "{ ";
-      FromPortTokenWriter input_writer(src.second, html_);
-      src_sys->Accept(&input_writer);
-      *html_ << "to: \"" << diagram.get_name() << "_y" << i << "\", ";
-      *html_ << "},\n";
-    }
-
-    // Recurse into subsystems.
-    LinkWriter link_writer(html_);
-    for (const System<double>* subsystem : diagram.GetSystems()) {
-      subsystem->Accept(&link_writer);
-    }
   }
 
  private:
